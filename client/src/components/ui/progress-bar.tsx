@@ -10,17 +10,17 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels }: Pro
   return (
     <div className="w-full mb-8">
       <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-gray-700">
+        <span className="text-xs font-medium text-gray-600">
           Krok {currentStep} z {totalSteps}
         </span>
-        <span className="text-sm text-gray-500">
+        <span className="text-xs text-gray-400">
           {Math.round(progressPercentage)}% ukończone
         </span>
       </div>
       
-      <div className="w-full bg-gray-200 rounded-full h-2">
+      <div className="w-full bg-gray-100 rounded-full h-1.5">
         <div
-          className="bg-blue-600 h-2 rounded-full transition-all duration-300 ease-in-out"
+          className="bg-blue-400 h-1.5 rounded-full transition-all duration-300 ease-in-out"
           style={{ width: `${progressPercentage}%` }}
         ></div>
       </div>

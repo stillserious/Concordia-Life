@@ -14,12 +14,6 @@ export default function ClaimVehicleACIncidentTypePage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <ProgressBar 
-              currentStep={2} 
-              totalSteps={2} 
-              stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
-            />
-            
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
                 <span className="text-xl font-bold text-gray-800">AC</span>
@@ -33,6 +27,12 @@ export default function ClaimVehicleACIncidentTypePage() {
                 </p>
               </div>
             </div>
+            
+            <ProgressBar 
+              currentStep={2} 
+              totalSteps={2} 
+              stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+            />
           </div>
 
           <div className="insurance-card p-8 mb-8">
