@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ArrowLeft, Car, TreePine, AlertTriangle, ShieldAlert } from "lucide-react";
 import { Link } from "wouter";
 import Header from "@/components/layout/header";
@@ -7,6 +8,10 @@ import { Button } from "@/components/ui/button";
 import CategoryCard from "@/components/claim/category-card";
 
 export default function ClaimVehicleACIncidentTypePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />

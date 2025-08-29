@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useForm, Controller } from "react-hook-form";
@@ -27,6 +27,10 @@ type ACFormData = z.infer<typeof acFormSchema>;
 
 export default function ClaimVehicleACPage() {
   const [, setLocation] = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
