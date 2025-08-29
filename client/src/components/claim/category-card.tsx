@@ -28,7 +28,7 @@ export default function CategoryCard({
         {icon}
       </div>
       
-      <h2 className="text-2xl font-semibold text-gray-900 mb-4 text-center" data-testid={`title-${category}`}>
+      <h2 className="text-xl font-semibold text-gray-900 mb-4 text-center" data-testid={`title-${category}`}>
         {title}
       </h2>
       
