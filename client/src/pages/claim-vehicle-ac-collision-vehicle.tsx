@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
+import { Person, PersonOutline } from "@mui/icons-material";
 import { Link, useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,7 +10,8 @@ import Footer from "@/components/layout/footer";
 import ProgressBar from "@/components/ui/progress-bar";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { TextField, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import SelectionCard from "@/components/ui/selection-card";
+import { TextField } from '@mui/material';
 import { useToast } from "@/hooks/use-toast";
 
 const collisionVehicleFormSchema = z.object({
@@ -18,6 +20,9 @@ const collisionVehicleFormSchema = z.object({
   ownerLastName: z.string().optional(),
   ownerPesel: z.string().optional(),
   driver: z.enum(["me", "other"], { required_error: "Wybierz kto kierował pojazdem" }),
+  driverFirstName: z.string().optional(),
+  driverLastName: z.string().optional(),
+  driverPesel: z.string().optional(),
 });
 
 type CollisionVehicleFormData = z.infer<typeof collisionVehicleFormSchema>;
@@ -39,10 +44,14 @@ export default function ClaimVehicleACCollisionVehiclePage() {
       ownerLastName: "",
       ownerPesel: "",
       driver: undefined,
+      driverFirstName: "",
+      driverLastName: "",
+      driverPesel: "",
     }
   });
 
   const vehicleOwner = form.watch("vehicleOwner");
+  const driver = form.watch("driver");
 
   const onSubmit = async (data: CollisionVehicleFormData) => {
     setIsSubmitting(true);
@@ -119,35 +128,24 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                           Kto jest właścicielem pojazdu?
                         </FormLabel>
                         <FormControl>
-                          <RadioGroup
-                            {...field}
-                            value={field.value || ""}
-                            onChange={(e) => field.onChange(e.target.value)}
-                            sx={{
-                              '& .MuiFormControlLabel-root': {
-                                marginBottom: '12px',
-                              },
-                              '& .MuiRadio-root': {
-                                color: '#6b7280',
-                                '&.Mui-checked': {
-                                  color: 'hsl(207, 90%, 54%)',
-                                },
-                              },
-                            }}
-                          >
-                            <FormControlLabel 
-                              value="me" 
-                              control={<Radio />} 
-                              label="Ja" 
-                              data-testid="radio-owner-me"
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <SelectionCard
+                              value="me"
+                              isSelected={field.value === "me"}
+                              onSelect={field.onChange}
+                              title="Ja"
+                              icon={<Person />}
+                              testId="card-owner-me"
                             />
-                            <FormControlLabel 
-                              value="other" 
-                              control={<Radio />} 
-                              label="Inna osoba" 
-                              data-testid="radio-owner-other"
+                            <SelectionCard
+                              value="other"
+                              isSelected={field.value === "other"}
+                              onSelect={field.onChange}
+                              title="Inna osoba"
+                              icon={<PersonOutline />}
+                              testId="card-owner-other"
                             />
-                          </RadioGroup>
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -280,40 +278,143 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                           Kto kierował?
                         </FormLabel>
                         <FormControl>
-                          <RadioGroup
-                            {...field}
-                            value={field.value || ""}
-                            onChange={(e) => field.onChange(e.target.value)}
-                            sx={{
-                              '& .MuiFormControlLabel-root': {
-                                marginBottom: '12px',
-                              },
-                              '& .MuiRadio-root': {
-                                color: '#6b7280',
-                                '&.Mui-checked': {
-                                  color: 'hsl(207, 90%, 54%)',
-                                },
-                              },
-                            }}
-                          >
-                            <FormControlLabel 
-                              value="me" 
-                              control={<Radio />} 
-                              label="Ja" 
-                              data-testid="radio-driver-me"
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <SelectionCard
+                              value="me"
+                              isSelected={field.value === "me"}
+                              onSelect={field.onChange}
+                              title="Ja"
+                              icon={<Person />}
+                              testId="card-driver-me"
                             />
-                            <FormControlLabel 
-                              value="other" 
-                              control={<Radio />} 
-                              label="Inna osoba" 
-                              data-testid="radio-driver-other"
+                            <SelectionCard
+                              value="other"
+                              isSelected={field.value === "other"}
+                              onSelect={field.onChange}
+                              title="Inna osoba"
+                              icon={<PersonOutline />}
+                              testId="card-driver-other"
                             />
-                          </RadioGroup>
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+
+                  {/* Pola dla kierowcy - pokazują się gdy wybrano "Ja" lub "Inna osoba" */}
+                  {driver && (
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-4">
+                      <h3 className="font-medium text-gray-900 mb-4">
+                        {driver === "me" ? "Podaj swoje dane jako kierowcy:" : "Podaj dane kierowcy:"}
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FormField
+                          control={form.control}
+                          name="driverFirstName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Imię</FormLabel>
+                              <FormControl>
+                                <TextField
+                                  {...field}
+                                  label="Imię"
+                                  fullWidth
+                                  data-testid="input-driver-first-name"
+                                  sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                      backgroundColor: 'white',
+                                      borderRadius: '8px',
+                                      '& fieldset': {
+                                        borderColor: '#e5e7eb',
+                                      },
+                                      '&:hover fieldset': {
+                                        borderColor: 'hsl(207, 90%, 54%)',
+                                      },
+                                      '&.Mui-focused fieldset': {
+                                        borderColor: 'hsl(207, 90%, 54%)',
+                                      },
+                                    }
+                                  }}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="driverLastName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Nazwisko</FormLabel>
+                              <FormControl>
+                                <TextField
+                                  {...field}
+                                  label="Nazwisko"
+                                  fullWidth
+                                  data-testid="input-driver-last-name"
+                                  sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                      backgroundColor: 'white',
+                                      borderRadius: '8px',
+                                      '& fieldset': {
+                                        borderColor: '#e5e7eb',
+                                      },
+                                      '&:hover fieldset': {
+                                        borderColor: 'hsl(207, 90%, 54%)',
+                                      },
+                                      '&.Mui-focused fieldset': {
+                                        borderColor: 'hsl(207, 90%, 54%)',
+                                      },
+                                    }
+                                  }}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
+                      <FormField
+                        control={form.control}
+                        name="driverPesel"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>PESEL</FormLabel>
+                            <FormControl>
+                              <TextField
+                                {...field}
+                                label="PESEL"
+                                placeholder="np. 12345678901"
+                                fullWidth
+                                data-testid="input-driver-pesel"
+                                sx={{
+                                  '& .MuiOutlinedInput-root': {
+                                    backgroundColor: 'white',
+                                    borderRadius: '8px',
+                                    '& fieldset': {
+                                      borderColor: '#e5e7eb',
+                                    },
+                                    '&:hover fieldset': {
+                                      borderColor: 'hsl(207, 90%, 54%)',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                      borderColor: 'hsl(207, 90%, 54%)',
+                                    },
+                                  }
+                                }}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex items-center justify-end gap-4 pt-4">
