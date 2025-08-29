@@ -32,7 +32,7 @@ export default function CategoryCard({
         {title}
       </h2>
       
-      <p className="text-gray-600 text-center mb-8 leading-relaxed flex-grow" data-testid={`description-${category}`}>
+      <p className="text-xs text-gray-600 text-center mb-8 leading-relaxed flex-grow" data-testid={`description-${category}`}>
         {description}
       </p>
       
