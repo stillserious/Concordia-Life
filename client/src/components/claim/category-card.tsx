@@ -32,19 +32,9 @@ export default function CategoryCard({
         {title}
       </h2>
       
-      <p className="text-gray-600 text-center mb-6 leading-relaxed" data-testid={`description-${category}`}>
+      <p className="text-gray-600 text-center mb-8 leading-relaxed" data-testid={`description-${category}`}>
         {description}
       </p>
-      
-      <div className="text-center mb-6">
-        <a 
-          href="#" 
-          className="text-insurance-primary text-sm font-medium hover:text-insurance-primary-hover transition-colors"
-          data-testid={`link-documents-${category}`}
-        >
-          Jakich dokumentów potrzebujesz?
-        </a>
-      </div>
       
       <div className="text-center">
         <Link href={href}>
