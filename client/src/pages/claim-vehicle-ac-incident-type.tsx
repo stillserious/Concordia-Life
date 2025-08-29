@@ -94,15 +94,15 @@ export default function ClaimVehicleACIncidentTypePage() {
                 showButton={false}
               />
             </div>
-          </div>
 
-          <div className="flex items-center justify-center">
-            <Link href="/claim/vehicle/ac">
-              <Button variant="outline" data-testid="button-back">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Cofnij do poprzedniego kroku
-              </Button>
-            </Link>
+            <div className="flex items-center justify-end gap-4 pt-4">
+              <Link href="/claim/vehicle/ac">
+                <Button variant="outline" data-testid="button-back">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Cofnij
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </main>
