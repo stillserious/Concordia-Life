@@ -15,11 +15,6 @@ export default function ClaimVehicleACIncidentTypePage() {
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
-      <ProgressBar 
-        currentStep={2} 
-        totalSteps={2} 
-        stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
-      />
       
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
@@ -107,6 +102,11 @@ export default function ClaimVehicleACIncidentTypePage() {
         </div>
       </main>
       
+      <ProgressBar 
+        currentStep={2} 
+        totalSteps={2} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+      />
       <Footer />
     </div>
   );
