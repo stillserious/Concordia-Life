@@ -8,7 +8,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels }: Pro
   const progressPercentage = (currentStep / totalSteps) * 100;
 
   return (
-    <div className="w-full mb-8">
+    <div className="w-48">
       <div className="flex justify-between items-center mb-2">
         <span className="text-xs font-medium text-gray-600">
           Krok {currentStep} z {totalSteps}
