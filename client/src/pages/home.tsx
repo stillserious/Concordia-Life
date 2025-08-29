@@ -18,7 +18,7 @@ export default function HomePage() {
               Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
             </h1>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
-              Zajmie Ci to około 10 minut
+              Zajmie Ci to około 10 minut.
             </p>
           </section>
           
@@ -36,7 +36,7 @@ export default function HomePage() {
             <CategoryCard
               category="majatek"
               title="Majątek"
-              description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obejmujemy zalania, pożary i kradzieże."
+              description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
               icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
               iconClassName="category-icon-property"
               href="/claim/property"
@@ -45,7 +45,7 @@ export default function HomePage() {
             <CategoryCard
               category="ludzie"
               title="Ludzie"
-              description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Wypadki, choroby i inne zdarzenia ubezpieczeniowe."
+              description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
               icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
               iconClassName="category-icon-people"
               href="/claim/people"
