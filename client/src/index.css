@@ -216,4 +216,26 @@
   p.text-destructive {
     color: #dc2626 !important; /* Keep error messages red */
   }
+
+  /* Material UI focus color overrides */
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: hsl(207, 90%, 54%) !important;
+    border-width: 2px !important;
+  }
+
+  .MuiInputLabel-root.Mui-focused {
+    color: hsl(207, 90%, 54%) !important;
+  }
+
+  /* Material UI DatePicker and TimePicker specific focus styles */
+  .MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline,
+  .MuiPickersPopper-root .MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: hsl(207, 90%, 54%) !important;
+    border-width: 2px !important;
+  }
+
+  .MuiTextField-root .MuiInputLabel-root.Mui-focused,
+  .MuiPickersPopper-root .MuiTextField-root .MuiInputLabel-root.Mui-focused {
+    color: hsl(207, 90%, 54%) !important;
+  }
 }
