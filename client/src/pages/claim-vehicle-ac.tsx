@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import ProgressBar from "@/components/ui/progress-bar";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { TextField } from '@mui/material';
@@ -72,6 +73,11 @@ export default function ClaimVehicleACPage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
+            <ProgressBar 
+              currentStep={1} 
+              totalSteps={2} 
+              stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+            />
             
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">

@@ -2,6 +2,7 @@ import { ArrowLeft, Car, TreePine, AlertTriangle, ShieldAlert } from "lucide-rea
 import { Link } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import ProgressBar from "@/components/ui/progress-bar";
 import { Button } from "@/components/ui/button";
 import CategoryCard from "@/components/claim/category-card";
 
@@ -13,16 +14,22 @@ export default function ClaimVehicleACIncidentTypePage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
+            <ProgressBar 
+              currentStep={2} 
+              totalSteps={2} 
+              stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+            />
+            
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
                 <span className="text-xl font-bold text-gray-800">AC</span>
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
-                  Wybierz typ zdarzenia
+                  Moje ubezpieczenie (AC)
                 </h1>
                 <p className="text-gray-600">
-                  Określ rodzaj szkody.
+                  Zgłaszasz szkodę z ubezpieczenia autocasco.
                 </p>
               </div>
             </div>
