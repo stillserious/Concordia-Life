@@ -72,12 +72,6 @@ export default function ClaimVehicleACPage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
-            <Link href="/claim/vehicle">
-              <Button variant="ghost" className="mb-4" data-testid="button-back">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Powrót do wyboru ubezpieczenia
-              </Button>
-            </Link>
             
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
@@ -256,10 +250,13 @@ export default function ClaimVehicleACPage() {
                   </ul>
                 </div>
 
-                <div className="flex items-center justify-between pt-4">
-                  <p className="text-sm text-gray-500">
-                    * Pola wymagane
-                  </p>
+                <div className="flex items-center justify-end gap-4 pt-4">
+                  <Link href="/claim/vehicle">
+                    <Button variant="outline" data-testid="button-back">
+                      <ArrowLeft className="w-4 h-4 mr-2" />
+                      Cofnij
+                    </Button>
+                  </Link>
                   
                   <Button 
                     type="submit" 
