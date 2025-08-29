@@ -17,10 +17,9 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { pl } from 'date-fns/locale';
 
 const acFormSchema = z.object({
-  incidentDate: z.date({ required_error: "Data zdarzenia jest wymagana" }),
-  incidentTime: z.date({ required_error: "Godzina zdarzenia jest wymagana" }),
+  incidentDate: z.date().optional(),
+  incidentTime: z.date().optional(),
   licensePlate: z.string()
-    .min(1, "Numer rejestracyjny jest wymagany")
 });
 
 type ACFormData = z.infer<typeof acFormSchema>;

@@ -22,7 +22,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                   Wybierz typ zdarzenia
                 </h1>
                 <p className="text-gray-600">
-                  Określ rodzaj szkody z ubezpieczenia autocasco
+                  Określ rodzaj szkody.
                 </p>
               </div>
             </div>
