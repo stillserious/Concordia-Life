@@ -21,7 +21,7 @@ export default function CategoryCard({
 }: CategoryCardProps) {
   return (
     <div 
-      className="insurance-card p-8 cursor-pointer group"
+      className="insurance-card p-8 cursor-pointer group flex flex-col h-full"
       data-testid={`card-${category}`}
     >
       <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl ${iconClassName}`}>
@@ -32,11 +32,11 @@ export default function CategoryCard({
         {title}
       </h2>
       
-      <p className="text-gray-600 text-center mb-8 leading-relaxed" data-testid={`description-${category}`}>
+      <p className="text-gray-600 text-center mb-8 leading-relaxed flex-grow" data-testid={`description-${category}`}>
         {description}
       </p>
       
-      <div className="text-center">
+      <div className="text-center mt-auto">
         <Link href={href}>
           <Button 
             className="insurance-button w-full sm:w-auto"
