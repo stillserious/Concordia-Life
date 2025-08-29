@@ -206,4 +206,14 @@
   input[type="time"]::-webkit-datetime-edit {
     color: #6b7280 !important;
   }
+
+  /* Form label should not be red on error */
+  label[data-invalid="true"] {
+    color: #374151 !important; /* Keep labels gray/black */
+  }
+
+  /* Only error messages should be red */
+  [role="alert"] {
+    color: #dc2626 !important;
+  }
 }
