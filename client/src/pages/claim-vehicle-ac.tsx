@@ -72,13 +72,12 @@ export default function ClaimVehicleACPage() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={pl}>
       <div className="min-h-screen flex flex-col insurance-gradient-bg">
-      <Header progressBar={
-        <ProgressBar 
-          currentStep={1} 
-          totalSteps={2} 
-          stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
-        />
-      } />
+      <Header />
+      <ProgressBar 
+        currentStep={1} 
+        totalSteps={2} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+      />
       
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
