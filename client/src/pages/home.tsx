@@ -50,7 +50,7 @@ export default function HomePage() {
               category="ludzie"
               title="Ludzie"
               description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Wypadki, choroby i inne zdarzenia ubezpieczeniowe."
-              icon={<img src={carIcon} alt="Samochód" className="w-8 h-8" />}
+              icon={<img src={carIcon} alt="Samochód" className="w-10 h-10" />}
               iconClassName="category-icon-people"
               href="/claim/people"
             />
