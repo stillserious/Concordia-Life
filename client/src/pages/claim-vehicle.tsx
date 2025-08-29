@@ -1,8 +1,9 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Shield, FileText } from "lucide-react";
 import { Link } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
+import CategoryCard from "@/components/claim/category-card";
 
 export default function ClaimVehiclePage() {
   return (
@@ -23,24 +24,28 @@ export default function ClaimVehiclePage() {
               Zgłoszenie szkody - Pojazdy
             </h1>
             <p className="text-gray-600" data-testid="page-description">
-              Wypełnij formularz aby zgłosić szkodę pojazdu
+              Wybierz typ ubezpieczenia, z którego chcesz zgłosić szkodę
             </p>
           </div>
           
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <div className="text-center py-16">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4" data-testid="form-placeholder-title">
-                Formularz w budowie
-              </h2>
-              <p className="text-gray-600 mb-8" data-testid="form-placeholder-description">
-                Tutaj będzie znajdować się formularz zgłoszenia szkody pojazdu z wszystkimi niezbędnymi polami.
-              </p>
-              <Link href="/">
-                <Button data-testid="button-return">
-                  Wróć do strony głównej
-                </Button>
-              </Link>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <CategoryCard
+              category="ac"
+              title="Moje ubezpieczenie (AC)"
+              description="Zgłoś szkodę z własnego ubezpieczenia autocasco. Uszkodzenia własnego pojazdu, kolizje, kradzieże."
+              icon={<Shield />}
+              iconClassName="category-icon-vehicles"
+              href="/claim/vehicle/ac"
+            />
+            
+            <CategoryCard
+              category="sprawca"
+              title="Ubezpieczenie sprawcy"
+              description="Zgłoś szkodę z ubezpieczenia sprawcy zdarzenia. OC sprawcy pokrywa szkody powstałe w wyniku kolizji."
+              icon={<FileText />}
+              iconClassName="category-icon-property"
+              href="/claim/vehicle/sprawca"
+            />
           </div>
         </div>
       </main>
