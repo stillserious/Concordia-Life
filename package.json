@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.14.1",
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
+    "@mui/icons-material": "^7.3.1",
     "@mui/material": "^7.3.1",
     "@mui/x-date-pickers": "^8.11.0",
     "@neondatabase/serverless": "^0.10.4",
