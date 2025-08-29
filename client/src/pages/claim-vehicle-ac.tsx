@@ -33,7 +33,6 @@ export default function ClaimVehicleACPage() {
 
   const form = useForm<ACFormData>({
     resolver: zodResolver(acFormSchema),
-    mode: "onChange",
     defaultValues: {
       incidentDate: undefined,
       incidentTime: undefined,
