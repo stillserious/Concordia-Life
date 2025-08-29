@@ -164,6 +164,7 @@ export default function ClaimVehicleACPage() {
                             onChange={onChange}
                             label="Wybierz godzinę zdarzenia"
                             ampm={false}
+                            closeOnSelect
                             slotProps={{
                               textField: {
                                 error: false,
