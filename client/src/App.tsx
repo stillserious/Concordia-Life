@@ -8,6 +8,7 @@ import ClaimVehiclePage from "@/pages/claim-vehicle";
 import ClaimPropertyPage from "@/pages/claim-property";
 import ClaimPeoplePage from "@/pages/claim-people";
 import NotFound from "@/pages/not-found";
+import FloatingChatbot from "@/components/chat/floating-chatbot";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <FloatingChatbot />
       </TooltipProvider>
     </QueryClientProvider>
   );
