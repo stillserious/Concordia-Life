@@ -18,9 +18,6 @@ export default function HomePage() {
               Dzień dobry,<br />
               wybierz jedną z kategorii, aby kontynuować zgłoszenie szkody
             </h1>
-            <p className="text-lg text-gray-600 mb-2" data-testid="subtitle">
-              Proste i szybkie zgłoszenie online
-            </p>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
               Proces zajmie około 10 minut
             </p>
