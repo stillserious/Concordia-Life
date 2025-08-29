@@ -132,7 +132,10 @@ export default function ClaimVehicleACPage() {
                                       borderColor: '#e5e7eb',
                                     },
                                     '&:hover fieldset': {
-                                      borderColor: '#3b82f6',
+                                      borderColor: 'hsl(207, 90%, 54%)',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                      borderColor: 'hsl(207, 90%, 54%)',
                                     },
                                   }
                                 }
@@ -159,7 +162,10 @@ export default function ClaimVehicleACPage() {
                             type="time"
                             label="Wybierz godzinę zdarzenia"
                             fullWidth
-                            inputProps={{ 'data-testid': 'input-incident-time' }}
+                            inputProps={{ 
+                              'data-testid': 'input-incident-time',
+                              step: '300' // 5 minutowe kroki
+                            }}
                             sx={{
                               '& .MuiOutlinedInput-root': {
                                 backgroundColor: 'white',
@@ -168,8 +174,20 @@ export default function ClaimVehicleACPage() {
                                   borderColor: '#e5e7eb',
                                 },
                                 '&:hover fieldset': {
-                                  borderColor: '#3b82f6',
+                                  borderColor: 'hsl(207, 90%, 54%)',
                                 },
+                                '&.Mui-focused fieldset': {
+                                  borderColor: 'hsl(207, 90%, 54%)',
+                                },
+                              },
+                              '& input[type="time"]::-webkit-calendar-picker-indicator': {
+                                filter: 'invert(0.5)',
+                              },
+                              '& input[type="time"]::-webkit-inner-spin-button': {
+                                display: 'none',
+                              },
+                              '& input[type="time"]::-webkit-clear-button': {
+                                display: 'none',
                               }
                             }}
                           />
@@ -194,8 +212,8 @@ export default function ClaimVehicleACPage() {
                           label="np. WA 12345"
                           placeholder="np. WA 12345"
                           inputProps={{ 'data-testid': 'input-license-plate' }}
+                          fullWidth
                           sx={{
-                            maxWidth: '384px',
                             '& .MuiOutlinedInput-root': {
                               backgroundColor: 'white',
                               borderRadius: '8px',
@@ -203,7 +221,10 @@ export default function ClaimVehicleACPage() {
                                 borderColor: '#e5e7eb',
                               },
                               '&:hover fieldset': {
-                                borderColor: '#3b82f6',
+                                borderColor: 'hsl(207, 90%, 54%)',
+                              },
+                              '&.Mui-focused fieldset': {
+                                borderColor: 'hsl(207, 90%, 54%)',
                               },
                             }
                           }}
