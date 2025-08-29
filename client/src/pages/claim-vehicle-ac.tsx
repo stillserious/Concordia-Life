@@ -75,8 +75,8 @@ export default function ClaimVehicleACPage() {
       <Header />
       <ProgressBar 
         currentStep={1} 
-        totalSteps={2} 
-        stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+        totalSteps={3} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia"]} 
       />
       
       <main className="flex-1 py-10 px-6">
@@ -103,7 +103,7 @@ export default function ClaimVehicleACPage() {
                 Podstawowe informacje o zdarzeniu
               </h2>
               <p className="text-sm text-gray-600">
-                Wypełnij wymagane pola, aby rozpocząć proces zgłaszania szkody
+                Wypełnij wymagane pola, aby rozpocząć proces zgłaszania szkody.
               </p>
             </div>
 

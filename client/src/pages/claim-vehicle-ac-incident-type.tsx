@@ -17,8 +17,8 @@ export default function ClaimVehicleACIncidentTypePage() {
       <Header />
       <ProgressBar 
         currentStep={2} 
-        totalSteps={2} 
-        stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+        totalSteps={3} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia"]} 
       />
       
       <main className="flex-1 py-10 px-6">
