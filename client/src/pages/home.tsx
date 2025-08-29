@@ -14,11 +14,11 @@ export default function HomePage() {
         <div className="max-w-5xl w-full text-center">
           {/* Welcome Section */}
           <section className="mb-12" data-testid="welcome-section">
-            <h1 className="text-2xl md:text-3xl font-medium text-gray-900 mb-4 leading-tight" data-testid="greeting">
-              Witaj w systemie zgłaszania szkód on-line. Wybierz, czego dotyczy Twoje zgłoszenie.
+            <h1 className="text-xl md:text-2xl font-medium text-gray-900 mb-4 leading-tight" data-testid="greeting">
+              Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
             </h1>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
-              Proces zajmie około 10 minut
+              Zajmie Ci to około 10 minut
             </p>
           </section>
           
