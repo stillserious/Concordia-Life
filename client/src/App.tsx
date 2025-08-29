@@ -8,6 +8,7 @@ import ClaimVehiclePage from "@/pages/claim-vehicle";
 import ClaimPropertyPage from "@/pages/claim-property";
 import ClaimPeoplePage from "@/pages/claim-people";
 import ClaimVehicleACPage from "@/pages/claim-vehicle-ac";
+import ClaimVehicleACIncidentTypePage from "@/pages/claim-vehicle-ac-incident-type";
 import NotFound from "@/pages/not-found";
 import FloatingChatbot from "@/components/chat/floating-chatbot";
 
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/claim/vehicle" component={ClaimVehiclePage} />
       <Route path="/claim/vehicle/ac" component={ClaimVehicleACPage} />
+      <Route path="/claim/vehicle/ac/incident-type" component={ClaimVehicleACIncidentTypePage} />
       <Route path="/claim/property" component={ClaimPropertyPage} />
       <Route path="/claim/people" component={ClaimPeoplePage} />
       <Route component={NotFound} />

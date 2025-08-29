@@ -51,8 +51,8 @@ export default function ClaimVehicleACPage() {
         description: "Twoja sprawa została zarejestrowana. Otrzymasz potwierdzenie na e-mail.",
       });
       
-      // Po pomyślnym wysłaniu, przekieruj do strony potwierdzenia
-      // setLocation("/claim/success");
+      // Po pomyślnym wysłaniu, przekieruj do wyboru typu zdarzenia
+      setLocation("/claim/vehicle/ac/incident-type");
       
     } catch (error) {
       toast({
