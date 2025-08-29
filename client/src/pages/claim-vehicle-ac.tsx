@@ -11,13 +11,14 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { TextField } from '@mui/material';
 import { useToast } from "@/hooks/use-toast";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { pl } from 'date-fns/locale';
 
 const acFormSchema = z.object({
   incidentDate: z.date({ required_error: "Data zdarzenia jest wymagana" }),
-  incidentTime: z.string().min(1, "Godzina zdarzenia jest wymagana"),
+  incidentTime: z.date({ required_error: "Godzina zdarzenia jest wymagana" }),
   licensePlate: z.string().min(1, "Numer rejestracyjny jest wymagany")
 });
 
@@ -32,7 +33,7 @@ export default function ClaimVehicleACPage() {
     resolver: zodResolver(acFormSchema),
     defaultValues: {
       incidentDate: undefined,
-      incidentTime: "",
+      incidentTime: undefined,
       licensePlate: ""
     }
   });
@@ -132,10 +133,10 @@ export default function ClaimVehicleACPage() {
                                       borderColor: '#e5e7eb',
                                     },
                                     '&:hover fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%)',
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                     '&.Mui-focused fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%)',
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                   }
                                 }
@@ -151,43 +152,37 @@ export default function ClaimVehicleACPage() {
                   <FormField
                     control={form.control}
                     name="incidentTime"
-                    render={({ field }) => (
+                    render={({ field: { value, onChange, ...field } }) => (
                       <FormItem>
                         <FormLabel>
                           Godzina zdarzenia *
                         </FormLabel>
                         <FormControl>
-                          <TextField
+                          <TimePicker
                             {...field}
-                            type="time"
+                            value={value || null}
+                            onChange={onChange}
                             label="Wybierz godzinę zdarzenia"
-                            fullWidth
-                            inputProps={{ 
-                              'data-testid': 'input-incident-time',
-                              step: '300' // 5 minutowe kroki
-                            }}
-                            sx={{
-                              '& .MuiOutlinedInput-root': {
-                                backgroundColor: 'white',
-                                borderRadius: '8px',
-                                '& fieldset': {
-                                  borderColor: '#e5e7eb',
-                                },
-                                '&:hover fieldset': {
-                                  borderColor: 'hsl(207, 90%, 54%)',
-                                },
-                                '&.Mui-focused fieldset': {
-                                  borderColor: 'hsl(207, 90%, 54%)',
-                                },
-                              },
-                              '& input[type="time"]::-webkit-calendar-picker-indicator': {
-                                filter: 'invert(0.5)',
-                              },
-                              '& input[type="time"]::-webkit-inner-spin-button': {
-                                display: 'none',
-                              },
-                              '& input[type="time"]::-webkit-clear-button': {
-                                display: 'none',
+                            ampm={false}
+                            slotProps={{
+                              textField: {
+                                error: false,
+                                sx: {
+                                  width: '100%',
+                                  '& .MuiOutlinedInput-root': {
+                                    backgroundColor: 'white',
+                                    borderRadius: '8px',
+                                    '& fieldset': {
+                                      borderColor: '#e5e7eb',
+                                    },
+                                    '&:hover fieldset': {
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
+                                    },
+                                  }
+                                }
                               }
                             }}
                           />
