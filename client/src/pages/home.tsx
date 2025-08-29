@@ -1,4 +1,4 @@
-import { Car, Home, Users } from "lucide-react";
+import { Car, Building, Shield } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
@@ -39,7 +39,7 @@ export default function HomePage() {
               category="majatek"
               title="Majątek"
               description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obejmujemy zalania, pożary i kradzieże."
-              icon={<Home />}
+              icon={<Building />}
               iconClassName="category-icon-property"
               href="/claim/property"
             />
@@ -48,7 +48,7 @@ export default function HomePage() {
               category="ludzie"
               title="Ludzie"
               description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Wypadki, choroby i inne zdarzenia ubezpieczeniowe."
-              icon={<Users />}
+              icon={<Shield />}
               iconClassName="category-icon-people"
               href="/claim/people"
             />
