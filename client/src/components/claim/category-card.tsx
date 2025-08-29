@@ -21,7 +21,7 @@ export default function CategoryCard({
   return (
     <Link href={href}>
       <div 
-        className="insurance-card p-8 cursor-pointer group flex flex-col h-full hover:transform hover:scale-102 transition-all duration-300"
+        className="insurance-card p-8 cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300"
         data-testid={`card-${category}`}
       >
         <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl ${iconClassName}`}>
