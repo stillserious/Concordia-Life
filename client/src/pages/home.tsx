@@ -1,9 +1,9 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
-import carIcon from "@assets/car_1756497973001.png";
-import homeIcon from "@assets/home_1756497973002.png";
-import shieldIcon from "@assets/shield_1756497973002.png";
+import pojazdyIcon from "@assets/pojazdy_1756500953737.png";
+import majatekIcon from "@assets/Majatek_1756500953736.png";
+import ludziIcon from "@assets/ludzie_1756500953736.png";
 
 export default function HomePage() {
   return (
@@ -29,7 +29,7 @@ export default function HomePage() {
               category="pojazdy"
               title="Pojazdy"
               description="Zgłoś szkodę uszkodzonego samochodu, motocykla lub innego pojazdu. Obsługujemy kolizje, kradzieże i uszkodzenia mechaniczne."
-              icon={<img src={shieldIcon} alt="Tarcza" className="w-8 h-8" />}
+              icon={<img src={pojazdyIcon} alt="Kolizja pojazdów" className="w-8 h-8" />}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle"
             />
@@ -38,7 +38,7 @@ export default function HomePage() {
               category="majatek"
               title="Majątek"
               description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obejmujemy zalania, pożary i kradzieże."
-              icon={<img src={homeIcon} alt="Dom" className="w-8 h-8" />}
+              icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
               iconClassName="category-icon-property"
               href="/claim/property"
             />
@@ -47,7 +47,7 @@ export default function HomePage() {
               category="ludzie"
               title="Ludzie"
               description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Wypadki, choroby i inne zdarzenia ubezpieczeniowe."
-              icon={<img src={carIcon} alt="Samochód" className="w-10 h-10" />}
+              icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
               iconClassName="category-icon-people"
               href="/claim/people"
             />
