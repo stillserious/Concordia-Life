@@ -25,7 +25,11 @@ export default function CategoryCard({
   return (
     <Link href={href}>
       <div 
-        className={`insurance-card cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300 ${
+        className={`${
+          size === "small" 
+            ? "bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 hover:border-gray-300" 
+            : "insurance-card"
+        } cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300 ${
           size === "small" ? "p-4" : "p-8"
         }`}
         data-testid={`card-${category}`}

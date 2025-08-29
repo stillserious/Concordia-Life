@@ -69,31 +69,26 @@ export default function ClaimVehicleACPage() {
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={pl}>
       <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
+      <ProgressBar 
+        currentStep={1} 
+        totalSteps={2} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
+      />
       
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
-                  <span className="text-xl font-bold text-gray-800">AC</span>
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
-                    Moje ubezpieczenie (AC)
-                  </h1>
-                  <p className="text-gray-600">
-                    Zgłaszasz szkodę z ubezpieczenia autocasco.
-                  </p>
-                </div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
+                <span className="text-xl font-bold text-gray-800">AC</span>
               </div>
-              
-              <div className="flex-shrink-0">
-                <ProgressBar 
-                  currentStep={1} 
-                  totalSteps={2} 
-                  stepLabels={["Podstawowe dane", "Typ zdarzenia"]} 
-                />
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
+                  Moje ubezpieczenie (AC)
+                </h1>
+                <p className="text-gray-600">
+                  Zgłaszasz szkodę z ubezpieczenia autocasco.
+                </p>
               </div>
             </div>
           </div>
