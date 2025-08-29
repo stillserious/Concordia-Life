@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Header from "@/components/layout/header";
@@ -10,9 +10,13 @@ import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { pl } from 'date-fns/locale';
 
 const acFormSchema = z.object({
-  incidentDate: z.string().min(1, "Data zdarzenia jest wymagana"),
+  incidentDate: z.date({ required_error: "Data zdarzenia jest wymagana" }),
   incidentTime: z.string().min(1, "Godzina zdarzenia jest wymagana"),
   licensePlate: z.string().min(1, "Numer rejestracyjny jest wymagany")
 });
@@ -27,7 +31,7 @@ export default function ClaimVehicleACPage() {
   const form = useForm<ACFormData>({
     resolver: zodResolver(acFormSchema),
     defaultValues: {
-      incidentDate: "",
+      incidentDate: undefined,
       incidentTime: "",
       licensePlate: ""
     }
@@ -60,7 +64,8 @@ export default function ClaimVehicleACPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col insurance-gradient-bg">
+    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={pl}>
+      <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
       
       <main className="flex-1 py-10 px-6">
@@ -82,7 +87,7 @@ export default function ClaimVehicleACPage() {
                   Moje ubezpieczenie (AC)
                 </h1>
                 <p className="text-gray-600">
-                  Zgłoś szkodę z ubezpieczenia autocasco
+                  Zgłaszasz szkodę z ubezpieczenia autocasco.
                 </p>
               </div>
             </div>
@@ -104,17 +109,35 @@ export default function ClaimVehicleACPage() {
                   <FormField
                     control={form.control}
                     name="incidentDate"
-                    render={({ field }) => (
+                    render={({ field: { value, onChange, ...field } }) => (
                       <FormItem>
                         <FormLabel>
                           Data zdarzenia *
                         </FormLabel>
                         <FormControl>
-                          <Input
-                            type="date"
-                            placeholder="Wybierz datę"
+                          <DatePicker
                             {...field}
-                            data-testid="input-incident-date"
+                            value={value || null}
+                            onChange={onChange}
+                            label="Wybierz datę zdarzenia"
+                            slotProps={{
+                              textField: {
+                                error: false,
+                                sx: {
+                                  width: '100%',
+                                  '& .MuiOutlinedInput-root': {
+                                    backgroundColor: 'white',
+                                    borderRadius: '8px',
+                                    '& fieldset': {
+                                      borderColor: '#e5e7eb',
+                                    },
+                                    '&:hover fieldset': {
+                                      borderColor: '#3b82f6',
+                                    },
+                                  }
+                                }
+                              }
+                            }}
                           />
                         </FormControl>
                         <FormMessage />
@@ -197,7 +220,8 @@ export default function ClaimVehicleACPage() {
         </div>
       </main>
       
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LocalizationProvider>
   );
 }
