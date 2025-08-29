@@ -20,6 +20,7 @@ export default function ClaimVehicleACIncidentTypePage() {
         currentStep={2} 
         totalSteps={3} 
         stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia"]} 
+        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle"]}
       />
       
       <main className="flex-1 py-10 px-6">

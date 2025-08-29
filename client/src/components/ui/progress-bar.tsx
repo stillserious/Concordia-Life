@@ -1,11 +1,15 @@
+import { useLocation } from "wouter";
+
 interface ProgressBarProps {
   currentStep: number;
   totalSteps: number;
   stepLabels?: string[];
+  stepRoutes?: string[];
 }
 
-export default function ProgressBar({ currentStep, totalSteps, stepLabels }: ProgressBarProps) {
+export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepRoutes }: ProgressBarProps) {
   const progressPercentage = (currentStep / totalSteps) * 100;
+  const [, setLocation] = useLocation();
 
   return (
     <div className="w-full bg-white border-b border-gray-50">
@@ -24,11 +28,16 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels }: Pro
                 key={index}
                 className={`flex items-center space-x-2 text-xs ${
                   index < currentStep
-                    ? "text-blue-600"
+                    ? "text-blue-600 cursor-pointer hover:text-blue-800"
                     : index === currentStep - 1
                     ? "text-blue-700 font-medium"
-                    : "text-gray-400"
-                }`}
+                    : "text-gray-400 cursor-pointer hover:text-gray-600"
+                } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
+                onClick={() => {
+                  if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
+                    setLocation(stepRoutes[index]);
+                  }
+                }}
               >
                 <div className={`w-2 h-2 rounded-full ${
                   index < currentStep
