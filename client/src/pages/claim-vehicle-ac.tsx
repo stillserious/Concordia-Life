@@ -20,8 +20,6 @@ const acFormSchema = z.object({
   incidentDate: z.date({ required_error: "Data zdarzenia jest wymagana" }),
   incidentTime: z.date({ required_error: "Godzina zdarzenia jest wymagana" }),
   licensePlate: z.string()
-    .min(1, "Numer rejestracyjny jest wymagany")
-    .regex(/^[A-Z]{1,3}[0-9][A-Z0-9]{3,4}$/, "Nieprawidłowy format numeru rejestracyjnego (np. WA1234A)")
 });
 
 type ACFormData = z.infer<typeof acFormSchema>;
