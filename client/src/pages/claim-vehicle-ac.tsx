@@ -194,12 +194,6 @@ export default function ClaimVehicleACPage() {
             </Form>
           </div>
 
-          <div className="mt-6 text-center">
-            <p className="text-sm text-gray-600">
-              Potrzebujesz pomocy? Skontaktuj się z nami:{" "}
-              <strong className="text-insurance-primary">800 123 456</strong>
-            </p>
-          </div>
         </div>
       </main>
       
