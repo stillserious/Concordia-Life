@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Car } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -74,8 +74,8 @@ export default function ClaimVehicleACPage() {
             </Link>
             
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-insurance-primary rounded-full flex items-center justify-center">
-                <Car className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
+                <span className="text-xl font-bold text-white">AC</span>
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
