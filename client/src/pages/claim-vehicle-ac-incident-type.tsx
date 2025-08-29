@@ -50,36 +50,40 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="collision-vehicle"
                 title="Zderzenie z pojazdem w ruchu"
                 description="Kolizja z innym pojazdem podczas jazdy. Obejmuje zderzenia na skrzyżowaniach, wyprzedzaniu i innych sytuacjach drogowych."
-                icon={<Car className="w-8 h-8" />}
+                icon={<Car className="w-4 h-4" />}
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/collision-vehicle"
+                size="small"
               />
               
               <CategoryCard
                 category="collision-object"
                 title="Zderzenie z przedmiotem"
                 description="Kolizja z nieruchomym obiektem jak bariera, słup, ściana, drzewo lub inne przeszkody na drodze."
-                icon={<AlertTriangle className="w-8 h-8" />}
+                icon={<AlertTriangle className="w-4 h-4" />}
                 iconClassName="category-icon-property"
                 href="/claim/vehicle/ac/collision-object"
+                size="small"
               />
               
               <CategoryCard
                 category="collision-animal"
                 title="Zderzenie ze zwierzęciem"
                 description="Kolizja ze zwierzęciem na drodze. Obejmuje zderzenia z dzikimi zwierzętami i zwierzętami domowymi."
-                icon={<TreePine className="w-8 h-8" />}
+                icon={<TreePine className="w-4 h-4" />}
                 iconClassName="category-icon-people"
                 href="/claim/vehicle/ac/collision-animal"
+                size="small"
               />
               
               <CategoryCard
                 category="theft-parts"
                 title="Kradzież części"
                 description="Kradzież elementów pojazdu jak koła, lusterka, katalizator, akcesoria lub inne części samochodu."
-                icon={<ShieldAlert className="w-8 h-8" />}
+                icon={<ShieldAlert className="w-4 h-4" />}
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/theft-parts"
+                size="small"
               />
             </div>
           </div>

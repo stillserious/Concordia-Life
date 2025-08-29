@@ -8,6 +8,7 @@ interface CategoryCardProps {
   icon: ReactNode;
   iconClassName: string;
   href: string;
+  size?: "default" | "small";
 }
 
 export default function CategoryCard({ 
@@ -16,28 +17,43 @@ export default function CategoryCard({
   description, 
   icon, 
   iconClassName, 
-  href 
+  href,
+  size = "default"
 }: CategoryCardProps) {
   return (
     <Link href={href}>
       <div 
-        className="insurance-card p-8 cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300"
+        className={`insurance-card cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300 ${
+          size === "small" ? "p-4" : "p-8"
+        }`}
         data-testid={`card-${category}`}
       >
-        <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl ${iconClassName}`}>
+        <div className={`mx-auto rounded-full flex items-center justify-center ${
+          size === "small" 
+            ? "w-10 h-10 mb-3 text-lg" 
+            : "w-20 h-20 mb-6 text-3xl"
+        } ${iconClassName}`}>
           {icon}
         </div>
         
-        <h2 className="text-xl font-semibold text-gray-900 mb-4 text-center" data-testid={`title-${category}`}>
+        <h2 className={`font-semibold text-gray-900 text-center ${
+          size === "small" 
+            ? "text-base mb-2" 
+            : "text-xl mb-4"
+        }`} data-testid={`title-${category}`}>
           {title}
         </h2>
         
-        <p className="text-xs text-gray-600 text-center mb-8 leading-relaxed flex-grow" data-testid={`description-${category}`}>
+        <p className={`text-xs text-gray-600 text-center leading-relaxed flex-grow ${
+          size === "small" ? "mb-4" : "mb-8"
+        }`} data-testid={`description-${category}`}>
           {description}
         </p>
         
         <div className="text-center mt-auto">
-          <div className="insurance-button w-full sm:w-auto px-4 py-2 rounded-lg text-white font-medium">
+          <div className={`insurance-button w-full sm:w-auto rounded-lg text-white font-medium ${
+            size === "small" ? "px-3 py-1.5 text-sm" : "px-4 py-2"
+          }`}>
             Zgłoś sprawę
           </div>
         </div>
