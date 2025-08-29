@@ -1,0 +1,215 @@
+import { useState } from "react";
+import { ArrowLeft, Car, Calendar, Clock } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+
+const acFormSchema = z.object({
+  incidentDate: z.string().min(1, "Data zdarzenia jest wymagana"),
+  incidentTime: z.string().min(1, "Godzina zdarzenia jest wymagana"),
+  licensePlate: z.string().min(1, "Numer rejestracyjny jest wymagany")
+});
+
+type ACFormData = z.infer<typeof acFormSchema>;
+
+export default function ClaimVehicleACPage() {
+  const [, setLocation] = useLocation();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<ACFormData>({
+    resolver: zodResolver(acFormSchema),
+    defaultValues: {
+      incidentDate: "",
+      incidentTime: "",
+      licensePlate: ""
+    }
+  });
+
+  const onSubmit = async (data: ACFormData) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Tutaj będzie logika wysyłania danych do backend'u
+      console.log("Dane formularza AC:", data);
+      
+      toast({
+        title: "Zgłoszenie utworzone!",
+        description: "Twoja sprawa została zarejestrowana. Otrzymasz potwierdzenie na e-mail.",
+      });
+      
+      // Po pomyślnym wysłaniu, przekieruj do strony potwierdzenia
+      // setLocation("/claim/success");
+      
+    } catch (error) {
+      toast({
+        title: "Błąd podczas wysyłania",
+        description: "Wystąpił problem podczas tworzenia zgłoszenia. Spróbuj ponownie.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col insurance-gradient-bg">
+      <Header />
+      
+      <main className="flex-1 py-10 px-6">
+        <div className="max-w-2xl mx-auto">
+          <div className="mb-8">
+            <Link href="/claim/vehicle">
+              <Button variant="ghost" className="mb-4" data-testid="button-back">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Powrót do wyboru ubezpieczenia
+              </Button>
+            </Link>
+            
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-insurance-primary rounded-full flex items-center justify-center">
+                <Car className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
+                  Moje ubezpieczenie (AC)
+                </h1>
+                <p className="text-gray-600">
+                  Zgłoś szkodę z ubezpieczenia autocasco
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="insurance-card p-8">
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                Podstawowe informacje o zdarzeniu
+              </h2>
+              <p className="text-sm text-gray-600">
+                Wypełnij wymagane pola, aby rozpocząć proces zgłaszania szkody
+              </p>
+            </div>
+
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="incidentDate"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-insurance-primary" />
+                          Data zdarzenia *
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            type="date"
+                            placeholder="Wybierz datę"
+                            {...field}
+                            data-testid="input-incident-date"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="incidentTime"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2">
+                          <Clock className="w-4 h-4 text-insurance-primary" />
+                          Godzina zdarzenia *
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            type="time"
+                            placeholder="Wybierz godzinę"
+                            {...field}
+                            data-testid="input-incident-time"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="licensePlate"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <Car className="w-4 h-4 text-insurance-primary" />
+                        Numer rejestracyjny pojazdu *
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="np. WA 12345"
+                          {...field}
+                          data-testid="input-license-plate"
+                          className="max-w-md"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                      <p className="text-sm text-gray-500">
+                        Podaj numer rejestracyjny pojazdu, którego dotyczy szkoda
+                      </p>
+                    </FormItem>
+                  )}
+                />
+
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h3 className="font-medium text-blue-900 mb-2">
+                    💡 Co dalej?
+                  </h3>
+                  <ul className="text-sm text-blue-800 space-y-1">
+                    <li>• Po wypełnieniu tych danych przejdziesz do szczegółowego formularza</li>
+                    <li>• Będziesz mógł dodać opis zdarzenia i dokumenty</li>
+                    <li>• Otrzymasz numer sprawy do śledzenia statusu</li>
+                  </ul>
+                </div>
+
+                <div className="flex items-center justify-between pt-4">
+                  <p className="text-sm text-gray-500">
+                    * Pola wymagane
+                  </p>
+                  
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="insurance-button"
+                    data-testid="button-submit-form"
+                  >
+                    {isSubmitting ? "Przetwarzanie..." : "Kontynuuj zgłoszenie"}
+                  </Button>
+                </div>
+              </form>
+            </Form>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600">
+              Potrzebujesz pomocy? Skontaktuj się z nami:{" "}
+              <strong className="text-insurance-primary">800 123 456</strong>
+            </p>
+          </div>
+        </div>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+}

@@ -24,7 +24,7 @@ export default function ClaimVehiclePage() {
               Zgłoszenie szkody - Pojazdy
             </h1>
             <p className="text-gray-600" data-testid="page-description">
-              Wybierz typ ubezpieczenia, z którego chcesz zgłosić szkodę
+              Wybierz typ ubezpieczenia, z którego chcesz zgłosić szkodę.
             </p>
           </div>
           
