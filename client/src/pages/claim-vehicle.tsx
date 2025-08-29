@@ -33,7 +33,7 @@ export default function ClaimVehiclePage() {
               category="ac"
               title="Moje ubezpieczenie (AC)"
               description="Zgłoś szkodę z własnego ubezpieczenia autocasco. Uszkodzenia własnego pojazdu, kolizje, kradzieże."
-              icon={<Shield />}
+              icon={<span className="text-2xl font-bold text-white">AC</span>}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle/ac"
             />
@@ -42,7 +42,7 @@ export default function ClaimVehiclePage() {
               category="sprawca"
               title="Ubezpieczenie sprawcy"
               description="Zgłoś szkodę z ubezpieczenia sprawcy zdarzenia. OC sprawcy pokrywa szkody powstałe w wyniku kolizji."
-              icon={<FileText />}
+              icon={<span className="text-2xl font-bold text-white">OC</span>}
               iconClassName="category-icon-property"
               href="/claim/vehicle/sprawca"
             />
