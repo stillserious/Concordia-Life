@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Car, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Car } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -100,14 +100,13 @@ export default function ClaimVehicleACPage() {
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-6">
                   <FormField
                     control={form.control}
                     name="incidentDate"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-insurance-primary" />
+                        <FormLabel>
                           Data zdarzenia *
                         </FormLabel>
                         <FormControl>
@@ -128,8 +127,7 @@ export default function ClaimVehicleACPage() {
                     name="incidentTime"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-insurance-primary" />
+                        <FormLabel>
                           Godzina zdarzenia *
                         </FormLabel>
                         <FormControl>
@@ -151,8 +149,7 @@ export default function ClaimVehicleACPage() {
                   name="licensePlate"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex items-center gap-2">
-                        <Car className="w-4 h-4 text-insurance-primary" />
+                      <FormLabel>
                         Numer rejestracyjny pojazdu *
                       </FormLabel>
                       <FormControl>
@@ -164,9 +161,6 @@ export default function ClaimVehicleACPage() {
                         />
                       </FormControl>
                       <FormMessage />
-                      <p className="text-sm text-gray-500">
-                        Podaj numer rejestracyjny pojazdu, którego dotyczy szkoda
-                      </p>
                     </FormItem>
                   )}
                 />

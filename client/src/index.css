@@ -194,4 +194,16 @@
     background: var(--category-people-bg);
     color: var(--category-people-color);
   }
+
+  /* Input text color override */
+  input[type="date"], 
+  input[type="time"], 
+  input[type="text"] {
+    color: #6b7280 !important; /* Gray text color */
+  }
+
+  input[type="date"]::-webkit-datetime-edit, 
+  input[type="time"]::-webkit-datetime-edit {
+    color: #6b7280 !important;
+  }
 }
