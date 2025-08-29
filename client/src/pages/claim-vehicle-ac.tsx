@@ -137,8 +137,14 @@ export default function ClaimVehicleACPage() {
                                     },
                                     '&.Mui-focused fieldset': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
+                                      borderWidth: '2px !important',
                                     },
-                                  }
+                                  },
+                                  '& .MuiInputLabel-root': {
+                                    '&.Mui-focused': {
+                                      color: 'hsl(207, 90%, 54%) !important',
+                                    },
+                                  },
                                 }
                               }
                             }}
@@ -180,10 +186,19 @@ export default function ClaimVehicleACPage() {
                                     },
                                     '&.Mui-focused fieldset': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
+                                      borderWidth: '2px !important',
                                     },
-                                  }
+                                  },
+                                  '& .MuiInputLabel-root': {
+                                    '&.Mui-focused': {
+                                      color: 'hsl(207, 90%, 54%) !important',
+                                    },
+                                  },
                                 }
-                              }
+                              },
+                              actionBar: {
+                                actions: [],
+                              },
                             }}
                           />
                         </FormControl>
