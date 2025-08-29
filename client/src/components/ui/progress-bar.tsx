@@ -8,7 +8,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels }: Pro
   const progressPercentage = (currentStep / totalSteps) * 100;
 
   return (
-    <div className="w-full bg-white border-t border-gray-50 sticky bottom-0 z-50">
+    <div className="w-48">
       <div className="w-full bg-gray-50 h-1">
         <div
           className="bg-blue-300 h-1 transition-all duration-500 ease-in-out"
