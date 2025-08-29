@@ -9,12 +9,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels }: Pro
 
   return (
     <div className="w-48">
-      <div className="flex justify-between items-center mb-2">
+      <div className="flex justify-center items-center mb-2">
         <span className="text-xs font-medium text-gray-600">
-          Krok {currentStep} z {totalSteps}
-        </span>
-        <span className="text-xs text-gray-400">
-          {Math.round(progressPercentage)}% ukończone
+          {stepLabels ? stepLabels[currentStep - 1] : `Krok ${currentStep} z ${totalSteps}`}
         </span>
       </div>
       

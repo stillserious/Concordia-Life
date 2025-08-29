@@ -9,6 +9,7 @@ interface CategoryCardProps {
   iconClassName: string;
   href: string;
   size?: "default" | "small";
+  showButton?: boolean;
 }
 
 export default function CategoryCard({ 
@@ -18,7 +19,8 @@ export default function CategoryCard({
   icon, 
   iconClassName, 
   href,
-  size = "default"
+  size = "default",
+  showButton = true
 }: CategoryCardProps) {
   return (
     <Link href={href}>
@@ -50,13 +52,15 @@ export default function CategoryCard({
           {description}
         </p>
         
-        <div className="text-center mt-auto">
-          <div className={`insurance-button w-full sm:w-auto rounded-lg text-white font-medium ${
-            size === "small" ? "px-3 py-1.5 text-sm" : "px-4 py-2"
-          }`}>
-            Zgłoś sprawę
+        {showButton && (
+          <div className="text-center mt-auto">
+            <div className={`insurance-button w-full sm:w-auto rounded-lg text-white font-medium ${
+              size === "small" ? "px-3 py-1.5 text-sm" : "px-4 py-2"
+            }`}>
+              Zgłoś sprawę
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </Link>
   );

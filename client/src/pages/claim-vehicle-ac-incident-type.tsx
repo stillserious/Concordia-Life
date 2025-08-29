@@ -58,6 +58,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/collision-vehicle"
                 size="small"
+                showButton={false}
               />
               
               <CategoryCard
@@ -68,6 +69,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 iconClassName="category-icon-property"
                 href="/claim/vehicle/ac/collision-object"
                 size="small"
+                showButton={false}
               />
               
               <CategoryCard
@@ -78,6 +80,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 iconClassName="category-icon-people"
                 href="/claim/vehicle/ac/collision-animal"
                 size="small"
+                showButton={false}
               />
               
               <CategoryCard
@@ -88,6 +91,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/theft-parts"
                 size="small"
+                showButton={false}
               />
             </div>
           </div>
