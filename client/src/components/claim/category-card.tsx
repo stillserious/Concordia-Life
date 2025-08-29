@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
 interface CategoryCardProps {
@@ -20,32 +19,29 @@ export default function CategoryCard({
   href 
 }: CategoryCardProps) {
   return (
-    <div 
-      className="insurance-card p-8 cursor-pointer group flex flex-col h-full"
-      data-testid={`card-${category}`}
-    >
-      <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl ${iconClassName}`}>
-        {icon}
-      </div>
-      
-      <h2 className="text-xl font-semibold text-gray-900 mb-4 text-center" data-testid={`title-${category}`}>
-        {title}
-      </h2>
-      
-      <p className="text-xs text-gray-600 text-center mb-8 leading-relaxed flex-grow" data-testid={`description-${category}`}>
-        {description}
-      </p>
-      
-      <div className="text-center mt-auto">
-        <Link href={href}>
-          <Button 
-            className="insurance-button w-full sm:w-auto"
-            data-testid={`button-claim-${category}`}
-          >
+    <Link href={href}>
+      <div 
+        className="insurance-card p-8 cursor-pointer group flex flex-col h-full hover:transform hover:scale-105 transition-all duration-300"
+        data-testid={`card-${category}`}
+      >
+        <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl ${iconClassName}`}>
+          {icon}
+        </div>
+        
+        <h2 className="text-xl font-semibold text-gray-900 mb-4 text-center" data-testid={`title-${category}`}>
+          {title}
+        </h2>
+        
+        <p className="text-xs text-gray-600 text-center mb-8 leading-relaxed flex-grow" data-testid={`description-${category}`}>
+          {description}
+        </p>
+        
+        <div className="text-center mt-auto">
+          <div className="insurance-button w-full sm:w-auto px-4 py-2 rounded-lg text-white font-medium">
             Zgłoś sprawę
-          </Button>
-        </Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
