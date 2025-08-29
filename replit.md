@@ -7,6 +7,7 @@ This is a Polish-language insurance claims management application built with a R
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+UI Components preference: Always use Material UI components for form inputs (TextField, DatePicker, etc.) instead of shadcn/ui Input components for consistency and better user experience.
 
 ## System Architecture
 

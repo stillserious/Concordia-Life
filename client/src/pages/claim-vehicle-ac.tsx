@@ -8,7 +8,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { TextField } from '@mui/material';
 import { useToast } from "@/hooks/use-toast";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -154,11 +154,24 @@ export default function ClaimVehicleACPage() {
                           Godzina zdarzenia *
                         </FormLabel>
                         <FormControl>
-                          <Input
-                            type="time"
-                            placeholder="Wybierz godzinę"
+                          <TextField
                             {...field}
-                            data-testid="input-incident-time"
+                            type="time"
+                            label="Wybierz godzinę zdarzenia"
+                            fullWidth
+                            inputProps={{ 'data-testid': 'input-incident-time' }}
+                            sx={{
+                              '& .MuiOutlinedInput-root': {
+                                backgroundColor: 'white',
+                                borderRadius: '8px',
+                                '& fieldset': {
+                                  borderColor: '#e5e7eb',
+                                },
+                                '&:hover fieldset': {
+                                  borderColor: '#3b82f6',
+                                },
+                              }
+                            }}
                           />
                         </FormControl>
                         <FormMessage />
@@ -176,11 +189,24 @@ export default function ClaimVehicleACPage() {
                         Numer rejestracyjny pojazdu *
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          placeholder="np. WA 12345"
+                        <TextField
                           {...field}
-                          data-testid="input-license-plate"
-                          className="max-w-md"
+                          label="np. WA 12345"
+                          placeholder="np. WA 12345"
+                          inputProps={{ 'data-testid': 'input-license-plate' }}
+                          sx={{
+                            maxWidth: '384px',
+                            '& .MuiOutlinedInput-root': {
+                              backgroundColor: 'white',
+                              borderRadius: '8px',
+                              '& fieldset': {
+                                borderColor: '#e5e7eb',
+                              },
+                              '&:hover fieldset': {
+                                borderColor: '#3b82f6',
+                              },
+                            }
+                          }}
                         />
                       </FormControl>
                       <FormMessage />
