@@ -166,7 +166,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                           name="ownerFirstName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Imię</FormLabel>
                               <FormControl>
                                 <TextField
                                   {...field}
@@ -200,7 +199,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                           name="ownerLastName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Nazwisko</FormLabel>
                               <FormControl>
                                 <TextField
                                   {...field}
@@ -235,7 +233,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                         name="ownerPesel"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>PESEL</FormLabel>
                             <FormControl>
                               <TextField
                                 {...field}
@@ -316,7 +313,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                           name="driverFirstName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Imię</FormLabel>
                               <FormControl>
                                 <TextField
                                   {...field}
@@ -350,7 +346,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                           name="driverLastName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Nazwisko</FormLabel>
                               <FormControl>
                                 <TextField
                                   {...field}
@@ -385,7 +380,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                         name="driverPesel"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>PESEL</FormLabel>
                             <FormControl>
                               <TextField
                                 {...field}

@@ -116,9 +116,6 @@ export default function ClaimVehicleACPage() {
                     name="incidentDate"
                     render={({ field: { value, onChange, ...field } }) => (
                       <FormItem>
-                        <FormLabel>
-                          Data zdarzenia *
-                        </FormLabel>
                         <FormControl>
                           <DatePicker
                             {...field}
@@ -164,9 +161,6 @@ export default function ClaimVehicleACPage() {
                     name="incidentTime"
                     render={({ field: { value, onChange, ...field } }) => (
                       <FormItem>
-                        <FormLabel>
-                          Godzina zdarzenia *
-                        </FormLabel>
                         <FormControl>
                           <TimePicker
                             {...field}
@@ -218,9 +212,6 @@ export default function ClaimVehicleACPage() {
                   name="licensePlate"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>
-                        Numer rejestracyjny pojazdu *
-                      </FormLabel>
                       <FormControl>
                         <TextField
                           {...field}
