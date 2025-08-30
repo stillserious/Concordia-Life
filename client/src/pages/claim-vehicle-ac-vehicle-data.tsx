@@ -52,20 +52,19 @@ export default function ClaimVehicleACVehicleData() {
     
     toast({
       title: "Dane pojazdu zapisane",
-      description: "Przechodzę do następnego kroku...",
+      description: "Przechodzę do informacji o zdarzeniu...",
     });
 
-    // Tutaj będzie logika zapisywania i przejścia do następnego kroku
-    // setLocation("/claim/vehicle/ac/next-step");
+    setLocation("/claim/vehicle/ac/incident-info");
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
       <ProgressBar 
         currentStep={4} 
-        totalSteps={4} 
-        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu"]} 
-        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data"]}
+        totalSteps={5} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
+        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
       />
       
       <div className="max-w-4xl mx-auto px-6 py-8">

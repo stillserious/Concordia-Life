@@ -1,0 +1,336 @@
+import { useEffect } from "react";
+import { useLocation } from "wouter";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { ArrowLeft } from "lucide-react";
+import ProgressBar from "@/components/ui/progress-bar";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { TextField } from '@mui/material';
+import { useToast } from "@/hooks/use-toast";
+import SelectionCard from "@/components/ui/selection-card";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+import { Link } from "wouter";
+
+const incidentInfoFormSchema = z.object({
+  incidentLocation: z.string().min(1, { message: "Miejsce zdarzenia jest wymagane" }),
+  incidentDescription: z.string().min(1, { message: "Opis zdarzenia jest wymagany" }),
+  faultCause: z.enum(["inna_przyczyna", "drugi_uczestnik"], { message: "Wybierz sprawcę zdarzenia" }),
+  policePresent: z.enum(["tak", "nie"], { message: "Wybierz czy była policja" }),
+  vehicleTowed: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd był holowany" }),
+  vehicleInGarage: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd jest w warsztacie" }),
+});
+
+type IncidentInfoFormData = z.infer<typeof incidentInfoFormSchema>;
+
+export default function ClaimVehicleACIncidentInfo() {
+  const [, setLocation] = useLocation();
+  const { toast } = useToast();
+
+  const form = useForm<IncidentInfoFormData>({
+    resolver: zodResolver(incidentInfoFormSchema),
+    defaultValues: {
+      incidentLocation: "",
+      incidentDescription: "",
+      faultCause: undefined,
+      policePresent: undefined,
+      vehicleTowed: undefined,
+      vehicleInGarage: undefined,
+    }
+  });
+
+  // Przewiń do góry po załadowaniu komponentu
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  const { isSubmitting } = form.formState;
+
+  const onSubmit = async (data: IncidentInfoFormData) => {
+    try {
+      console.log("Dane formularza informacji o zdarzeniu:", data);
+      
+      toast({
+        title: "Dane zapisane!",
+        description: "Zgłoszenie zostało zakończone pomyślnie.",
+      });
+      
+      // Tutaj będzie przekierowanie do strony podsumowania lub zakończenia
+      // setLocation("/claim/vehicle/ac/summary");
+      
+    } catch (error) {
+      toast({
+        title: "Błąd podczas zapisywania",
+        description: "Spróbuj ponownie.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <Header />
+      
+      <main className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Zgłoszenie szkody AC - Informacje o zdarzeniu
+            </h1>
+            <p className="text-gray-600">
+              Podaj szczegóły dotyczące miejsca i okoliczności zdarzenia
+            </p>
+          </div>
+
+          <ProgressBar 
+            currentStep={5} 
+            totalSteps={5} 
+            stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
+            stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
+          />
+
+          <div className="bg-white rounded-lg shadow-lg p-8 mt-8">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                
+                {/* Miejsce zdarzenia */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold text-gray-900">Wpisz miejsce zdarzenia</h2>
+                  
+                  <FormField
+                    control={form.control}
+                    name="incidentLocation"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <TextField
+                            {...field}
+                            label="Miejsce zdarzenia *"
+                            placeholder="np. ul. Główna 123, Warszawa"
+                            fullWidth
+                            data-testid="input-incident-location"
+                            sx={{
+                              '& .MuiOutlinedInput-root': {
+                                backgroundColor: 'white',
+                                borderRadius: '8px',
+                                '& fieldset': {
+                                  borderColor: '#e5e7eb',
+                                },
+                                '&:hover fieldset': {
+                                  borderColor: 'hsl(207, 90%, 54%)',
+                                },
+                                '&.Mui-focused fieldset': {
+                                  borderColor: 'hsl(207, 90%, 54%)',
+                                },
+                              }
+                            }}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Opis zdarzenia */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold text-gray-900">Opis zdarzenia</h2>
+                  
+                  <FormField
+                    control={form.control}
+                    name="incidentDescription"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <TextField
+                            {...field}
+                            label="Opis zdarzenia *"
+                            placeholder="Jak doszło do zdarzenia, jakie pojazdy w nim uczestniczyły oraz inne ważne informacje"
+                            multiline
+                            rows={6}
+                            fullWidth
+                            data-testid="input-incident-description"
+                            sx={{
+                              '& .MuiOutlinedInput-root': {
+                                backgroundColor: 'white',
+                                borderRadius: '8px',
+                                '& fieldset': {
+                                  borderColor: '#e5e7eb',
+                                },
+                                '&:hover fieldset': {
+                                  borderColor: 'hsl(207, 90%, 54%)',
+                                },
+                                '&.Mui-focused fieldset': {
+                                  borderColor: 'hsl(207, 90%, 54%)',
+                                },
+                              }
+                            }}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Sprawca zdarzenia */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold text-gray-900">Kto był sprawcą zdarzenia?</h2>
+                  
+                  <FormField
+                    control={form.control}
+                    name="faultCause"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <SelectionCard
+                              value="inna_przyczyna"
+                              title="Inna przyczyna"
+                              isSelected={field.value === "inna_przyczyna"}
+                              onSelect={() => field.onChange("inna_przyczyna")}
+                              testId="card-fault-other"
+                            />
+                            <SelectionCard
+                              value="drugi_uczestnik"
+                              title="Drugi uczestnik"
+                              isSelected={field.value === "drugi_uczestnik"}
+                              onSelect={() => field.onChange("drugi_uczestnik")}
+                              testId="card-fault-participant"
+                            />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Czy była policja */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold text-gray-900">Czy na miejscu zdarzenia była policja?</h2>
+                  
+                  <FormField
+                    control={form.control}
+                    name="policePresent"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <SelectionCard
+                              value="tak"
+                              title="Tak"
+                              isSelected={field.value === "tak"}
+                              onSelect={() => field.onChange("tak")}
+                              testId="card-police-yes"
+                            />
+                            <SelectionCard
+                              value="nie"
+                              title="Nie"
+                              isSelected={field.value === "nie"}
+                              onSelect={() => field.onChange("nie")}
+                              testId="card-police-no"
+                            />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Czy pojazd był holowany */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold text-gray-900">Czy pojazd był holowany?</h2>
+                  
+                  <FormField
+                    control={form.control}
+                    name="vehicleTowed"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <SelectionCard
+                              value="tak"
+                              title="Tak"
+                              isSelected={field.value === "tak"}
+                              onSelect={() => field.onChange("tak")}
+                              testId="card-towed-yes"
+                            />
+                            <SelectionCard
+                              value="nie"
+                              title="Nie"
+                              isSelected={field.value === "nie"}
+                              onSelect={() => field.onChange("nie")}
+                              testId="card-towed-no"
+                            />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Czy pojazd jest w warsztacie */}
+                <div className="space-y-4">
+                  <h2 className="text-xl font-semibold text-gray-900">Czy uszkodzony pojazd znajduje się już w warsztacie?</h2>
+                  
+                  <FormField
+                    control={form.control}
+                    name="vehicleInGarage"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <SelectionCard
+                              value="tak"
+                              title="Tak"
+                              isSelected={field.value === "tak"}
+                              onSelect={() => field.onChange("tak")}
+                              testId="card-garage-yes"
+                            />
+                            <SelectionCard
+                              value="nie"
+                              title="Nie"
+                              isSelected={field.value === "nie"}
+                              onSelect={() => field.onChange("nie")}
+                              testId="card-garage-no"
+                            />
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="flex items-center justify-end gap-4 pt-4">
+                  <Link href="/claim/vehicle/ac/vehicle-data">
+                    <Button variant="outline" data-testid="button-back">
+                      <ArrowLeft className="w-4 h-4 mr-2" />
+                      Cofnij
+                    </Button>
+                  </Link>
+                  
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="insurance-button"
+                    data-testid="button-submit-form"
+                  >
+                    {isSubmitting ? "Zapisywanie..." : "Zakończ zgłoszenie"}
+                  </Button>
+                </div>
+              </form>
+            </Form>
+          </div>
+        </div>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+}
