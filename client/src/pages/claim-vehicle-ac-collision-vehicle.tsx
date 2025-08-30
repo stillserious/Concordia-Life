@@ -23,6 +23,13 @@ const collisionVehicleFormSchema = z.object({
   driverFirstName: z.string().optional(),
   driverLastName: z.string().optional(),
   driverPesel: z.string().optional(),
+  driverStreet: z.string().optional(),
+  driverHouseNumber: z.string().optional(),
+  driverApartmentNumber: z.string().optional(),
+  driverPostalCode: z.string().optional(),
+  driverCity: z.string().optional(),
+  driverPhone: z.string().optional(),
+  driverEmail: z.string().optional(),
 });
 
 type CollisionVehicleFormData = z.infer<typeof collisionVehicleFormSchema>;
@@ -47,6 +54,13 @@ export default function ClaimVehicleACCollisionVehiclePage() {
       driverFirstName: "",
       driverLastName: "",
       driverPesel: "",
+      driverStreet: "",
+      driverHouseNumber: "",
+      driverApartmentNumber: "",
+      driverPostalCode: "",
+      driverCity: "",
+      driverPhone: "",
+      driverEmail: "",
     }
   });
 
@@ -408,6 +422,252 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                           </FormItem>
                         )}
                       />
+
+                      {/* Dodatkowe pola dla innej osoby kierującej */}
+                      {driver === "other" && (
+                        <>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <FormField
+                              control={form.control}
+                              name="driverStreet"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <TextField
+                                      {...field}
+                                      label="Ulica"
+                                      fullWidth
+                                      data-testid="input-driver-street"
+                                      sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                          backgroundColor: 'white',
+                                          borderRadius: '8px',
+                                          '& fieldset': {
+                                            borderColor: '#e5e7eb',
+                                          },
+                                          '&:hover fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                          '&.Mui-focused fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+
+                            <FormField
+                              control={form.control}
+                              name="driverHouseNumber"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <TextField
+                                      {...field}
+                                      label="Nr domu"
+                                      fullWidth
+                                      data-testid="input-driver-house-number"
+                                      sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                          backgroundColor: 'white',
+                                          borderRadius: '8px',
+                                          '& fieldset': {
+                                            borderColor: '#e5e7eb',
+                                          },
+                                          '&:hover fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                          '&.Mui-focused fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+
+                            <FormField
+                              control={form.control}
+                              name="driverApartmentNumber"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <TextField
+                                      {...field}
+                                      label="Nr lokalu"
+                                      fullWidth
+                                      data-testid="input-driver-apartment-number"
+                                      sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                          backgroundColor: 'white',
+                                          borderRadius: '8px',
+                                          '& fieldset': {
+                                            borderColor: '#e5e7eb',
+                                          },
+                                          '&:hover fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                          '&.Mui-focused fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <FormField
+                              control={form.control}
+                              name="driverPostalCode"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <TextField
+                                      {...field}
+                                      label="Kod pocztowy"
+                                      placeholder="np. 00-000"
+                                      fullWidth
+                                      data-testid="input-driver-postal-code"
+                                      sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                          backgroundColor: 'white',
+                                          borderRadius: '8px',
+                                          '& fieldset': {
+                                            borderColor: '#e5e7eb',
+                                          },
+                                          '&:hover fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                          '&.Mui-focused fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+
+                            <FormField
+                              control={form.control}
+                              name="driverCity"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <TextField
+                                      {...field}
+                                      label="Miejscowość"
+                                      fullWidth
+                                      data-testid="input-driver-city"
+                                      sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                          backgroundColor: 'white',
+                                          borderRadius: '8px',
+                                          '& fieldset': {
+                                            borderColor: '#e5e7eb',
+                                          },
+                                          '&:hover fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                          '&.Mui-focused fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <FormField
+                              control={form.control}
+                              name="driverPhone"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <TextField
+                                      {...field}
+                                      label="Telefon"
+                                      placeholder="np. +48 123 456 789"
+                                      fullWidth
+                                      data-testid="input-driver-phone"
+                                      sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                          backgroundColor: 'white',
+                                          borderRadius: '8px',
+                                          '& fieldset': {
+                                            borderColor: '#e5e7eb',
+                                          },
+                                          '&:hover fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                          '&.Mui-focused fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+
+                            <FormField
+                              control={form.control}
+                              name="driverEmail"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <TextField
+                                      {...field}
+                                      label="E-mail"
+                                      type="email"
+                                      placeholder="np. email@przykład.pl"
+                                      fullWidth
+                                      data-testid="input-driver-email"
+                                      sx={{
+                                        '& .MuiOutlinedInput-root': {
+                                          backgroundColor: 'white',
+                                          borderRadius: '8px',
+                                          '& fieldset': {
+                                            borderColor: '#e5e7eb',
+                                          },
+                                          '&:hover fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                          '&.Mui-focused fieldset': {
+                                            borderColor: 'hsl(207, 90%, 54%)',
+                                          },
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                        </>
+                      )}
                     </div>
                   )}
                 </div>
