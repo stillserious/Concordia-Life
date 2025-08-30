@@ -10,6 +10,7 @@ import ClaimPeoplePage from "@/pages/claim-people";
 import ClaimVehicleACPage from "@/pages/claim-vehicle-ac";
 import ClaimVehicleACIncidentTypePage from "@/pages/claim-vehicle-ac-incident-type";
 import ClaimVehicleACCollisionVehiclePage from "@/pages/claim-vehicle-ac-collision-vehicle";
+import ClaimVehicleACVehicleDataPage from "@/pages/claim-vehicle-ac-vehicle-data";
 import NotFound from "@/pages/not-found";
 import FloatingChatbot from "@/components/chat/floating-chatbot";
 
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/claim/vehicle/ac" component={ClaimVehicleACPage} />
       <Route path="/claim/vehicle/ac/incident-type" component={ClaimVehicleACIncidentTypePage} />
       <Route path="/claim/vehicle/ac/collision-vehicle" component={ClaimVehicleACCollisionVehiclePage} />
+      <Route path="/claim/vehicle/ac/vehicle-data" component={ClaimVehicleACVehicleDataPage} />
       <Route path="/claim/property" component={ClaimPropertyPage} />
       <Route path="/claim/people" component={ClaimPeoplePage} />
       <Route component={NotFound} />

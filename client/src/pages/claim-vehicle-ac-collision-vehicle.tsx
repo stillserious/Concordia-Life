@@ -30,9 +30,6 @@ const collisionVehicleFormSchema = z.object({
   driverCity: z.string().optional(),
   driverPhone: z.string().optional(),
   driverEmail: z.string().optional(),
-  vehicleBrand: z.string().optional(),
-  vehicleProductionYear: z.string().optional(),
-  vehicleModel: z.string().optional(),
 });
 
 type CollisionVehicleFormData = z.infer<typeof collisionVehicleFormSchema>;
@@ -64,9 +61,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
       driverCity: "",
       driverPhone: "",
       driverEmail: "",
-      vehicleBrand: "",
-      vehicleProductionYear: "",
-      vehicleModel: "",
     }
   });
 
@@ -81,11 +75,10 @@ export default function ClaimVehicleACCollisionVehiclePage() {
       
       toast({
         title: "Dane zapisane!",
-        description: "Informacje o zderzeniu zostały zapisane.",
+        description: "Przechodzę do danych pojazdu...",
       });
       
-      // Tutaj będzie przekierowanie do kolejnego kroku
-      // setLocation("/claim/vehicle/ac/collision-vehicle/next-step");
+      setLocation("/claim/vehicle/ac/vehicle-data");
       
     } catch (error) {
       toast({
@@ -103,9 +96,9 @@ export default function ClaimVehicleACCollisionVehiclePage() {
       <Header />
       <ProgressBar 
         currentStep={3} 
-        totalSteps={3} 
-        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia"]} 
-        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle"]}
+        totalSteps={4} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu"]} 
+        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data"]}
       />
       
       <main className="flex-1 py-10 px-6">
@@ -678,116 +671,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                   )}
                 </div>
 
-                {/* Sekcja danych pojazdu */}
-                <div className="space-y-6">
-                  <h2 className="text-xl font-semibold text-gray-900">Wpisz dane pojazdu</h2>
-                  
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <FormField
-                        control={form.control}
-                        name="vehicleBrand"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormControl>
-                              <TextField
-                                {...field}
-                                label="Marka"
-                                placeholder="np. Toyota, BMW, Ford"
-                                fullWidth
-                                data-testid="input-vehicle-brand"
-                                sx={{
-                                  '& .MuiOutlinedInput-root': {
-                                    backgroundColor: 'white',
-                                    borderRadius: '8px',
-                                    '& fieldset': {
-                                      borderColor: '#e5e7eb',
-                                    },
-                                    '&:hover fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%)',
-                                    },
-                                    '&.Mui-focused fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%)',
-                                    },
-                                  }
-                                }}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="vehicleProductionYear"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormControl>
-                              <TextField
-                                {...field}
-                                label="Rok produkcji"
-                                placeholder="np. 2020"
-                                fullWidth
-                                data-testid="input-vehicle-production-year"
-                                sx={{
-                                  '& .MuiOutlinedInput-root': {
-                                    backgroundColor: 'white',
-                                    borderRadius: '8px',
-                                    '& fieldset': {
-                                      borderColor: '#e5e7eb',
-                                    },
-                                    '&:hover fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%)',
-                                    },
-                                    '&.Mui-focused fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%)',
-                                    },
-                                  }
-                                }}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-
-                    <FormField
-                      control={form.control}
-                      name="vehicleModel"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <TextField
-                              {...field}
-                              label="Model"
-                              placeholder="np. Corolla, X5, Focus"
-                              fullWidth
-                              data-testid="input-vehicle-model"
-                              sx={{
-                                '& .MuiOutlinedInput-root': {
-                                  backgroundColor: 'white',
-                                  borderRadius: '8px',
-                                  '& fieldset': {
-                                    borderColor: '#e5e7eb',
-                                  },
-                                  '&:hover fieldset': {
-                                    borderColor: 'hsl(207, 90%, 54%)',
-                                  },
-                                  '&.Mui-focused fieldset': {
-                                    borderColor: 'hsl(207, 90%, 54%)',
-                                  },
-                                }
-                              }}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                </div>
 
                 <div className="flex items-center justify-end gap-4 pt-4">
                   <Link href="/claim/vehicle/ac/incident-type">

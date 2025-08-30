@@ -18,9 +18,9 @@ export default function ClaimVehicleACIncidentTypePage() {
       <Header />
       <ProgressBar 
         currentStep={2} 
-        totalSteps={3} 
-        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia"]} 
-        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle"]}
+        totalSteps={4} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu"]} 
+        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data"]}
       />
       
       <main className="flex-1 py-10 px-6">
