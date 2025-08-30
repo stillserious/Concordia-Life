@@ -7,8 +7,9 @@ import { z } from "zod";
 import ProgressBar from "@/components/ui/progress-bar";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { TextField } from '@mui/material';
+import { TextField, Autocomplete } from '@mui/material';
 import { useToast } from "@/hooks/use-toast";
+import carModelsData from "@/data/car-models.json";
 
 const vehicleDataFormSchema = z.object({
   vehicleBrand: z.string().min(1, { message: "Marka pojazdu jest wymagana" }),
@@ -30,6 +31,16 @@ export default function ClaimVehicleACVehicleData() {
       vehicleModel: "",
     }
   });
+
+  const selectedBrand = form.watch("vehicleBrand");
+  
+  // Pobierz listę marek
+  const brands = carModelsData.map(item => item.brand);
+  
+  // Pobierz modele dla wybranej marki
+  const availableModels = selectedBrand 
+    ? carModelsData.find(item => item.brand === selectedBrand)?.models || []
+    : [];
 
   // Przewiń do góry po załadowaniu komponentu
   useEffect(() => {
@@ -81,27 +92,41 @@ export default function ClaimVehicleACVehicleData() {
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <TextField
-                              {...field}
-                              label="Marka *"
-                              placeholder="np. Toyota, BMW, Ford"
-                              fullWidth
-                              data-testid="input-vehicle-brand"
-                              sx={{
-                                '& .MuiOutlinedInput-root': {
-                                  backgroundColor: 'white',
-                                  borderRadius: '8px',
-                                  '& fieldset': {
-                                    borderColor: '#e5e7eb',
-                                  },
-                                  '&:hover fieldset': {
-                                    borderColor: 'hsl(207, 90%, 54%)',
-                                  },
-                                  '&.Mui-focused fieldset': {
-                                    borderColor: 'hsl(207, 90%, 54%)',
-                                  },
-                                }
+                            <Autocomplete
+                              options={brands}
+                              value={field.value || null}
+                              onChange={(_, newValue) => {
+                                field.onChange(newValue || "");
+                                // Reset model when brand changes
+                                form.setValue("vehicleModel", "");
                               }}
+                              renderInput={(params) => (
+                                <TextField
+                                  {...params}
+                                  label="Marka *"
+                                  placeholder="Wybierz markę pojazdu"
+                                  data-testid="input-vehicle-brand"
+                                  sx={{
+                                    '& .MuiOutlinedInput-root': {
+                                      backgroundColor: 'white',
+                                      borderRadius: '8px',
+                                      '& fieldset': {
+                                        borderColor: '#e5e7eb',
+                                      },
+                                      '&:hover fieldset': {
+                                        borderColor: 'hsl(207, 90%, 54%)',
+                                      },
+                                      '&.Mui-focused fieldset': {
+                                        borderColor: 'hsl(207, 90%, 54%)',
+                                      },
+                                    }
+                                  }}
+                                />
+                              )}
+                              sx={{ width: '100%' }}
+                              noOptionsText="Nie znaleziono marki"
+                              openText="Otwórz"
+                              closeText="Zamknij"
                             />
                           </FormControl>
                           <FormMessage />
@@ -150,27 +175,40 @@ export default function ClaimVehicleACVehicleData() {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <TextField
-                            {...field}
-                            label="Model"
-                            placeholder="np. Corolla, X5, Focus"
-                            fullWidth
-                            data-testid="input-vehicle-model"
-                            sx={{
-                              '& .MuiOutlinedInput-root': {
-                                backgroundColor: 'white',
-                                borderRadius: '8px',
-                                '& fieldset': {
-                                  borderColor: '#e5e7eb',
-                                },
-                                '&:hover fieldset': {
-                                  borderColor: 'hsl(207, 90%, 54%)',
-                                },
-                                '&.Mui-focused fieldset': {
-                                  borderColor: 'hsl(207, 90%, 54%)',
-                                },
-                              }
+                          <Autocomplete
+                            options={availableModels}
+                            value={field.value || null}
+                            onChange={(_, newValue) => {
+                              field.onChange(newValue || "");
                             }}
+                            disabled={!selectedBrand}
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                label="Model"
+                                placeholder={selectedBrand ? "Wybierz model pojazdu" : "Najpierw wybierz markę"}
+                                data-testid="input-vehicle-model"
+                                sx={{
+                                  '& .MuiOutlinedInput-root': {
+                                    backgroundColor: 'white',
+                                    borderRadius: '8px',
+                                    '& fieldset': {
+                                      borderColor: '#e5e7eb',
+                                    },
+                                    '&:hover fieldset': {
+                                      borderColor: 'hsl(207, 90%, 54%)',
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                      borderColor: 'hsl(207, 90%, 54%)',
+                                    },
+                                  }
+                                }}
+                              />
+                            )}
+                            sx={{ width: '100%' }}
+                            noOptionsText={selectedBrand ? "Nie znaleziono modelu" : "Najpierw wybierz markę"}
+                            openText="Otwórz"
+                            closeText="Zamknij"
                           />
                         </FormControl>
                         <FormMessage />
