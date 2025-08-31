@@ -12,22 +12,22 @@ interface CategoryCardProps {
   showButton?: boolean;
 }
 
-export default function CategoryCard({ 
-  category, 
-  title, 
-  description, 
-  icon, 
-  iconClassName, 
+export default function CategoryCard({
+  category,
+  title,
+  description,
+  icon,
+  iconClassName,
   href,
   size = "default",
   showButton = true
 }: CategoryCardProps) {
   return (
     <Link href={href}>
-      <div 
+      <div
         className={`${
-          size === "small" 
-            ? "bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 hover:border-gray-300" 
+          size === "small"
+            ? "bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 hover:border-gray-300"
             : "insurance-card"
         } cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300 ${
           size === "small" ? "p-4" : "p-8"
@@ -35,27 +35,27 @@ export default function CategoryCard({
         data-testid={`card-${category}`}
       >
         <div className={`mx-auto rounded-full flex items-center justify-center ${
-          size === "small" 
-            ? "w-10 h-10 mb-3 text-lg" 
+          size === "small"
+            ? "w-10 h-10 mb-3 text-lg"
             : "w-20 h-20 mb-6 text-3xl"
         } ${iconClassName}`}>
           {icon}
         </div>
-        
+
         <h2 className={`font-semibold text-gray-900 text-center ${
-          size === "small" 
-            ? "text-base mb-2" 
+          size === "small"
+            ? "text-base mb-2"
             : "text-xl mb-4"
         }`} data-testid={`title-${category}`}>
           {title}
         </h2>
-        
+
         <p className={`text-xs text-gray-600 text-center leading-relaxed flex-grow ${
           size === "small" ? "mb-4" : "mb-8"
         }`} data-testid={`description-${category}`}>
           {description}
         </p>
-        
+
         {showButton && (
           <div className="text-center mt-auto">
             <div className={`insurance-button w-full sm:w-auto rounded-lg text-white font-medium ${
