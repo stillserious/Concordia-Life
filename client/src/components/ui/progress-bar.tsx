@@ -23,41 +23,32 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       <div className="max-w-4xl mx-auto px-6 py-3">
         {/* Mobile: Visual progress with circles */}
         <div className="md:hidden py-4">
-          <div className="flex items-center justify-between px-4">
+          <div className="flex items-center justify-center px-8">
             {stepLabels?.map((label, index) => (
-              <div key={index} className="flex flex-col items-center flex-1">
-                {/* Step label above circle */}
-                <div className={`text-xs font-medium mb-2 text-center ${
+              <div key={index} className="flex items-center">
+                {/* Circle */}
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-semibold text-lg ${
                   index < currentStep
-                    ? "text-blue-600"
+                    ? "bg-blue-500 text-white"
                     : index === currentStep - 1
-                    ? "text-blue-600"
-                    : "text-gray-400"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-400"
                 }`}>
-                  {label}
+                  {index < currentStep ? (
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  ) : index === currentStep - 1 ? (
+                    currentStep
+                  ) : null}
                 </div>
                 
-                <div className="flex items-center w-full">
-                  {/* Circle */}
-                  <div className="relative flex-shrink-0">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm border-2 ${
-                      index < currentStep
-                        ? "bg-white border-blue-600 text-blue-600"
-                        : index === currentStep - 1
-                        ? "bg-blue-600 border-blue-600 text-white"
-                        : "bg-gray-100 border-gray-300 text-gray-400"
-                    }`}>
-                      {index + 1}
-                    </div>
-                  </div>
-                  
-                  {/* Connecting line */}
-                  {index < stepLabels.length - 1 && (
-                    <div className={`flex-1 h-0.5 ml-2 ${
-                      index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
-                    }`}></div>
-                  )}
-                </div>
+                {/* Connecting line */}
+                {index < stepLabels.length - 1 && (
+                  <div className={`w-16 h-1 mx-2 ${
+                    index < currentStep - 1 ? "bg-blue-500" : "bg-gray-400"
+                  }`}></div>
+                )}
               </div>
             ))}
           </div>
