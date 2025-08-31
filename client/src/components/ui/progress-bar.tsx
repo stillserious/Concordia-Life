@@ -22,14 +22,14 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       
       <div className="max-w-4xl mx-auto px-6 py-3">
         {/* Mobile: Visual progress with circles */}
-        <div className="md:hidden py-4">
-          <div className="flex items-center justify-between px-4">
+        <div className="md:hidden py-2">
+          <div className="flex items-center justify-between px-2">
             {stepLabels?.map((label, index) => (
               <div key={index} className="flex items-center flex-1">
                 {/* Circle */}
                 <div 
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 ${
-                    index < currentStep
+                  className={`w-6 h-6 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 ${
+                    index < currentStep - 1
                       ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
                       : index === currentStep - 1
                       ? "bg-blue-600 text-white"
@@ -41,8 +41,8 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                     }
                   }}
                 >
-                  {index < currentStep ? (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  {index < currentStep - 1 ? (
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   ) : (
@@ -52,7 +52,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`flex-1 h-0.5 mx-3 ${
+                  <div className={`flex-1 h-0.5 mx-2 ${
                     index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
                   }`}></div>
                 )}
@@ -61,8 +61,8 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
           </div>
           
           {/* Current step name below on mobile */}
-          <div className="text-center mt-3">
-            <span className="text-sm font-medium text-gray-700">
+          <div className="text-center mt-2">
+            <span className="text-xs font-medium text-gray-700">
               {stepLabels?.[currentStep - 1]}
             </span>
           </div>
