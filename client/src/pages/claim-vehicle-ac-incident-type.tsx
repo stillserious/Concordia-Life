@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock } from "lucide-react";
 import collisionVehicleIcon from "@assets/zderzenie z pojazdem_1756675500604.png";
 import collisionObjectIcon from "@assets/zderzenie z przedmiotem_1756675500604.png";
 import collisionAnimalIcon from "@assets/zderzenie ze zwierzeciem_1756675500602.png";
@@ -65,38 +65,101 @@ export default function ClaimVehicleACIncidentTypePage() {
                 showButton={false}
               />
               
-              <CategoryCard
-                category="collision-object"
-                title="Zderzenie z przedmiotem"
-                description="Kolizja z nieruchomym obiektem jak bariera, słup, ściana, drzewo lub inne przeszkody na drodze."
-                icon={<img src={collisionObjectIcon} alt="Zderzenie z przedmiotem" className="w-10 h-10" />}
-                iconClassName="category-icon-property"
-                href="/claim/vehicle/ac/collision-object"
-                size="small"
-                showButton={false}
-              />
+              <div className="relative group">
+                <CategoryCard
+                  category="collision-object"
+                  title="Zderzenie z przedmiotem"
+                  description="Kolizja z nieruchomym obiektem jak bariera, słup, ściana, drzewo lub inne przeszkody na drodze."
+                  icon={<img src={collisionObjectIcon} alt="Zderzenie z przedmiotem" className="w-10 h-10" />}
+                  iconClassName="category-icon-property"
+                  href="#"
+                  size="small"
+                  showButton={false}
+                />
+                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
+                  <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
+                  <div className="relative bg-white border border-amber-200 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
+                    <div className="flex justify-center mb-2">
+                      <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-amber-600" />
+                      </div>
+                    </div>
+                    <h3 className="text-sm font-semibold text-amber-900 mb-1">
+                      Formularz tymczasowo niedostępny
+                    </h3>
+                    <a 
+                      href="tel:+48228200220"
+                      className="text-xs text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
+                    >
+                      Skontaktuj się z nami telefonicznie
+                    </a>
+                  </div>
+                </div>
+              </div>
               
-              <CategoryCard
-                category="collision-animal"
-                title="Zderzenie ze zwierzęciem"
-                description="Kolizja ze zwierzęciem na drodze. Obejmuje zderzenia z dzikimi zwierzętami i zwierzętami domowymi."
-                icon={<img src={collisionAnimalIcon} alt="Zderzenie ze zwierzęciem" className="w-10 h-10" />}
-                iconClassName="category-icon-people"
-                href="/claim/vehicle/ac/collision-animal"
-                size="small"
-                showButton={false}
-              />
+              <div className="relative group">
+                <CategoryCard
+                  category="collision-animal"
+                  title="Zderzenie ze zwierzęciem"
+                  description="Kolizja ze zwierzęciem na drodze. Obejmuje zderzenia z dzikimi zwierzętami i zwierzętami domowymi."
+                  icon={<img src={collisionAnimalIcon} alt="Zderzenie ze zwierzęciem" className="w-10 h-10" />}
+                  iconClassName="category-icon-people"
+                  href="#"
+                  size="small"
+                  showButton={false}
+                />
+                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
+                  <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
+                  <div className="relative bg-white border border-amber-200 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
+                    <div className="flex justify-center mb-2">
+                      <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-amber-600" />
+                      </div>
+                    </div>
+                    <h3 className="text-sm font-semibold text-amber-900 mb-1">
+                      Formularz tymczasowo niedostępny
+                    </h3>
+                    <a 
+                      href="tel:+48228200220"
+                      className="text-xs text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
+                    >
+                      Skontaktuj się z nami telefonicznie
+                    </a>
+                  </div>
+                </div>
+              </div>
               
-              <CategoryCard
-                category="theft-parts"
-                title="Kradzież części"
-                description="Kradzież elementów pojazdu jak koła, lusterka, katalizator, akcesoria lub inne części samochodu."
-                icon={<img src={theftPartsIcon} alt="Kradzież części" className="w-10 h-10" />}
-                iconClassName="category-icon-vehicles"
-                href="/claim/vehicle/ac/theft-parts"
-                size="small"
-                showButton={false}
-              />
+              <div className="relative group">
+                <CategoryCard
+                  category="theft-parts"
+                  title="Kradzież części"
+                  description="Kradzież elementów pojazdu jak koła, lusterka, katalizator, akcesoria lub inne części samochodu."
+                  icon={<img src={theftPartsIcon} alt="Kradzież części" className="w-10 h-10" />}
+                  iconClassName="category-icon-vehicles"
+                  href="#"
+                  size="small"
+                  showButton={false}
+                />
+                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
+                  <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
+                  <div className="relative bg-white border border-amber-200 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
+                    <div className="flex justify-center mb-2">
+                      <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-amber-600" />
+                      </div>
+                    </div>
+                    <h3 className="text-sm font-semibold text-amber-900 mb-1">
+                      Formularz tymczasowo niedostępny
+                    </h3>
+                    <a 
+                      href="tel:+48228200220"
+                      className="text-xs text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
+                    >
+                      Skontaktuj się z nami telefonicznie
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="flex items-center justify-end gap-4 pt-4">
