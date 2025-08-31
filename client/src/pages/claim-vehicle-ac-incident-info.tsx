@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,7 +7,6 @@ import { ArrowLeft } from "lucide-react";
 import ProgressBar from "@/components/ui/progress-bar";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { TextField } from '@mui/material';
 import { useToast } from "@/hooks/use-toast";
 import SelectionCard from "@/components/ui/selection-card";
@@ -22,6 +21,7 @@ const incidentInfoFormSchema = z.object({
   incidentLocationLng: z.number().optional(),
   incidentDescription: z.string().min(1, { message: "Opis zdarzenia jest wymagany" }),
   faultCause: z.enum(["inna_przyczyna", "drugi_uczestnik"], { message: "Wybierz sprawcę zdarzenia" }),
+  perpetratorInfo: z.string().optional(),
   policePresent: z.enum(["tak", "nie"], { message: "Wybierz czy była policja" }),
   vehicleTowed: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd był holowany" }),
   vehicleInGarage: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd jest w warsztacie" }),
@@ -32,6 +32,7 @@ type IncidentInfoFormData = z.infer<typeof incidentInfoFormSchema>;
 export default function ClaimVehicleACIncidentInfo() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const form = useForm<IncidentInfoFormData>({
     resolver: zodResolver(incidentInfoFormSchema),
@@ -41,6 +42,7 @@ export default function ClaimVehicleACIncidentInfo() {
       incidentLocationLng: undefined,
       incidentDescription: "",
       faultCause: undefined,
+      perpetratorInfo: "",
       policePresent: undefined,
       vehicleTowed: undefined,
       vehicleInGarage: undefined,
@@ -217,32 +219,48 @@ export default function ClaimVehicleACIncidentInfo() {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <Tooltip delayDuration={0}>
-                              <TooltipTrigger asChild>
-                                <div>
-                                  <SelectionCard
-                                    value="inna_przyczyna"
-                                    title="Inna przyczyna"
-                                    isSelected={field.value === "inna_przyczyna"}
-                                    onSelect={() => field.onChange("inna_przyczyna")}
-                                    testId="card-fault-other"
-                                  />
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent className="max-w-xs">
-                                <p className="text-sm">
-                                  Wybierz gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
+                          <div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div
+                                onMouseEnter={() => setHoveredCard("inna_przyczyna")}
+                                onMouseLeave={() => setHoveredCard(null)}
+                              >
+                                <SelectionCard
+                                  value="inna_przyczyna"
+                                  title="Inna przyczyna"
+                                  isSelected={field.value === "inna_przyczyna"}
+                                  onSelect={() => field.onChange("inna_przyczyna")}
+                                  testId="card-fault-other"
+                                />
+                              </div>
+                              <div
+                                onMouseEnter={() => setHoveredCard("drugi_uczestnik")}
+                                onMouseLeave={() => setHoveredCard(null)}
+                              >
+                                <SelectionCard
+                                  value="drugi_uczestnik"
+                                  title="Drugi uczestnik"
+                                  isSelected={field.value === "drugi_uczestnik"}
+                                  onSelect={() => field.onChange("drugi_uczestnik")}
+                                  testId="card-fault-participant"
+                                />
+                              </div>
+                            </div>
+                            {hoveredCard && (
+                              <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                <p className="text-sm text-blue-800">
+                                  {hoveredCard === "inna_przyczyna" ? (
+                                    <span>
+                                      <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
+                                    </span>
+                                  ) : (
+                                    <span>
+                                      <strong>Wybierz "Drugi uczestnik"</strong>, gdy inna osoba była sprawcą zdarzenia (kierowca innego pojazdu, wandal, rowerzysta, pracownik myjni itp.). Jeśli masz informacje o sprawcy zdarzenia, wpisz jego dane (nr rej., dane właściciela pojazdu, dane kierującego pojazdem, zakład ubezpieczeń, nazwa firmy).
+                                    </span>
+                                  )}
                                 </p>
-                              </TooltipContent>
-                            </Tooltip>
-                            <SelectionCard
-                              value="drugi_uczestnik"
-                              title="Drugi uczestnik"
-                              isSelected={field.value === "drugi_uczestnik"}
-                              onSelect={() => field.onChange("drugi_uczestnik")}
-                              testId="card-fault-participant"
-                            />
+                              </div>
+                            )}
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -250,6 +268,33 @@ export default function ClaimVehicleACIncidentInfo() {
                     )}
                   />
                 </div>
+
+                {/* Informacje o sprawcy - tylko gdy wybrano "drugi_uczestnik" */}
+                {form.watch("faultCause") === "drugi_uczestnik" && (
+                  <div className="space-y-4">
+                    <FormField
+                      control={form.control}
+                      name="perpetratorInfo"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <TextField
+                              {...field}
+                              label="Jeśli masz informacje o sprawcy zdarzenia, wpisz jego dane"
+                              multiline
+                              rows={4}
+                              fullWidth
+                              variant="outlined"
+                              placeholder="Nr rejestracyjny, dane właściciela pojazdu, dane kierującego pojazdem, zakład ubezpieczeń, nazwa firmy itp."
+                              data-testid="input-perpetrator-info"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                )}
 
                 {/* Czy była policja */}
                 <div className="space-y-4">
