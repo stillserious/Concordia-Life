@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Link } from "wouter";
-import PreciseCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/PreciseCarDiagram";
+import VanillaThreeCar, { CAR_PARTS, type CarPartName } from "@/components/VanillaThreeCar";
 
 const damageFormSchema = z.object({
   damagedParts: z.array(z.string()).default([]),
@@ -80,14 +80,14 @@ export default function ClaimVehicleACDamage() {
               {/* Instrukcja */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-sm text-blue-800">
-                  <strong>Instrukcja:</strong> Wybierz uszkodzone części samochodu klikając na diagram lub zaznaczając checkboxy po prawej stronie. 
-                  Możesz przełączać między widokiem "PRZÓD I LEWY BOK" a "TYŁ I PRAWY BOK" używając przycisków na górze.
+                  <strong>Instrukcja:</strong> Kliknij na części w modelu 3D samochodu, które zostały uszkodzone podczas zdarzenia. 
+                  Możesz obracać model przeciągając myszką. Uszkodzone części będą czerwone i powiększone.
                 </p>
               </div>
 
-              {/* Interaktywny diagram samochodu */}
+              {/* Interaktywny model 3D samochodu */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-900">Interaktywny diagram pojazdu</h2>
+                <h2 className="text-xl font-semibold text-gray-900">Interaktywny model 3D pojazdu</h2>
                 
                 <FormField
                   control={form.control}
@@ -95,7 +95,7 @@ export default function ClaimVehicleACDamage() {
                   render={() => (
                     <FormItem>
                       <FormControl>
-                        <PreciseCarDiagram 
+                        <VanillaThreeCar 
                           selectedParts={selectedParts}
                           onPartSelect={handlePartSelect}
                           className="min-h-[500px]"
