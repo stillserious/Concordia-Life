@@ -342,8 +342,8 @@ export default function ClaimVehicleACIncidentInfo() {
                 </div>
 
                 <div className="flex items-center justify-end gap-4 pt-4">
-                  <Link href="/claim/vehicle/ac/vehicle-data" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <Button variant="outline" data-testid="button-back">
+                  <Link href="/claim/vehicle/ac/vehicle-data">
+                    <Button variant="outline" data-testid="button-back" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Cofnij
                     </Button>

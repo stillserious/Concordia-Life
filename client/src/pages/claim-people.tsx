@@ -12,8 +12,8 @@ export default function ClaimPeoplePage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <Button variant="outline" className="mb-4" data-testid="button-back">
+            <Link href="/">
+              <Button variant="outline" className="mb-4" data-testid="button-back" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Powrót do kategorii
               </Button>
@@ -35,8 +35,8 @@ export default function ClaimPeoplePage() {
               <p className="text-gray-600 mb-8" data-testid="form-placeholder-description">
                 Tutaj będzie znajdować się formularz zgłoszenia szkody dotyczącej zdrowia lub życia z wszystkimi niezbędnymi polami.
               </p>
-              <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <Button data-testid="button-return">
+              <Link href="/">
+                <Button data-testid="button-return" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                   Wróć do strony głównej
                 </Button>
               </Link>
