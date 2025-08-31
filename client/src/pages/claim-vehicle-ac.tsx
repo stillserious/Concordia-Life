@@ -113,14 +113,12 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
-                            label="Wybierz datę zdarzenia"
                             closeOnSelect
                             localeText={{
                               cancelButtonLabel: 'Anuluj',
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
                               todayButtonLabel: 'Dzisiaj',
-                              datePickerToolbarTitle: 'Wybierz datę',
                               fieldDayPlaceholder: () => 'DD',
                               fieldMonthPlaceholder: () => 'MM',
                               fieldYearPlaceholder: () => 'RRRR',
@@ -169,14 +167,12 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
-                            label="Wybierz godzinę zdarzenia"
                             ampm={false}
                             closeOnSelect
                             localeText={{
                               cancelButtonLabel: 'Anuluj',
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
-                              timePickerToolbarTitle: 'Wybierz godzinę',
                               fieldHoursPlaceholder: () => 'GG',
                               fieldMinutesPlaceholder: () => 'MM',
                             }}
