@@ -44,7 +44,7 @@ export default function HomePage() {
                 href="#"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-gray-100 rounded-lg p-4 m-4 text-center shadow-lg">
+                <div className="bg-gray-100 p-4 text-center shadow-lg w-full h-full flex flex-col justify-center">
                   <p className="text-sm font-medium text-gray-900 mb-1">
                     Formularz tymczasowo niedostępny
                   </p>
@@ -65,7 +65,7 @@ export default function HomePage() {
                 href="#"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-gray-100 rounded-lg p-4 m-4 text-center shadow-lg">
+                <div className="bg-gray-100 p-4 text-center shadow-lg w-full h-full flex flex-col justify-center">
                   <p className="text-sm font-medium text-gray-900 mb-1">
                     Formularz tymczasowo niedostępny
                   </p>
