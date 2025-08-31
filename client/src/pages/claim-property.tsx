@@ -13,7 +13,7 @@ export default function ClaimPropertyPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <Link href="/">
-              <Button variant="ghost" className="mb-4" data-testid="button-back">
+              <Button variant="outline" className="mb-4" data-testid="button-back">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Powrót do kategorii
               </Button>
