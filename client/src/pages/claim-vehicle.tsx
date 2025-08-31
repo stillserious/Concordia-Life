@@ -1,4 +1,4 @@
-import { ArrowLeft, Shield, FileText } from "lucide-react";
+import { ArrowLeft, Shield, FileText, Clock } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -66,12 +66,17 @@ export default function ClaimVehiclePage() {
                 iconClassName="category-icon-property"
                 href="#"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-orange-100 p-4 my-4 text-center shadow-lg w-full">
-                  <p className="text-sm font-medium text-black mb-1">
+              <div className="absolute inset-0 bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center cursor-not-allowed">
+                <div className="bg-blue-50 border border-blue-200 p-6 mx-4 text-center rounded-xl shadow-lg max-w-sm">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-blue-600" />
+                    </div>
+                  </div>
+                  <h3 className="text-base font-semibold text-blue-900 mb-2">
                     Formularz tymczasowo niedostępny
-                  </p>
-                  <p className="text-xs text-black">
+                  </h3>
+                  <p className="text-sm text-blue-700">
                     Skontaktuj się z nami telefonicznie
                   </p>
                 </div>
