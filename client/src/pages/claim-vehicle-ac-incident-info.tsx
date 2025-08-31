@@ -232,6 +232,11 @@ export default function ClaimVehicleACIncidentInfo() {
                               testId="card-fault-participant"
                             />
                           </div>
+                          <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                            <p className="text-sm text-blue-800">
+                              <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
+                            </p>
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
