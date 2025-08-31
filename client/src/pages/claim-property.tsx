@@ -12,12 +12,14 @@ export default function ClaimPropertyPage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <Link href="/">
-              <Button variant="outline" className="mb-4" data-testid="button-back" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Powrót do kategorii
-              </Button>
-            </Link>
+            <div className="flex items-center justify-end gap-4 pt-4 mb-4">
+              <Link href="/">
+                <Button variant="outline" data-testid="button-back" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Cofnij
+                </Button>
+              </Link>
+            </div>
             
             <h1 className="text-2xl font-bold text-gray-900 mb-2" data-testid="page-title">
               Zgłoszenie szkody - Majątek
