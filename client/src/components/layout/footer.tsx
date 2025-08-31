@@ -54,7 +54,12 @@ export default function Footer() {
                   <Mail className="w-4 h-4 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-700">kontakt@concordialife.pl</p>
+                  <a 
+                    href="mailto:kontakt@concordialife.pl"
+                    className="text-sm text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    kontakt@concordialife.pl
+                  </a>
                 </div>
               </div>
             </div>
