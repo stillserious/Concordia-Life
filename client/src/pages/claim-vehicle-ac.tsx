@@ -117,7 +117,9 @@ export default function ClaimVehicleACPage() {
                             slotProps={{
                               textField: {
                                 error: false,
-                                placeholder: "Wybierz datę zdarzenia",
+                                InputProps: {
+                                  placeholder: "Wybierz datę zdarzenia"
+                                },
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -133,10 +135,9 @@ export default function ClaimVehicleACPage() {
                                       borderColor: 'hsl(207, 90%, 54%)',
                                     },
                                   },
-                                  '& .MuiInputLabel-root': {
-                                    '@media (max-width: 768px)': {
-                                      display: 'none',
-                                    },
+                                  '& .MuiInputBase-input::placeholder': {
+                                    color: '#9ca3af',
+                                    opacity: 1
                                   }
                                 }
                               }
@@ -163,7 +164,9 @@ export default function ClaimVehicleACPage() {
                             slotProps={{
                               textField: {
                                 error: false,
-                                placeholder: "Wybierz godzinę zdarzenia",
+                                InputProps: {
+                                  placeholder: "Wybierz godzinę zdarzenia"
+                                },
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -180,14 +183,10 @@ export default function ClaimVehicleACPage() {
                                       borderWidth: '2px !important',
                                     },
                                   },
-                                  '& .MuiInputLabel-root': {
-                                    '&.Mui-focused': {
-                                      color: 'hsl(207, 90%, 54%) !important',
-                                    },
-                                    '@media (max-width: 768px)': {
-                                      display: 'none',
-                                    },
-                                  },
+                                  '& .MuiInputBase-input::placeholder': {
+                                    color: '#9ca3af',
+                                    opacity: 1
+                                  }
                                 }
                               }
                             }}
