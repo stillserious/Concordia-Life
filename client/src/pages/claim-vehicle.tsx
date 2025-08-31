@@ -13,13 +13,6 @@ export default function ClaimVehiclePage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <Link href="/">
-              <Button variant="ghost" className="mb-4" data-testid="button-back">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Powrót do kategorii
-              </Button>
-            </Link>
-            
             <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="page-title">
               Zgłoszenie szkody - Pojazdy
             </h1>
@@ -28,7 +21,7 @@ export default function ClaimVehiclePage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <CategoryCard
               category="ac"
               title="Moje ubezpieczenie"
@@ -46,6 +39,15 @@ export default function ClaimVehiclePage() {
               iconClassName="category-icon-property"
               href="/claim/vehicle/sprawca"
             />
+          </div>
+
+          <div className="text-center">
+            <Link href="/">
+              <Button className="insurance-button" data-testid="button-back">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Powrót do kategorii
+              </Button>
+            </Link>
           </div>
         </div>
       </main>
