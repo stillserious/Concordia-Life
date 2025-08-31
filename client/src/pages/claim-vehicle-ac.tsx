@@ -209,8 +209,8 @@ export default function ClaimVehicleACPage() {
                       <FormControl>
                         <TextField
                           {...field}
-                          label="np. WA 12345"
-                          placeholder="np. WA 12345"
+                          label="Nr rejestracyjny pojazdu"
+                          placeholder="Nr rejestracyjny pojazdu"
                           inputProps={{ 'data-testid': 'input-license-plate' }}
                           fullWidth
                           sx={{
