@@ -19,11 +19,11 @@ export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-6xl mx-auto px-4 py-4 md:px-6 md:py-6">
-        <div className="flex flex-col space-y-6 md:grid md:grid-cols-3 md:gap-8 md:space-y-0 md:justify-items-start md:max-w-4xl md:mx-auto">
+        <div className="flex flex-col space-y-6 md:grid md:grid-cols-3 md:gap-8 md:space-y-0 md:justify-items-center md:max-w-4xl md:mx-auto">
           {/* Kontakt */}
-          <div className="space-y-3 text-left w-full">
+          <div className="space-y-3 text-left md:text-center w-full">
             <div 
-              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
+              className="flex justify-between items-center md:justify-center cursor-pointer md:cursor-default"
               onClick={() => toggleSection('kontakt')}
             >
               <h3 className="text-sm font-semibold text-gray-900 mb-2">Kontakt</h3>
@@ -56,9 +56,9 @@ export default function Footer() {
           </div>
 
           {/* Godziny pracy */}
-          <div className="space-y-3 text-left w-full">
+          <div className="space-y-3 text-left md:text-center w-full">
             <div 
-              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
+              className="flex justify-between items-center md:justify-center cursor-pointer md:cursor-default"
               onClick={() => toggleSection('godziny')}
             >
               <h3 className="text-sm font-semibold text-gray-900 mb-2">Godziny pracy</h3>
@@ -84,9 +84,9 @@ export default function Footer() {
           </div>
 
           {/* Bezpieczeństwo */}
-          <div className="space-y-3 text-left w-full">
+          <div className="space-y-3 text-left md:text-center w-full">
             <div 
-              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
+              className="flex justify-between items-center md:justify-center cursor-pointer md:cursor-default"
               onClick={() => toggleSection('bezpieczenstwo')}
             >
               <h3 className="text-sm font-semibold text-gray-900 mb-2">Bezpieczeństwo</h3>
