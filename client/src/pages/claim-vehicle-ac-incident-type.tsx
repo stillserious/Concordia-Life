@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
-import { DirectionsCar, Warning, Pets, Security } from "@mui/icons-material";
+import collisionVehicleIcon from "@assets/zderzenie z pojazdem_1756675500604.png";
+import collisionObjectIcon from "@assets/zderzenie z przedmiotem_1756675500604.png";
+import collisionAnimalIcon from "@assets/zderzenie ze zwierzeciem_1756675500602.png";
+import theftPartsIcon from "@assets/kradziez czesci_1756675500603.png";
 import { useLocation } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -58,7 +61,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="collision-vehicle"
                 title="Zderzenie z pojazdem w ruchu"
                 description="Kolizja z innym pojazdem podczas jazdy. Obejmuje zderzenia na skrzyżowaniach, wyprzedzaniu i innych sytuacjach drogowych."
-                icon={<DirectionsCar sx={{ fontSize: 16 }} />}
+                icon={<img src={collisionVehicleIcon} alt="Zderzenie z pojazdem" className="w-4 h-4" />}
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/collision-vehicle"
                 size="small"
@@ -69,7 +72,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="collision-object"
                 title="Zderzenie z przedmiotem"
                 description="Kolizja z nieruchomym obiektem jak bariera, słup, ściana, drzewo lub inne przeszkody na drodze."
-                icon={<Warning sx={{ fontSize: 16 }} />}
+                icon={<img src={collisionObjectIcon} alt="Zderzenie z przedmiotem" className="w-4 h-4" />}
                 iconClassName="category-icon-property"
                 href="/claim/vehicle/ac/collision-object"
                 size="small"
@@ -80,7 +83,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="collision-animal"
                 title="Zderzenie ze zwierzęciem"
                 description="Kolizja ze zwierzęciem na drodze. Obejmuje zderzenia z dzikimi zwierzętami i zwierzętami domowymi."
-                icon={<Pets sx={{ fontSize: 16 }} />}
+                icon={<img src={collisionAnimalIcon} alt="Zderzenie ze zwierzęciem" className="w-4 h-4" />}
                 iconClassName="category-icon-people"
                 href="/claim/vehicle/ac/collision-animal"
                 size="small"
@@ -91,7 +94,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="theft-parts"
                 title="Kradzież części"
                 description="Kradzież elementów pojazdu jak koła, lusterka, katalizator, akcesoria lub inne części samochodu."
-                icon={<Security sx={{ fontSize: 16 }} />}
+                icon={<img src={theftPartsIcon} alt="Kradzież części" className="w-4 h-4" />}
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/theft-parts"
                 size="small"
