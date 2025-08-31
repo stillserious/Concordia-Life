@@ -64,10 +64,10 @@ export default function ClaimVehicleACPage() {
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={pl}>
       <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
-      <ProgressBar 
-        currentStep={1} 
-        totalSteps={5} 
-        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
+      <ProgressBar
+        currentStep={1}
+        totalSteps={5}
+        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]}
         stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
       />
 
@@ -251,8 +251,8 @@ export default function ClaimVehicleACPage() {
                     </Button>
                   </Link>
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     disabled={isSubmitting}
                     className="insurance-button"
                     data-testid="button-submit-form"
