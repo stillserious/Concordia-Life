@@ -58,7 +58,7 @@ export default function CategoryCard({
 
         {showButton && (
           <div className="text-center mt-auto">
-            <div className={`bg-green-50 text-green-800 border border-green-200 hover:bg-green-100 w-full sm:w-auto rounded-lg font-medium ${
+            <div className={`insurance-button w-full sm:w-auto rounded-lg text-white font-medium ${
               size === "small" ? "px-3 py-1.5 text-sm" : "px-4 py-2"
             }`}>
               Zgłoś zdarzenie
