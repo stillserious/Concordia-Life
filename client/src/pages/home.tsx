@@ -11,7 +11,7 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
 
-      <main className="flex-1 flex items-center justify-center py-6 px-6">
+      <main className="flex-1 flex items-center justify-center py-8 px-6">
         <div className="max-w-5xl w-full text-center">
           {/* Welcome Section */}
           <section className="mb-8" data-testid="welcome-section">
