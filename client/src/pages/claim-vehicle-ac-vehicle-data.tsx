@@ -247,9 +247,9 @@ export default function ClaimVehicleACVehicleData() {
                 <Button 
                   type="submit" 
                   data-testid="button-submit"
-                  className="bg-blue-600 hover:bg-blue-700"
+                  className="insurance-button"
                 >
-                  Zakończ zgłoszenie
+                  Kontynuuj
                 </Button>
               </div>
             </form>
