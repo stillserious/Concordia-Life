@@ -237,13 +237,13 @@ export default function VanillaThreeCar({
         // Opona
         const wheel = new THREE.Mesh(wheelGeometry, wheelMaterial);
         wheel.position.set(x, y, z);
-        wheel.rotation.x = Math.PI / 2;
+        wheel.rotation.z = Math.PI / 2; // Obrót wokół osi Z zamiast X
         scene.add(wheel);
         
         // Felga
         const rim = new THREE.Mesh(rimGeometry, rimMaterial);
         rim.position.set(x, y, z);
-        rim.rotation.x = Math.PI / 2;
+        rim.rotation.z = Math.PI / 2; // Obrót wokół osi Z zamiast X
         scene.add(rim);
       });
 
