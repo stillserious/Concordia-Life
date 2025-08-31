@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
+import { Clock } from "lucide-react";
 
 import pojazdyIcon from "@assets/pojazdy_1756500953737.png";
 import majatekIcon from "@assets/Majatek_1756500953736.png";
@@ -43,12 +44,21 @@ export default function HomePage() {
                 iconClassName="category-icon-property"
                 href="#"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-orange-100 p-4 my-4 text-center shadow-lg w-full">
-                  <p className="text-sm font-medium text-black mb-1">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center cursor-not-allowed">
+                {/* Wyblurowany kafelek w tle */}
+                <div className="absolute inset-0 bg-gray-100 bg-opacity-80 backdrop-blur-md rounded-2xl transition-none"></div>
+                
+                {/* Zawartość overlay */}
+                <div className="relative bg-white border border-blue-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-blue-600" />
+                    </div>
+                  </div>
+                  <h3 className="text-base font-semibold text-blue-900 mb-2">
                     Formularz tymczasowo niedostępny
-                  </p>
-                  <p className="text-xs text-black">
+                  </h3>
+                  <p className="text-sm text-blue-700">
                     Skontaktuj się z nami telefonicznie
                   </p>
                 </div>
@@ -64,12 +74,21 @@ export default function HomePage() {
                 iconClassName="category-icon-people"
                 href="#"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-orange-100 p-4 my-4 text-center shadow-lg w-full">
-                  <p className="text-sm font-medium text-black mb-1">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center cursor-not-allowed">
+                {/* Wyblurowany kafelek w tle */}
+                <div className="absolute inset-0 bg-gray-100 bg-opacity-80 backdrop-blur-md rounded-2xl transition-none"></div>
+                
+                {/* Zawartość overlay */}
+                <div className="relative bg-white border border-blue-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-blue-600" />
+                    </div>
+                  </div>
+                  <h3 className="text-base font-semibold text-blue-900 mb-2">
                     Formularz tymczasowo niedostępny
-                  </p>
-                  <p className="text-xs text-black">
+                  </h3>
+                  <p className="text-sm text-blue-700">
                     Skontaktuj się z nami telefonicznie
                   </p>
                 </div>
