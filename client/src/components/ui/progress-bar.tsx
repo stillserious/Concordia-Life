@@ -20,7 +20,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
         ></div>
       </div>
       
-      <div className="max-w-4xl mx-auto px-6 pt-3 pb-1">
+      <div className="max-w-4xl mx-auto px-6 pt-3 pb-1 md:pb-4">
         {/* Mobile: Visual progress with circles */}
         <div className="md:hidden py-2">
           <div className="flex items-center justify-center max-w-xs mx-auto">
