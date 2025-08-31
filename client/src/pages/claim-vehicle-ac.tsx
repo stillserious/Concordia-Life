@@ -165,6 +165,7 @@ export default function ClaimVehicleACPage() {
                             slotProps={{
                               textField: {
                                 error: false,
+                                placeholder: "Wybierz godzinę zdarzenia",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -184,6 +185,9 @@ export default function ClaimVehicleACPage() {
                                   '& .MuiInputLabel-root': {
                                     '&.Mui-focused': {
                                       color: 'hsl(207, 90%, 54%) !important',
+                                    },
+                                    '@media (max-width: 768px)': {
+                                      display: 'none',
                                     },
                                   },
                                 }
