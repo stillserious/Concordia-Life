@@ -78,6 +78,7 @@ export default function ClaimVehicleACCollisionVehiclePage() {
         description: "Przechodzę do danych pojazdu...",
       });
       
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       setLocation("/claim/vehicle/ac/vehicle-data");
       
     } catch (error) {
@@ -673,7 +674,7 @@ export default function ClaimVehicleACCollisionVehiclePage() {
 
 
                 <div className="flex items-center justify-end gap-4 pt-4">
-                  <Link href="/claim/vehicle/ac/incident-type">
+                  <Link href="/claim/vehicle/ac/incident-type" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <Button variant="outline" data-testid="button-back">
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Cofnij

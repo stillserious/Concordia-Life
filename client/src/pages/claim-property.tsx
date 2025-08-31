@@ -12,7 +12,7 @@ export default function ClaimPropertyPage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <Link href="/">
+            <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <Button variant="outline" className="mb-4" data-testid="button-back">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Powrót do kategorii
@@ -35,7 +35,7 @@ export default function ClaimPropertyPage() {
               <p className="text-gray-600 mb-8" data-testid="form-placeholder-description">
                 Tutaj będzie znajdować się formularz zgłoszenia szkody majątkowej z wszystkimi niezbędnymi polami.
               </p>
-              <Link href="/">
+              <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <Button data-testid="button-return">
                   Wróć do strony głównej
                 </Button>

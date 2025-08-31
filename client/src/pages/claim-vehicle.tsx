@@ -54,7 +54,7 @@ export default function ClaimVehiclePage() {
           </div>
 
           <div className="text-center">
-            <Link href="/">
+            <Link href="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <Button variant="outline" data-testid="button-back">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Powrót do kategorii

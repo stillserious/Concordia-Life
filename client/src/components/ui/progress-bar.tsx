@@ -23,9 +23,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       <div className="max-w-4xl mx-auto px-6 py-3">
         {/* Mobile: Visual progress with circles */}
         <div className="md:hidden py-2">
-          <div className="flex items-center justify-between px-2">
+          <div className="flex items-center justify-center max-w-xs mx-auto">
             {stepLabels?.map((label, index) => (
-              <div key={index} className="flex items-center flex-1">
+              <div key={index} className="flex items-center">
                 {/* Circle */}
                 <div 
                   className={`w-6 h-6 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 ${
@@ -37,6 +37,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
                       setLocation(stepRoutes[index]);
                     }
                   }}
@@ -52,7 +53,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`flex-1 h-0.5 mx-2 ${
+                  <div className={`w-8 h-0.5 mx-2 ${
                     index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
                   }`}></div>
                 )}
@@ -83,6 +84,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                 onClick={() => {
                   if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                     setLocation(stepRoutes[index]);
                   }
                 }}

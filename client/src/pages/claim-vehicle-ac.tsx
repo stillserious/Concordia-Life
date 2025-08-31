@@ -51,6 +51,7 @@ export default function ClaimVehicleACPage() {
       console.log("Dane formularza AC:", data);
 
       // Po pomyślnym wysłaniu, przekieruj do wyboru typu zdarzenia
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       setLocation("/claim/vehicle/ac/incident-type");
 
     } catch (error) {
@@ -244,7 +245,7 @@ export default function ClaimVehicleACPage() {
                 </div>
 
                 <div className="flex items-center justify-end gap-4 pt-4">
-                  <Link href="/claim/vehicle">
+                  <Link href="/claim/vehicle" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <Button variant="outline" data-testid="button-back">
                       <ArrowLeft className="w-4 h-4 mr-2" />
                       Cofnij

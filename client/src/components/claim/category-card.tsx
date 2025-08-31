@@ -23,7 +23,7 @@ export default function CategoryCard({
   showButton = true
 }: CategoryCardProps) {
   return (
-    <Link href={href}>
+    <Link href={href} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
       <div
         className={`${
           size === "small"
