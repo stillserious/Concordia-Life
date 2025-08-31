@@ -113,13 +113,12 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
+                            label="Wybierz datę zdarzenia"
                             closeOnSelect
                             slotProps={{
                               textField: {
                                 error: false,
-                                InputProps: {
-                                  placeholder: "Wybierz datę zdarzenia"
-                                },
+                                placeholder: "Wybierz datę zdarzenia",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -135,9 +134,10 @@ export default function ClaimVehicleACPage() {
                                       borderColor: 'hsl(207, 90%, 54%)',
                                     },
                                   },
-                                  '& .MuiInputBase-input::placeholder': {
-                                    color: '#9ca3af',
-                                    opacity: 1
+                                  '& .MuiInputLabel-root': {
+                                    '@media (max-width: 768px)': {
+                                      display: 'none',
+                                    },
                                   }
                                 }
                               }
@@ -159,14 +159,13 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
+                            label="Wybierz godzinę zdarzenia"
                             ampm={false}
                             closeOnSelect
                             slotProps={{
                               textField: {
                                 error: false,
-                                InputProps: {
-                                  placeholder: "Wybierz godzinę zdarzenia"
-                                },
+                                placeholder: "Wybierz godzinę zdarzenia",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -183,10 +182,14 @@ export default function ClaimVehicleACPage() {
                                       borderWidth: '2px !important',
                                     },
                                   },
-                                  '& .MuiInputBase-input::placeholder': {
-                                    color: '#9ca3af',
-                                    opacity: 1
-                                  }
+                                  '& .MuiInputLabel-root': {
+                                    '&.Mui-focused': {
+                                      color: 'hsl(207, 90%, 54%) !important',
+                                    },
+                                    '@media (max-width: 768px)': {
+                                      display: 'none',
+                                    },
+                                  },
                                 }
                               }
                             }}
