@@ -44,11 +44,11 @@ export default function HomePage() {
                 href="#"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-red-50 p-4 my-4 text-center shadow-lg w-full">
-                  <p className="text-sm font-medium text-red-900 mb-1">
+                <div className="bg-orange-100 p-4 my-4 text-center shadow-lg w-full">
+                  <p className="text-sm font-medium text-black mb-1">
                     Formularz tymczasowo niedostępny
                   </p>
-                  <p className="text-xs text-red-600">
+                  <p className="text-xs text-black">
                     Przepraszamy za niedogodności
                   </p>
                 </div>
@@ -65,11 +65,11 @@ export default function HomePage() {
                 href="#"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-red-50 p-4 my-4 text-center shadow-lg w-full">
-                  <p className="text-sm font-medium text-red-900 mb-1">
+                <div className="bg-orange-100 p-4 my-4 text-center shadow-lg w-full">
+                  <p className="text-sm font-medium text-black mb-1">
                     Formularz tymczasowo niedostępny
                   </p>
-                  <p className="text-xs text-red-600">
+                  <p className="text-xs text-black">
                     Przepraszamy za niedogodności
                   </p>
                 </div>
