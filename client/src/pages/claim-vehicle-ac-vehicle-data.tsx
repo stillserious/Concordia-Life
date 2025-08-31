@@ -51,11 +51,6 @@ export default function ClaimVehicleACVehicleData() {
 
   const onSubmit = (data: VehicleDataFormData) => {
     console.log("Dane pojazdu:", data);
-    
-    toast({
-      title: "Dane pojazdu zapisane",
-      description: "Przechodzę do informacji o zdarzeniu...",
-    });
 
     setLocation("/claim/vehicle/ac/incident-info");
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
