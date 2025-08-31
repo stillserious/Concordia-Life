@@ -81,24 +81,11 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
 
         {/* Desktop: Compact step indicators */}
         <div className="hidden md:flex flex-col py-2">
-          {/* Circles with lines row */}
-          <div className="relative flex justify-between items-start w-full mb-2">
-            {/* Connecting lines behind circles - positioned at middle of circles */}
-            <div className="absolute top-1.5 left-0 right-0 flex items-center transform -translate-y-px">
-              <div className="flex w-full">
-                {stepLabels?.slice(0, -1).map((_, index) => (
-                  <div key={index} className="flex-1 flex items-center">
-                    <div className={`w-full h-px transition-all duration-300 ${
-                      index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
-                    }`}></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
+          {/* Circles only - no connecting lines */}
+          <div className="flex justify-between items-start w-full mb-2">
             {/* Circles */}
             {stepLabels?.map((label, index) => (
-              <div key={index} className="relative flex flex-col items-center z-10">
+              <div key={index} className="flex flex-col items-center">
                 <div 
                   className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer ${
                     index < currentStep - 1
