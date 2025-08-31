@@ -41,7 +41,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">606 302 302</p>
+                  <p className="text-sm font-medium text-gray-900">+48 22 820 02 20</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -77,7 +77,7 @@ export default function Footer() {
                 </div>
                 <div className="space-y-1">
                   <p className="text-sm font-medium text-gray-900">Infolinia</p>
-                  <p className="text-sm text-gray-600">24h/7dni</p>
+                  <p className="text-sm text-gray-600">Całodobowo, 7 dni w tygodniu</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function Footer() {
                   <Shield className="w-4 h-4 text-blue-600 mt-0.5" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium text-gray-900">Dane bezpieczne</p>
+                  <p className="text-sm font-medium text-gray-900">Twoje dane są bezpieczne</p>
                   <p className="text-sm text-gray-600">Szyfrowanie SSL/TLS</p>
                 </div>
               </div>

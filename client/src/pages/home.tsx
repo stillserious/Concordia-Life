@@ -17,7 +17,7 @@ export default function HomePage() {
           {/* Welcome Section */}
           <section className="mb-12" data-testid="welcome-section">
             <h1 className="text-2xl font-bold text-gray-900 mb-1.5 leading-tight" data-testid="greeting">
-              Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
+              Rozpocznij zgłoszenie szkody. Wybierz, czego dotyczy zdarzenie.
             </h1>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
               Zgłoszenie wniosku zajmie Ci około 10 minut.
