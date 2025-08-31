@@ -87,11 +87,6 @@ export default function ClaimVehicleACCollisionVehiclePage() {
     try {
       console.log("Dane formularza zderzenia z pojazdem:", data);
       
-      toast({
-        title: "Dane zapisane!",
-        description: "Przechodzę do danych pojazdu...",
-      });
-      
       setLocation("/claim/vehicle/ac/vehicle-data");
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
       
