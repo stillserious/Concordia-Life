@@ -80,9 +80,7 @@ export default function ClaimVehicleACPage() {
                 <span className="text-xl font-bold text-gray-800">AC</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
-                  Moje ubezpieczenie (AC)
-                </h1>
+                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">Moje ubezpieczenie</h1>
                 <p className="text-gray-600">
                   Zgłaszasz szkodę z ubezpieczenia autocasco.
                 </p>
