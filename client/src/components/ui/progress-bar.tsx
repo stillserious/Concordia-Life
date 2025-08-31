@@ -81,49 +81,30 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
 
         {/* Desktop: Compact step indicators */}
         <div className="hidden md:flex flex-col py-2">
-          {/* Circles and lines row */}
-          <div className="flex items-center w-full mb-2">
+          {/* Circles with positioned lines */}
+          <div className="relative flex justify-between w-full mb-2">
             {stepLabels?.map((label, index) => (
-              <div key={index} className="flex items-center flex-1">
-                <div className="flex justify-center">
-                  <div 
-                    className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer ${
-                      index < currentStep - 1
-                        ? "bg-blue-600"
-                        : index === currentStep - 1
-                        ? "bg-blue-600"
-                        : "bg-gray-300"
-                    } ${stepRoutes && index !== currentStep - 1 ? "hover:scale-110" : ""}`}
-                    onClick={() => {
-                      if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
-                        setLocation(stepRoutes[index]);
-                        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-                      }
-                    }}
-                  ></div>
-                </div>
+              <div key={index} className="relative flex flex-col items-center">
+                <div 
+                  className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer z-10 ${
+                    index < currentStep - 1
+                      ? "bg-blue-600"
+                      : index === currentStep - 1
+                      ? "bg-blue-600"
+                      : "bg-gray-300"
+                  } ${stepRoutes && index !== currentStep - 1 ? "hover:scale-110" : ""}`}
+                  onClick={() => {
+                    if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
+                      setLocation(stepRoutes[index]);
+                      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                    }
+                  }}
+                ></div>
                 
-                {/* Connecting line at same level as circles */}
-                {index < stepLabels.length - 1 && (
-                  <div className={`flex-1 h-px mx-3 transition-all duration-300 ${
-                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
-                  }`}></div>
-                )}
-              </div>
-            ))}
-          </div>
-          
-          {/* Labels row */}
-          <div className="flex w-full">
-            {stepLabels?.map((label, index) => {
-              // Split label into words and break into two lines if needed
-              const words = label.split(' ');
-              const shouldBreak = words.length > 1;
-              
-              return (
-                <div key={index} className="flex-1 flex justify-center">
+                {/* Label directly under each circle */}
+                <div className="mt-2 text-xs text-center leading-tight">
                   <div 
-                    className={`text-xs text-center leading-tight transition-all duration-300 cursor-pointer ${
+                    className={`transition-all duration-300 cursor-pointer ${
                       index < currentStep - 1
                         ? "text-blue-600 hover:text-blue-700"
                         : index === currentStep - 1
@@ -137,18 +118,35 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                       }
                     }}
                   >
-                    {shouldBreak ? (
-                      <>
-                        <div>{words[0]}</div>
-                        <div>{words.slice(1).join(' ')}</div>
-                      </>
-                    ) : (
-                      <div>{label}</div>
-                    )}
+                    {(() => {
+                      // Split label into words and break into two lines if needed
+                      const words = label.split(' ');
+                      const shouldBreak = words.length > 1;
+                      
+                      return shouldBreak ? (
+                        <>
+                          <div>{words[0]}</div>
+                          <div>{words.slice(1).join(' ')}</div>
+                        </>
+                      ) : (
+                        <div>{label}</div>
+                      );
+                    })()}
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
+            
+            {/* Connecting lines behind circles */}
+            <div className="absolute top-1.5 left-0 right-0 flex items-center">
+              {stepLabels?.slice(0, -1).map((_, index) => (
+                <div key={index} className="flex-1 flex items-center">
+                  <div className={`w-full h-px transition-all duration-300 ${
+                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
+                  }`}></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
