@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
-      
+
       <main className="flex-1 flex items-center justify-center py-10 px-6">
         <div className="max-w-5xl w-full text-center">
           {/* Welcome Section */}
@@ -22,7 +22,7 @@ export default function HomePage() {
               Zajmie Ci to około 10 minut.
             </p>
           </section>
-          
+
           {/* Categories Grid */}
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 items-stretch" data-testid="categories-grid">
             <CategoryCard
@@ -33,7 +33,7 @@ export default function HomePage() {
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle"
             />
-            
+
             <div className="relative group">
               <CategoryCard
                 category="majatek"
@@ -44,7 +44,7 @@ export default function HomePage() {
                 href="#"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-white rounded-lg p-4 m-4 text-center shadow-lg">
+                <div className="bg-gray-100 rounded-lg p-4 m-4 text-center shadow-lg">
                   <p className="text-sm font-medium text-gray-900 mb-1">
                     Formularz tymczasowo niedostępny
                   </p>
@@ -54,7 +54,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative group">
               <CategoryCard
                 category="ludzie"
@@ -65,7 +65,7 @@ export default function HomePage() {
                 href="#"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
-                <div className="bg-white rounded-lg p-4 m-4 text-center shadow-lg">
+                <div className="bg-gray-100 rounded-lg p-4 m-4 text-center shadow-lg">
                   <p className="text-sm font-medium text-gray-900 mb-1">
                     Formularz tymczasowo niedostępny
                   </p>
@@ -78,7 +78,7 @@ export default function HomePage() {
           </section>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );
