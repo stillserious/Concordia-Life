@@ -11,7 +11,7 @@ export default function Header() {
               <img 
                 src={logoImage} 
                 alt="ConcordiaLife" 
-                className="h-16 w-auto"
+                className="h-18 w-auto"
               />
             </div>
           </Link>
