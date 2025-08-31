@@ -21,9 +21,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-4 md:px-6 md:py-6">
         <div className="flex flex-col space-y-6 md:grid md:grid-cols-3 md:gap-4 md:space-y-0 md:justify-items-center">
           {/* Kontakt */}
-          <div className="space-y-3 text-left md:text-center w-full">
+          <div className="space-y-3 text-left w-full">
             <div 
-              className="flex justify-between items-center md:justify-center cursor-pointer md:cursor-default"
+              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('kontakt')}
             >
               <h3 className="text-sm font-semibold text-gray-900 mb-2">Kontakt</h3>
@@ -36,7 +36,7 @@ export default function Footer() {
               </div>
             </div>
             <div className={`space-y-2 md:block ${openSections.kontakt ? 'block' : 'hidden'}`}>
-              <div className="flex items-center space-x-3 md:justify-center" data-testid="footer-phone">
+              <div className="flex items-center space-x-3" data-testid="footer-phone">
                 <div className="flex-shrink-0">
                   <Phone className="w-4 h-4 text-blue-600" />
                 </div>
@@ -44,7 +44,7 @@ export default function Footer() {
                   <p className="text-sm font-medium text-gray-900">606 302 302</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3 md:justify-center">
+              <div className="flex items-center space-x-3">
                 <div className="flex-shrink-0">
                   <Mail className="w-4 h-4 text-blue-600" />
                 </div>
@@ -56,9 +56,9 @@ export default function Footer() {
           </div>
 
           {/* Godziny pracy */}
-          <div className="space-y-3 text-left md:text-center w-full">
+          <div className="space-y-3 text-left w-full">
             <div 
-              className="flex justify-between items-center md:justify-center cursor-pointer md:cursor-default"
+              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('godziny')}
             >
               <h3 className="text-sm font-semibold text-gray-900 mb-2">Godziny pracy</h3>
@@ -71,7 +71,7 @@ export default function Footer() {
               </div>
             </div>
             <div className={`md:block ${openSections.godziny ? 'block' : 'hidden'}`}>
-              <div className="flex items-start space-x-3 md:justify-center">
+              <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
                   <Clock className="w-4 h-4 text-blue-600 mt-0.5" />
                 </div>
@@ -84,9 +84,9 @@ export default function Footer() {
           </div>
 
           {/* Bezpieczeństwo */}
-          <div className="space-y-3 text-left md:text-center w-full">
+          <div className="space-y-3 text-left w-full">
             <div 
-              className="flex justify-between items-center md:justify-center cursor-pointer md:cursor-default"
+              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('bezpieczenstwo')}
             >
               <h3 className="text-sm font-semibold text-gray-900 mb-2">Bezpieczeństwo</h3>
@@ -99,7 +99,7 @@ export default function Footer() {
               </div>
             </div>
             <div className={`md:block ${openSections.bezpieczenstwo ? 'block' : 'hidden'}`}>
-              <div className="flex items-start space-x-3 md:justify-center">
+              <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
                   <Shield className="w-4 h-4 text-blue-600 mt-0.5" />
                 </div>
