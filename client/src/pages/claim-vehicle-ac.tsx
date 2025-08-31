@@ -114,6 +114,7 @@ export default function ClaimVehicleACPage() {
                             value={value || null}
                             onChange={onChange}
                             label="Wybierz datę zdarzenia"
+                            closeOnSelect
                             slotProps={{
                               textField: {
                                 error: false,
@@ -139,7 +140,10 @@ export default function ClaimVehicleACPage() {
                                     },
                                   },
                                 }
-                              }
+                              },
+                              actionBar: {
+                                actions: [],
+                              },
                             }}
                           />
                         </FormControl>
