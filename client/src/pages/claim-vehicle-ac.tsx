@@ -119,14 +119,18 @@ export default function ClaimVehicleACPage() {
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
                               todayButtonLabel: 'Dzisiaj',
+                              openDatePickerDialogue: (value, utils) => value !== null && utils.isValid(value) ? `Wybierz datę, wybrana data to ${utils.format(value, 'fullDate')}` : 'Wybierz datę',
                               fieldDayPlaceholder: () => 'DD',
                               fieldMonthPlaceholder: () => 'MM',
                               fieldYearPlaceholder: () => 'RRRR',
+                              openPreviousView: 'Otwórz poprzedni widok',
+                              openNextView: 'Otwórz następny widok',
+                              calendarViewSwitchingButtonAriaLabel: (view) => view === 'year' ? 'widok roku, przełącz na widok kalendarza' : 'widok kalendarza, przełącz na widok roku',
                             }}
                             slotProps={{
                               textField: {
                                 error: false,
-                                placeholder: "Wybierz datę zdarzenia",
+                                placeholder: "dd/mm/rrrr",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -173,13 +177,14 @@ export default function ClaimVehicleACPage() {
                               cancelButtonLabel: 'Anuluj',
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
+                              openTimePickerDialogue: (value, utils) => value !== null && utils.isValid(value) ? `Wybierz godzinę, wybrana godzina to ${utils.format(value, 'fullTime')}` : 'Wybierz godzinę',
                               fieldHoursPlaceholder: () => 'GG',
                               fieldMinutesPlaceholder: () => 'MM',
                             }}
                             slotProps={{
                               textField: {
                                 error: false,
-                                placeholder: "Wybierz godzinę zdarzenia",
+                                placeholder: "gg:mm",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
