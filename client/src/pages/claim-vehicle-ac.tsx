@@ -27,7 +27,7 @@ type ACFormData = z.infer<typeof acFormSchema>;
 
 export default function ClaimVehicleACPage() {
   const [, setLocation] = useLocation();
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -45,14 +45,14 @@ export default function ClaimVehicleACPage() {
 
   const onSubmit = async (data: ACFormData) => {
     setIsSubmitting(true);
-    
+
     try {
       // Tutaj będzie logika wysyłania danych do backend'u
       console.log("Dane formularza AC:", data);
-      
+
       // Po pomyślnym wysłaniu, przekieruj do wyboru typu zdarzenia
       setLocation("/claim/vehicle/ac/incident-type");
-      
+
     } catch (error) {
       console.error("Błąd podczas wysyłania:", error);
     } finally {
@@ -70,7 +70,7 @@ export default function ClaimVehicleACPage() {
         stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
         stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
       />
-      
+
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
@@ -250,7 +250,7 @@ export default function ClaimVehicleACPage() {
                       Cofnij
                     </Button>
                   </Link>
-                  
+
                   <Button 
                     type="submit" 
                     disabled={isSubmitting}
@@ -266,7 +266,7 @@ export default function ClaimVehicleACPage() {
 
         </div>
       </main>
-      
+
         <Footer />
       </div>
     </LocalizationProvider>
