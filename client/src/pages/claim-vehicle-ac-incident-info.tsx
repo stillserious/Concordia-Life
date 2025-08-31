@@ -22,8 +22,8 @@ const incidentInfoFormSchema = z.object({
   incidentDescription: z.string().min(1, { message: "Opis zdarzenia jest wymagany" }),
   faultCause: z.enum(["inna_przyczyna", "drugi_uczestnik"], { message: "Wybierz sprawcę zdarzenia" }),
   perpetratorInfo: z.string().optional(),
-  perpetratorLeft: z.enum(["tak", "nie", "nie_wiem"], { message: "Wybierz czy sprawca odjechał" }).optional(),
-  hasWitnesses: z.enum(["tak", "nie", "nie_wiem"], { message: "Wybierz czy są świadkowie" }).optional(),
+  perpetratorLeft: z.enum(["tak", "nie"], { message: "Wybierz czy sprawca odjechał" }).optional(),
+  hasWitnesses: z.enum(["tak", "nie"], { message: "Wybierz czy są świadkowie" }).optional(),
   policePresent: z.enum(["tak", "nie"], { message: "Wybierz czy była policja" }),
   vehicleTowed: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd był holowany" }),
   vehicleInGarage: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd jest w warsztacie" }),
@@ -300,7 +300,7 @@ export default function ClaimVehicleACIncidentInfo() {
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <SelectionCard
                                   value="tak"
                                   title="Tak"
@@ -314,13 +314,6 @@ export default function ClaimVehicleACIncidentInfo() {
                                   isSelected={field.value === "nie"}
                                   onSelect={() => field.onChange("nie")}
                                   testId="card-perpetrator-left-no"
-                                />
-                                <SelectionCard
-                                  value="nie_wiem"
-                                  title="Nie wiem"
-                                  isSelected={field.value === "nie_wiem"}
-                                  onSelect={() => field.onChange("nie_wiem")}
-                                  testId="card-perpetrator-left-unknown"
                                 />
                               </div>
                             </FormControl>
@@ -340,7 +333,7 @@ export default function ClaimVehicleACIncidentInfo() {
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <SelectionCard
                                   value="tak"
                                   title="Tak"
@@ -354,13 +347,6 @@ export default function ClaimVehicleACIncidentInfo() {
                                   isSelected={field.value === "nie"}
                                   onSelect={() => field.onChange("nie")}
                                   testId="card-witnesses-no"
-                                />
-                                <SelectionCard
-                                  value="nie_wiem"
-                                  title="Nie wiem"
-                                  isSelected={field.value === "nie_wiem"}
-                                  onSelect={() => field.onChange("nie_wiem")}
-                                  testId="card-witnesses-unknown"
                                 />
                               </div>
                             </FormControl>
