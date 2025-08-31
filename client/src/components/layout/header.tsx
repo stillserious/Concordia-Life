@@ -1,3 +1,5 @@
+import logoImage from "@assets/LOGO_1756645859902.png";
+
 export default function Header() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -5,7 +7,7 @@ export default function Header() {
         <div className="flex items-center" data-testid="header-logo">
           <div className="flex items-center">
             <img 
-              src="/attached_assets/LOGO_1756645674690.png" 
+              src={logoImage} 
               alt="ConcordiaLife" 
               className="h-12 w-auto"
             />
