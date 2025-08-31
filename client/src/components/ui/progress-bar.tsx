@@ -40,7 +40,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 <div 
                   className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-300 ${
                     index < currentStep - 1
-                      ? "bg-green-600 text-white cursor-pointer hover:bg-green-700"
+                      ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
                       : index === currentStep - 1
                       ? "bg-blue-600 text-white"
                       : "bg-gray-300 text-gray-600 cursor-pointer hover:bg-gray-400"
@@ -64,7 +64,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
                   <div className={`w-8 h-0.5 mx-2 transition-all duration-300 ${
-                    index < currentStep - 1 ? "bg-green-600" : "bg-gray-300"
+                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
                   }`}></div>
                 )}
               </div>
@@ -87,7 +87,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 key={index}
                 className={`flex items-center space-x-2 text-xs transition-all duration-300 flex-1 ${
                   index < currentStep - 1
-                    ? "text-green-600 cursor-pointer hover:text-green-700"
+                    ? "text-blue-600 cursor-pointer hover:text-blue-700"
                     : index === currentStep - 1
                     ? "text-blue-600 font-medium"
                     : "text-gray-400 cursor-pointer hover:text-gray-600"
@@ -101,7 +101,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
               >
                 <div className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 ${
                   index < currentStep - 1
-                    ? "bg-green-600"
+                    ? "bg-blue-600"
                     : index === currentStep - 1
                     ? "bg-blue-600"
                     : "bg-gray-300"
