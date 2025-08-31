@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -32,7 +32,6 @@ type IncidentInfoFormData = z.infer<typeof incidentInfoFormSchema>;
 export default function ClaimVehicleACIncidentInfo() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const form = useForm<IncidentInfoFormData>({
     resolver: zodResolver(incidentInfoFormSchema),
@@ -221,35 +220,25 @@ export default function ClaimVehicleACIncidentInfo() {
                         <FormControl>
                           <div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div
-                                onMouseEnter={() => setHoveredCard("inna_przyczyna")}
-                                onMouseLeave={() => setHoveredCard(null)}
-                              >
-                                <SelectionCard
-                                  value="inna_przyczyna"
-                                  title="Inna przyczyna"
-                                  isSelected={field.value === "inna_przyczyna"}
-                                  onSelect={() => field.onChange("inna_przyczyna")}
-                                  testId="card-fault-other"
-                                />
-                              </div>
-                              <div
-                                onMouseEnter={() => setHoveredCard("drugi_uczestnik")}
-                                onMouseLeave={() => setHoveredCard(null)}
-                              >
-                                <SelectionCard
-                                  value="drugi_uczestnik"
-                                  title="Drugi uczestnik"
-                                  isSelected={field.value === "drugi_uczestnik"}
-                                  onSelect={() => field.onChange("drugi_uczestnik")}
-                                  testId="card-fault-participant"
-                                />
-                              </div>
+                              <SelectionCard
+                                value="inna_przyczyna"
+                                title="Inna przyczyna"
+                                isSelected={field.value === "inna_przyczyna"}
+                                onSelect={() => field.onChange("inna_przyczyna")}
+                                testId="card-fault-other"
+                              />
+                              <SelectionCard
+                                value="drugi_uczestnik"
+                                title="Drugi uczestnik"
+                                isSelected={field.value === "drugi_uczestnik"}
+                                onSelect={() => field.onChange("drugi_uczestnik")}
+                                testId="card-fault-participant"
+                              />
                             </div>
-                            {(hoveredCard || field.value) && (
+                            {field.value && (
                               <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                                 <p className="text-sm text-blue-800">
-                                  {(hoveredCard === "inna_przyczyna" || field.value === "inna_przyczyna") ? (
+                                  {field.value === "inna_przyczyna" ? (
                                     <span>
                                       <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
                                     </span>
