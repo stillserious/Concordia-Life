@@ -13,6 +13,7 @@ export default function ClaimVehiclePage() {
     "Wybór ubezpieczenia",
     "Podstawowe dane", 
     "Typ zdarzenia",
+    "Szczegóły zdarzenia",
     "Dane pojazdu",
     "Informacje o zdarzeniu"
   ];
@@ -21,6 +22,7 @@ export default function ClaimVehiclePage() {
     "/claim/vehicle",
     "/claim/vehicle/ac",
     "/claim/vehicle/ac/incident-type", 
+    "/claim/vehicle/ac/collision-vehicle",
     "/claim/vehicle/ac/vehicle-data",
     "/claim/vehicle/ac/incident-info"
   ];
@@ -31,7 +33,7 @@ export default function ClaimVehiclePage() {
       
       <ProgressBar 
         currentStep={1}
-        totalSteps={5}
+        totalSteps={6}
         stepLabels={stepLabels}
         stepRoutes={stepRoutes}
       />
