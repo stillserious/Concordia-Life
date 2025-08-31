@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 py-4 md:px-6 md:py-6">
+      <div className="max-w-6xl mx-auto px-4 py-3 md:px-6 md:py-4">
         <div className="flex flex-col space-y-6 md:grid md:grid-cols-3 md:gap-8 md:space-y-0 md:justify-items-center md:max-w-4xl md:mx-auto">
           {/* Kontakt */}
           <div className="space-y-3 text-left w-full">
