@@ -3,12 +3,12 @@ import { Phone, Mail, Clock, Shield } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Kontakt */}
-          <div className="space-y-4">
-            <h3 className="text-base font-semibold text-gray-900 mb-3">Kontakt</h3>
-            <div className="space-y-2">
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-gray-900 mb-2">Kontakt</h3>
+            <div className="space-y-1">
               <div className="flex items-center space-x-3" data-testid="footer-phone">
                 <div className="flex-shrink-0">
                   <Phone className="w-5 h-5 text-blue-600" />
@@ -30,8 +30,8 @@ export default function Footer() {
           </div>
 
           {/* Godziny pracy */}
-          <div className="space-y-4">
-            <h3 className="text-base font-semibold text-gray-900 mb-3">Godziny pracy</h3>
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-gray-900 mb-2">Godziny pracy</h3>
             <div className="flex items-start space-x-3">
               <div className="flex-shrink-0">
                 <Clock className="w-5 h-5 text-blue-600" />
@@ -45,8 +45,8 @@ export default function Footer() {
           </div>
 
           {/* Bezpieczeństwo */}
-          <div className="space-y-4">
-            <h3 className="text-base font-semibold text-gray-900 mb-3">Bezpieczeństwo</h3>
+          <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-gray-900 mb-2">Bezpieczeństwo</h3>
             <div className="flex items-start space-x-3">
               <div className="flex-shrink-0">
                 <Shield className="w-5 h-5 text-blue-600" />
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-200 mt-6 pt-4">
+        <div className="border-t border-gray-200 mt-4 pt-3">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-sm text-gray-600">
               © 2025 System zgłaszania szkód ubezpieczeniowych. Wszystkie prawa zastrzeżone.
