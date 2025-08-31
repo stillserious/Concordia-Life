@@ -41,7 +41,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">606 883 506</p>
+                  <p className="text-sm font-medium text-gray-900">606 302 302</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3 md:justify-center">
