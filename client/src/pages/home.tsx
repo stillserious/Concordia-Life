@@ -49,18 +49,18 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-2xl group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
                 
                 {/* Zawartość overlay */}
-                <div className="relative bg-white border border-blue-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
+                <div className="relative bg-white border border-amber-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-amber-600" />
                     </div>
                   </div>
-                  <h3 className="text-base font-semibold text-blue-900 mb-2">
+                  <h3 className="text-base font-semibold text-amber-900 mb-2">
                     Formularz tymczasowo niedostępny
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="text-sm text-blue-700 underline cursor-pointer hover:text-blue-800 transition-colors"
+                    className="text-sm text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
                   >
                     Skontaktuj się z nami telefonicznie
                   </a>
@@ -82,18 +82,18 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-2xl group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
                 
                 {/* Zawartość overlay */}
-                <div className="relative bg-white border border-blue-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
+                <div className="relative bg-white border border-amber-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-amber-600" />
                     </div>
                   </div>
-                  <h3 className="text-base font-semibold text-blue-900 mb-2">
+                  <h3 className="text-base font-semibold text-amber-900 mb-2">
                     Formularz tymczasowo niedostępny
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="text-sm text-blue-700 underline cursor-pointer hover:text-blue-800 transition-colors"
+                    className="text-sm text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
                   >
                     Skontaktuj się z nami telefonicznie
                   </a>
