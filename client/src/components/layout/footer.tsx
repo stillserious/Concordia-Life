@@ -23,7 +23,7 @@ export default function Footer() {
                   <Mail className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-700">pomoc@concordialife.pl</p>
+                  <p className="text-sm text-gray-700">kontakt@concordialife.pl</p>
                 </div>
               </div>
             </div>
@@ -67,13 +67,13 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Polityka prywatności
+            
               </a>
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Regulamin
+         
               </a>
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-                Cookies
+           
               </a>
             </div>
           </div>
