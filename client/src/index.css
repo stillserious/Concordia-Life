@@ -181,18 +181,18 @@
   }
   
   .category-icon-vehicles {
-    background: var(--category-vehicles-bg);
-    color: var(--category-vehicles-color);
+    background: hsl(207 90% 90%);
+    color: hsl(207 90% 54%);
   }
   
   .category-icon-property {
-    background: var(--category-property-bg);
-    color: var(--category-property-color);
+    background: hsl(207 90% 90%);
+    color: hsl(207 90% 54%);
   }
   
   .category-icon-people {
-    background: var(--category-people-bg);
-    color: var(--category-people-color);
+    background: hsl(207 90% 90%);
+    color: hsl(207 90% 54%);
   }
 
   /* Input text color override */

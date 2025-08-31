@@ -36,7 +36,7 @@ export default function CategoryCard({
       >
         <div className={`mx-auto rounded-full flex items-center justify-center ${
           size === "small"
-            ? "w-10 h-10 mb-3 text-lg"
+            ? "w-14 h-14 mb-3 text-lg"
             : "w-20 h-20 mb-6 text-3xl"
         } ${iconClassName}`}>
           {icon}
