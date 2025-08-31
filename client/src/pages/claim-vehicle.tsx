@@ -43,7 +43,7 @@ export default function ClaimVehiclePage() {
 
           <div className="text-center">
             <Link href="/">
-              <Button className="insurance-button" data-testid="button-back">
+              <Button variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400" data-testid="button-back">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Powrót do kategorii
               </Button>
