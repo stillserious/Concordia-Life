@@ -144,11 +144,6 @@ export default function ClaimVehicleACPage() {
                                       borderColor: 'hsl(207, 90%, 54%)',
                                     },
                                   },
-                                  '& .MuiInputLabel-root': {
-                                    '@media (max-width: 768px)': {
-                                      display: 'none',
-                                    },
-                                  }
                                 }
                               }
                             }}
@@ -203,9 +198,6 @@ export default function ClaimVehicleACPage() {
                                   '& .MuiInputLabel-root': {
                                     '&.Mui-focused': {
                                       color: 'hsl(207, 90%, 54%) !important',
-                                    },
-                                    '@media (max-width: 768px)': {
-                                      display: 'none',
                                     },
                                   },
                                 }
