@@ -31,14 +31,26 @@ export default function ClaimVehiclePage() {
               href="/claim/vehicle/ac"
             />
             
-            <CategoryCard
-              category="sprawca"
-              title="Ubezpieczenie sprawcy"
-              description="Zgłoś szkodę z ubezpieczenia sprawcy zdarzenia. OC sprawcy pokrywa szkody powstałe w wyniku kolizji."
-              icon={<span className="text-2xl font-bold text-black">OC</span>}
-              iconClassName="category-icon-property"
-              href="/claim/vehicle/sprawca"
-            />
+            <div className="relative group">
+              <CategoryCard
+                category="sprawca"
+                title="Ubezpieczenie sprawcy"
+                description="Zgłoś szkodę z ubezpieczenia sprawcy zdarzenia. OC sprawcy pokrywa szkody powstałe w wyniku kolizji."
+                icon={<span className="text-2xl font-bold text-black">OC</span>}
+                iconClassName="category-icon-property"
+                href="#"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
+                <div className="bg-orange-100 p-4 my-4 text-center shadow-lg w-full">
+                  <p className="text-sm font-medium text-black mb-1">
+                    Formularz tymczasowo niedostępny
+                  </p>
+                  <p className="text-xs text-black">
+                    Skontaktuj się z nami telefonicznie
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="text-center">
