@@ -14,7 +14,7 @@ export default function ClaimVehiclePage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="page-title">
-              Zgłoszenie zdarzenia - Pojazdy
+              Zgłoszenie szkody pojazdu
             </h1>
             <p className="text-gray-600" data-testid="page-description">
               Wybierz typ ubezpieczenia, z którego chcesz zgłosić szkodę.
