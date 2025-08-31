@@ -208,18 +208,18 @@ export default function VanillaThreeCar({
       const frontWindshieldGeometry = new THREE.BoxGeometry(2.6, 1.2, 0.08, 3, 3, 1);
       const rearWindowGeometry = new THREE.BoxGeometry(2.4, 0.9, 0.08, 3, 3, 1);
       
-      // Przednia szyba - mocno pochylona do tyłu
+      // Przednia szyba - pochylona do tyłu jak w prawdziwym aucie
       const windshield = new THREE.Mesh(frontWindshieldGeometry, glassMaterial.clone());
       windshield.position.set(0, 1.1, -1.7);
-      windshield.rotation.x = -0.4; // Mocne nachylenie do tyłu jak w prawdziwym aucie
+      windshield.rotation.x = 0.4; // Poprawny kierunek - góra do tyłu
       windshield.userData = { partName: 'windshield' };
       scene.add(windshield);
       carParts.set('windshield', windshield);
 
-      // Tylna szyba - mniej pochylona, bardziej pionowa
+      // Tylna szyba - lekko pochylona do tyłu
       const rearWindow = new THREE.Mesh(rearWindowGeometry, glassMaterial.clone());
       rearWindow.position.set(0, 1.15, 1.8);
-      rearWindow.rotation.x = 0.25; // Umiarkowane nachylenie do przodu
+      rearWindow.rotation.x = 0.15; // Mniejsze nachylenie niż przednia
       rearWindow.userData = { partName: 'rear-window' };
       scene.add(rearWindow);
       carParts.set('rear-window', rearWindow);
