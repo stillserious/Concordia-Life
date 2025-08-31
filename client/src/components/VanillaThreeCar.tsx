@@ -127,102 +127,126 @@ export default function VanillaThreeCar({
       // Car parts z realistycznymi kształtami
       const carParts = new Map<CarPartName, THREE.Mesh>();
 
-      // Main body (główne nadwozie) - zaokrąglone
-      const bodyGeometry = new THREE.BoxGeometry(3.2, 1.4, 5.5, 4, 4, 4);
-      const body = new THREE.Mesh(bodyGeometry, new THREE.MeshPhongMaterial({ 
-        color: 0xE8F4FD, 
-        transparent: true, 
-        opacity: 0.4,
-        shininess: 200
-      }));
-      body.position.set(0, 0, 0);
+      // Main body (główne nadwozie) - realistyczne proporcje sedana
+      const bodyGeometry = new THREE.BoxGeometry(4.2, 1.0, 8, 4, 4, 4);
+      const body = new THREE.Mesh(bodyGeometry, carBodyMaterial.clone());
+      body.position.set(0, 0.3, 0);
+      body.userData = { partName: 'body' };
       scene.add(body);
+      carParts.set('body', body);
+      
+      // Kabina (greenhouse) - charakterystyczny kształt
+      const cabinGeometry = new THREE.BoxGeometry(3.8, 1.2, 4.5, 3, 3, 3);
+      const cabin = new THREE.Mesh(cabinGeometry, carBodyMaterial.clone());
+      cabin.position.set(0, 1.1, 0.2);
+      scene.add(cabin);
 
-      // Hood (maska) - zaokrąglona
-      const hoodGeometry = new THREE.BoxGeometry(2.8, 0.15, 1.8, 3, 1, 3);
+      // Hood (maska) - bardziej realistyczna
+      const hoodGeometry = new THREE.BoxGeometry(3.8, 0.8, 2.4, 3, 2, 3);
       const hood = new THREE.Mesh(hoodGeometry, carBodyMaterial.clone());
-      hood.position.set(0, 0.8, -2.6);
+      hood.position.set(0, 0.6, -2.8);
+      hood.rotation.x = -0.08; // Lekkie nachylenie
       hood.userData = { partName: 'hood' };
       scene.add(hood);
       carParts.set('hood', hood);
 
-      // Roof (dach) - lekko zaokrąglony
-      const roofGeometry = new THREE.BoxGeometry(2.9, 0.12, 3.5, 3, 1, 3);
+      // Roof (dach) - płynna linia
+      const roofGeometry = new THREE.BoxGeometry(3.6, 0.15, 4.2, 3, 1, 3);
       const roof = new THREE.Mesh(roofGeometry, carBodyMaterial.clone());
-      roof.position.set(0, 1.45, 0);
+      roof.position.set(0, 1.7, 0.2);
       roof.userData = { partName: 'roof' };
       scene.add(roof);
       carParts.set('roof', roof);
 
-      // Trunk (bagażnik) - zaokrąglony
-      const trunkGeometry = new THREE.BoxGeometry(2.6, 0.15, 1.4, 3, 1, 3);
+      // Trunk (bagażnik) - bardziej realistyczny
+      const trunkGeometry = new THREE.BoxGeometry(3.8, 0.7, 2.0, 3, 2, 3);
       const trunk = new THREE.Mesh(trunkGeometry, carBodyMaterial.clone());
-      trunk.position.set(0, 0.8, 2.7);
+      trunk.position.set(0, 0.6, 3.2);
+      trunk.rotation.x = 0.05; // Lekkie nachylenie
       trunk.userData = { partName: 'trunk' };
       scene.add(trunk);
       carParts.set('trunk', trunk);
 
-      // Doors (drzwi) - bardziej realistyczne
-      const doorGeometry = new THREE.BoxGeometry(0.12, 1.3, 1.7, 1, 3, 3);
+      // Doors (drzwi) - realistyczne pozycje
+      const doorGeometry = new THREE.BoxGeometry(0.1, 1.4, 1.9, 1, 3, 3);
       
       const frontDoorLeft = new THREE.Mesh(doorGeometry, carBodyMaterial.clone());
-      frontDoorLeft.position.set(-1.65, 0.3, -0.7);
+      frontDoorLeft.position.set(-2.15, 0.7, -0.8);
       frontDoorLeft.userData = { partName: 'front-door-left' };
       scene.add(frontDoorLeft);
       carParts.set('front-door-left', frontDoorLeft);
 
       const frontDoorRight = new THREE.Mesh(doorGeometry, carBodyMaterial.clone());
-      frontDoorRight.position.set(1.65, 0.3, -0.7);
+      frontDoorRight.position.set(2.15, 0.7, -0.8);
       frontDoorRight.userData = { partName: 'front-door-right' };
       scene.add(frontDoorRight);
       carParts.set('front-door-right', frontDoorRight);
 
       const rearDoorLeft = new THREE.Mesh(doorGeometry, carBodyMaterial.clone());
-      rearDoorLeft.position.set(-1.65, 0.3, 1.2);
+      rearDoorLeft.position.set(-2.15, 0.7, 1.3);
       rearDoorLeft.userData = { partName: 'rear-door-left' };
       scene.add(rearDoorLeft);
       carParts.set('rear-door-left', rearDoorLeft);
 
       const rearDoorRight = new THREE.Mesh(doorGeometry, carBodyMaterial.clone());
-      rearDoorRight.position.set(1.65, 0.3, 1.2);
+      rearDoorRight.position.set(2.15, 0.7, 1.3);
       rearDoorRight.userData = { partName: 'rear-door-right' };
       scene.add(rearDoorRight);
       carParts.set('rear-door-right', rearDoorRight);
 
-      // Bumpers (zderzaki) - zaokrąglone i lepsze proporcje
-      const frontBumperGeometry = new THREE.BoxGeometry(3.4, 0.4, 0.3, 4, 2, 1);
+      // Bumpers (zderzaki) - zintegrowane z nadwoziem
+      const frontBumperGeometry = new THREE.BoxGeometry(4.4, 0.5, 0.4, 4, 2, 1);
       const frontBumper = new THREE.Mesh(frontBumperGeometry, bumperMaterial.clone());
-      frontBumper.position.set(0, -0.2, -3.8);
+      frontBumper.position.set(0, 0, -4.2);
       frontBumper.userData = { partName: 'front-bumper' };
       scene.add(frontBumper);
       carParts.set('front-bumper', frontBumper);
 
-      const rearBumperGeometry = new THREE.BoxGeometry(3.4, 0.4, 0.3, 4, 2, 1);
+      const rearBumperGeometry = new THREE.BoxGeometry(4.4, 0.5, 0.4, 4, 2, 1);
       const rearBumper = new THREE.Mesh(rearBumperGeometry, bumperMaterial.clone());
-      rearBumper.position.set(0, -0.2, 3.8);
+      rearBumper.position.set(0, 0, 4.2);
       rearBumper.userData = { partName: 'rear-bumper' };
       scene.add(rearBumper);
       carParts.set('rear-bumper', rearBumper);
 
-      // Windshields (szyby) - realistyczne nachylenie
-      const frontWindshieldGeometry = new THREE.BoxGeometry(2.6, 1.2, 0.08, 3, 3, 1);
-      const rearWindowGeometry = new THREE.BoxGeometry(2.4, 0.9, 0.08, 3, 3, 1);
+      // Windshields (szyby) - realistyczne nachylenia jak w sedanie
+      const frontWindshieldGeometry = new THREE.BoxGeometry(3.6, 1.1, 0.05, 3, 3, 1);
+      const rearWindowGeometry = new THREE.BoxGeometry(3.4, 0.9, 0.05, 3, 3, 1);
       
-      // Przednia szyba - pochylona do tyłu jak w prawdziwym aucie
+      // Przednia szyba - mocno pochylona
       const windshield = new THREE.Mesh(frontWindshieldGeometry, glassMaterial.clone());
-      windshield.position.set(0, 1.1, -1.7);
-      windshield.rotation.x = 0.4; // Poprawny kierunek - góra do tyłu
+      windshield.position.set(0, 1.4, -1.5);
+      windshield.rotation.x = 0.45; // Charakterystyczne nachylenie sedana
       windshield.userData = { partName: 'windshield' };
       scene.add(windshield);
       carParts.set('windshield', windshield);
 
-      // Tylna szyba - lekko pochylona do tyłu
+      // Tylna szyba - średnie nachylenie
       const rearWindow = new THREE.Mesh(rearWindowGeometry, glassMaterial.clone());
-      rearWindow.position.set(0, 1.15, 1.8);
-      rearWindow.rotation.x = 0.15; // Mniejsze nachylenie niż przednia
+      rearWindow.position.set(0, 1.4, 2.4);
+      rearWindow.rotation.x = 0.25; // Typowe dla sedana
       rearWindow.userData = { partName: 'rear-window' };
       scene.add(rearWindow);
       carParts.set('rear-window', rearWindow);
+      
+      // Boczne szyby
+      const sideWindowGeometry = new THREE.BoxGeometry(0.05, 0.8, 1.7, 1, 2, 2);
+      
+      const leftFrontWindow = new THREE.Mesh(sideWindowGeometry, glassMaterial.clone());
+      leftFrontWindow.position.set(-2.05, 1.4, -0.8);
+      scene.add(leftFrontWindow);
+      
+      const rightFrontWindow = new THREE.Mesh(sideWindowGeometry, glassMaterial.clone());
+      rightFrontWindow.position.set(2.05, 1.4, -0.8);
+      scene.add(rightFrontWindow);
+      
+      const leftRearWindow = new THREE.Mesh(sideWindowGeometry, glassMaterial.clone());
+      leftRearWindow.position.set(-2.05, 1.4, 1.3);
+      scene.add(leftRearWindow);
+      
+      const rightRearWindow = new THREE.Mesh(sideWindowGeometry, glassMaterial.clone());
+      rightRearWindow.position.set(2.05, 1.4, 1.3);
+      scene.add(rightRearWindow);
 
       // Koła (wheels) - bardziej realistyczne
       const wheelGeometry = new THREE.CylinderGeometry(0.5, 0.5, 0.25, 20);
@@ -230,10 +254,10 @@ export default function VanillaThreeCar({
       const rimMaterial = new THREE.MeshPhongMaterial({ color: 0x777777, shininess: 200 });
       
       const wheelPositions = [
-        { pos: [-1.7, -0.4, -2.2], name: 'wheel-front-left' },
-        { pos: [1.7, -0.4, -2.2], name: 'wheel-front-right' },
-        { pos: [-1.7, -0.4, 2.2], name: 'wheel-rear-left' },
-        { pos: [1.7, -0.4, 2.2], name: 'wheel-rear-right' }
+        { pos: [-1.8, -0.3, -2.5], name: 'wheel-front-left' },
+        { pos: [1.8, -0.3, -2.5], name: 'wheel-front-right' },
+        { pos: [-1.8, -0.3, 2.5], name: 'wheel-rear-left' },
+        { pos: [1.8, -0.3, 2.5], name: 'wheel-rear-right' }
       ];
 
       wheelPositions.forEach(({ pos: [x, y, z], name }) => {
@@ -252,51 +276,57 @@ export default function VanillaThreeCar({
 
       // Detale samochodu
       
-      // Reflektory przednie
-      const headlightGeometry = new THREE.SphereGeometry(0.15, 12, 8);
+      // Reflektory przednie - większe i bardziej realistyczne
+      const headlightGeometry = new THREE.CylinderGeometry(0.3, 0.25, 0.15, 16);
       const headlightMaterial = new THREE.MeshPhongMaterial({ 
-        color: 0xFFFACD, 
+        color: 0xFFFFF0, 
         shininess: 300,
-        emissive: 0x111100
+        emissive: 0x333300,
+        transparent: true,
+        opacity: 0.9
       });
       
       const leftHeadlight = new THREE.Mesh(headlightGeometry, headlightMaterial);
-      leftHeadlight.position.set(-0.8, 0.2, -3.6);
+      leftHeadlight.position.set(-1.2, 0.4, -4.1);
+      leftHeadlight.rotation.x = Math.PI / 2;
       scene.add(leftHeadlight);
       
       const rightHeadlight = new THREE.Mesh(headlightGeometry, headlightMaterial);
-      rightHeadlight.position.set(0.8, 0.2, -3.6);
+      rightHeadlight.position.set(1.2, 0.4, -4.1);
+      rightHeadlight.rotation.x = Math.PI / 2;
       scene.add(rightHeadlight);
 
-      // Światła tylne
-      const taillightGeometry = new THREE.SphereGeometry(0.12, 12, 8);
+      // Światła tylne - charakterystyczne prostokąty
+      const taillightGeometry = new THREE.BoxGeometry(0.5, 0.3, 0.1, 2, 2, 1);
       const taillightMaterial = new THREE.MeshPhongMaterial({ 
-        color: 0xFF4444, 
+        color: 0xFF0000, 
         shininess: 200,
-        emissive: 0x110000
+        emissive: 0x440000,
+        transparent: true,
+        opacity: 0.9
       });
       
       const leftTaillight = new THREE.Mesh(taillightGeometry, taillightMaterial);
-      leftTaillight.position.set(-0.8, 0.2, 3.6);
+      leftTaillight.position.set(-1.4, 0.5, 4.1);
       scene.add(leftTaillight);
       
       const rightTaillight = new THREE.Mesh(taillightGeometry, taillightMaterial);
-      rightTaillight.position.set(0.8, 0.2, 3.6);
+      rightTaillight.position.set(1.4, 0.5, 4.1);
       scene.add(rightTaillight);
 
-      // Lusterka boczne
-      const mirrorGeometry = new THREE.BoxGeometry(0.08, 0.06, 0.12, 2, 2, 2);
+      // Lusterka boczne - większe i lepiej umiejscowione
+      const mirrorGeometry = new THREE.BoxGeometry(0.2, 0.15, 0.3, 2, 2, 2);
       const mirrorMaterial = new THREE.MeshPhongMaterial({ 
-        color: 0x2C3E50,
-        shininess: 150
+        color: 0x1e40af,
+        shininess: 100
       });
       
       const leftMirror = new THREE.Mesh(mirrorGeometry, mirrorMaterial);
-      leftMirror.position.set(-1.8, 0.9, -1.2);
+      leftMirror.position.set(-2.25, 1.0, -0.5);
       scene.add(leftMirror);
       
       const rightMirror = new THREE.Mesh(mirrorGeometry, mirrorMaterial);
-      rightMirror.position.set(1.8, 0.9, -1.2);
+      rightMirror.position.set(2.25, 1.0, -0.5);
       scene.add(rightMirror);
 
       // Klamki drzwi
@@ -307,10 +337,10 @@ export default function VanillaThreeCar({
       });
       
       [
-        [-1.75, 0.3, -0.7], // lewe przednie
-        [1.75, 0.3, -0.7],  // prawe przednie  
-        [-1.75, 0.3, 1.2],  // lewe tylne
-        [1.75, 0.3, 1.2]    // prawe tylne
+        [-2.2, 0.6, -0.8], // lewe przednie
+        [2.2, 0.6, -0.8],  // prawe przednie  
+        [-2.2, 0.6, 1.3],  // lewe tylne
+        [2.2, 0.6, 1.3]    // prawe tylne
       ].forEach(([x, y, z]) => {
         const handle = new THREE.Mesh(handleGeometry, handleMaterial);
         handle.position.set(x, y, z);
