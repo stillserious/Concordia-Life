@@ -218,7 +218,7 @@ export default function ClaimVehicleACIncidentInfo() {
                       <FormItem>
                         <FormControl>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <Tooltip>
+                            <Tooltip delayDuration={0}>
                               <TooltipTrigger asChild>
                                 <div>
                                   <SelectionCard
