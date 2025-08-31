@@ -118,6 +118,7 @@ export default function ClaimVehicleACPage() {
                             slotProps={{
                               textField: {
                                 error: false,
+                                placeholder: "Wybierz datę zdarzenia",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -130,16 +131,15 @@ export default function ClaimVehicleACPage() {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                     '&.Mui-focused fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%) !important',
-                                      borderWidth: '2px !important',
+                                      borderColor: 'hsl(207, 90%, 54%)',
                                     },
                                   },
                                   '& .MuiInputLabel-root': {
-                                    '&.Mui-focused': {
-                                      color: 'hsl(207, 90%, 54%) !important',
+                                    '@media (max-width: 768px)': {
+                                      display: 'none',
                                     },
-                                  },
-                                }
+                                  }
+                                }}
                               },
                               actionBar: {
                                 actions: [],
@@ -237,7 +237,7 @@ export default function ClaimVehicleACPage() {
                   )}
                 />
 
-                
+
 
                 <div className="flex items-center justify-end gap-4 pt-4">
                   <Button variant="outline" data-testid="button-back" onClick={() => {
