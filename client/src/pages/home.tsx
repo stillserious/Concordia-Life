@@ -11,10 +11,10 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
 
-      <main className="flex-1 flex items-center justify-center py-8 px-6">
-        <div className="max-w-5xl w-full text-center">
+      <main className="flex-1 py-16 px-6">
+        <div className="max-w-5xl w-full text-center mx-auto">
           {/* Welcome Section */}
-          <section className="mb-8" data-testid="welcome-section">
+          <section className="mb-12" data-testid="welcome-section">
             <h1 className="text-xl md:text-2xl font-medium text-gray-900 mb-1.5 leading-tight" data-testid="greeting">
               Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
             </h1>
