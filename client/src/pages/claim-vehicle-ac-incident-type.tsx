@@ -61,7 +61,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="collision-vehicle"
                 title="Zderzenie z pojazdem w ruchu"
                 description="Kolizja z innym pojazdem podczas jazdy. Obejmuje zderzenia na skrzyżowaniach, wyprzedzaniu i innych sytuacjach drogowych."
-                icon={<img src={collisionVehicleIcon} alt="Zderzenie z pojazdem" className="w-4 h-4" />}
+                icon={<img src={collisionVehicleIcon} alt="Zderzenie z pojazdem" className="w-10 h-10" />}
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/collision-vehicle"
                 size="small"
@@ -72,7 +72,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="collision-object"
                 title="Zderzenie z przedmiotem"
                 description="Kolizja z nieruchomym obiektem jak bariera, słup, ściana, drzewo lub inne przeszkody na drodze."
-                icon={<img src={collisionObjectIcon} alt="Zderzenie z przedmiotem" className="w-4 h-4" />}
+                icon={<img src={collisionObjectIcon} alt="Zderzenie z przedmiotem" className="w-10 h-10" />}
                 iconClassName="category-icon-property"
                 href="/claim/vehicle/ac/collision-object"
                 size="small"
@@ -83,7 +83,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="collision-animal"
                 title="Zderzenie ze zwierzęciem"
                 description="Kolizja ze zwierzęciem na drodze. Obejmuje zderzenia z dzikimi zwierzętami i zwierzętami domowymi."
-                icon={<img src={collisionAnimalIcon} alt="Zderzenie ze zwierzęciem" className="w-4 h-4" />}
+                icon={<img src={collisionAnimalIcon} alt="Zderzenie ze zwierzęciem" className="w-10 h-10" />}
                 iconClassName="category-icon-people"
                 href="/claim/vehicle/ac/collision-animal"
                 size="small"
@@ -94,7 +94,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                 category="theft-parts"
                 title="Kradzież części"
                 description="Kradzież elementów pojazdu jak koła, lusterka, katalizator, akcesoria lub inne części samochodu."
-                icon={<img src={theftPartsIcon} alt="Kradzież części" className="w-4 h-4" />}
+                icon={<img src={theftPartsIcon} alt="Kradzież części" className="w-10 h-10" />}
                 iconClassName="category-icon-vehicles"
                 href="/claim/vehicle/ac/theft-parts"
                 size="small"
