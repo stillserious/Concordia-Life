@@ -14,7 +14,7 @@ export default function ClaimVehiclePage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="page-title">
-              Zgłoszenie szkody - Pojazdy
+              Zgłoszenie zdarzenia - Pojazdy
             </h1>
             <p className="text-gray-600" data-testid="page-description">
               Wybierz typ ubezpieczenia, z którego chcesz zgłosić szkodę.
@@ -25,7 +25,7 @@ export default function ClaimVehiclePage() {
             <CategoryCard
               category="ac"
               title="Moje ubezpieczenie"
-              description="Zgłoś szkodę z własnego ubezpieczenia autocasco. Uszkodzenia własnego pojazdu, kolizje, kradzieże."
+              description="Zgłoś szkodę z własnego ubezpieczenia. Ubezpieczenie pokrywa uszkodzenia pojazdu, kolizje oraz kradzieże."
               icon={<span className="text-2xl font-bold text-black">AC</span>}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle/ac"
