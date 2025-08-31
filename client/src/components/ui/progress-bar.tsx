@@ -33,9 +33,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       <div className="max-w-4xl mx-auto px-6 pt-2 pb-1">
         {/* Mobile: Simple progress with circles */}
         <div className="md:hidden py-2">
-          <div className="flex items-center justify-between max-w-sm mx-auto px-4">
+          <div className="flex items-center justify-center max-w-sm mx-auto">
             {stepLabels?.map((label, index) => (
-              <div key={index} className="flex items-center flex-1 justify-center">
+              <div key={index} className="flex items-center">
                 {/* Simple Circle */}
                 <div 
                   className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-300 ${
@@ -63,7 +63,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`flex-1 h-0.5 ml-2 transition-all duration-300 ${
+                  <div className={`w-6 h-0.5 mx-1 transition-all duration-300 ${
                     index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
                   }`}></div>
                 )}
@@ -81,32 +81,40 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
 
         {/* Desktop: Compact step indicators */}
         <div className="hidden md:flex items-center py-2">
-          <div className="grid w-full" style={{ gridTemplateColumns: `repeat(${stepLabels?.length || 1}, 1fr)` }}>
+          <div className="flex items-center justify-between w-full">
             {stepLabels?.map((label, index) => (
-              <div
-                key={index}
-                className={`flex flex-col items-center text-xs transition-all duration-300 px-2 ${
-                  index < currentStep - 1
-                    ? "text-blue-600 cursor-pointer hover:text-blue-700"
-                    : index === currentStep - 1
-                    ? "text-blue-600 font-medium"
-                    : "text-gray-400 cursor-pointer hover:text-gray-600"
-                } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
-                onClick={() => {
-                  if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
-                    setLocation(stepRoutes[index]);
-                    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-                  }
-                }}
-              >
-                <div className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 mb-1 ${
-                  index < currentStep - 1
-                    ? "bg-blue-600"
-                    : index === currentStep - 1
-                    ? "bg-blue-600"
-                    : "bg-gray-300"
-                }`}></div>
-                <span className="text-center leading-tight">{label}</span>
+              <div key={index} className="flex items-center flex-1">
+                <div
+                  className={`flex flex-col items-center text-xs transition-all duration-300 ${
+                    index < currentStep - 1
+                      ? "text-blue-600 cursor-pointer hover:text-blue-700"
+                      : index === currentStep - 1
+                      ? "text-blue-600 font-medium"
+                      : "text-gray-400 cursor-pointer hover:text-gray-600"
+                  } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
+                  onClick={() => {
+                    if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
+                      setLocation(stepRoutes[index]);
+                      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                    }
+                  }}
+                >
+                  <div className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 mb-1 ${
+                    index < currentStep - 1
+                      ? "bg-blue-600"
+                      : index === currentStep - 1
+                      ? "bg-blue-600"
+                      : "bg-gray-300"
+                  }`}></div>
+                  <span className="text-center leading-tight">{label}</span>
+                </div>
+                
+                {/* Connecting line */}
+                {index < stepLabels.length - 1 && (
+                  <div className={`flex-1 h-px mx-3 transition-all duration-300 ${
+                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
+                  }`}></div>
+                )}
               </div>
             ))}
           </div>
