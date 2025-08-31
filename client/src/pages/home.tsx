@@ -60,17 +60,18 @@ export default function HomePage() {
               <div style={{ 
                 opacity: 0.4, 
                 filter: 'grayscale(100%)', 
-                cursor: 'not-allowed',
-                pointerEvents: 'none'
+                cursor: 'not-allowed'
               }}>
-                <CategoryCard
-                  category="majatek"
-                  title="Majątek"
-                  description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
-                  icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
-                  iconClassName="category-icon-property"
-                  href="#"
-                />
+                <div style={{ pointerEvents: 'none' }}>
+                  <CategoryCard
+                    category="majatek"
+                    title="Majątek"
+                    description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
+                    icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
+                    iconClassName="category-icon-property"
+                    href="#"
+                  />
+                </div>
               </div>
             </Tooltip>
             
@@ -100,17 +101,18 @@ export default function HomePage() {
               <div style={{ 
                 opacity: 0.4, 
                 filter: 'grayscale(100%)', 
-                cursor: 'not-allowed',
-                pointerEvents: 'none'
+                cursor: 'not-allowed'
               }}>
-                <CategoryCard
-                  category="ludzie"
-                  title="Ludzie"
-                  description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
-                  icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
-                  iconClassName="category-icon-people"
-                  href="#"
-                />
+                <div style={{ pointerEvents: 'none' }}>
+                  <CategoryCard
+                    category="ludzie"
+                    title="Ludzie"
+                    description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
+                    icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
+                    iconClassName="category-icon-people"
+                    href="#"
+                  />
+                </div>
               </div>
             </Tooltip>
           </section>
