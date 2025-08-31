@@ -675,17 +675,9 @@ export default function ClaimVehicleACCollisionVehiclePage() {
 
                 <div className="flex items-center justify-end gap-4 pt-4">
                   <Button 
-                    type="button"
                     variant="outline" 
                     data-testid="button-back" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      requestAnimationFrame(() => {
-                        setLocation("/claim/vehicle/ac/incident-type");
-                        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
-                      });
-                    }}
+                    onClick={() => setLocation("/claim/vehicle/ac/incident-type")}
                   >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Cofnij
