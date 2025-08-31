@@ -79,13 +79,13 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
           </div>
         </div>
 
-        {/* Desktop: Clean step indicators */}
-        <div className="hidden md:flex items-center justify-between py-2">
-          <div className="flex items-center space-x-8 overflow-x-auto">
+        {/* Desktop: Compact step indicators */}
+        <div className="hidden md:flex items-center py-2">
+          <div className="flex items-center justify-between w-full">
             {stepLabels?.map((label, index) => (
               <div
                 key={index}
-                className={`flex items-center space-x-3 text-sm whitespace-nowrap transition-all duration-300 ${
+                className={`flex items-center space-x-2 text-xs transition-all duration-300 flex-1 ${
                   index < currentStep - 1
                     ? "text-green-600 cursor-pointer hover:text-green-700"
                     : index === currentStep - 1
@@ -99,16 +99,16 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   }
                 }}
               >
-                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 ${
                   index < currentStep - 1
                     ? "bg-green-600"
                     : index === currentStep - 1
                     ? "bg-blue-600"
                     : "bg-gray-300"
                 }`}></div>
-                <span>{label}</span>
+                <span className="truncate">{label}</span>
                 {index < stepLabels.length - 1 && (
-                  <div className="w-12 h-px bg-gray-200 ml-4"></div>
+                  <div className="flex-1 h-px bg-gray-200 mx-2 min-w-2"></div>
                 )}
               </div>
             ))}
