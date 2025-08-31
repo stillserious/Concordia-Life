@@ -19,7 +19,7 @@ export default function ClaimPeoplePage() {
               </Button>
             </Link>
             
-            <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="page-title">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2" data-testid="page-title">
               Zgłoszenie szkody - Ludzie
             </h1>
             <p className="text-gray-600" data-testid="page-description">

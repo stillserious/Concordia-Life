@@ -13,7 +13,7 @@ export default function ClaimVehiclePage() {
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="page-title">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2" data-testid="page-title">
               Zgłoszenie szkody pojazdu
             </h1>
             <p className="text-gray-600" data-testid="page-description">

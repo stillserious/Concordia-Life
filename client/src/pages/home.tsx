@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="max-w-5xl w-full text-center mx-auto">
           {/* Welcome Section */}
           <section className="mb-12" data-testid="welcome-section">
-            <h1 className="text-xl md:text-2xl font-medium text-gray-900 mb-1.5 leading-tight" data-testid="greeting">
+            <h1 className="text-2xl font-bold text-gray-900 mb-1.5 leading-tight" data-testid="greeting">
               Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
             </h1>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
