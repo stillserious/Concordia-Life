@@ -4,13 +4,37 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import CategoryCard from "@/components/claim/category-card";
+import ProgressBar from "@/components/ui/progress-bar";
 
 export default function ClaimVehiclePage() {
   const [, setLocation] = useLocation();
   
+  const stepLabels = [
+    "Wybór ubezpieczenia",
+    "Podstawowe dane", 
+    "Typ zdarzenia",
+    "Dane pojazdu",
+    "Informacje o zdarzeniu"
+  ];
+  
+  const stepRoutes = [
+    "/claim/vehicle",
+    "/claim/vehicle/ac",
+    "/claim/vehicle/ac/incident-type", 
+    "/claim/vehicle/ac/vehicle-data",
+    "/claim/vehicle/ac/incident-info"
+  ];
+  
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
+      
+      <ProgressBar 
+        currentStep={1}
+        totalSteps={5}
+        stepLabels={stepLabels}
+        stepRoutes={stepRoutes}
+      />
       
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
