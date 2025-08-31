@@ -66,9 +66,9 @@ export default function ClaimVehiclePage() {
                 iconClassName="category-icon-property"
                 href="#"
               />
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center cursor-not-allowed">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center cursor-not-allowed">
                 {/* Wyblurowany kafelek w tle */}
-                <div className="absolute inset-0 bg-gray-100 bg-opacity-80 backdrop-blur-md rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gray-100 bg-opacity-80 backdrop-blur-md rounded-2xl transition-none"></div>
                 
                 {/* Zawartość overlay */}
                 <div className="relative bg-white border border-blue-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
