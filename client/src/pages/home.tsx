@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
+import { Tooltip } from '@mui/material';
 import pojazdyIcon from "@assets/pojazdy_1756500953737.png";
 import majatekIcon from "@assets/Majatek_1756500953736.png";
 import ludziIcon from "@assets/ludzie_1756500953736.png";
@@ -33,8 +34,35 @@ export default function HomePage() {
               href="/claim/vehicle"
             />
             
-            <div className="relative group">
-              <div className="opacity-50 grayscale cursor-not-allowed">
+            <Tooltip 
+              title="Ścieżki niedostępne w wersji demonstracyjnej" 
+              placement="top"
+              arrow
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    bgcolor: 'rgba(0, 0, 0, 0.87)',
+                    color: 'white',
+                    fontSize: '0.875rem',
+                    fontWeight: 500,
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
+                  }
+                },
+                arrow: {
+                  sx: {
+                    color: 'rgba(0, 0, 0, 0.87)'
+                  }
+                }
+              }}
+            >
+              <div style={{ 
+                opacity: 0.4, 
+                filter: 'grayscale(100%)', 
+                cursor: 'not-allowed',
+                pointerEvents: 'none'
+              }}>
                 <CategoryCard
                   category="majatek"
                   title="Majątek"
@@ -44,15 +72,37 @@ export default function HomePage() {
                   href="#"
                 />
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg">
-                <div className="bg-white text-gray-900 px-4 py-2 rounded-md text-sm font-medium shadow-lg">
-                  Ścieżki niedostępne w wersji demonstracyjnej
-                </div>
-              </div>
-            </div>
+            </Tooltip>
             
-            <div className="relative group">
-              <div className="opacity-50 grayscale cursor-not-allowed">
+            <Tooltip 
+              title="Ścieżki niedostępne w wersji demonstracyjnej" 
+              placement="top"
+              arrow
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    bgcolor: 'rgba(0, 0, 0, 0.87)',
+                    color: 'white',
+                    fontSize: '0.875rem',
+                    fontWeight: 500,
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
+                  }
+                },
+                arrow: {
+                  sx: {
+                    color: 'rgba(0, 0, 0, 0.87)'
+                  }
+                }
+              }}
+            >
+              <div style={{ 
+                opacity: 0.4, 
+                filter: 'grayscale(100%)', 
+                cursor: 'not-allowed',
+                pointerEvents: 'none'
+              }}>
                 <CategoryCard
                   category="ludzie"
                   title="Ludzie"
@@ -62,12 +112,7 @@ export default function HomePage() {
                   href="#"
                 />
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg">
-                <div className="bg-white text-gray-900 px-4 py-2 rounded-md text-sm font-medium shadow-lg">
-                  Ścieżki niedostępne w wersji demonstracyjnej
-                </div>
-              </div>
-            </div>
+            </Tooltip>
           </section>
         </div>
       </main>
