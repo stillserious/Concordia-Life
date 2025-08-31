@@ -22,6 +22,8 @@ const incidentInfoFormSchema = z.object({
   incidentDescription: z.string().min(1, { message: "Opis zdarzenia jest wymagany" }),
   faultCause: z.enum(["inna_przyczyna", "drugi_uczestnik"], { message: "Wybierz sprawcę zdarzenia" }),
   perpetratorInfo: z.string().optional(),
+  perpetratorLeft: z.enum(["tak", "nie", "nie_wiem"], { message: "Wybierz czy sprawca odjechał" }).optional(),
+  hasWitnesses: z.enum(["tak", "nie", "nie_wiem"], { message: "Wybierz czy są świadkowie" }).optional(),
   policePresent: z.enum(["tak", "nie"], { message: "Wybierz czy była policja" }),
   vehicleTowed: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd był holowany" }),
   vehicleInGarage: z.enum(["tak", "nie"], { message: "Wybierz czy pojazd jest w warsztacie" }),
@@ -42,6 +44,8 @@ export default function ClaimVehicleACIncidentInfo() {
       incidentDescription: "",
       faultCause: undefined,
       perpetratorInfo: "",
+      perpetratorLeft: undefined,
+      hasWitnesses: undefined,
       policePresent: undefined,
       vehicleTowed: undefined,
       vehicleInGarage: undefined,
@@ -244,7 +248,7 @@ export default function ClaimVehicleACIncidentInfo() {
                                     </span>
                                   ) : (
                                     <span>
-                                      <strong>Wybierz "Drugi uczestnik"</strong>, gdy inna osoba była sprawcą zdarzenia (kierowca innego pojazdu, wandal, rowerzysta, pracownik myjni itp.). Jeśli masz informacje o sprawcy zdarzenia, wpisz jego dane (nr rej., dane właściciela pojazdu, dane kierującego pojazdem, zakład ubezpieczeń, nazwa firmy).
+                                      <strong>Wybierz "Drugi uczestnik"</strong>, gdy inna osoba była sprawcą zdarzenia (kierowca innego pojazdu, wandal, rowerzysta, pracownik myjni itp.).Uzupełnij dane sprawcy (nr rej., dane właściciela pojazdu, dane kierującego pojazdem, zakład ubezpieczeń, nazwa firmy).
                                     </span>
                                   )}
                                 </p>
@@ -258,31 +262,114 @@ export default function ClaimVehicleACIncidentInfo() {
                   />
                 </div>
 
-                {/* Informacje o sprawcy - tylko gdy wybrano "drugi_uczestnik" */}
+                {/* Dodatkowe pytania - tylko gdy wybrano "drugi_uczestnik" */}
                 {form.watch("faultCause") === "drugi_uczestnik" && (
-                  <div className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="perpetratorInfo"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <TextField
-                              {...field}
-                              label="Jeśli masz informacje o sprawcy zdarzenia, wpisz jego dane"
-                              multiline
-                              rows={4}
-                              fullWidth
-                              variant="outlined"
-                              placeholder="Nr rejestracyjny, dane właściciela pojazdu, dane kierującego pojazdem, zakład ubezpieczeń, nazwa firmy itp."
-                              data-testid="input-perpetrator-info"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+                  <>
+                    {/* Informacje o sprawcy */}
+                    <div className="space-y-4">
+                      <FormField
+                        control={form.control}
+                        name="perpetratorInfo"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <TextField
+                                {...field}
+                                label="Jeśli masz informacje o sprawcy zdarzenia, wpisz jego dane"
+                                multiline
+                                rows={4}
+                                fullWidth
+                                variant="outlined"
+                                placeholder="Nr rejestracyjny, dane właściciela pojazdu, dane kierującego pojazdem, zakład ubezpieczeń, nazwa firmy itp."
+                                data-testid="input-perpetrator-info"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    {/* Czy sprawca odjechał */}
+                    <div className="space-y-4">
+                      <h2 className="text-xl font-semibold text-gray-900">Czy sprawca odjechał z miejsca zdarzenia?</h2>
+                      
+                      <FormField
+                        control={form.control}
+                        name="perpetratorLeft"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <SelectionCard
+                                  value="tak"
+                                  title="Tak"
+                                  isSelected={field.value === "tak"}
+                                  onSelect={() => field.onChange("tak")}
+                                  testId="card-perpetrator-left-yes"
+                                />
+                                <SelectionCard
+                                  value="nie"
+                                  title="Nie"
+                                  isSelected={field.value === "nie"}
+                                  onSelect={() => field.onChange("nie")}
+                                  testId="card-perpetrator-left-no"
+                                />
+                                <SelectionCard
+                                  value="nie_wiem"
+                                  title="Nie wiem"
+                                  isSelected={field.value === "nie_wiem"}
+                                  onSelect={() => field.onChange("nie_wiem")}
+                                  testId="card-perpetrator-left-unknown"
+                                />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    {/* Czy są świadkowie */}
+                    <div className="space-y-4">
+                      <h2 className="text-xl font-semibold text-gray-900">Czy są świadkowie zdarzenia?</h2>
+                      
+                      <FormField
+                        control={form.control}
+                        name="hasWitnesses"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <SelectionCard
+                                  value="tak"
+                                  title="Tak"
+                                  isSelected={field.value === "tak"}
+                                  onSelect={() => field.onChange("tak")}
+                                  testId="card-witnesses-yes"
+                                />
+                                <SelectionCard
+                                  value="nie"
+                                  title="Nie"
+                                  isSelected={field.value === "nie"}
+                                  onSelect={() => field.onChange("nie")}
+                                  testId="card-witnesses-no"
+                                />
+                                <SelectionCard
+                                  value="nie_wiem"
+                                  title="Nie wiem"
+                                  isSelected={field.value === "nie_wiem"}
+                                  onSelect={() => field.onChange("nie_wiem")}
+                                  testId="card-witnesses-unknown"
+                                />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  </>
                 )}
 
                 {/* Czy była policja */}
