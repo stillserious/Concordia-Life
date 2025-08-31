@@ -1,4 +1,5 @@
 import { useLocation } from "wouter";
+import { LinearProgress, Box } from '@mui/material';
 
 interface ProgressBarProps {
   currentStep: number;
@@ -12,32 +13,37 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
   const [, setLocation] = useLocation();
 
   return (
-    <div className="w-full bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 shadow-sm">
-      {/* Enhanced Progress Bar */}
-      <div className="w-full bg-gradient-to-r from-slate-100 to-slate-200 h-1.5 relative overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transition-all duration-700 ease-out relative"
-          style={{ width: `${progressPercentage}%` }}
-        >
-          {/* Animated glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
-        </div>
-      </div>
+    <div className="w-full bg-white border-b border-gray-200">
+      {/* Material UI Progress Bar */}
+      <LinearProgress 
+        variant="determinate" 
+        value={progressPercentage}
+        sx={{
+          height: 4,
+          '& .MuiLinearProgress-bar': {
+            backgroundColor: 'hsl(207, 90%, 54%)',
+            transition: 'transform 0.7s ease-out'
+          },
+          '& .MuiLinearProgress-root': {
+            backgroundColor: '#f1f5f9'
+          }
+        }}
+      />
       
       <div className="max-w-4xl mx-auto px-6 pt-2 pb-1">
-        {/* Mobile: Enhanced Visual progress */}
-        <div className="md:hidden py-1">
-          <div className="flex items-center justify-center max-w-sm mx-auto">
+        {/* Mobile: Simple progress with circles */}
+        <div className="md:hidden py-2">
+          <div className="flex items-center justify-center max-w-xs mx-auto">
             {stepLabels?.map((label, index) => (
               <div key={index} className="flex items-center">
-                {/* Enhanced Circle */}
+                {/* Simple Circle */}
                 <div 
-                  className={`w-7 h-7 rounded-full flex items-center justify-center font-semibold text-xs flex-shrink-0 relative transition-all duration-300 transform ${
+                  className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-300 ${
                     index < currentStep - 1
-                      ? "bg-gradient-to-br from-green-400 to-green-600 text-white cursor-pointer hover:scale-110 hover:shadow-lg shadow-green-200"
+                      ? "bg-green-600 text-white cursor-pointer hover:bg-green-700"
                       : index === currentStep - 1
-                      ? "bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg scale-110"
-                      : "bg-gradient-to-br from-slate-200 to-slate-300 text-slate-500 cursor-pointer hover:scale-105 hover:from-slate-300 hover:to-slate-400"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-300 text-gray-600 cursor-pointer hover:bg-gray-400"
                   } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
@@ -46,11 +52,6 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                     }
                   }}
                 >
-                  {/* Glow ring for active step */}
-                  {index === currentStep - 1 && (
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 animate-pulse -z-10 scale-125"></div>
-                  )}
-                  
                   {index < currentStep - 1 ? (
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -60,37 +61,37 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   )}
                 </div>
                 
-                {/* Enhanced Connecting line */}
+                {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`w-6 h-0.5 mx-2 rounded-full transition-all duration-500 ${
-                    index < currentStep - 1 
-                      ? "bg-gradient-to-r from-green-400 to-green-600 shadow-sm" 
-                      : "bg-gradient-to-r from-slate-200 to-slate-300"
+                  <div className={`w-8 h-0.5 mx-2 transition-all duration-300 ${
+                    index < currentStep - 1 ? "bg-green-600" : "bg-gray-300"
                   }`}></div>
                 )}
               </div>
             ))}
           </div>
           
-          {/* Enhanced Current step label */}
-          <div className="text-center mt-1">
-            <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-50 to-blue-100 rounded-full border border-blue-200">
-              <span className="text-xs font-semibold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                {stepLabels?.[currentStep - 1]}
-              </span>
-            </div>
+          {/* Current step name */}
+          <div className="text-center mt-3">
+            <span className="text-sm font-medium text-gray-700">
+              {stepLabels?.[currentStep - 1]}
+            </span>
           </div>
         </div>
 
-        {/* Desktop: Enhanced Detailed steps */}
-        <div className="hidden md:flex items-center justify-between py-0.5">
-          <div className="flex items-center w-full relative">
+        {/* Desktop: Clean step indicators */}
+        <div className="hidden md:flex items-center justify-between py-2">
+          <div className="flex items-center space-x-8 overflow-x-auto">
             {stepLabels?.map((label, index) => (
               <div
                 key={index}
-                className={`flex flex-col items-center flex-1 relative transition-all duration-300 ${
-                  stepRoutes && index !== currentStep - 1 ? "cursor-pointer group" : ""
-                }`}
+                className={`flex items-center space-x-3 text-sm whitespace-nowrap transition-all duration-300 ${
+                  index < currentStep
+                    ? "text-green-600 cursor-pointer hover:text-green-700"
+                    : index === currentStep - 1
+                    ? "text-blue-600 font-medium"
+                    : "text-gray-400 cursor-pointer hover:text-gray-600"
+                } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                 onClick={() => {
                   if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
                     setLocation(stepRoutes[index]);
@@ -98,50 +99,16 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   }
                 }}
               >
-                {/* Step Circle */}
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center font-semibold text-xs relative transition-all duration-300 z-10 ${
-                  index < currentStep - 1
-                    ? "bg-gradient-to-br from-green-400 to-green-600 text-white shadow-md group-hover:scale-110 group-hover:shadow-lg"
-                    : index === currentStep - 1
-                    ? "bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg scale-110"
-                    : "bg-gradient-to-br from-slate-200 to-slate-300 text-slate-500 group-hover:scale-105 group-hover:from-slate-300 group-hover:to-slate-400"
-                }`}>
-                  {/* Active step glow */}
-                  {index === currentStep - 1 && (
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 animate-pulse -z-10 scale-150 opacity-50"></div>
-                  )}
-                  
-                  {index < currentStep - 1 ? (
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  ) : (
-                    index + 1
-                  )}
-                </div>
-                
-                {/* Step Label */}
-                <div className={`mt-1.5 text-center transition-all duration-300 ${
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index < currentStep
-                    ? "text-green-700 font-semibold group-hover:text-green-800"
+                    ? "bg-green-600"
                     : index === currentStep - 1
-                    ? "text-blue-700 font-bold"
-                    : "text-slate-500 group-hover:text-slate-700"
-                }`}>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-white/80 border border-slate-200 shadow-sm">
-                    {label}
-                  </span>
-                </div>
-                
-                {/* Connecting Line */}
+                    ? "bg-blue-600"
+                    : "bg-gray-300"
+                }`}></div>
+                <span>{label}</span>
                 {index < stepLabels.length - 1 && (
-                  <div className="absolute top-2.5 left-1/2 w-full h-0.5 -z-10">
-                    <div className={`h-full transition-all duration-500 ${
-                      index < currentStep - 1 
-                        ? "bg-gradient-to-r from-green-400 to-green-600" 
-                        : "bg-gradient-to-r from-slate-200 to-slate-300"
-                    }`}></div>
-                  </div>
+                  <div className="w-12 h-px bg-gray-200 ml-4"></div>
                 )}
               </div>
             ))}
