@@ -4,6 +4,8 @@ import { Link, useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 import ProgressBar from "@/components/ui/progress-bar";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -59,7 +61,8 @@ export default function ClaimVehicleACVehicleData() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen flex flex-col insurance-gradient-bg">
+      <Header />
       <ProgressBar 
         currentStep={4} 
         totalSteps={5} 
@@ -67,16 +70,33 @@ export default function ClaimVehicleACVehicleData() {
         stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
       />
       
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+      <main className="flex-1 py-10 px-6">
+        <div className="max-w-4xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Dane pojazdu
-            </h1>
-            <p className="text-gray-600">
-              Podaj informacje o pojeździe objętym zgłoszeniem szkody.
-            </p>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
+                <span className="text-xl font-bold text-gray-800">AC</span>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
+                  Moje ubezpieczenie (AC)
+                </h1>
+                <p className="text-gray-600">
+                  Zgłaszasz szkodę z ubezpieczenia autocasco.
+                </p>
+              </div>
+            </div>
           </div>
+
+          <div className="insurance-card p-8">
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                Dane pojazdu
+              </h2>
+              <p className="text-sm text-gray-600">
+                Podaj informacje o pojeździe objętym zgłoszeniem szkody.
+              </p>
+            </div>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -234,8 +254,11 @@ export default function ClaimVehicleACVehicleData() {
               </div>
             </form>
           </Form>
+          </div>
         </div>
-      </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 }

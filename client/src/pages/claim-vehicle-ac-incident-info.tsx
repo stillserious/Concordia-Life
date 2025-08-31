@@ -75,18 +75,25 @@ export default function ClaimVehicleACIncidentInfo() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
       
-      <main className="container mx-auto px-4 py-8">
+      <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Zgłoszenie szkody AC - Informacje o zdarzeniu
-            </h1>
-            <p className="text-gray-600">
-              Podaj szczegóły dotyczące miejsca i okoliczności zdarzenia
-            </p>
+          <div className="mb-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
+                <span className="text-xl font-bold text-gray-800">AC</span>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
+                  Moje ubezpieczenie (AC)
+                </h1>
+                <p className="text-gray-600">
+                  Zgłaszasz szkodę z ubezpieczenia autocasco.
+                </p>
+              </div>
+            </div>
           </div>
 
           <ProgressBar 
@@ -96,7 +103,15 @@ export default function ClaimVehicleACIncidentInfo() {
             stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
           />
 
-          <div className="bg-white rounded-lg shadow-lg p-8 mt-8">
+          <div className="insurance-card p-8">
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                Informacje o zdarzeniu
+              </h2>
+              <p className="text-sm text-gray-600">
+                Podaj szczegóły dotyczące miejsca i okoliczności zdarzenia
+              </p>
+            </div>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 
