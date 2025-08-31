@@ -216,26 +216,28 @@ export default function ClaimVehicleACIncidentInfo() {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <SelectionCard
-                              value="inna_przyczyna"
-                              title="Inna przyczyna"
-                              isSelected={field.value === "inna_przyczyna"}
-                              onSelect={() => field.onChange("inna_przyczyna")}
-                              testId="card-fault-other"
-                            />
-                            <SelectionCard
-                              value="drugi_uczestnik"
-                              title="Drugi uczestnik"
-                              isSelected={field.value === "drugi_uczestnik"}
-                              onSelect={() => field.onChange("drugi_uczestnik")}
-                              testId="card-fault-participant"
-                            />
-                          </div>
-                          <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                            <p className="text-sm text-blue-800">
-                              <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
-                            </p>
+                          <div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <SelectionCard
+                                value="inna_przyczyna"
+                                title="Inna przyczyna"
+                                isSelected={field.value === "inna_przyczyna"}
+                                onSelect={() => field.onChange("inna_przyczyna")}
+                                testId="card-fault-other"
+                              />
+                              <SelectionCard
+                                value="drugi_uczestnik"
+                                title="Drugi uczestnik"
+                                isSelected={field.value === "drugi_uczestnik"}
+                                onSelect={() => field.onChange("drugi_uczestnik")}
+                                testId="card-fault-participant"
+                              />
+                            </div>
+                            <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                              <p className="text-sm text-blue-800">
+                                <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
+                              </p>
+                            </div>
                           </div>
                         </FormControl>
                         <FormMessage />
