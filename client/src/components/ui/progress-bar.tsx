@@ -22,43 +22,44 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       
       <div className="max-w-4xl mx-auto px-6 py-3">
         {/* Mobile: Visual progress with circles */}
-        <div className="md:hidden">
-          {/* Progress circles */}
-          <div className="flex items-center justify-between mb-3 px-4">
+        <div className="md:hidden py-4">
+          <div className="flex items-center justify-between px-4">
             {stepLabels?.map((label, index) => (
-              <div key={index} className="flex items-center flex-1">
-                <div className="relative flex-shrink-0">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-medium text-sm ${
-                    index < currentStep
-                      ? "bg-blue-600"
-                      : index === currentStep - 1
-                      ? "bg-blue-600"
-                      : "bg-blue-300"
-                  }`}>
-                    {index + 1}
-                  </div>
-                  {/* Triangle pointer for current step */}
-                  {index === currentStep - 1 && (
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
-                      <div className="w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-blue-600"></div>
+              <div key={index} className="flex flex-col items-center flex-1">
+                {/* Step label above circle */}
+                <div className={`text-xs font-medium mb-2 text-center ${
+                  index < currentStep
+                    ? "text-blue-600"
+                    : index === currentStep - 1
+                    ? "text-blue-600"
+                    : "text-gray-400"
+                }`}>
+                  {label}
+                </div>
+                
+                <div className="flex items-center w-full">
+                  {/* Circle */}
+                  <div className="relative flex-shrink-0">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm border-2 ${
+                      index < currentStep
+                        ? "bg-white border-blue-600 text-blue-600"
+                        : index === currentStep - 1
+                        ? "bg-blue-600 border-blue-600 text-white"
+                        : "bg-gray-100 border-gray-300 text-gray-400"
+                    }`}>
+                      {index + 1}
                     </div>
+                  </div>
+                  
+                  {/* Connecting line */}
+                  {index < stepLabels.length - 1 && (
+                    <div className={`flex-1 h-0.5 ml-2 ${
+                      index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
+                    }`}></div>
                   )}
                 </div>
-                {/* Connecting line */}
-                {index < stepLabels.length - 1 && (
-                  <div className={`flex-1 h-0.5 mx-2 ${
-                    index < currentStep - 1 ? "bg-blue-600" : "bg-blue-300"
-                  }`}></div>
-                )}
               </div>
             ))}
-          </div>
-          
-          {/* Current step label */}
-          <div className="text-center px-4">
-            <span className="text-sm font-medium text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              {stepLabels?.[currentStep - 1]}
-            </span>
           </div>
         </div>
 
