@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-6xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center">
           {/* Kontakt */}
           <div className="space-y-3 text-center md:text-left">
             <h3 className="text-sm font-semibold text-gray-900 mb-2">Kontakt</h3>
