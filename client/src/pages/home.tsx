@@ -46,7 +46,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
                 <div className="bg-white rounded-lg p-4 m-4 text-center shadow-lg">
                   <p className="text-sm font-medium text-gray-900 mb-1">
-                    Formularz niedostępny
+                    Formularz tymczasowo niedostępny
                   </p>
                   <p className="text-xs text-gray-600">
                     Przepraszamy za niedogodności
@@ -67,7 +67,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
                 <div className="bg-white rounded-lg p-4 m-4 text-center shadow-lg">
                   <p className="text-sm font-medium text-gray-900 mb-1">
-                    Formularz niedostępny
+                    Formularz tymczasowo niedostępny
                   </p>
                   <p className="text-xs text-gray-600">
                     Przepraszamy za niedogodności
