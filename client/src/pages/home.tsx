@@ -33,23 +33,41 @@ export default function HomePage() {
               href="/claim/vehicle"
             />
             
-            <CategoryCard
-              category="majatek"
-              title="Majątek"
-              description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
-              icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
-              iconClassName="category-icon-property"
-              href="/claim/property"
-            />
+            <div className="relative group">
+              <div className="opacity-50 grayscale cursor-not-allowed">
+                <CategoryCard
+                  category="majatek"
+                  title="Majątek"
+                  description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
+                  icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
+                  iconClassName="category-icon-property"
+                  href="#"
+                />
+              </div>
+              <div className="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg">
+                <div className="bg-white text-gray-900 px-4 py-2 rounded-md text-sm font-medium shadow-lg">
+                  Ścieżki niedostępne w wersji demonstracyjnej
+                </div>
+              </div>
+            </div>
             
-            <CategoryCard
-              category="ludzie"
-              title="Ludzie"
-              description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
-              icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
-              iconClassName="category-icon-people"
-              href="/claim/people"
-            />
+            <div className="relative group">
+              <div className="opacity-50 grayscale cursor-not-allowed">
+                <CategoryCard
+                  category="ludzie"
+                  title="Ludzie"
+                  description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
+                  icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
+                  iconClassName="category-icon-people"
+                  href="#"
+                />
+              </div>
+              <div className="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg">
+                <div className="bg-white text-gray-900 px-4 py-2 rounded-md text-sm font-medium shadow-lg">
+                  Ścieżki niedostępne w wersji demonstracyjnej
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </main>
