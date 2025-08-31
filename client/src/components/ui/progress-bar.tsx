@@ -21,8 +21,16 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       </div>
       
       <div className="max-w-4xl mx-auto px-6 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 md:space-x-4 overflow-x-auto">
+        {/* Mobile: Simple text format */}
+        <div className="md:hidden text-center">
+          <span className="text-sm font-medium text-blue-700">
+            Krok {currentStep} z {totalSteps}, {stepLabels?.[currentStep - 1]}
+          </span>
+        </div>
+
+        {/* Desktop: Detailed steps */}
+        <div className="hidden md:flex items-center justify-between">
+          <div className="flex items-center space-x-4 overflow-x-auto">
             {stepLabels?.map((label, index) => (
               <div
                 key={index}
@@ -46,10 +54,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                     ? "bg-blue-700"
                     : "bg-gray-300"
                 }`}></div>
-                <span className="hidden md:block">{label}</span>
-                <span className="md:hidden">{index + 1}</span>
+                <span>{label}</span>
                 {index < stepLabels.length - 1 && (
-                  <div className="hidden md:block w-8 h-px bg-gray-200 ml-2"></div>
+                  <div className="w-8 h-px bg-gray-200 ml-2"></div>
                 )}
               </div>
             ))}
