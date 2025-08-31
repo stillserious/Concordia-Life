@@ -9,7 +9,7 @@ export default function Header() {
             <img 
               src={logoImage} 
               alt="ConcordiaLife" 
-              className="h-18 w-auto"
+              className="h-14 w-auto"
             />
           </div>
         </div>
