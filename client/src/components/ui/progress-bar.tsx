@@ -37,8 +37,8 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
                       setLocation(stepRoutes[index]);
+                      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
                     }
                   }}
                 >
@@ -84,8 +84,8 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                 onClick={() => {
                   if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                     setLocation(stepRoutes[index]);
+                    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
                   }
                 }}
               >
