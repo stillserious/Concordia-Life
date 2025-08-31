@@ -113,7 +113,7 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
-                            label="Wybierz datę zdarzenia"
+                            label="Podaj datę zdarzenia"
                             closeOnSelect
                             localeText={{
                               cancelButtonLabel: 'Anuluj',
@@ -128,7 +128,7 @@ export default function ClaimVehicleACPage() {
                             slotProps={{
                               textField: {
                                 error: false,
-                                placeholder: "Wybierz datę zdarzenia",
+                                placeholder: "Podaj datę zdarzenia",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
