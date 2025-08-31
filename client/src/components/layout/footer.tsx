@@ -41,7 +41,12 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">+48 22 820 02 20</p>
+                  <a 
+                    href="tel:+48228200220"
+                    className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                  >
+                    +48 22 820 02 20
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
