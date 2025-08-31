@@ -77,6 +77,12 @@ export default function ClaimVehicleACIncidentInfo() {
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
+      <ProgressBar 
+        currentStep={5} 
+        totalSteps={5} 
+        stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
+        stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
+      />
       
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
@@ -95,13 +101,6 @@ export default function ClaimVehicleACIncidentInfo() {
               </div>
             </div>
           </div>
-
-          <ProgressBar 
-            currentStep={5} 
-            totalSteps={5} 
-            stepLabels={["Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
-            stepRoutes={["/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
-          />
 
           <div className="insurance-card p-8">
             <div className="mb-6">
