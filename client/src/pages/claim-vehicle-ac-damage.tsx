@@ -96,6 +96,7 @@ export default function ClaimVehicleACDamage() {
                     <FormItem>
                       <FormControl>
                         <VanillaThreeCar 
+                          key="car-3d-model"
                           selectedParts={selectedParts}
                           onPartSelect={handlePartSelect}
                           className="min-h-[500px]"
