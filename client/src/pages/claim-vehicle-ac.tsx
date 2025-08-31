@@ -115,6 +115,16 @@ export default function ClaimVehicleACPage() {
                             onChange={onChange}
                             label="Wybierz datę zdarzenia"
                             closeOnSelect
+                            localeText={{
+                              cancelButtonLabel: 'Anuluj',
+                              clearButtonLabel: 'Wyczyść',
+                              okButtonLabel: 'OK',
+                              todayButtonLabel: 'Dzisiaj',
+                              datePickerToolbarTitle: 'Wybierz datę',
+                              fieldDayPlaceholder: () => 'DD',
+                              fieldMonthPlaceholder: () => 'MM',
+                              fieldYearPlaceholder: () => 'RRRR',
+                            }}
                             slotProps={{
                               textField: {
                                 error: false,
@@ -162,6 +172,14 @@ export default function ClaimVehicleACPage() {
                             label="Wybierz godzinę zdarzenia"
                             ampm={false}
                             closeOnSelect
+                            localeText={{
+                              cancelButtonLabel: 'Anuluj',
+                              clearButtonLabel: 'Wyczyść',
+                              okButtonLabel: 'OK',
+                              timePickerToolbarTitle: 'Wybierz godzinę',
+                              fieldHoursPlaceholder: () => 'GG',
+                              fieldMinutesPlaceholder: () => 'MM',
+                            }}
                             slotProps={{
                               textField: {
                                 error: false,
