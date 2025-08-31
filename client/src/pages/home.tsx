@@ -1,7 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
-import { Tooltip } from '@mui/material';
+
 import pojazdyIcon from "@assets/pojazdy_1756500953737.png";
 import majatekIcon from "@assets/Majatek_1756500953736.png";
 import ludziIcon from "@assets/ludzie_1756500953736.png";
@@ -34,87 +34,47 @@ export default function HomePage() {
               href="/claim/vehicle"
             />
             
-            <Tooltip 
-              title="Formularz tymczasowo niedostępny, przepraszamy za niedogodności." 
-              placement="top"
-              arrow
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: 'rgba(0, 0, 0, 0.87)',
-                    color: 'white',
-                    fontSize: '0.875rem',
-                    fontWeight: 500,
-                    padding: '8px 12px',
-                    borderRadius: '6px',
-                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
-                  }
-                },
-                arrow: {
-                  sx: {
-                    color: 'rgba(0, 0, 0, 0.87)'
-                  }
-                }
-              }}
-            >
-              <div style={{ 
-                opacity: 0.4, 
-                filter: 'grayscale(100%)', 
-                cursor: 'not-allowed'
-              }}>
-                <div style={{ pointerEvents: 'none' }}>
-                  <CategoryCard
-                    category="majatek"
-                    title="Majątek"
-                    description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
-                    icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
-                    iconClassName="category-icon-property"
-                    href="#"
-                  />
+            <div className="relative group">
+              <CategoryCard
+                category="majatek"
+                title="Majątek"
+                description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
+                icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
+                iconClassName="category-icon-property"
+                href="#"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
+                <div className="bg-white rounded-lg p-4 m-4 text-center shadow-lg">
+                  <p className="text-sm font-medium text-gray-900 mb-1">
+                    Formularz niedostępny
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    Przepraszamy za niedogodności
+                  </p>
                 </div>
               </div>
-            </Tooltip>
+            </div>
             
-            <Tooltip 
-              title="Formularz tymczasowo niedostępny, przepraszamy za niedogodności." 
-              placement="top"
-              arrow
-              componentsProps={{
-                tooltip: {
-                  sx: {
-                    bgcolor: 'rgba(0, 0, 0, 0.87)',
-                    color: 'white',
-                    fontSize: '0.875rem',
-                    fontWeight: 500,
-                    padding: '8px 12px',
-                    borderRadius: '6px',
-                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
-                  }
-                },
-                arrow: {
-                  sx: {
-                    color: 'rgba(0, 0, 0, 0.87)'
-                  }
-                }
-              }}
-            >
-              <div style={{ 
-                opacity: 0.4, 
-                filter: 'grayscale(100%)', 
-                cursor: 'not-allowed'
-              }}>
-                <div style={{ pointerEvents: 'none' }}>
-                  <CategoryCard
-                    category="ludzie"
-                    title="Ludzie"
-                    description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
-                    icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
-                    iconClassName="category-icon-people"
-                    href="#"
-                  />
+            <div className="relative group">
+              <CategoryCard
+                category="ludzie"
+                title="Ludzie"
+                description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
+                icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
+                iconClassName="category-icon-people"
+                href="#"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center cursor-not-allowed">
+                <div className="bg-white rounded-lg p-4 m-4 text-center shadow-lg">
+                  <p className="text-sm font-medium text-gray-900 mb-1">
+                    Formularz niedostępny
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    Przepraszamy za niedogodności
+                  </p>
                 </div>
               </div>
-            </Tooltip>
+            </div>
           </section>
         </div>
       </main>
