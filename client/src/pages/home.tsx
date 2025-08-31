@@ -14,8 +14,8 @@ export default function HomePage() {
       <main className="flex-1 flex items-center justify-center py-10 px-6">
         <div className="max-w-5xl w-full text-center">
           {/* Welcome Section */}
-          <section className="mb-12" data-testid="welcome-section">
-            <h1 className="text-xl md:text-2xl font-medium text-gray-900 mb-2 leading-tight" data-testid="greeting">
+          <section className="mb-8" data-testid="welcome-section">
+            <h1 className="text-xl md:text-2xl font-medium text-gray-900 mb-1.5 leading-tight" data-testid="greeting">
               Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
             </h1>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
@@ -24,7 +24,7 @@ export default function HomePage() {
           </section>
 
           {/* Categories Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 items-stretch" data-testid="categories-grid">
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 items-stretch" data-testid="categories-grid">
             <CategoryCard
               category="pojazdy"
               title="Szkoda pojazdu"
