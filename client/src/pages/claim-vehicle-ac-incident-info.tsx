@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react";
 import ProgressBar from "@/components/ui/progress-bar";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { TextField } from '@mui/material';
 import { useToast } from "@/hooks/use-toast";
 import SelectionCard from "@/components/ui/selection-card";
@@ -216,28 +217,32 @@ export default function ClaimVehicleACIncidentInfo() {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <SelectionCard
-                                value="inna_przyczyna"
-                                title="Inna przyczyna"
-                                isSelected={field.value === "inna_przyczyna"}
-                                onSelect={() => field.onChange("inna_przyczyna")}
-                                testId="card-fault-other"
-                              />
-                              <SelectionCard
-                                value="drugi_uczestnik"
-                                title="Drugi uczestnik"
-                                isSelected={field.value === "drugi_uczestnik"}
-                                onSelect={() => field.onChange("drugi_uczestnik")}
-                                testId="card-fault-participant"
-                              />
-                            </div>
-                            <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                              <p className="text-sm text-blue-800">
-                                <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
-                              </p>
-                            </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <div>
+                                  <SelectionCard
+                                    value="inna_przyczyna"
+                                    title="Inna przyczyna"
+                                    isSelected={field.value === "inna_przyczyna"}
+                                    onSelect={() => field.onChange("inna_przyczyna")}
+                                    testId="card-fault-other"
+                                  />
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-xs">
+                                <p className="text-sm">
+                                  Wybierz gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
+                                </p>
+                              </TooltipContent>
+                            </Tooltip>
+                            <SelectionCard
+                              value="drugi_uczestnik"
+                              title="Drugi uczestnik"
+                              isSelected={field.value === "drugi_uczestnik"}
+                              onSelect={() => field.onChange("drugi_uczestnik")}
+                              testId="card-fault-participant"
+                            />
                           </div>
                         </FormControl>
                         <FormMessage />
