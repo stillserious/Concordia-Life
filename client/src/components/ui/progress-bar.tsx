@@ -15,7 +15,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
     <div className="w-full bg-white border-b border-gray-50">
       <div className="w-full bg-gray-50 h-1">
         <div
-          className="bg-blue-300 h-1 transition-all duration-500 ease-in-out"
+          className="bg-gradient-to-r from-blue-500 to-blue-600 h-1 transition-all duration-700 ease-out"
           style={{ width: `${progressPercentage}%` }}
         ></div>
       </div>
@@ -28,12 +28,12 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
               <div key={index} className="flex items-center">
                 {/* Circle */}
                 <div 
-                  className={`w-6 h-6 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 ${
+                  className={`w-6 h-6 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 transition-all duration-500 transform ${
                     index < currentStep - 1
-                      ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
+                      ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700 scale-100"
                       : index === currentStep - 1
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-400 text-white cursor-pointer hover:bg-gray-500"
+                      ? "bg-blue-600 text-white animate-pulse scale-110 shadow-lg shadow-blue-300"
+                      : "bg-gray-400 text-white cursor-pointer hover:bg-gray-500 scale-100"
                   } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
@@ -53,9 +53,17 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`w-8 h-0.5 mx-2 ${
-                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
-                  }`}></div>
+                  <div className="relative w-8 h-0.5 mx-2">
+                    <div className="absolute inset-0 bg-gray-300"></div>
+                    <div 
+                      className={`absolute inset-0 bg-blue-600 transition-all duration-700 ease-out ${
+                        index < currentStep - 1 ? "w-full" : "w-0"
+                      }`}
+                      style={{
+                        transitionDelay: index < currentStep - 1 ? `${(index + 1) * 200}ms` : '0ms'
+                      }}
+                    ></div>
+                  </div>
                 )}
               </div>
             ))}
@@ -89,12 +97,12 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   }
                 }}
               >
-                <div className={`w-2 h-2 rounded-full ${
+                <div className={`w-2 h-2 rounded-full transition-all duration-500 transform ${
                   index < currentStep
-                    ? "bg-blue-600"
+                    ? "bg-blue-600 scale-100"
                     : index === currentStep - 1
-                    ? "bg-blue-700"
-                    : "bg-gray-300"
+                    ? "bg-blue-700 scale-125 animate-pulse shadow-md shadow-blue-300"
+                    : "bg-gray-300 scale-100"
                 }`}></div>
                 <span>{label}</span>
                 {index < stepLabels.length - 1 && (
