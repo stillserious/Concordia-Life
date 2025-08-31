@@ -59,25 +59,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-200 mt-4 pt-3">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-sm text-gray-600">
-              © 2025 System zgłaszania szkód ubezpieczeniowych. Wszystkie prawa zastrzeżone.
-            </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-            
-              </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-         
-              </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">
-           
-              </a>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </footer>
   );
