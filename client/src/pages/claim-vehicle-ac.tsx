@@ -50,20 +50,11 @@ export default function ClaimVehicleACPage() {
       // Tutaj będzie logika wysyłania danych do backend'u
       console.log("Dane formularza AC:", data);
       
-      toast({
-        title: "Zgłoszenie utworzone!",
-        description: "Twoja sprawa została zarejestrowana. Otrzymasz potwierdzenie na e-mail.",
-      });
-      
       // Po pomyślnym wysłaniu, przekieruj do wyboru typu zdarzenia
       setLocation("/claim/vehicle/ac/incident-type");
       
     } catch (error) {
-      toast({
-        title: "Błąd podczas wysyłania",
-        description: "Wystąpił problem podczas tworzenia zgłoszenia. Spróbuj ponownie.",
-        variant: "destructive",
-      });
+      console.error("Błąd podczas wysyłania:", error);
     } finally {
       setIsSubmitting(false);
     }
