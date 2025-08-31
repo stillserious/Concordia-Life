@@ -13,8 +13,6 @@ import ClaimVehicleACCollisionVehiclePage from "@/pages/claim-vehicle-ac-collisi
 import ClaimVehicleACVehicleDataPage from "@/pages/claim-vehicle-ac-vehicle-data";
 import ClaimVehicleACIncidentInfoPage from "@/pages/claim-vehicle-ac-incident-info";
 import NotFound from "@/pages/not-found";
-import FloatingChatbot from "@/components/chat/floating-chatbot";
-
 function Router() {
   return (
     <Switch>
@@ -38,7 +36,6 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
-        <FloatingChatbot />
       </TooltipProvider>
     </QueryClientProvider>
   );
