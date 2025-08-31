@@ -53,7 +53,7 @@ export default function ClaimVehiclePage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-end gap-4 pt-4">
+          <div className="flex items-center justify-center gap-4 pt-4">
             <Link href="/">
               <Button variant="outline" data-testid="button-back" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <ArrowLeft className="w-4 h-4 mr-2" />
