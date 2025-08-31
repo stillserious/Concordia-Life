@@ -121,6 +121,9 @@ export default function ClaimVehicleACPage() {
                                 placeholder: "Wybierz datę zdarzenia",
                                 sx: {
                                   width: '100%',
+                                  '@media (max-width: 768px)': {
+                                    display: 'none',
+                                  },
                                   '& .MuiOutlinedInput-root': {
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
