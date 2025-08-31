@@ -113,7 +113,6 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
-                            label="Wybierz datę zdarzenia"
                             closeOnSelect
                             slotProps={{
                               textField: {
@@ -159,7 +158,6 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
-                            label="Wybierz godzinę zdarzenia"
                             ampm={false}
                             closeOnSelect
                             slotProps={{
