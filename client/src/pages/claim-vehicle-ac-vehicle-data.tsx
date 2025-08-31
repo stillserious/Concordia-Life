@@ -70,7 +70,6 @@ export default function ClaimVehicleACVehicleData() {
         stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
         stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
       />
-      
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
@@ -79,9 +78,7 @@ export default function ClaimVehicleACVehicleData() {
                 <span className="text-xl font-bold text-gray-800">AC</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
-                  Moje ubezpieczenie (AC)
-                </h1>
+                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">Moje ubezpieczenie</h1>
                 <p className="text-gray-600">
                   Zgłaszasz szkodę z ubezpieczenia autocasco.
                 </p>
@@ -262,7 +259,6 @@ export default function ClaimVehicleACVehicleData() {
           </div>
         </div>
       </main>
-      
       <Footer />
     </div>
   );
