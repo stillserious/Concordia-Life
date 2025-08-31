@@ -210,7 +210,7 @@ export default function ClaimVehicleACPage() {
                         <TextField
                           {...field}
                           label="Nr rejestracyjny pojazdu"
-                          placeholder="Nr rejestracyjny pojazdu"
+                          placeholder="Np WT 1035G"
                           inputProps={{ 'data-testid': 'input-license-plate' }}
                           fullWidth
                           sx={{
