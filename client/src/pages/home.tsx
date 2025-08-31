@@ -19,7 +19,7 @@ export default function HomePage() {
               Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
             </h1>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
-              Całe zgłoszenie zajmie Ci około 10 minut.
+              Zgłoszenie wniosku zajmie Ci około 10 minut.
             </p>
           </section>
 
@@ -27,8 +27,8 @@ export default function HomePage() {
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 items-stretch" data-testid="categories-grid">
             <CategoryCard
               category="pojazdy"
-              title="Pojazdy"
-              description="Zgłoś szkodę uszkodzonego samochodu, motocykla lub innego pojazdu. Obsługujemy kolizje, kradzieże i uszkodzenia mechaniczne."
+              title="Szkoda pojazdu"
+              description="Zgłoś uszkodzenie samochodu, motocykla lub innego pojazdu, np. kolizje, kradzieże lub awarie mechaniczne."
               icon={<img src={pojazdyIcon} alt="Kolizja pojazdów" className="w-8 h-8" />}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle"
@@ -37,8 +37,8 @@ export default function HomePage() {
             <div className="relative group">
               <CategoryCard
                 category="majatek"
-                title="Majątek"
-                description="Zgłoś szkodę dotyczącą domu, mieszkania, sprzętu RTV, AGD lub innego mienia. Obsługujemy zalania, pożary i kradzieże."
+                title="Szkoda majątkowa"
+                description="Zgłoś szkodę dotyczącą domu, mieszkania lub innego mienia, np. zalania, pożary, kradzieże i inne zdarzenia losowe."
                 icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
                 iconClassName="category-icon-property"
                 href="#"
@@ -58,8 +58,8 @@ export default function HomePage() {
             <div className="relative group">
               <CategoryCard
                 category="ludzie"
-                title="Ludzie"
-                description="Zgłoś szkodę dotyczącą życia lub zdrowia Twojego lub członka rodziny. Obsługujemy wypadki, choroby i inne zdarzenia ubezpieczeniowe."
+                title="Życie i zdrowie"
+                description="Zgłoś zdarzenie związane z życiem lub zdrowiem Twoim albo bliskiej osoby, np. wypadek, poważne zachorowanie lub śmierć ubezpieczonego."
                 icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" />}
                 iconClassName="category-icon-people"
                 href="#"

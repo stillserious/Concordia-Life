@@ -61,7 +61,7 @@ export default function CategoryCard({
             <div className={`insurance-button w-full sm:w-auto rounded-lg text-white font-medium ${
               size === "small" ? "px-3 py-1.5 text-sm" : "px-4 py-2"
             }`}>
-              Zgłoś sprawę
+              Zgłoś zdarzenie
             </div>
           </div>
         )}
