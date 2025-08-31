@@ -10,12 +10,15 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { TextField } from '@mui/material';
 import { useToast } from "@/hooks/use-toast";
 import SelectionCard from "@/components/ui/selection-card";
+import GoogleMap from "@/components/ui/google-map";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Link } from "wouter";
 
 const incidentInfoFormSchema = z.object({
   incidentLocation: z.string().min(1, { message: "Miejsce zdarzenia jest wymagane" }),
+  incidentLocationLat: z.number().optional(),
+  incidentLocationLng: z.number().optional(),
   incidentDescription: z.string().min(1, { message: "Opis zdarzenia jest wymagany" }),
   faultCause: z.enum(["inna_przyczyna", "drugi_uczestnik"], { message: "Wybierz sprawcę zdarzenia" }),
   policePresent: z.enum(["tak", "nie"], { message: "Wybierz czy była policja" }),
@@ -33,6 +36,8 @@ export default function ClaimVehicleACIncidentInfo() {
     resolver: zodResolver(incidentInfoFormSchema),
     defaultValues: {
       incidentLocation: "",
+      incidentLocationLat: undefined,
+      incidentLocationLng: undefined,
       incidentDescription: "",
       faultCause: undefined,
       policePresent: undefined,
@@ -97,41 +102,56 @@ export default function ClaimVehicleACIncidentInfo() {
                 
                 {/* Miejsce zdarzenia */}
                 <div className="space-y-4">
-                  <h2 className="text-xl font-semibold text-gray-900">Wpisz miejsce zdarzenia</h2>
+                  <h2 className="text-xl font-semibold text-gray-900">Wskaż miejsce zdarzenia</h2>
+                  <p className="text-gray-600 text-sm">Kliknij na mapie lub przeciągnij marker, aby wskazać dokładne miejsce zdarzenia</p>
                   
-                  <FormField
-                    control={form.control}
-                    name="incidentLocation"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <TextField
-                            {...field}
-                            label="Miejsce zdarzenia *"
-                            placeholder="np. ul. Główna 123, Warszawa"
-                            fullWidth
-                            data-testid="input-incident-location"
-                            sx={{
-                              '& .MuiOutlinedInput-root': {
-                                backgroundColor: 'white',
-                                borderRadius: '8px',
-                                '& fieldset': {
-                                  borderColor: '#e5e7eb',
-                                },
-                                '&:hover fieldset': {
-                                  borderColor: 'hsl(207, 90%, 54%)',
-                                },
-                                '&.Mui-focused fieldset': {
-                                  borderColor: 'hsl(207, 90%, 54%)',
-                                },
-                              }
-                            }}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <div className="space-y-4">
+                    <GoogleMap
+                      onLocationSelect={(location) => {
+                        form.setValue("incidentLocation", location.address);
+                        form.setValue("incidentLocationLat", location.lat);
+                        form.setValue("incidentLocationLng", location.lng);
+                      }}
+                      height="400px"
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="incidentLocation"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <TextField
+                              {...field}
+                              label="Wybrane miejsce zdarzenia *"
+                              placeholder="Adres zostanie automatycznie uzupełniony po wybraniu miejsca na mapie"
+                              fullWidth
+                              data-testid="input-incident-location"
+                              InputProps={{
+                                readOnly: true,
+                              }}
+                              sx={{
+                                '& .MuiOutlinedInput-root': {
+                                  backgroundColor: '#f9fafb',
+                                  borderRadius: '8px',
+                                  '& fieldset': {
+                                    borderColor: '#e5e7eb',
+                                  },
+                                  '&:hover fieldset': {
+                                    borderColor: 'hsl(207, 90%, 54%)',
+                                  },
+                                  '&.Mui-focused fieldset': {
+                                    borderColor: 'hsl(207, 90%, 54%)',
+                                  },
+                                }
+                              }}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 </div>
 
                 {/* Opis zdarzenia */}
