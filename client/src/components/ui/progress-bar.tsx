@@ -33,9 +33,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       <div className="max-w-4xl mx-auto px-6 pt-2 pb-1">
         {/* Mobile: Simple progress with circles */}
         <div className="md:hidden py-2">
-          <div className="flex items-center justify-center max-w-xs mx-auto">
+          <div className="flex items-center justify-between max-w-sm mx-auto px-4">
             {stepLabels?.map((label, index) => (
-              <div key={index} className="flex items-center">
+              <div key={index} className="flex items-center flex-1 justify-center">
                 {/* Simple Circle */}
                 <div 
                   className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-300 ${
@@ -63,7 +63,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`w-8 h-0.5 mx-2 transition-all duration-300 ${
+                  <div className={`flex-1 h-0.5 ml-2 transition-all duration-300 ${
                     index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
                   }`}></div>
                 )}
@@ -81,11 +81,11 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
 
         {/* Desktop: Compact step indicators */}
         <div className="hidden md:flex items-center py-2">
-          <div className="flex items-center justify-between w-full">
+          <div className="grid w-full" style={{ gridTemplateColumns: `repeat(${stepLabels?.length || 1}, 1fr)` }}>
             {stepLabels?.map((label, index) => (
               <div
                 key={index}
-                className={`flex items-center space-x-2 text-xs transition-all duration-300 flex-1 ${
+                className={`flex flex-col items-center text-xs transition-all duration-300 px-2 ${
                   index < currentStep - 1
                     ? "text-blue-600 cursor-pointer hover:text-blue-700"
                     : index === currentStep - 1
@@ -99,17 +99,14 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   }
                 }}
               >
-                <div className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 ${
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 mb-1 ${
                   index < currentStep - 1
                     ? "bg-blue-600"
                     : index === currentStep - 1
                     ? "bg-blue-600"
                     : "bg-gray-300"
                 }`}></div>
-                <span className="truncate">{label}</span>
-                {index < stepLabels.length - 1 && (
-                  <div className="flex-1 h-px bg-gray-200 mx-2 min-w-2"></div>
-                )}
+                <span className="text-center leading-tight">{label}</span>
               </div>
             ))}
           </div>
