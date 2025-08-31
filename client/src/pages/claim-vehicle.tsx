@@ -1,11 +1,13 @@
 import { ArrowLeft, Shield, FileText } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import CategoryCard from "@/components/claim/category-card";
 
 export default function ClaimVehiclePage() {
+  const [, setLocation] = useLocation();
+  
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
@@ -54,12 +56,16 @@ export default function ClaimVehiclePage() {
           </div>
 
           <div className="flex items-center justify-center gap-4 pt-4">
-            <Link href="/">
-              <Button variant="outline" data-testid="button-back" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Cofnij
-              </Button>
-            </Link>
+            <button 
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+              data-testid="button-back" 
+              onClick={() => setLocation("/")}
+              onTouchStart={() => setLocation("/")}
+              type="button"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Cofnij
+            </button>
           </div>
         </div>
       </main>
