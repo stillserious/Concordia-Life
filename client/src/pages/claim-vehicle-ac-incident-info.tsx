@@ -246,10 +246,10 @@ export default function ClaimVehicleACIncidentInfo() {
                                 />
                               </div>
                             </div>
-                            {hoveredCard && (
+                            {(hoveredCard || field.value) && (
                               <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                                 <p className="text-sm text-blue-800">
-                                  {hoveredCard === "inna_przyczyna" ? (
+                                  {(hoveredCard === "inna_przyczyna" || field.value === "inna_przyczyna") ? (
                                     <span>
                                       <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
                                     </span>
