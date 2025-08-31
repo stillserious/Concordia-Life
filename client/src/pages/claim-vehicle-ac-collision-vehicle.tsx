@@ -78,8 +78,8 @@ export default function ClaimVehicleACCollisionVehiclePage() {
         description: "Przechodzę do danych pojazdu...",
       });
       
-      window.scrollTo({ top: 0, behavior: 'smooth' });
       setLocation("/claim/vehicle/ac/vehicle-data");
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
       
     } catch (error) {
       toast({

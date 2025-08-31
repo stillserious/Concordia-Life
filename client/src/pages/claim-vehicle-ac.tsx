@@ -51,8 +51,8 @@ export default function ClaimVehicleACPage() {
       console.log("Dane formularza AC:", data);
 
       // Po pomyślnym wysłaniu, przekieruj do wyboru typu zdarzenia
-      window.scrollTo({ top: 0, behavior: 'smooth' });
       setLocation("/claim/vehicle/ac/incident-type");
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
 
     } catch (error) {
       console.error("Błąd podczas wysyłania:", error);

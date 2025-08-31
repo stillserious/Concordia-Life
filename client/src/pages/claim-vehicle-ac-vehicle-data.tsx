@@ -57,8 +57,8 @@ export default function ClaimVehicleACVehicleData() {
       description: "Przechodzę do informacji o zdarzeniu...",
     });
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     setLocation("/claim/vehicle/ac/incident-info");
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
   };
 
   return (
