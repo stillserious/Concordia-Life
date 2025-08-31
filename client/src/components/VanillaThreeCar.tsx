@@ -42,11 +42,15 @@ export default function VanillaThreeCar({
 
     const container = containerRef.current;
     
-    // Sprawdź czy już istnieje instancja
+    // Wyczyść poprzednią instancję żeby załadować nowy model
     if (globalThreeInstance && globalThreeInstance.parentNode) {
-      console.log('Model 3D już istnieje - używam istniejący');
-      setIsLoading(false);
-      return;
+      console.log('Usuwam starą instancję modelu 3D...');
+      try {
+        globalThreeInstance.parentNode.removeChild(globalThreeInstance);
+      } catch (e) {
+        console.warn('Błąd usuwania:', e);
+      }
+      globalThreeInstance = null;
     }
 
     console.log('Tworzę nowy model 3D...');
@@ -70,6 +74,8 @@ export default function VanillaThreeCar({
         alpha: true
       });
       renderer.setSize(width, height);
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
       globalThreeInstance = renderer.domElement;
 
       container.appendChild(renderer.domElement);
@@ -402,8 +408,9 @@ export default function VanillaThreeCar({
     carPartsRef.current.forEach((mesh, partName) => {
       const isSelected = selectedParts.has(partName);
       if (mesh.material) {
-        (mesh.material as THREE.MeshLambertMaterial).color.setHex(isSelected ? 0xFF4444 : 0x4A90E2);
+        (mesh.material as THREE.MeshPhongMaterial).color.setHex(isSelected ? 0xFF4444 : 0x4A90E2);
         mesh.scale.setScalar(isSelected ? 1.1 : 1);
+        (mesh.material as THREE.MeshPhongMaterial).emissive.setHex(isSelected ? 0x440000 : 0x000000);
       }
     });
   }, [selectedParts]);
