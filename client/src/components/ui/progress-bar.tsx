@@ -16,7 +16,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
       {/* Enhanced Progress Bar */}
       <div className="w-full bg-gradient-to-r from-slate-100 to-slate-200 h-1.5 relative overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-purple-600 transition-all duration-700 ease-out relative"
+          className="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transition-all duration-700 ease-out relative"
           style={{ width: `${progressPercentage}%` }}
         >
           {/* Animated glow effect */}
@@ -24,19 +24,19 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
         </div>
       </div>
       
-      <div className="max-w-4xl mx-auto px-6 pt-3 pb-2">
+      <div className="max-w-4xl mx-auto px-6 pt-2 pb-1">
         {/* Mobile: Enhanced Visual progress */}
-        <div className="md:hidden py-2">
+        <div className="md:hidden py-1">
           <div className="flex items-center justify-center max-w-sm mx-auto">
             {stepLabels?.map((label, index) => (
               <div key={index} className="flex items-center">
                 {/* Enhanced Circle */}
                 <div 
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold text-xs flex-shrink-0 relative transition-all duration-300 transform ${
+                  className={`w-7 h-7 rounded-full flex items-center justify-center font-semibold text-xs flex-shrink-0 relative transition-all duration-300 transform ${
                     index < currentStep - 1
                       ? "bg-gradient-to-br from-green-400 to-green-600 text-white cursor-pointer hover:scale-110 hover:shadow-lg shadow-green-200"
                       : index === currentStep - 1
-                      ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg scale-110"
+                      ? "bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg scale-110"
                       : "bg-gradient-to-br from-slate-200 to-slate-300 text-slate-500 cursor-pointer hover:scale-105 hover:from-slate-300 hover:to-slate-400"
                   } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                   onClick={() => {
@@ -48,7 +48,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 >
                   {/* Glow ring for active step */}
                   {index === currentStep - 1 && (
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 animate-pulse -z-10 scale-125"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 animate-pulse -z-10 scale-125"></div>
                   )}
                   
                   {index < currentStep - 1 ? (
@@ -73,9 +73,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
           </div>
           
           {/* Enhanced Current step label */}
-          <div className="text-center mt-2">
-            <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200">
-              <span className="text-xs font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="text-center mt-1">
+            <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-50 to-blue-100 rounded-full border border-blue-200">
+              <span className="text-xs font-semibold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                 {stepLabels?.[currentStep - 1]}
               </span>
             </div>
@@ -83,7 +83,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
         </div>
 
         {/* Desktop: Enhanced Detailed steps */}
-        <div className="hidden md:flex items-center justify-between py-1">
+        <div className="hidden md:flex items-center justify-between py-0.5">
           <div className="flex items-center w-full relative">
             {stepLabels?.map((label, index) => (
               <div
@@ -99,16 +99,16 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 }}
               >
                 {/* Step Circle */}
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center font-semibold text-xs relative transition-all duration-300 z-10 ${
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center font-semibold text-xs relative transition-all duration-300 z-10 ${
                   index < currentStep - 1
                     ? "bg-gradient-to-br from-green-400 to-green-600 text-white shadow-md group-hover:scale-110 group-hover:shadow-lg"
                     : index === currentStep - 1
-                    ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg scale-110"
+                    ? "bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg scale-110"
                     : "bg-gradient-to-br from-slate-200 to-slate-300 text-slate-500 group-hover:scale-105 group-hover:from-slate-300 group-hover:to-slate-400"
                 }`}>
                   {/* Active step glow */}
                   {index === currentStep - 1 && (
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 animate-pulse -z-10 scale-150 opacity-50"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 animate-pulse -z-10 scale-150 opacity-50"></div>
                   )}
                   
                   {index < currentStep - 1 ? (
@@ -121,7 +121,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 </div>
                 
                 {/* Step Label */}
-                <div className={`mt-2 text-center transition-all duration-300 ${
+                <div className={`mt-1.5 text-center transition-all duration-300 ${
                   index < currentStep
                     ? "text-green-700 font-semibold group-hover:text-green-800"
                     : index === currentStep - 1
@@ -135,7 +135,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 
                 {/* Connecting Line */}
                 {index < stepLabels.length - 1 && (
-                  <div className="absolute top-3 left-1/2 w-full h-0.5 -z-10">
+                  <div className="absolute top-2.5 left-1/2 w-full h-0.5 -z-10">
                     <div className={`h-full transition-all duration-500 ${
                       index < currentStep - 1 
                         ? "bg-gradient-to-r from-green-400 to-green-600" 
