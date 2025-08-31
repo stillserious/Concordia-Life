@@ -237,16 +237,7 @@ export default function ClaimVehicleACPage() {
                   )}
                 />
 
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h3 className="font-medium text-blue-900 mb-2">
-                    💡 Co dalej?
-                  </h3>
-                  <ul className="text-sm text-blue-800 space-y-1">
-                    <li>• Po wypełnieniu tych danych przejdziesz do szczegółowego formularza</li>
-                    <li>• Będziesz mógł dodać opis zdarzenia i dokumenty</li>
-                    <li>• Otrzymasz numer sprawy do śledzenia statusu</li>
-                  </ul>
-                </div>
+                
 
                 <div className="flex items-center justify-end gap-4 pt-4">
                   <Button variant="outline" data-testid="button-back" onClick={() => {
