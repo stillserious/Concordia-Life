@@ -54,7 +54,6 @@ export default function Footer() {
               <div className="space-y-1">
                 <p className="text-sm font-medium text-gray-900">Twoje dane są bezpieczne</p>
                 <p className="text-sm text-gray-600">Szyfrowanie SSL/TLS</p>
-                <p className="text-sm text-gray-600">Zgodność z RODO</p>
               </div>
             </div>
           </div>
