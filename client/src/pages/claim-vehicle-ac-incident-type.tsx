@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { DirectionsCar, Warning, Pets, Security } from "@mui/icons-material";
-import { Link } from "wouter";
+import { useLocation } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import ProgressBar from "@/components/ui/progress-bar";
@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import CategoryCard from "@/components/claim/category-card";
 
 export default function ClaimVehicleACIncidentTypePage() {
+  const [, setLocation] = useLocation();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -98,12 +100,13 @@ export default function ClaimVehicleACIncidentTypePage() {
             </div>
 
             <div className="flex items-center justify-end gap-4 pt-4">
-              <Link href="/claim/vehicle/ac">
-                <Button variant="outline" data-testid="button-back" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Cofnij
-                </Button>
-              </Link>
+              <Button variant="outline" data-testid="button-back" onClick={() => {
+                setLocation("/claim/vehicle/ac");
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }}>
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Cofnij
+              </Button>
             </div>
           </div>
         </div>
