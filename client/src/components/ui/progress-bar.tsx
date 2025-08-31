@@ -24,11 +24,11 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
         {/* Mobile: Visual progress with circles */}
         <div className="md:hidden">
           {/* Progress circles */}
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-between mb-3 px-4">
             {stepLabels?.map((label, index) => (
-              <div key={index} className="flex items-center">
-                <div className="relative">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-lg ${
+              <div key={index} className="flex items-center flex-1">
+                <div className="relative flex-shrink-0">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-medium text-sm ${
                     index < currentStep
                       ? "bg-blue-600"
                       : index === currentStep - 1
@@ -40,13 +40,13 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   {/* Triangle pointer for current step */}
                   {index === currentStep - 1 && (
                     <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-blue-600"></div>
+                      <div className="w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-blue-600"></div>
                     </div>
                   )}
                 </div>
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`w-8 h-1 mx-2 ${
+                  <div className={`flex-1 h-0.5 mx-2 ${
                     index < currentStep - 1 ? "bg-blue-600" : "bg-blue-300"
                   }`}></div>
                 )}
@@ -55,10 +55,10 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
           </div>
           
           {/* Current step label */}
-          <div className="flex justify-center">
-            <div className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium text-center max-w-xs">
+          <div className="text-center px-4">
+            <span className="text-sm font-medium text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
               {stepLabels?.[currentStep - 1]}
-            </div>
+            </span>
           </div>
         </div>
 
