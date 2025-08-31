@@ -55,7 +55,7 @@ export default function ClaimVehiclePage() {
 
           <div className="text-center">
             <Link href="/">
-              <Button variant="outline" className="hover:border-black [&]:focus:outline-none [&]:focus-visible:outline-none [&]:focus:ring-0 [&]:focus-visible:ring-0 [&]:focus:ring-offset-0" style={{outline: 'none', boxShadow: 'none'}} data-testid="button-back">
+              <Button variant="outline" className="hover:border-black focus-visible:ring-0 focus-visible:ring-offset-0" data-testid="button-back">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Powrót do kategorii
               </Button>
