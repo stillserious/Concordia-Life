@@ -114,28 +114,41 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
           </div>
           
           {/* Labels row */}
-          <div className="flex items-center w-full">
-            {stepLabels?.map((label, index) => (
-              <div key={index} className="flex-1 flex justify-center">
-                <span 
-                  className={`text-xs text-center leading-tight transition-all duration-300 cursor-pointer ${
-                    index < currentStep - 1
-                      ? "text-blue-600 hover:text-blue-700"
-                      : index === currentStep - 1
-                      ? "text-blue-600 font-medium"
-                      : "text-gray-400 hover:text-gray-600"
-                  }`}
-                  onClick={() => {
-                    if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
-                      setLocation(stepRoutes[index]);
-                      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-                    }
-                  }}
-                >
-                  {label}
-                </span>
-              </div>
-            ))}
+          <div className="flex w-full">
+            {stepLabels?.map((label, index) => {
+              // Split label into words and break into two lines if needed
+              const words = label.split(' ');
+              const shouldBreak = words.length > 1;
+              
+              return (
+                <div key={index} className="flex-1 flex justify-center">
+                  <div 
+                    className={`text-xs text-center leading-tight transition-all duration-300 cursor-pointer ${
+                      index < currentStep - 1
+                        ? "text-blue-600 hover:text-blue-700"
+                        : index === currentStep - 1
+                        ? "text-blue-600 font-medium"
+                        : "text-gray-400 hover:text-gray-600"
+                    }`}
+                    onClick={() => {
+                      if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
+                        setLocation(stepRoutes[index]);
+                        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                      }
+                    }}
+                  >
+                    {shouldBreak ? (
+                      <>
+                        <div>{words[0]}</div>
+                        <div>{words.slice(1).join(' ')}</div>
+                      </>
+                    ) : (
+                      <div>{label}</div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
