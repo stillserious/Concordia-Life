@@ -87,7 +87,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 key={index}
                 className={`flex items-center space-x-3 text-sm whitespace-nowrap transition-all duration-300 ${
                   index < currentStep
-                    ? "text-green-600 cursor-pointer hover:text-green-700"
+                    ? "text-blue-600 cursor-pointer hover:text-blue-700"
                     : index === currentStep - 1
                     ? "text-blue-600 font-medium"
                     : "text-gray-400 cursor-pointer hover:text-gray-600"
@@ -101,7 +101,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
               >
                 <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index < currentStep
-                    ? "bg-green-600"
+                    ? "bg-blue-600"
                     : index === currentStep - 1
                     ? "bg-blue-600"
                     : "bg-gray-300"
