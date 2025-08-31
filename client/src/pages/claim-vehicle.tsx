@@ -55,7 +55,7 @@ export default function ClaimVehiclePage() {
 
           <div className="text-center">
             <Link href="/">
-              <Button variant="outline" className="border-black hover:bg-black hover:text-white text-[#2094f3] bg-[#e3ecf6]" data-testid="button-back">
+              <Button variant="outline" data-testid="button-back">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Powrót do kategorii
               </Button>
