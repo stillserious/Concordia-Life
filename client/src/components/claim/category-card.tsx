@@ -34,11 +34,7 @@ export default function CategoryCard({
         } min-h-[140px]`}
         data-testid={`card-${category}`}
       >
-        <div className={`mx-auto rounded-full flex items-center justify-center ${
-          size === "small"
-            ? "w-14 h-14 mb-3 text-lg"
-            : "w-20 h-20 mb-6 text-3xl"
-        } ${iconClassName}`}>
+        <div className="mx-auto rounded-full flex items-center justify-center w-14 h-14 mb-3 text-lg category-icon-vehicles text-[#8df320]">
           {icon}
         </div>
 
