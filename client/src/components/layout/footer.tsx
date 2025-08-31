@@ -15,7 +15,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-900">606 883 506</p>
-                  <p className="text-xs text-gray-600">Infolinia 24/7</p>
+                  <p className="text-xs text-gray-600"></p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -23,7 +23,7 @@ export default function Footer() {
                   <Mail className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-700">pomoc@ubezpieczenia.pl</p>
+                  <p className="text-sm text-gray-700">pomoc@concordialife.pl</p>
                 </div>
               </div>
             </div>
@@ -38,8 +38,8 @@ export default function Footer() {
               </div>
               <div className="space-y-1">
                 <p className="text-sm font-medium text-gray-900">Infolinia</p>
-                <p className="text-sm text-gray-600">24 godziny na dobę</p>
-                <p className="text-sm text-gray-600">7 dni w tygodniu</p>
+                <p className="text-sm text-gray-600">24 godziny na dobę, 7 dni w tygodniu</p>
+                <p className="text-sm text-gray-600"></p>
               </div>
             </div>
           </div>
