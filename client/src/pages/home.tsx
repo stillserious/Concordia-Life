@@ -35,7 +35,7 @@ export default function HomePage() {
             />
             
             <Tooltip 
-              title="Ścieżki niedostępne w wersji demonstracyjnej" 
+              title="Formularz tymczasowo niedostępny, przepraszamy za niedogodności." 
               placement="top"
               arrow
               componentsProps={{
@@ -76,7 +76,7 @@ export default function HomePage() {
             </Tooltip>
             
             <Tooltip 
-              title="Ścieżki niedostępne w wersji demonstracyjnej" 
+              title="Formularz tymczasowo niedostępny, przepraszamy za niedogodności." 
               placement="top"
               arrow
               componentsProps={{
