@@ -24,7 +24,7 @@ export default function HomePage() {
           </section>
           
           {/* Categories Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12" data-testid="categories-grid">
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 items-stretch" data-testid="categories-grid">
             <CategoryCard
               category="pojazdy"
               title="Pojazdy"

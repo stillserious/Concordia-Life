@@ -31,7 +31,7 @@ export default function CategoryCard({
             : "insurance-card"
         } cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300 ${
           size === "small" ? "p-4" : "p-8"
-        }`}
+        } min-h-[280px]`}
         data-testid={`card-${category}`}
       >
         <div className={`mx-auto rounded-full flex items-center justify-center ${
