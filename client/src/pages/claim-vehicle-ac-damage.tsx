@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Link } from "wouter";
-import ProfessionalCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/ProfessionalCarDiagram";
+import PreciseCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/PreciseCarDiagram";
 
 const damageFormSchema = z.object({
   damagedParts: z.array(z.string()).default([]),
@@ -80,8 +80,8 @@ export default function ClaimVehicleACDamage() {
               {/* Instrukcja */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-sm text-blue-800">
-                  <strong>Instrukcja:</strong> Kliknij na części w diagramie samochodu, które zostały uszkodzone podczas zdarzenia. 
-                  Wybrane części będą oznaczone na czerwono z animacją pulsowania. Najedź myszką na części by zobaczyć ich nazwy.
+                  <strong>Instrukcja:</strong> Wybierz uszkodzone części samochodu klikając na diagram lub zaznaczając checkboxy po prawej stronie. 
+                  Możesz przełączać między widokiem "PRZÓD I LEWY BOK" a "TYŁ I PRAWY BOK" używając przycisków na górze.
                 </p>
               </div>
 
@@ -95,7 +95,7 @@ export default function ClaimVehicleACDamage() {
                   render={() => (
                     <FormItem>
                       <FormControl>
-                        <ProfessionalCarDiagram 
+                        <PreciseCarDiagram 
                           selectedParts={selectedParts}
                           onPartSelect={handlePartSelect}
                           className="min-h-[500px]"
