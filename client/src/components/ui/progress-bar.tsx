@@ -80,18 +80,51 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
         </div>
 
         {/* Desktop: Compact step indicators */}
-        <div className="hidden md:flex items-center py-2">
-          <div className="flex items-center w-full">
+        <div className="hidden md:flex flex-col py-2">
+          {/* Circles and lines row */}
+          <div className="flex items-center w-full mb-2">
             {stepLabels?.map((label, index) => (
               <div key={index} className="flex items-center flex-1">
-                <div
-                  className={`flex flex-col items-center text-xs transition-all duration-300 ${
+                <div className="flex justify-center">
+                  <div 
+                    className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer ${
+                      index < currentStep - 1
+                        ? "bg-blue-600"
+                        : index === currentStep - 1
+                        ? "bg-blue-600"
+                        : "bg-gray-300"
+                    } ${stepRoutes && index !== currentStep - 1 ? "hover:scale-110" : ""}`}
+                    onClick={() => {
+                      if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
+                        setLocation(stepRoutes[index]);
+                        setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                      }
+                    }}
+                  ></div>
+                </div>
+                
+                {/* Connecting line at same level as circles */}
+                {index < stepLabels.length - 1 && (
+                  <div className={`flex-1 h-px mx-3 transition-all duration-300 ${
+                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
+                  }`}></div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          {/* Labels row */}
+          <div className="flex items-center w-full">
+            {stepLabels?.map((label, index) => (
+              <div key={index} className="flex-1 flex justify-center">
+                <span 
+                  className={`text-xs text-center leading-tight transition-all duration-300 cursor-pointer ${
                     index < currentStep - 1
-                      ? "text-blue-600 cursor-pointer hover:text-blue-700"
+                      ? "text-blue-600 hover:text-blue-700"
                       : index === currentStep - 1
                       ? "text-blue-600 font-medium"
-                      : "text-gray-400 cursor-pointer hover:text-gray-600"
-                  } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
+                      : "text-gray-400 hover:text-gray-600"
+                  }`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
                       setLocation(stepRoutes[index]);
@@ -99,24 +132,8 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                     }
                   }}
                 >
-                  <div className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 mb-1 ${
-                    index < currentStep - 1
-                      ? "bg-blue-600"
-                      : index === currentStep - 1
-                      ? "bg-blue-600"
-                      : "bg-gray-300"
-                  }`}></div>
-                  <span className="text-center leading-tight">{label}</span>
-                </div>
-                
-                {/* Connecting line positioned at circle level */}
-                {index < stepLabels.length - 1 && (
-                  <div className="flex-1 flex items-start pt-1">
-                    <div className={`w-full h-px transition-all duration-300 ${
-                      index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
-                    }`}></div>
-                  </div>
-                )}
+                  {label}
+                </span>
               </div>
             ))}
           </div>
