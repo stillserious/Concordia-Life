@@ -113,7 +113,7 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
-                            label="Podaj datę zdarzenia"
+                            label="Data zdarzenia"
                             closeOnSelect
                             localeText={{
                               cancelButtonLabel: 'Anuluj',
@@ -128,7 +128,7 @@ export default function ClaimVehicleACPage() {
                             slotProps={{
                               textField: {
                                 error: false,
-                                placeholder: "Podaj datę zdarzenia",
+                                placeholder: "Data zdarzenia",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
@@ -164,7 +164,7 @@ export default function ClaimVehicleACPage() {
                             {...field}
                             value={value || null}
                             onChange={onChange}
-                            label="Wybierz godzinę zdarzenia"
+                            label="Godzina zdarzenia"
                             ampm={false}
                             closeOnSelect
                             localeText={{
@@ -178,7 +178,7 @@ export default function ClaimVehicleACPage() {
                             slotProps={{
                               textField: {
                                 error: false,
-                                placeholder: "Wybierz godzinę zdarzenia",
+                                placeholder: "Godzina zdarzenia",
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
