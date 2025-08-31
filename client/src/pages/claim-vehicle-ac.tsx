@@ -139,11 +139,8 @@ export default function ClaimVehicleACPage() {
                                       display: 'none',
                                     },
                                   }
-                                }}
-                              },
-                              actionBar: {
-                                actions: [],
-                              },
+                                }
+                              }
                             }}
                           />
                         </FormControl>
@@ -190,10 +187,7 @@ export default function ClaimVehicleACPage() {
                                     },
                                   },
                                 }
-                              },
-                              actionBar: {
-                                actions: [],
-                              },
+                              }
                             }}
                           />
                         </FormControl>
