@@ -84,7 +84,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
           {/* Circles with lines row */}
           <div className="relative flex justify-between items-start w-full mb-2">
             {/* Connecting lines behind circles - positioned at middle of circles */}
-            <div className="absolute top-4 left-0 right-0 flex items-center transform -translate-y-px">
+            <div className="absolute top-1.5 left-0 right-0 flex items-center transform -translate-y-px">
               <div className="flex w-full">
                 {stepLabels?.slice(0, -1).map((_, index) => (
                   <div key={index} className="flex-1 flex items-center">
@@ -100,28 +100,20 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
             {stepLabels?.map((label, index) => (
               <div key={index} className="relative flex flex-col items-center z-10">
                 <div 
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-300 ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer ${
                     index < currentStep - 1
-                      ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
+                      ? "bg-blue-600"
                       : index === currentStep - 1
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-300 text-gray-600 cursor-pointer hover:bg-gray-400"
-                  } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
+                      ? "bg-blue-600"
+                      : "bg-gray-300"
+                  } ${stepRoutes && index !== currentStep - 1 ? "hover:scale-110" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
                       setLocation(stepRoutes[index]);
                       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
                     }
                   }}
-                >
-                  {index < currentStep - 1 ? (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  ) : (
-                    index + 1
-                  )}
-                </div>
+                ></div>
                 
                 {/* Label directly under each circle */}
                 <div className="mt-2 text-xs text-center leading-tight">
