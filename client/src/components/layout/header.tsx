@@ -5,7 +5,7 @@ export default function Header() {
         <div className="flex items-center" data-testid="header-logo">
           <div className="flex items-center">
             <img 
-              src="/attached_assets/LOGO_1756645674690.png" 
+              src="/attached_assets/ConcordiaLife_logo.png" 
               alt="ConcordiaLife" 
               className="h-12 w-auto"
             />
