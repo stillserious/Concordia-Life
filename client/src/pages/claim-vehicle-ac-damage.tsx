@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Link } from "wouter";
-import EnhancedCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/EnhancedCarDiagram";
+import ProfessionalCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/ProfessionalCarDiagram";
 
 const damageFormSchema = z.object({
   damagedParts: z.array(z.string()).default([]),
@@ -95,7 +95,7 @@ export default function ClaimVehicleACDamage() {
                   render={() => (
                     <FormItem>
                       <FormControl>
-                        <EnhancedCarDiagram 
+                        <ProfessionalCarDiagram 
                           selectedParts={selectedParts}
                           onPartSelect={handlePartSelect}
                           className="min-h-[500px]"
