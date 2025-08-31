@@ -29,7 +29,7 @@ export default function HomePage() {
               category="pojazdy"
               title="Szkoda pojazdu"
               description="Zgłoś uszkodzenie samochodu, motocykla lub innego pojazdu, np. kolizje, kradzieże lub awarie mechaniczne."
-              icon={<img src={pojazdyIcon} alt="Kolizja pojazdów" className="w-8 h-8" />}
+              icon={<img src={pojazdyIcon} alt="Kolizja pojazdów" className="w-10 h-10" />}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle"
             />
@@ -39,7 +39,7 @@ export default function HomePage() {
                 category="majatek"
                 title="Szkoda majątkowa"
                 description="Zgłoś szkodę dotyczącą domu, mieszkania lub innego mienia, np. zalania, pożary, kradzieże i inne zdarzenia losowe."
-                icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-8 h-8" />}
+                icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-10 h-10" />}
                 iconClassName="category-icon-property"
                 href="#"
               />
