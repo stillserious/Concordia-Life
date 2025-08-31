@@ -6,10 +6,10 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Kontakt */}
-          <div className="space-y-3">
+          <div className="space-y-3 text-center md:text-left">
             <h3 className="text-sm font-semibold text-gray-900 mb-2">Kontakt</h3>
             <div className="space-y-1">
-              <div className="flex items-center space-x-3" data-testid="footer-phone">
+              <div className="flex items-center justify-center md:justify-start space-x-3" data-testid="footer-phone">
                 <div className="flex-shrink-0">
                   <Phone className="w-5 h-5 text-blue-600" />
                 </div>
@@ -18,7 +18,7 @@ export default function Footer() {
                   <p className="text-xs text-gray-600"></p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-center md:justify-start space-x-3">
                 <div className="flex-shrink-0">
                   <Mail className="w-5 h-5 text-blue-600" />
                 </div>
@@ -30,9 +30,9 @@ export default function Footer() {
           </div>
 
           {/* Godziny pracy */}
-          <div className="space-y-3">
+          <div className="space-y-3 text-center md:text-left">
             <h3 className="text-sm font-semibold text-gray-900 mb-2">Godziny pracy</h3>
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start justify-center md:justify-start space-x-3">
               <div className="flex-shrink-0">
                 <Clock className="w-5 h-5 text-blue-600" />
               </div>
@@ -45,9 +45,9 @@ export default function Footer() {
           </div>
 
           {/* Bezpieczeństwo */}
-          <div className="space-y-3">
+          <div className="space-y-3 text-center md:text-left">
             <h3 className="text-sm font-semibold text-gray-900 mb-2">Bezpieczeństwo</h3>
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start justify-center md:justify-start space-x-3">
               <div className="flex-shrink-0">
                 <Shield className="w-5 h-5 text-blue-600" />
               </div>
