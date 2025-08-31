@@ -19,7 +19,7 @@ export default function HomePage() {
               Witaj w systemie do zgłaszania spraw online. Wybierz, czego dotyczy Twoje zgłoszenie.
             </h1>
             <p className="text-sm text-gray-500 font-light" data-testid="time-estimate">
-              Zajmie Ci to około 10 minut.
+              Całe zgłoszenie zajmie Ci około 10 minut.
             </p>
           </section>
 
