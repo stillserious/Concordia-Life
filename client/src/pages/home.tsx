@@ -49,7 +49,7 @@ export default function HomePage() {
                     Formularz tymczasowo niedostępny
                   </p>
                   <p className="text-xs text-black">
-                    Przepraszamy za niedogodności
+                    Skontaktuj się z nami telefonicznie
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@ export default function HomePage() {
                     Formularz tymczasowo niedostępny
                   </p>
                   <p className="text-xs text-black">
-                    Przepraszamy za niedogodności
+                    Skontaktuj się z nami telefonicznie
                   </p>
                 </div>
               </div>
