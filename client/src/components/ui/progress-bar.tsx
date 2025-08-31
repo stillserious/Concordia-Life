@@ -81,7 +81,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
 
         {/* Desktop: Compact step indicators */}
         <div className="hidden md:flex items-center py-2">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex items-center w-full">
             {stepLabels?.map((label, index) => (
               <div key={index} className="flex items-center flex-1">
                 <div
@@ -109,11 +109,13 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                   <span className="text-center leading-tight">{label}</span>
                 </div>
                 
-                {/* Connecting line */}
+                {/* Connecting line positioned at circle level */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`flex-1 h-px mx-3 transition-all duration-300 ${
-                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
-                  }`}></div>
+                  <div className="flex-1 flex items-start pt-1">
+                    <div className={`w-full h-px transition-all duration-300 ${
+                      index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
+                    }`}></div>
+                  </div>
                 )}
               </div>
             ))}
