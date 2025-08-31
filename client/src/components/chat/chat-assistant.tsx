@@ -86,7 +86,7 @@ const propertyGuide: GuideStep[] = [
       "Kradzież - zgłoś na policję",
       "Uszkodzenie - udokumentuj przyczynę"
     ],
-    nextAction: { text: "Kontynuuj" }
+    nextAction: { text: "Przejdź dalej" }
   },
   {
     id: "documents",

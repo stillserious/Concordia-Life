@@ -686,7 +686,7 @@ export default function ClaimVehicleACCollisionVehiclePage() {
                     className="insurance-button"
                     data-testid="button-submit-form"
                   >
-                    {isSubmitting ? "Zapisywanie..." : "Kontynuuj"}
+                    {isSubmitting ? "Zapisywanie..." : "Przejdź dalej"}
                   </Button>
                 </div>
               </form>

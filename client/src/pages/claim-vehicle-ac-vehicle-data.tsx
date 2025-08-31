@@ -249,7 +249,7 @@ export default function ClaimVehicleACVehicleData() {
                   data-testid="button-submit"
                   className="insurance-button"
                 >
-                  Kontynuuj
+                  Przejdź dalej
                 </Button>
               </div>
             </form>
