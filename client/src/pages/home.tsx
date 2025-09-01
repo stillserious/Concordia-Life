@@ -74,10 +74,11 @@ export default function HomePage() {
                 iconClassName="category-icon-people"
                 href="#"
               />
+              {/* Blur - pojawia się od razu */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-75"></div>
+              
+              {/* Overlay z treścią */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed transition-all duration-500 ease-out">
-                {/* Wyblurowany kafelek w tle */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl"></div>
-                
                 {/* Zawartość overlay */}
                 <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-4 mx-2 text-center rounded-xl shadow-xl max-w-xs transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
                   <div className="flex justify-center mb-3">
