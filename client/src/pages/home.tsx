@@ -1,7 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
-import { Clock } from "lucide-react";
+import clockIcon from "@assets/clock_1756748401326.png";
 
 import pojazdyIcon from "@assets/car_1756748340019.png";
 import majatekIcon from "@assets/house_1756748049803.png";
@@ -52,7 +52,7 @@ export default function HomePage() {
                 <div className="relative bg-white border border-slate-300 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
                     <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-slate-600" />
+                      <img src={clockIcon} alt="Zegar" className="w-6 h-6" />
                     </div>
                   </div>
                   <h3 className="text-base font-semibold text-slate-900 mb-2">
@@ -85,7 +85,7 @@ export default function HomePage() {
                 <div className="relative bg-white border border-slate-300 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
                     <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-slate-600" />
+                      <img src={clockIcon} alt="Zegar" className="w-6 h-6" />
                     </div>
                   </div>
                   <h3 className="text-base font-semibold text-slate-900 mb-2">
