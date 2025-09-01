@@ -326,7 +326,7 @@ export default function ClaimVehicleACDamagePage() {
                       <FormControl>
                         <textarea
                           {...field}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full p-3 border border-blue-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-400 transition-colors"
                           rows={4}
                           placeholder="Opisz szczegóły uszkodzeń, które mogą nie być widoczne na modelu."
                           data-testid="damage-description-input"
@@ -337,7 +337,7 @@ export default function ClaimVehicleACDamagePage() {
                   )}
                 />
 
-                <div className="flex justify-between pt-6 border-t border-gray-200">
+                <div className="flex justify-between pt-6 border-t border-blue-200">
                   <Button
                     variant="outline"
                     onClick={() => setLocation("/claim/vehicle/ac/incident-info")}

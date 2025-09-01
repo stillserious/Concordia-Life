@@ -111,7 +111,7 @@ export default function ClaimVehicleACDocuments() {
             ? 'border-blue-400 bg-blue-50' 
             : file 
             ? 'border-green-400 bg-green-50' 
-            : 'border-gray-300 hover:border-gray-400'
+            : 'border-blue-200 hover:border-blue-400 bg-gradient-to-r from-white to-blue-50'
         }`}
         onDragOver={(e) => {
           e.preventDefault();
