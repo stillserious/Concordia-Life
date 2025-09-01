@@ -128,7 +128,7 @@ export default function ClaimVehicleACIncidentTypePage() {
                   category="theft-parts"
                   title="Kradzież części"
                   description="Kradzież elementów pojazdu jak koła, lusterka, katalizator, akcesoria lub inne części samochodu."
-                  icon={<img src={theftPartsIcon} alt="Kradzież części" className="w-10 h-10" />}
+                  icon={<img src={theftPartsIcon} alt="Kradzież części" className="w-9 h-9" />}
                   iconClassName="category-icon-vehicles"
                   href="#"
                   size="small"
