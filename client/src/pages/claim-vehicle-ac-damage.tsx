@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Link } from "wouter";
-import EnvatoCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/EnvatoCarDiagram";
+import EnvatoReplicaCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/EnvatoReplicaCarDiagram";
 
 const damageFormSchema = z.object({
   damagedParts: z.array(z.string()).default([]),
@@ -87,14 +87,14 @@ export default function ClaimVehicleACDamage() {
               {/* Instrukcja */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-sm text-blue-800">
-                  <strong>Instrukcja:</strong> Użyj przycisków PRZÓD/LEWA STRONA/PRAWA STRONA/TYŁ aby zmienić widok pojazdu. 
-                  Kliknij na części które zostały uszkodzone podczas zdarzenia. Najedź myszką aby zobaczyć nazwy części.
+                  <strong>Instrukcja:</strong> Kliknij na części w diagramie samochodu, które zostały uszkodzone podczas zdarzenia. 
+                  Model zawiera 68 dokładnych części. Najedź myszką na część aby zobaczyć jej polską nazwę.
                 </p>
               </div>
 
               {/* Interaktywny model 3D samochodu */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-900">Interaktywny diagram pojazdu Envato</h2>
+                <h2 className="text-xl font-semibold text-gray-900">Interaktywny diagram pojazdu - model Envato</h2>
                 
                 <FormField
                   control={form.control}
@@ -102,11 +102,11 @@ export default function ClaimVehicleACDamage() {
                   render={() => (
                     <FormItem>
                       <FormControl>
-                        <EnvatoCarDiagram 
-                          key="envato-car-diagram"
+                        <EnvatoReplicaCarDiagram 
+                          key="envato-replica-car-diagram"
                           selectedParts={selectedParts}
                           onPartSelect={handlePartSelect}
-                          className="min-h-[500px]"
+                          className="min-h-[600px]"
                         />
                       </FormControl>
                       <FormMessage />
