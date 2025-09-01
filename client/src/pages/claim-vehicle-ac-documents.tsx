@@ -86,9 +86,9 @@ export default function ClaimVehicleACDocuments() {
       otherDocument: otherDocument?.name
     });
 
-    // Przekieruj do strony sukcesu
+    // Przekieruj do strony potwierdzenia
     setTimeout(() => {
-      setLocation("/claim/vehicle/ac/success");
+      setLocation("/claim/vehicle/ac/confirmation");
     }, 1000);
   };
 

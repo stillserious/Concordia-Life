@@ -6,10 +6,11 @@ interface ProgressBarProps {
   totalSteps: number;
   stepLabels?: string[];
   stepRoutes?: string[];
+  isCompleted?: boolean;
 }
 
-export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepRoutes }: ProgressBarProps) {
-  const progressPercentage = (currentStep / totalSteps) * 100;
+export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepRoutes, isCompleted = false }: ProgressBarProps) {
+  const progressPercentage = isCompleted ? 100 : (currentStep / totalSteps) * 100;
   const [, setLocation] = useLocation();
 
   return (
@@ -21,7 +22,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
         sx={{
           height: 4,
           '& .MuiLinearProgress-bar': {
-            backgroundColor: 'hsl(207, 90%, 54%)',
+            backgroundColor: isCompleted ? '#16a34a' : 'hsl(207, 90%, 54%)',
             transition: 'transform 0.7s ease-out'
           },
           '& .MuiLinearProgress-root': {
@@ -39,7 +40,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 {/* Simple Circle */}
                 <div 
                   className={`w-6 h-6 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 transition-all duration-300 ${
-                    index < currentStep - 1
+                    isCompleted
+                      ? "bg-green-600 text-white"
+                      : index < currentStep - 1
                       ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
                       : index === currentStep - 1
                       ? "bg-blue-600 text-white"
@@ -52,7 +55,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                     }
                   }}
                 >
-                  {index < currentStep - 1 ? (
+                  {(isCompleted || index < currentStep - 1) ? (
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
@@ -64,7 +67,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
                   <div className={`w-4 h-0.5 mx-1 transition-all duration-300 ${
-                    index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
+                    isCompleted ? "bg-green-600" : index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
                   }`}></div>
                 )}
               </div>
@@ -88,7 +91,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
               <div key={index} className="flex flex-col items-center">
                 <div 
                   className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer ${
-                    index < currentStep - 1
+                    isCompleted
+                      ? "bg-green-600"
+                      : index < currentStep - 1
                       ? "bg-blue-600"
                       : index === currentStep - 1
                       ? "bg-blue-600"
@@ -106,7 +111,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 <div className="mt-2 text-xs text-center leading-tight">
                   <div 
                     className={`transition-all duration-300 cursor-pointer ${
-                      index < currentStep - 1
+                      isCompleted
+                        ? "text-green-600 font-medium"
+                        : index < currentStep - 1
                         ? "text-blue-600 hover:text-blue-700"
                         : index === currentStep - 1
                         ? "text-blue-600 font-medium"
