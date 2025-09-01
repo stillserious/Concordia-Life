@@ -85,7 +85,8 @@ const partTranslations: Record<string, string> = {
   'LEFT_SIDE_REAR_TYPE': 'lewy typ tylny',
   'RIGHT_SIDE_REAR_TYPE': 'prawy typ tylny',
   'SPARE_REAR_TYPE': 'zapasowy typ tylny',
-  'RREAR_NUMBER_PLATE': 'tylna tablica rejestracyjna'
+  'RREAR_NUMBER_PLATE': 'tylna tablica rejestracyjna',
+  'REAR_NUMBER_PLATE': 'tylna tablica rejestracyjna'
 };
 
 // Funkcja tłumacząca ID części na polską nazwę
