@@ -51,8 +51,8 @@ export default function HomePage() {
                 {/* Zawartość overlay */}
                 <div className="relative bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 p-6 mx-4 text-center rounded-2xl shadow-2xl max-w-sm">
                   <div className="flex justify-center mb-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                      <Clock className="w-7 h-7 text-white" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                      <Clock className="w-6 h-6 text-white" />
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-gray-800 mb-3">
@@ -81,8 +81,8 @@ export default function HomePage() {
                 {/* Zawartość overlay */}
                 <div className="relative bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 p-6 mx-4 text-center rounded-2xl shadow-2xl max-w-sm">
                   <div className="flex justify-center mb-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                      <Clock className="w-7 h-7 text-white" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                      <Clock className="w-6 h-6 text-white" />
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-gray-800 mb-3">
