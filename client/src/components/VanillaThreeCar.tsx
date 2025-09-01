@@ -1,26 +1,21 @@
 import { useState } from "react";
-import InteractiveCarSVG from "./InteractiveCarSVG";
+import toyotaPriusSvg from "../assets/toyota-prius-full.svg";
 
 // Polskie nazwy części samochodu
 const CAR_PARTS = {
-  'hood-left': 'Maska (widok z lewej)',
-  'hood-right': 'Maska (widok z prawej)',
-  'hood-front': 'Maska (widok z przodu)',
   'front-door-left': 'Drzwi przednie lewe',
   'front-door-right': 'Drzwi przednie prawe',
   'rear-door-left': 'Drzwi tylne lewe',
   'rear-door-right': 'Drzwi tylne prawe',
-  'roof-left': 'Dach (widok z lewej)',
-  'roof-right': 'Dach (widok z prawej)',
-  'trunk-left': 'Bagażnik (widok z lewej)',
-  'trunk-right': 'Bagażnik (widok z prawej)',
-  'trunk-rear': 'Bagażnik (widok z tyłu)',
-  'body-left': 'Nadwozie (widok z lewej)',
-  'body-right': 'Nadwozie (widok z prawej)',
-  'body-front': 'Nadwozie (widok z przodu)',
-  'body-rear': 'Nadwozie (widok z tyłu)',
+  'hood': 'Maska',
+  'trunk': 'Bagażnik',
   'front-bumper': 'Zderzak przedni',
-  'rear-bumper': 'Zderzak tylny'
+  'rear-bumper': 'Zderzak tylny',
+  'roof': 'Dach',
+  'front-fender-left': 'Błotnik przedni lewy',
+  'front-fender-right': 'Błotnik przedni prawy',
+  'rear-fender-left': 'Błotnik tylny lewy',
+  'rear-fender-right': 'Błotnik tylny prawy'
 } as const;
 
 type CarPartName = keyof typeof CAR_PARTS;
@@ -43,10 +38,149 @@ export default function VanillaThreeCar({
   return (
       <div className={`relative w-full ${className}`}>
         <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
-          <InteractiveCarSVG 
-            selectedParts={selectedParts}
-            onPartSelect={handlePartClick}
-          />
+          <div className="relative">
+            {/* Oryginalny profesjonalny SVG Toyota Prius */}
+            <img 
+              src={toyotaPriusSvg} 
+              alt="Toyota Prius - profesjonalny model" 
+              className="w-full h-auto"
+              style={{ maxHeight: '400px' }}
+            />
+            
+            {/* Precyzyjne nakładki na części samochodu */}
+            <div className="absolute inset-0 pointer-events-none">
+              
+              {/* Drzwi przednie lewe - dokładna pozycja */}
+              {selectedParts.has('front-door-left') && (
+                <div 
+                  className="absolute"
+                  style={{
+                    left: '14%',
+                    top: '42%',
+                    width: '12%',
+                    height: '25%',
+                    backgroundColor: '#dc2626',
+                    opacity: 0.6,
+                    borderRadius: '3px',
+                    border: '2px solid #dc2626'
+                  }}
+                />
+              )}
+              
+              {/* Drzwi tylne lewe */}
+              {selectedParts.has('rear-door-left') && (
+                <div 
+                  className="absolute"
+                  style={{
+                    left: '28%',
+                    top: '42%',
+                    width: '12%',
+                    height: '25%',
+                    backgroundColor: '#dc2626',
+                    opacity: 0.6,
+                    borderRadius: '3px',
+                    border: '2px solid #dc2626'
+                  }}
+                />
+              )}
+              
+              {/* Maska */}
+              {selectedParts.has('hood') && (
+                <div 
+                  className="absolute"
+                  style={{
+                    left: '6%',
+                    top: '45%',
+                    width: '10%',
+                    height: '20%',
+                    backgroundColor: '#dc2626',
+                    opacity: 0.6,
+                    borderRadius: '3px',
+                    border: '2px solid #dc2626'
+                  }}
+                />
+              )}
+              
+              {/* Bagażnik */}
+              {selectedParts.has('trunk') && (
+                <div 
+                  className="absolute"
+                  style={{
+                    left: '70%',
+                    top: '45%',
+                    width: '10%',
+                    height: '20%',
+                    backgroundColor: '#dc2626',
+                    opacity: 0.6,
+                    borderRadius: '3px',
+                    border: '2px solid #dc2626'
+                  }}
+                />
+              )}
+              
+              {/* Klikalne obszary - niewidoczne przyciski */}
+              <div 
+                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
+                style={{
+                  left: '14%',
+                  top: '42%',
+                  width: '12%',
+                  height: '25%',
+                  border: selectedParts.has('front-door-left') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
+                  borderRadius: '3px'
+                }}
+                onClick={() => handlePartClick('front-door-left')}
+                data-testid="car-part-front-door-left"
+                title="Drzwi przednie lewe"
+              />
+              
+              <div 
+                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
+                style={{
+                  left: '28%',
+                  top: '42%',
+                  width: '12%',
+                  height: '25%',
+                  border: selectedParts.has('rear-door-left') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
+                  borderRadius: '3px'
+                }}
+                onClick={() => handlePartClick('rear-door-left')}
+                data-testid="car-part-rear-door-left"
+                title="Drzwi tylne lewe"
+              />
+              
+              <div 
+                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
+                style={{
+                  left: '6%',
+                  top: '45%',
+                  width: '10%',
+                  height: '20%',
+                  border: selectedParts.has('hood') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
+                  borderRadius: '3px'
+                }}
+                onClick={() => handlePartClick('hood')}
+                data-testid="car-part-hood"
+                title="Maska"
+              />
+              
+              <div 
+                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
+                style={{
+                  left: '70%',
+                  top: '45%',
+                  width: '10%',
+                  height: '20%',
+                  border: selectedParts.has('trunk') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
+                  borderRadius: '3px'
+                }}
+                onClick={() => handlePartClick('trunk')}
+                data-testid="car-part-trunk"
+                title="Bagażnik"
+              />
+              
+            </div>
+          </div>
         </div>
 
         {/* Lista zaznaczonych części */}
