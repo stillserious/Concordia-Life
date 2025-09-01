@@ -229,7 +229,7 @@ export default function ClaimVehicleACDamagePage() {
         stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage", "/claim/vehicle/ac/documents"]}
       />
       <main className="flex-1 py-10 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
@@ -255,7 +255,7 @@ export default function ClaimVehicleACDamagePage() {
             </div>
 
             <div className="mb-8 flex justify-center">
-              <div className="w-full max-w-5xl relative" data-testid="car-diagram">
+              <div className="w-full relative" data-testid="car-diagram">
                 {/* Loading indicator */}
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-50 rounded-lg z-10" id="diagram-loader">
                   <div className="flex flex-col items-center gap-3">
