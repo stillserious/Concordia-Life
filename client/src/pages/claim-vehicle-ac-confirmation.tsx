@@ -37,9 +37,7 @@ export default function ClaimVehicleACConfirmation() {
                 <CheckCircle className="w-12 h-12 text-green-600" />
               </div>
               
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">
-                🎉 Dziękujemy za zgłoszenie!
-              </h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Dziękujemy za zgłoszenie!</h2>
               
               <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
                 Twoje zgłoszenie zostało pomyślnie przesłane i znajduje się w naszym systemie
