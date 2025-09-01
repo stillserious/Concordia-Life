@@ -153,6 +153,48 @@ export default function ClaimVehicleACDamagePage() {
   }, [form]);
 
 
+  // Funkcja przewijająca do pierwszego błędnego pola
+  const scrollToFirstError = () => {
+    const errors = form.formState.errors;
+    const firstErrorField = Object.keys(errors)[0];
+    
+    if (firstErrorField) {
+      // Dla formularza uszkodzeń, jeśli błąd to brak wybranych części, przewiń do diagramu
+      if (firstErrorField === 'damagedParts') {
+        const diagramElement = document.querySelector('[data-testid="car-diagram"]');
+        if (diagramElement) {
+          const yOffset = -100;
+          const y = diagramElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+          });
+        }
+        return;
+      }
+      
+      const element = 
+        document.querySelector(`[data-testid*="${firstErrorField}"]`) ||
+        document.querySelector(`[name="${firstErrorField}"]`) ||
+        document.querySelector(`textarea[name="${firstErrorField}"]`);
+      
+      if (element) {
+        const yOffset = -100;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+        
+        setTimeout(() => {
+          element.focus();
+        }, 500);
+      }
+    }
+  };
+
   const onSubmit = async (data: DamageFormData) => {
     try {
       console.log("Dane uszkodzeń pojazdu:", data);
@@ -171,6 +213,10 @@ export default function ClaimVehicleACDamagePage() {
         variant: "destructive",
       });
     }
+  };
+
+  const onError = () => {
+    setTimeout(scrollToFirstError, 100);
   };
 
   return (
@@ -247,7 +293,7 @@ export default function ClaimVehicleACDamagePage() {
             )}
 
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-6">
                 {/* Hidden field for damaged parts validation */}
                 <FormField
                   control={form.control}

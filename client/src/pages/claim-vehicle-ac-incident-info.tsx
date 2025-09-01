@@ -59,6 +59,36 @@ export default function ClaimVehicleACIncidentInfo() {
 
   const { isSubmitting } = form.formState;
 
+  // Funkcja przewijająca do pierwszego błędnego pola
+  const scrollToFirstError = () => {
+    const errors = form.formState.errors;
+    const firstErrorField = Object.keys(errors)[0];
+    
+    if (firstErrorField) {
+      // Znajdź element z data-testid lub name odpowiadającym polu
+      const element = 
+        document.querySelector(`[data-testid*="${firstErrorField}"]`) ||
+        document.querySelector(`[name="${firstErrorField}"]`) ||
+        document.querySelector(`input[name="${firstErrorField}"]`) ||
+        document.querySelector(`textarea[name="${firstErrorField}"]`);
+      
+      if (element) {
+        const yOffset = -100; // Offset, żeby pole nie było przyklejone do góry
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+        
+        // Opcjonalnie podświetl pole
+        setTimeout(() => {
+          element.focus();
+        }, 500);
+      }
+    }
+  };
+
   const onSubmit = async (data: IncidentInfoFormData) => {
     try {
       console.log("Dane formularza informacji o zdarzeniu:", data);
@@ -74,6 +104,11 @@ export default function ClaimVehicleACIncidentInfo() {
         variant: "destructive",
       });
     }
+  };
+
+  const onError = () => {
+    // Gdy formularz się nie waliduje, przewiń do pierwszego błędnego pola
+    setTimeout(scrollToFirstError, 100);
   };
 
   return (
@@ -103,7 +138,7 @@ export default function ClaimVehicleACIncidentInfo() {
 
           <div className="insurance-card p-8">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-8">
                 
                 {/* Miejsce zdarzenia */}
                 <div className="space-y-4">
@@ -214,7 +249,7 @@ export default function ClaimVehicleACIncidentInfo() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               <SelectionCard
                                 value="inna_przyczyna"
-                                title="Kierowca pojazdu"
+                                title="Inna przyczyna"
                                 isSelected={field.value === "inna_przyczyna"}
                                 onSelect={() => field.onChange("inna_przyczyna")}
                                 testId="card-fault-other"
@@ -263,7 +298,7 @@ export default function ClaimVehicleACIncidentInfo() {
                             <FormControl>
                               <TextField
                                 {...field}
-                                label="Jeśli masz informacje o sprawcy zdarzenia, wpisz jego dane"
+                                label="Podaj dane sprawcy"
                                 multiline
                                 rows={4}
                                 fullWidth

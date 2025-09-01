@@ -43,6 +43,33 @@ export default function ClaimVehicleACPage() {
     }
   });
 
+  // Funkcja przewijająca do pierwszego błędnego pola
+  const scrollToFirstError = () => {
+    const errors = form.formState.errors;
+    const firstErrorField = Object.keys(errors)[0];
+    
+    if (firstErrorField) {
+      const element = 
+        document.querySelector(`[data-testid*="${firstErrorField}"]`) ||
+        document.querySelector(`[name="${firstErrorField}"]`) ||
+        document.querySelector(`input[name="${firstErrorField}"]`);
+      
+      if (element) {
+        const yOffset = -100;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+        
+        setTimeout(() => {
+          element.focus();
+        }, 500);
+      }
+    }
+  };
+
   const onSubmit = async (data: ACFormData) => {
     setIsSubmitting(true);
 
@@ -59,6 +86,10 @@ export default function ClaimVehicleACPage() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const onError = () => {
+    setTimeout(scrollToFirstError, 100);
   };
 
   return (
@@ -99,7 +130,7 @@ export default function ClaimVehicleACPage() {
             </div>
 
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-6">
                 <div className="space-y-6">
                   <FormField
                     control={form.control}

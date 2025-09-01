@@ -49,11 +49,42 @@ export default function ClaimVehicleACVehicleData() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  // Funkcja przewijająca do pierwszego błędnego pola
+  const scrollToFirstError = () => {
+    const errors = form.formState.errors;
+    const firstErrorField = Object.keys(errors)[0];
+    
+    if (firstErrorField) {
+      const element = 
+        document.querySelector(`[data-testid*="${firstErrorField}"]`) ||
+        document.querySelector(`[name="${firstErrorField}"]`) ||
+        document.querySelector(`input[name="${firstErrorField}"]`);
+      
+      if (element) {
+        const yOffset = -100;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+        
+        setTimeout(() => {
+          element.focus();
+        }, 500);
+      }
+    }
+  };
+
   const onSubmit = (data: VehicleDataFormData) => {
     console.log("Dane pojazdu:", data);
 
     setLocation("/claim/vehicle/ac/incident-info");
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+  };
+
+  const onError = () => {
+    setTimeout(scrollToFirstError, 100);
   };
 
   return (
@@ -92,7 +123,7 @@ export default function ClaimVehicleACVehicleData() {
             </div>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-8">
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-gray-900">Wpisz dane pojazdu</h2>
                 

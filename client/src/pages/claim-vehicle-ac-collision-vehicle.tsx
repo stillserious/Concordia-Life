@@ -81,6 +81,33 @@ export default function ClaimVehicleACCollisionVehiclePage() {
   const vehicleOwner = form.watch("vehicleOwner");
   const driver = form.watch("driver");
 
+  // Funkcja przewijająca do pierwszego błędnego pola
+  const scrollToFirstError = () => {
+    const errors = form.formState.errors;
+    const firstErrorField = Object.keys(errors)[0];
+    
+    if (firstErrorField) {
+      const element = 
+        document.querySelector(`[data-testid*="${firstErrorField}"]`) ||
+        document.querySelector(`[name="${firstErrorField}"]`) ||
+        document.querySelector(`input[name="${firstErrorField}"]`);
+      
+      if (element) {
+        const yOffset = -100;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+        
+        setTimeout(() => {
+          element.focus();
+        }, 500);
+      }
+    }
+  };
+
   const onSubmit = async (data: CollisionVehicleFormData) => {
     setIsSubmitting(true);
     
@@ -99,6 +126,10 @@ export default function ClaimVehicleACCollisionVehiclePage() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const onError = () => {
+    setTimeout(scrollToFirstError, 100);
   };
 
   return (
@@ -133,7 +164,7 @@ export default function ClaimVehicleACCollisionVehiclePage() {
             </div>
 
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-8">
                 {/* Sekcja właściciela pojazdu */}
                 <div className="space-y-6">
                   <FormField
