@@ -66,7 +66,7 @@ export default function ClaimVehiclePage() {
                 category="sprawca"
                 title="Ubezpieczenie sprawcy"
                 description="Zgłoś szkodę z ubezpieczenia sprawcy zdarzenia. OC sprawcy pokrywa szkody powstałe w wyniku kolizji."
-                icon={<span className="text-2xl font-bold text-black">OC</span>}
+                icon={<span className="text-2xl font-bold text-[#cbcbf5]">OC</span>}
                 iconClassName="category-icon-property"
                 href="#"
               />
