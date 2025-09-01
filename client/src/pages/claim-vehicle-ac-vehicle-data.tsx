@@ -52,7 +52,7 @@ export default function ClaimVehicleACVehicleData() {
   const onSubmit = (data: VehicleDataFormData) => {
     console.log("Dane pojazdu:", data);
 
-    setLocation("/claim/vehicle/ac/damage");
+    setLocation("/claim/vehicle/ac/incident-info");
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
   };
 
@@ -61,9 +61,9 @@ export default function ClaimVehicleACVehicleData() {
       <Header />
       <ProgressBar 
         currentStep={5} 
-        totalSteps={7} 
-        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Uszkodzenia pojazdu", "Dokumenty"]} 
-        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/damage", "/claim/vehicle/ac/documents"]}
+        totalSteps={8} 
+        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu", "Uszkodzenia pojazdu", "Dokumenty"]} 
+        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage", "/claim/vehicle/ac/documents"]}
       />
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
