@@ -86,11 +86,6 @@ export default function ClaimVehicleACDocuments() {
       otherDocument: otherDocument?.name
     });
 
-    toast({
-      title: "Zgłoszenie zostało wysłane!",
-      description: `Numer zgłoszenia: ${claimNumber}`,
-    });
-
     // Przekieruj do strony podsumowania lub powrót do głównej
     setTimeout(() => {
       setLocation("/");
