@@ -164,13 +164,13 @@ export default function ClaimVehicleACPage() {
                                   '& .MuiOutlinedInput-root': {
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
-                                    '& fieldset': {
+                                    '& .MuiOutlinedInput-notchedOutline': {
                                       borderColor: '#c7d2fe !important',
                                     },
-                                    '&:hover fieldset': {
+                                    '&:hover .MuiOutlinedInput-notchedOutline': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
-                                    '&.Mui-focused fieldset': {
+                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                   },
@@ -213,13 +213,13 @@ export default function ClaimVehicleACPage() {
                                   '& .MuiOutlinedInput-root': {
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
-                                    '& fieldset': {
+                                    '& .MuiOutlinedInput-notchedOutline': {
                                       borderColor: '#c7d2fe !important',
                                     },
-                                    '&:hover fieldset': {
+                                    '&:hover .MuiOutlinedInput-notchedOutline': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
-                                    '&.Mui-focused fieldset': {
+                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
                                       borderWidth: '2px !important',
                                     },
@@ -256,13 +256,13 @@ export default function ClaimVehicleACPage() {
                             '& .MuiOutlinedInput-root': {
                               backgroundColor: 'white',
                               borderRadius: '8px',
-                              '& fieldset': {
+                              '& .MuiOutlinedInput-notchedOutline': {
                                 borderColor: '#c7d2fe !important',
                               },
-                              '&:hover fieldset': {
+                              '&:hover .MuiOutlinedInput-notchedOutline': {
                                 borderColor: 'hsl(207, 90%, 54%) !important',
                               },
-                              '&.Mui-focused fieldset': {
+                              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                                 borderColor: 'hsl(207, 90%, 54%) !important',
                               },
                             }
