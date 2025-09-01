@@ -17,8 +17,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 py-3 md:px-6 md:py-4">
+    <footer className="bg-gradient-to-br from-white to-blue-50 border-t-2 border-blue-200 shadow-lg">
+      <div className="max-w-6xl mx-auto px-4 py-4 md:px-6 md:py-6">
         <div className="flex flex-col space-y-6 md:grid md:grid-cols-3 md:gap-8 md:space-y-0 md:justify-items-center md:max-w-4xl md:mx-auto">
           {/* Kontakt */}
           <div className="space-y-3 text-left w-full">
@@ -26,7 +26,7 @@ export default function Footer() {
               className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('kontakt')}
             >
-              <h3 className="text-sm font-semibold text-gray-900 mb-2">Kontakt</h3>
+              <h3 className="text-sm font-bold text-gray-800 mb-2">Kontakt</h3>
               <div className="md:hidden">
                 {openSections.kontakt ? (
                   <ChevronUp className="w-4 h-4 text-gray-600" />
@@ -43,7 +43,7 @@ export default function Footer() {
                 <div>
                   <a 
                     href="tel:+48228200220"
-                    className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                    className="text-sm font-semibold text-gray-800 hover:text-blue-600 transition-colors"
                   >
                     +48 22 820 02 20
                   </a>
@@ -71,7 +71,7 @@ export default function Footer() {
               className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('godziny')}
             >
-              <h3 className="text-sm font-semibold text-gray-900 mb-2">Godziny pracy</h3>
+              <h3 className="text-sm font-bold text-gray-800 mb-2">Godziny pracy</h3>
               <div className="md:hidden">
                 {openSections.godziny ? (
                   <ChevronUp className="w-4 h-4 text-gray-600" />
@@ -86,7 +86,7 @@ export default function Footer() {
                   <Clock className="w-4 h-4 text-blue-600 mt-0.5" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium text-gray-900">Infolinia</p>
+                  <p className="text-sm font-semibold text-gray-800">Infolinia</p>
                   <p className="text-sm text-gray-600">Całodobowo, 7 dni w tygodniu</p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function Footer() {
               className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('bezpieczenstwo')}
             >
-              <h3 className="text-sm font-semibold text-gray-900 mb-2">Bezpieczeństwo</h3>
+              <h3 className="text-sm font-bold text-gray-800 mb-2">Bezpieczeństwo</h3>
               <div className="md:hidden">
                 {openSections.bezpieczenstwo ? (
                   <ChevronUp className="w-4 h-4 text-gray-600" />
@@ -114,7 +114,7 @@ export default function Footer() {
                   <Shield className="w-4 h-4 text-blue-600 mt-0.5" />
                 </div>
                 <div className="space-y-1">
-                  <p className="text-sm font-medium text-gray-900">Twoje dane są bezpieczne</p>
+                  <p className="text-sm font-semibold text-gray-800">Twoje dane są bezpieczne</p>
                   <p className="text-sm text-gray-600">Szyfrowanie SSL/TLS</p>
                 </div>
               </div>
