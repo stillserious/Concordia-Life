@@ -249,7 +249,7 @@ export default function ClaimVehicleACIncidentInfo() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               <SelectionCard
                                 value="inna_przyczyna"
-                                title="Inna przyczyna"
+                                title="Kierowca pojazdu"
                                 isSelected={field.value === "inna_przyczyna"}
                                 onSelect={() => field.onChange("inna_przyczyna")}
                                 testId="card-fault-other"
