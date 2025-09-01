@@ -1,7 +1,7 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
-import clockIcon from "@assets/clock_1756748401326.png";
+import { Clock } from "lucide-react";
 
 import pojazdyIcon from "@assets/car_1756748340019.png";
 import majatekIcon from "@assets/house_1756748049803.png";
@@ -11,6 +11,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
+
       <main className="flex-1 py-16 px-6">
         <div className="max-w-5xl w-full text-center mx-auto">
           {/* Welcome Section */}
@@ -43,25 +44,26 @@ export default function HomePage() {
                 iconClassName="category-icon-property"
                 href="#"
               />
-              {/* Blur - pojawia się od razu */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              {/* Overlay z treścią */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed transition-all duration-300 ease-out">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
+                {/* Wyblurowany kafelek w tle */}
+                <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-2xl group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
+                
                 {/* Zawartość overlay */}
-                <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-4 mx-2 text-center rounded-xl shadow-xl max-w-xs transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
+                <div className="relative bg-white border border-slate-300 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-200 to-cyan-200 rounded-full flex items-center justify-center shadow transform group-hover:rotate-6 transition-transform duration-300">
-                      <img src={clockIcon} alt="Zegar" className="w-5 h-5" />
+                    <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-slate-600" />
                     </div>
                   </div>
-                  <h3 className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                  <h3 className="text-base font-semibold text-slate-900 mb-2">
                     Formularz tymczasowo niedostępny
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
-                  >📞 Zadzwoń teraz</a>
+                    className="text-sm text-slate-700 underline cursor-pointer hover:text-slate-800 transition-colors"
+                  >
+                    Skontaktuj się z nami telefonicznie
+                  </a>
                 </div>
               </div>
             </div>
@@ -75,26 +77,25 @@ export default function HomePage() {
                 iconClassName="category-icon-people"
                 href="#"
               />
-              {/* Blur - pojawia się od razu */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              {/* Overlay z treścią */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed transition-all duration-300 ease-out">
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
+                {/* Wyblurowany kafelek w tle */}
+                <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-2xl group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
+                
                 {/* Zawartość overlay */}
-                <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-4 mx-2 text-center rounded-xl shadow-xl max-w-xs transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
+                <div className="relative bg-white border border-slate-300 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-200 to-cyan-200 rounded-full flex items-center justify-center shadow transform group-hover:rotate-6 transition-transform duration-300">
-                      <img src={clockIcon} alt="Zegar" className="w-5 h-5" />
+                    <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-slate-600" />
                     </div>
                   </div>
-                  <h3 className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                  <h3 className="text-base font-semibold text-slate-900 mb-2">
                     Formularz tymczasowo niedostępny
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
+                    className="text-sm text-slate-700 underline cursor-pointer hover:text-slate-800 transition-colors"
                   >
-                    📞 Zadzwoń teraz
+                    Skontaktuj się z nami telefonicznie
                   </a>
                 </div>
               </div>
@@ -102,6 +103,7 @@ export default function HomePage() {
           </section>
         </div>
       </main>
+
       <Footer />
     </div>
   );

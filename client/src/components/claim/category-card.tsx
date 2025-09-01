@@ -28,13 +28,13 @@ export default function CategoryCard({
         className={`${
           size === "small"
             ? "bg-gray-50 border border-gray-200 rounded-lg hover:bg-gray-100 hover:border-gray-300"
-            : "bg-gradient-to-br from-white to-blue-50 border border-purple-200 rounded-2xl shadow-lg"
+            : "insurance-card"
         } cursor-pointer group flex flex-col h-full hover:transform hover:scale-[1.02] transition-all duration-300 ${
           size === "small" ? "p-4" : "p-8"
         } min-h-[140px]`}
         data-testid={`card-${category}`}
       >
-        <div className="mx-auto rounded-full flex items-center justify-center w-14 h-14 mb-3 text-lg bg-gradient-to-br from-purple-100 to-cyan-100">
+        <div className="mx-auto rounded-full flex items-center justify-center w-14 h-14 mb-3 text-lg category-icon-vehicles text-[#8df320] bg-[#262222]">
           {icon}
         </div>
 

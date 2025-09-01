@@ -137,8 +137,7 @@
   }
   
   .insurance-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 50%, rgba(241, 245, 249, 1) 100%);
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    background: white;
     border-radius: 16px;
     box-shadow: var(--insurance-card-shadow);
     transition: all 0.3s ease;
@@ -151,6 +150,15 @@
     box-shadow: var(--insurance-card-shadow-hover);
   }
   
+  .insurance-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--insurance-gradient-start), var(--insurance-gradient-end));
+  }
   
   .insurance-button {
     background: linear-gradient(135deg, var(--insurance-gradient-start), var(--insurance-gradient-end));
@@ -174,7 +182,7 @@
   }
   
   .category-icon-vehicles {
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(219,234,254,1) 50%, rgba(147,197,253,1) 100%);
+    background: hsl(207 90% 90%);
     color: hsl(207 90% 54%);
   }
   

@@ -162,24 +162,16 @@ export default function ClaimVehicleACPage() {
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
-                                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                                    backgroundColor: 'white',
                                     borderRadius: '8px',
                                     '& fieldset': {
-                                      borderColor: 'rgba(139, 92, 246, 0.2)',
+                                      borderColor: '#e5e7eb',
                                     },
                                     '&:hover fieldset': {
-                                      borderColor: 'hsl(270, 91%, 65%) !important',
-                                      borderWidth: '2px !important',
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                     '&.Mui-focused fieldset': {
-                                      borderColor: 'hsl(270, 91%, 65%)',
-                                      borderWidth: '2px !important',
-                                      boxShadow: '0 0 0 3px rgba(139, 92, 246, 0.1)',
-                                    },
-                                  },
-                                  '& .MuiInputLabel-root': {
-                                    '&.Mui-focused': {
-                                      color: 'hsl(270, 91%, 65%) !important',
+                                      borderColor: 'hsl(207, 90%, 54%)',
                                     },
                                   },
                                 }
@@ -219,24 +211,22 @@ export default function ClaimVehicleACPage() {
                                 sx: {
                                   width: '100%',
                                   '& .MuiOutlinedInput-root': {
-                                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                                    backgroundColor: 'white',
                                     borderRadius: '8px',
                                     '& fieldset': {
-                                      borderColor: 'rgba(139, 92, 246, 0.2)',
+                                      borderColor: '#e5e7eb',
                                     },
                                     '&:hover fieldset': {
-                                      borderColor: 'hsl(270, 91%, 65%) !important',
-                                      borderWidth: '2px !important',
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                     '&.Mui-focused fieldset': {
-                                      borderColor: 'hsl(270, 91%, 65%) !important',
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
                                       borderWidth: '2px !important',
-                                      boxShadow: '0 0 0 3px rgba(139, 92, 246, 0.1)',
                                     },
                                   },
                                   '& .MuiInputLabel-root': {
                                     '&.Mui-focused': {
-                                      color: 'hsl(270, 91%, 65%) !important',
+                                      color: 'hsl(207, 90%, 54%) !important',
                                     },
                                   },
                                 }
@@ -264,26 +254,18 @@ export default function ClaimVehicleACPage() {
                           fullWidth
                           sx={{
                             '& .MuiOutlinedInput-root': {
-                              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                              backgroundColor: 'white',
                               borderRadius: '8px',
                               '& fieldset': {
-                                borderColor: 'rgba(139, 92, 246, 0.2)',
+                                borderColor: '#e5e7eb',
                               },
                               '&:hover fieldset': {
-                                borderColor: 'hsl(270, 91%, 65%)',
-                                borderWidth: '2px',
+                                borderColor: 'hsl(207, 90%, 54%)',
                               },
                               '&.Mui-focused fieldset': {
-                                borderColor: 'hsl(270, 91%, 65%)',
-                                borderWidth: '2px',
-                                boxShadow: '0 0 0 3px rgba(139, 92, 246, 0.1)',
+                                borderColor: 'hsl(207, 90%, 54%)',
                               },
-                            },
-                            '& .MuiInputLabel-root': {
-                              '&.Mui-focused': {
-                                color: 'hsl(270, 91%, 65%)',
-                              },
-                            },
+                            }
                           }}
                         />
                       </FormControl>

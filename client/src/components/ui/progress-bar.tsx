@@ -14,25 +14,19 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
   const [, setLocation] = useLocation();
 
   return (
-    <div className="w-full bg-white border-b border-purple-200">
+    <div className="w-full bg-white border-b border-gray-200">
       {/* Material UI Progress Bar */}
       <LinearProgress 
         variant="determinate" 
         value={progressPercentage}
         sx={{
-          height: 6,
-          borderRadius: 3,
+          height: 4,
           '& .MuiLinearProgress-bar': {
-            background: isCompleted 
-              ? 'linear-gradient(90deg, #16a34a, #22c55e)' 
-              : 'linear-gradient(90deg, #8b5cf6, #3b82f6)',
-            borderRadius: 3,
-            transition: 'transform 0.7s ease-out',
-            boxShadow: '0 1px 3px rgba(139, 92, 246, 0.3)'
+            backgroundColor: isCompleted ? '#16a34a' : 'hsl(207, 90%, 54%)',
+            transition: 'transform 0.7s ease-out'
           },
           '& .MuiLinearProgress-root': {
-            backgroundColor: 'rgba(219, 234, 254, 0.5)',
-            borderRadius: 3
+            backgroundColor: '#f1f5f9'
           }
         }}
       />
@@ -45,14 +39,14 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
               <div key={index} className="flex items-center">
                 {/* Simple Circle */}
                 <div 
-                  className={`w-6 h-6 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 transition-all duration-300 shadow-sm ${
+                  className={`w-6 h-6 rounded-full flex items-center justify-center font-medium text-xs flex-shrink-0 transition-all duration-300 ${
                     isCompleted
-                      ? "bg-gradient-to-r from-green-500 to-green-600 text-white"
+                      ? "bg-green-600 text-white"
                       : index < currentStep - 1
-                      ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white cursor-pointer hover:from-purple-600 hover:to-blue-600 hover:scale-110"
+                      ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
                       : index === currentStep - 1
-                      ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg"
-                      : "bg-gradient-to-r from-gray-300 to-gray-400 text-gray-600 cursor-pointer hover:from-gray-400 hover:to-gray-500"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-300 text-gray-600 cursor-pointer hover:bg-gray-400"
                   } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
@@ -72,12 +66,8 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
-                  <div className={`w-4 h-0.5 mx-1 transition-all duration-300 rounded-full ${
-                    isCompleted 
-                      ? "bg-gradient-to-r from-green-500 to-green-600" 
-                      : index < currentStep - 1 
-                      ? "bg-gradient-to-r from-purple-500 to-blue-500" 
-                      : "bg-gray-300"
+                  <div className={`w-4 h-0.5 mx-1 transition-all duration-300 ${
+                    isCompleted ? "bg-green-600" : index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
                   }`}></div>
                 )}
               </div>
@@ -100,15 +90,15 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
             {stepLabels?.map((label, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div 
-                  className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer shadow-sm ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0 cursor-pointer ${
                     isCompleted
-                      ? "bg-gradient-to-r from-green-500 to-green-600"
+                      ? "bg-green-600"
                       : index < currentStep - 1
-                      ? "bg-gradient-to-r from-purple-500 to-blue-500"
+                      ? "bg-blue-600"
                       : index === currentStep - 1
-                      ? "bg-gradient-to-r from-purple-500 to-blue-500 shadow-md"
+                      ? "bg-blue-600"
                       : "bg-gray-300"
-                  } ${stepRoutes && index !== currentStep - 1 ? "hover:scale-125 hover:shadow-md" : ""}`}
+                  } ${stepRoutes && index !== currentStep - 1 ? "hover:scale-110" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
                       setLocation(stepRoutes[index]);
@@ -124,9 +114,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                       isCompleted
                         ? "text-green-600 font-medium"
                         : index < currentStep - 1
-                        ? "text-blue-600 hover:text-blue-700 font-medium"
+                        ? "text-blue-600 hover:text-blue-700"
                         : index === currentStep - 1
-                        ? "text-blue-600 font-semibold"
+                        ? "text-blue-600 font-medium"
                         : "text-gray-400 hover:text-gray-600"
                     }`}
                     onClick={() => {
