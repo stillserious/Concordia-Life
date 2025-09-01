@@ -30,22 +30,11 @@ export default function VanillaThreeCar({
   onPartSelect, 
   className = "" 
 }: VanillaThreeCarProps) {
-  const [currentView, setCurrentView] = useState<'side' | 'top'>('side');
-
   const handlePartClick = (partName: CarPartName) => {
     onPartSelect(partName);
   };
 
-  const getPartColor = (partName: CarPartName) => {
-    return selectedParts.has(partName) ? '#ff6b6b' : '#ffffff';
-  };
-
-  const getPartStroke = (partName: CarPartName) => {
-    return selectedParts.has(partName) ? '#cc0000' : '#2c3e50';
-  };
-
-  if (currentView === 'side') {
-    return (
+  return (
       <div className={`relative w-full ${className}`}>
         <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
           <div className="relative">
@@ -298,122 +287,6 @@ export default function VanillaThreeCar({
         )}
       </div>
     );
-  }
-
-  // Widok z góry - prosty schemat
-  return (
-    <div className={`relative w-full ${className}`}>
-      <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
-        <div className="relative">
-          <svg width="100%" height="500" viewBox="0 0 400 600" className="w-full h-auto">
-            {/* Cień */}
-            <ellipse cx="200" cy="300" rx="80" ry="220" fill="#ddd" opacity="0.3"/>
-            
-            {/* Główne nadwozie z góry */}
-            <rect 
-              x="140" y="100" width="120" height="400" rx="25"
-              fill={getPartColor('body')}
-              stroke={getPartStroke('body')}
-              strokeWidth="2"
-              style={{ cursor: 'pointer' }}
-              onClick={() => handlePartClick('body')}
-              data-testid="car-part-body-top"
-            />
-            
-            {/* Maska */}
-            <rect 
-              x="150" y="60" width="100" height="60" rx="20"
-              fill={getPartColor('hood')}
-              stroke={getPartStroke('hood')}
-              strokeWidth="2"
-              style={{ cursor: 'pointer' }}
-              onClick={() => handlePartClick('hood')}
-              data-testid="car-part-hood-top"
-            />
-            
-            {/* Bagażnik */}
-            <rect 
-              x="150" y="480" width="100" height="60" rx="20"
-              fill={getPartColor('trunk')}
-              stroke={getPartStroke('trunk')}
-              strokeWidth="2"
-              style={{ cursor: 'pointer' }}
-              onClick={() => handlePartClick('trunk')}
-              data-testid="car-part-trunk-top"
-            />
-            
-            {/* Dach */}
-            <rect 
-              x="160" y="200" width="80" height="200" rx="8"
-              fill={getPartColor('roof')}
-              stroke={getPartStroke('roof')}
-              strokeWidth="2"
-              style={{ cursor: 'pointer' }}
-              onClick={() => handlePartClick('roof')}
-              data-testid="car-part-roof-top"
-            />
-            
-            {/* Szyby */}
-            <rect 
-              x="170" y="140" width="60" height="50" rx="8"
-              fill={getPartColor('windshield')}
-              stroke={getPartStroke('windshield')}
-              strokeWidth="1.5"
-              fillOpacity="0.1"
-              style={{ cursor: 'pointer' }}
-              onClick={() => handlePartClick('windshield')}
-              data-testid="car-part-windshield-top"
-            />
-            
-            <rect 
-              x="170" y="410" width="60" height="50" rx="8"
-              fill={getPartColor('rear-window')}
-              stroke={getPartStroke('rear-window')}
-              strokeWidth="1.5"
-              fillOpacity="0.1"
-              style={{ cursor: 'pointer' }}
-              onClick={() => handlePartClick('rear-window')}
-              data-testid="car-part-rear-window-top"
-            />
-            
-            {/* Koła */}
-            <circle cx="140" cy="130" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
-            <circle cx="260" cy="130" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
-            <circle cx="140" cy="470" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
-            <circle cx="260" cy="470" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
-          </svg>
-          
-          {/* Przycisk powrotu do widoku z boku */}
-          <button
-            onClick={() => setCurrentView('side')}
-            className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
-            data-testid="button-change-view-back"
-          >
-            WIDOK Z BOKU
-          </button>
-        </div>
-      </div>
-
-      {/* Lista zaznaczonych części */}
-      {selectedParts.size > 0 && (
-        <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <p className="text-sm font-semibold text-blue-900 mb-2">
-            Uszkodzone części ({selectedParts.size}):
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {Array.from(selectedParts).map(partName => (
-              <span 
-                key={partName}
-                className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium"
-              >
-                {CAR_PARTS[partName]}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
 }
 
 export { CAR_PARTS };
