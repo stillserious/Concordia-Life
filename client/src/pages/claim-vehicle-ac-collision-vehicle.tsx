@@ -129,9 +129,7 @@ export default function ClaimVehicleACCollisionVehiclePage() {
           <div className="insurance-card p-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Dane właściciela i kierowcy pojazdu</h2>
-              <p className="text-sm text-gray-600">
-                Podaj szczegóły dotyczące właściciela pojazdu i kierowcy
-              </p>
+              <p className="text-sm text-gray-600">Wprowadź wymagane informacje dotyczące obu osób</p>
             </div>
 
             <Form {...form}>
