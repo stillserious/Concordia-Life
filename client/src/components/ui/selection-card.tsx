@@ -20,10 +20,10 @@ export default function SelectionCard({
   return (
     <div
       className={`
-        cursor-pointer border-2 rounded-lg p-4 transition-all duration-200
+        cursor-pointer rounded-2xl p-6 transition-all duration-300 transform hover:scale-[1.02] shadow-lg
         ${isSelected 
-          ? "border-blue-500 bg-blue-50" 
-          : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
+          ? "bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-blue-200" 
+          : "bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 hover:border-blue-300 hover:shadow-xl"
         }
       `}
       onClick={() => onSelect(value)}
@@ -32,13 +32,13 @@ export default function SelectionCard({
       <div className="flex items-center space-x-3">
         {icon && (
           <div className={`
-            w-8 h-8 rounded-full flex items-center justify-center
-            ${isSelected ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-600"}
+            w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300
+            ${isSelected ? "bg-white/20 text-white" : "bg-gradient-to-br from-blue-400 to-blue-500 text-white"}
           `}>
             {icon}
           </div>
         )}
-        <span className={`font-medium ${isSelected ? "text-blue-700" : "text-gray-900"}`}>
+        <span className={`font-semibold text-lg ${isSelected ? "text-white" : "text-gray-800"}`}>
           {title}
         </span>
       </div>
