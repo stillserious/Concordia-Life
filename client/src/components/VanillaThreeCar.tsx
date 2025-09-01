@@ -50,14 +50,14 @@ export default function VanillaThreeCar({
             <div className="absolute inset-0 pointer-events-none">
               
               {/* LEWY GÓRNY ROG - WIDOK BOCZNY Z LEWEJ */}
-              {/* Lewe przednie drzwi - większy i bardziej widoczny obszar testowy */}
+              {/* Lewe przednie drzwi - przesunięte na właściwe miejsce */}
               <div 
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '12%',
-                  top: '20%',
-                  width: '10%',
-                  height: '15%',
+                  left: '16%',
+                  top: '23%',
+                  width: '8%',
+                  height: '12%',
                   backgroundColor: selectedParts.has('front-door-left') ? 'rgba(255, 107, 107, 0.6)' : 'rgba(0, 0, 255, 0.3)',
                   border: selectedParts.has('front-door-left') ? '3px solid #cc0000' : '3px solid #0066cc',
                   borderRadius: '4px'
