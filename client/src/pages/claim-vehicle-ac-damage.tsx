@@ -138,10 +138,9 @@ export default function ClaimVehicleACDamagePage() {
       console.log("Dane uszkodzeń pojazdu:", data);
       console.log("Wybrane części:", selectedParts);
       
-      toast({
-        title: "Zgłoszenie zakończone!",
-        description: "Twoje zgłoszenie szkody zostało pomyślnie złożone.",
-      });
+      // Przekieruj do strony załączania dokumentów
+      setLocation("/claim/vehicle/ac/documents");
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
       
     } catch (error) {
       toast({
@@ -157,9 +156,9 @@ export default function ClaimVehicleACDamagePage() {
       <Header />
       <ProgressBar 
         currentStep={7} 
-        totalSteps={7} 
-        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu", "Uszkodzenia pojazdu"]} 
-        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage"]}
+        totalSteps={8} 
+        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu", "Uszkodzenia pojazdu", "Dokumenty"]} 
+        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage", "/claim/vehicle/ac/documents"]}
       />
       <main className="flex-1 py-10 px-6">
         <div className="max-w-6xl mx-auto">
