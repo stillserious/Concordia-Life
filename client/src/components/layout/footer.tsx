@@ -29,9 +29,9 @@ export default function Footer() {
               <h3 className="text-sm font-bold text-gray-800 mb-2">Kontakt</h3>
               <div className="md:hidden">
                 {openSections.kontakt ? (
-                  <ChevronUp className="w-4 h-4 text-gray-600" />
+                  <ChevronUp className="w-4 h-4 text-blue-600" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-gray-600" />
+                  <ChevronDown className="w-4 h-4 text-blue-600" />
                 )}
               </div>
             </div>
@@ -74,9 +74,9 @@ export default function Footer() {
               <h3 className="text-sm font-bold text-gray-800 mb-2">Godziny pracy</h3>
               <div className="md:hidden">
                 {openSections.godziny ? (
-                  <ChevronUp className="w-4 h-4 text-gray-600" />
+                  <ChevronUp className="w-4 h-4 text-blue-600" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-gray-600" />
+                  <ChevronDown className="w-4 h-4 text-blue-600" />
                 )}
               </div>
             </div>
@@ -102,9 +102,9 @@ export default function Footer() {
               <h3 className="text-sm font-bold text-gray-800 mb-2">Bezpieczeństwo</h3>
               <div className="md:hidden">
                 {openSections.bezpieczenstwo ? (
-                  <ChevronUp className="w-4 h-4 text-gray-600" />
+                  <ChevronUp className="w-4 h-4 text-blue-600" />
                 ) : (
-                  <ChevronDown className="w-4 h-4 text-gray-600" />
+                  <ChevronDown className="w-4 h-4 text-blue-600" />
                 )}
               </div>
             </div>
