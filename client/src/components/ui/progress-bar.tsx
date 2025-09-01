@@ -25,12 +25,13 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
           '& .MuiLinearProgress-bar': {
             background: isCompleted 
               ? 'linear-gradient(90deg, #16a34a, #22c55e)' 
-              : 'linear-gradient(90deg, #8b5cf6, #06b6d4)',
+              : 'linear-gradient(90deg, #8b5cf6, #3b82f6)',
             borderRadius: 3,
-            transition: 'transform 0.7s ease-out'
+            transition: 'transform 0.7s ease-out',
+            boxShadow: '0 1px 3px rgba(139, 92, 246, 0.3)'
           },
           '& .MuiLinearProgress-root': {
-            backgroundColor: '#e2e8f0',
+            backgroundColor: 'rgba(219, 234, 254, 0.5)',
             borderRadius: 3
           }
         }}
