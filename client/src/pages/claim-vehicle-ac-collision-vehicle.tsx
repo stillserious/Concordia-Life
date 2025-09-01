@@ -202,7 +202,7 @@ export default function ClaimVehicleACCollisionVehiclePage() {
 
                   {/* Pola dla właściciela - pokazują się gdy wybrano "Ja" lub "Inna osoba" */}
                   {vehicleOwner && (
-                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-4">
+                    <div className="bg-gradient-to-r from-white to-blue-50 border border-blue-200 rounded-lg p-6 space-y-4 shadow-sm">
                       <h3 className="font-medium text-gray-900 mb-4">
                         {vehicleOwner === "me" ? "Podaj swoje dane:" : "Podaj dane właściciela:"}
                       </h3>
@@ -595,7 +595,7 @@ export default function ClaimVehicleACCollisionVehiclePage() {
 
                   {/* Pola dla kierowcy - pokazują się gdy wybrano "Ja" lub "Inna osoba" */}
                   {driver && (
-                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-4">
+                    <div className="bg-gradient-to-r from-white to-blue-50 border border-blue-200 rounded-lg p-6 space-y-4 shadow-sm">
                       <h3 className="font-medium text-gray-900 mb-4">
                         {driver === "me" ? "Podaj swoje dane jako kierowcy:" : "Podaj dane kierowcy:"}
                       </h3>
