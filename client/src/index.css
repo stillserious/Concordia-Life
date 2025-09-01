@@ -277,4 +277,9 @@
   .MuiPickersPopper-root .MuiTextField-root .MuiInputLabel-root.Mui-focused {
     color: hsl(207, 90%, 54%) !important;
   }
+
+  /* Custom subtle blue color for selection cards */
+  .to-blue-25 {
+    --tw-gradient-to: hsl(210, 40%, 98%);
+  }
 }
