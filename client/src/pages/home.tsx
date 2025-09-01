@@ -56,13 +56,13 @@ export default function HomePage() {
                     </div>
                   </div>
                   <h3 className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
-                    Tymczasowo niedostępny
+                    Formularz tymczasowo niedostępny
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
+                    className="text-xs text-purple-600 underline cursor-pointer hover:text-purple-800 transition-colors"
                   >
-                    📞 Zadzwoń
+                    Skontaktuj się z nami telefonicznie
                   </a>
                 </div>
               </div>
@@ -89,13 +89,13 @@ export default function HomePage() {
                     </div>
                   </div>
                   <h3 className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
-                    Tymczasowo niedostępny
+                    Formularz tymczasowo niedostępny
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
+                    className="text-xs text-purple-600 underline cursor-pointer hover:text-purple-800 transition-colors"
                   >
-                    📞 Zadzwoń
+                    Skontaktuj się z nami telefonicznie
                   </a>
                 </div>
               </div>
