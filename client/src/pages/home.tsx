@@ -49,9 +49,9 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-2xl group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
                 
                 {/* Zawartość overlay */}
-                <div className="relative bg-white border border-slate-300 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
+                <div className="relative bg-gradient-to-br from-white to-blue-50 border border-purple-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-cyan-100 rounded-full flex items-center justify-center">
                       <img src={clockIcon} alt="Zegar" className="w-6 h-6" />
                     </div>
                   </div>
@@ -82,9 +82,9 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-2xl group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
                 
                 {/* Zawartość overlay */}
-                <div className="relative bg-white border border-slate-300 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
+                <div className="relative bg-gradient-to-br from-white to-blue-50 border border-purple-200 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
-                    <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-cyan-100 rounded-full flex items-center justify-center">
                       <img src={clockIcon} alt="Zegar" className="w-6 h-6" />
                     </div>
                   </div>
