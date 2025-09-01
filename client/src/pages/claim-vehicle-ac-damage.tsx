@@ -48,7 +48,9 @@ export default function ClaimVehicleACDamage() {
   const onSubmit = (data: DamageFormData) => {
     console.log('Damage data:', data);
     // TODO: Zapisz dane i przejdź do kolejnego kroku
-    setLocation('/claim/vehicle/ac/summary'); // Następny krok
+    // TODO: Tutaj można dodać stronę podsumowania lub przekierować do strony głównej
+    alert('Zgłoszenie zostało zapisane! Dziękujemy.'); 
+    setLocation('/'); // Przekierowanie do strony głównej
   };
 
   const { isSubmitting } = form.formState;
@@ -59,7 +61,12 @@ export default function ClaimVehicleACDamage() {
       
       <main className="container mx-auto px-4 py-8">
         {/* Progress Bar */}
-        <ProgressBar currentStep={6} totalSteps={6} />
+        <ProgressBar 
+          currentStep={7} 
+          totalSteps={7} 
+          stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu", "Uszkodzenia pojazdu"]} 
+          stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage"]}
+        />
         
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-6">
           {/* Header */}
@@ -132,7 +139,7 @@ export default function ClaimVehicleACDamage() {
                   disabled={isSubmitting}
                   data-testid="button-next"
                 >
-                  {isSubmitting ? 'Zapisywanie...' : 'Dalej'}
+                  {isSubmitting ? 'Zapisywanie...' : 'Zakończ zgłoszenie'}
                 </Button>
               </div>
             </form>
