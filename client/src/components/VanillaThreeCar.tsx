@@ -49,12 +49,12 @@ export default function VanillaThreeCar({
             {/* Znaczniki na częściach samochodu */}
             <div className="absolute inset-0 pointer-events-none">
               
-              {/* Lewe przednie drzwi - okrągły znacznik */}
+              {/* Lewe przednie drzwi - okrągły znacznik na właściwym miejscu */}
               <div 
                 className="absolute cursor-pointer pointer-events-auto flex items-center justify-center"
                 style={{
-                  left: '18%',
-                  top: '26%',
+                  left: '22%',
+                  top: '32%',
                   width: '20px',
                   height: '20px',
                   backgroundColor: selectedParts.has('front-door-left') ? '#dc2626' : '#3b82f6',
