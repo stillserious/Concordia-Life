@@ -203,9 +203,6 @@ export default function ClaimVehicleACDocuments() {
             <h2 className="text-xl font-semibold text-gray-900 mb-2">
               Załącz potrzebne dokumenty
             </h2>
-            <p className="text-gray-600 mb-4">
-              Numer zgłoszenia: <span className="font-medium text-blue-600">{claimNumber}</span>
-            </p>
 
             <p className="text-gray-700 mb-6">
               Jeśli teraz załączysz dokumenty, szybciej zajmiemy się Twoją sprawą. Może się zdarzyć, że poprosimy Cię o dodatkowe dokumenty.
