@@ -11,7 +11,6 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
-
       <main className="flex-1 py-16 px-6">
         <div className="max-w-5xl w-full text-center mx-auto">
           {/* Welcome Section */}
@@ -61,9 +60,7 @@ export default function HomePage() {
                   <a 
                     href="tel:+48228200220"
                     className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
-                  >
-                    📞 Zadzwoń
-                  </a>
+                  >📞 Zadzwoń teraz</a>
                 </div>
               </div>
             </div>
@@ -103,7 +100,6 @@ export default function HomePage() {
           </section>
         </div>
       </main>
-
       <Footer />
     </div>
   );
