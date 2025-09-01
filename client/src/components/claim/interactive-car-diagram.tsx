@@ -81,34 +81,52 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-6">
           {/* Widok z boku (LEFT SIDE) */}
           <div className="text-center">
-            <h4 className="font-medium text-gray-700 mb-4">STRONA LEWA</h4>
+            <h4 className="font-semibold text-gray-700 mb-4">LEFT SIDE</h4>
             <svg 
-              viewBox="0 0 800 400" 
-              className="w-full h-auto border border-gray-300 rounded-lg bg-white"
+              viewBox="0 0 600 300" 
+              className="w-full h-auto border border-gray-300 rounded-lg bg-white p-4"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Kontur samochodu z boku - sedan */}
+              {/* Realistyczny kontur samochodu z boku - sedan */}
               <path 
-                d="M100 280 L120 260 L140 240 L180 210 L220 200 L280 190 L350 185 L450 185 L520 185 L580 190 L620 200 L660 210 L700 240 L720 260 L740 280 L740 300 L700 320 L680 320 L650 320 L600 320 L550 320 L450 320 L350 320 L250 320 L200 320 L150 320 L120 320 L100 300 Z"
+                d="M50 200 C50 200 60 180 80 160 C100 140 130 120 170 110 C190 105 220 100 250 95 C280 92 320 90 360 90 C400 90 440 92 470 95 C500 100 520 105 540 110 C570 120 590 140 600 160 C600 170 600 180 600 190 C600 200 590 210 580 220 L580 240 C580 250 570 260 560 260 L540 260 C540 260 540 270 520 270 C500 270 480 260 480 260 L480 240 L480 200 L460 200 L380 200 L320 200 L240 200 L220 200 L220 240 L220 260 C220 260 200 270 180 270 C160 270 140 260 140 260 L120 260 C110 260 100 250 100 240 L100 220 C90 210 80 200 80 190 C80 180 80 170 80 160"
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
               />
               
-              {/* Przedni zderzak */}
+              {/* Koła */}
               <g 
                 className={`cursor-pointer transition-colors ${
-                  isPartSelected('front_bumper') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                  isPartSelected('front_left_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
                 }`}
-                onClick={() => handlePartClick('front_bumper')}
-                onMouseEnter={() => handlePartHover('front_bumper')}
+                onClick={() => handlePartClick('front_left_wheel')}
+                onMouseEnter={() => handlePartHover('front_left_wheel')}
                 onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-front-bumper"
+                data-testid="car-part-front-left-wheel"
               >
-                <path d="M100 280 L140 240 L180 210 L180 320 L100 320 Z" stroke="#333" strokeWidth="1"/>
+                <circle cx="180" cy="240" r="35" stroke="#333" strokeWidth="3"/>
+                <circle cx="180" cy="240" r="25" fill="none" stroke="#333" strokeWidth="2"/>
+                <circle cx="180" cy="240" r="15" fill="none" stroke="#333" strokeWidth="1"/>
+                <circle cx="180" cy="240" r="5" fill="#333"/>
+              </g>
+
+              <g 
+                className={`cursor-pointer transition-colors ${
+                  isPartSelected('rear_left_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                }`}
+                onClick={() => handlePartClick('rear_left_wheel')}
+                onMouseEnter={() => handlePartHover('rear_left_wheel')}
+                onMouseLeave={() => handlePartHover(null)}
+                data-testid="car-part-rear-left-wheel"
+              >
+                <circle cx="520" cy="240" r="35" stroke="#333" strokeWidth="3"/>
+                <circle cx="520" cy="240" r="25" fill="none" stroke="#333" strokeWidth="2"/>
+                <circle cx="520" cy="240" r="15" fill="none" stroke="#333" strokeWidth="1"/>
+                <circle cx="520" cy="240" r="5" fill="#333"/>
               </g>
 
               {/* Maska */}
@@ -121,7 +139,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-hood"
               >
-                <path d="M180 210 L220 200 L280 190 L320 195 L320 240 L180 240 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M80 160 C100 140 130 120 170 110 C190 105 220 100 250 95 L250 130 L200 130 L150 140 L120 150 L100 165 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Przednia szyba */}
@@ -134,7 +152,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-windshield"
               >
-                <path d="M320 185 L350 185 L350 240 L320 240 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M250 95 L280 92 L320 90 L320 130 L250 130 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Dach */}
@@ -147,7 +165,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-roof"
               >
-                <path d="M350 185 L520 185 L520 240 L350 240 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M320 90 L360 90 L400 90 L440 92 L440 130 L320 130 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Tylna szyba */}
@@ -160,7 +178,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-windshield"
               >
-                <path d="M520 185 L550 185 L550 240 L520 240 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M440 92 L470 95 L470 130 L440 130 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Bagażnik */}
@@ -173,20 +191,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-trunk"
               >
-                <path d="M550 185 L580 190 L620 200 L620 240 L550 240 Z" stroke="#333" strokeWidth="1"/>
-              </g>
-
-              {/* Tylny zderzak */}
-              <g 
-                className={`cursor-pointer transition-colors ${
-                  isPartSelected('rear_bumper') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
-                }`}
-                onClick={() => handlePartClick('rear_bumper')}
-                onMouseEnter={() => handlePartHover('rear_bumper')}
-                onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-rear-bumper"
-              >
-                <path d="M620 200 L660 210 L700 240 L740 280 L740 320 L620 320 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M470 95 C500 100 520 105 540 110 C570 120 590 140 600 160 L580 165 L550 150 L500 140 L470 130 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Lewe przednie drzwi */}
@@ -199,7 +204,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-left-door"
               >
-                <path d="M320 240 L420 240 L420 320 L320 320 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M250 130 L350 130 L350 200 L250 200 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Lewe tylne drzwi */}
@@ -212,66 +217,36 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-left-door"
               >
-                <path d="M420 240 L520 240 L520 320 L420 320 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M350 130 L440 130 L440 200 L350 200 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Lewy przedni błotnik */}
+              {/* Przedni zderzak */}
               <g 
                 className={`cursor-pointer transition-colors ${
-                  isPartSelected('front_left_fender') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                  isPartSelected('front_bumper') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
                 }`}
-                onClick={() => handlePartClick('front_left_fender')}
-                onMouseEnter={() => handlePartHover('front_left_fender')}
+                onClick={() => handlePartClick('front_bumper')}
+                onMouseEnter={() => handlePartHover('front_bumper')}
                 onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-front-left-fender"
+                data-testid="car-part-front-bumper"
               >
-                <path d="M180 240 L320 240 L320 320 L180 320 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M50 200 C60 180 80 160 100 165 L120 150 L150 140 L150 200 L100 220 L80 200 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Lewy tylny błotnik */}
+              {/* Tylny zderzak */}
               <g 
                 className={`cursor-pointer transition-colors ${
-                  isPartSelected('rear_left_fender') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                  isPartSelected('rear_bumper') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
                 }`}
-                onClick={() => handlePartClick('rear_left_fender')}
-                onMouseEnter={() => handlePartHover('rear_left_fender')}
+                onClick={() => handlePartClick('rear_bumper')}
+                onMouseEnter={() => handlePartHover('rear_bumper')}
                 onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-rear-left-fender"
+                data-testid="car-part-rear-bumper"
               >
-                <path d="M520 240 L620 240 L620 320 L520 320 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M600 160 C600 170 600 180 600 190 C600 200 590 210 580 220 L550 200 L500 200 L500 140 L550 150 L580 165 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Lewe przednie koło */}
-              <g 
-                className={`cursor-pointer transition-colors ${
-                  isPartSelected('front_left_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
-                }`}
-                onClick={() => handlePartClick('front_left_wheel')}
-                onMouseEnter={() => handlePartHover('front_left_wheel')}
-                onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-front-left-wheel"
-              >
-                <circle cx="250" cy="320" r="30" stroke="#333" strokeWidth="3"/>
-                <circle cx="250" cy="320" r="20" fill="none" stroke="#333" strokeWidth="2"/>
-                <circle cx="250" cy="320" r="10" fill="none" stroke="#333" strokeWidth="1"/>
-              </g>
-
-              {/* Lewe tylne koło */}
-              <g 
-                className={`cursor-pointer transition-colors ${
-                  isPartSelected('rear_left_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
-                }`}
-                onClick={() => handlePartClick('rear_left_wheel')}
-                onMouseEnter={() => handlePartHover('rear_left_wheel')}
-                onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-rear-left-wheel"
-              >
-                <circle cx="570" cy="320" r="30" stroke="#333" strokeWidth="3"/>
-                <circle cx="570" cy="320" r="20" fill="none" stroke="#333" strokeWidth="2"/>
-                <circle cx="570" cy="320" r="10" fill="none" stroke="#333" strokeWidth="1"/>
-              </g>
-
-              {/* Lewy przedni reflektor */}
+              {/* Reflektor przedni */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('front_left_headlight') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -281,10 +256,10 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-left-headlight"
               >
-                <ellipse cx="150" cy="250" rx="15" ry="25" stroke="#333" strokeWidth="2"/>
+                <ellipse cx="90" cy="180" rx="20" ry="15" stroke="#333" strokeWidth="2"/>
               </g>
 
-              {/* Lewe tylne światło */}
+              {/* Światło tylne */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('rear_left_taillight') ? 'fill-blue-400' : 'fill-red-400 hover:fill-red-300'
@@ -294,10 +269,10 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-left-taillight"
               >
-                <rect x="680" y="235" width="20" height="30" className="fill-red-500" stroke="#333" strokeWidth="1"/>
+                <rect x="580" y="165" width="15" height="25" className="fill-red-500" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Lewe lusterko */}
+              {/* Lusterko */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('left_mirror') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -307,7 +282,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-left-mirror"
               >
-                <ellipse cx="305" cy="220" rx="12" ry="8" stroke="#333" strokeWidth="1"/>
+                <ellipse cx="240" cy="120" rx="8" ry="5" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Okna */}
@@ -320,7 +295,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-left-window"
               >
-                <path d="M330 200 L400 200 L400 230 L330 230 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M270 110 L330 110 L330 125 L270 125 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               <g 
@@ -332,22 +307,22 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-left-window"
               >
-                <path d="M430 200 L500 200 L500 230 L430 230 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M370 110 L420 110 L420 125 L370 125 Z" stroke="#333" strokeWidth="1"/>
               </g>
             </svg>
           </div>
 
           {/* Widok z góry (TOP VIEW) */}
           <div className="text-center">
-            <h4 className="font-medium text-gray-700 mb-4">WIDOK Z GÓRY</h4>
+            <h4 className="font-semibold text-gray-700 mb-4">TOP</h4>
             <svg 
-              viewBox="0 0 400 800" 
-              className="w-full h-auto border border-gray-300 rounded-lg bg-white"
+              viewBox="0 0 300 600" 
+              className="w-full h-auto border border-gray-300 rounded-lg bg-white p-4"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Kontur samochodu z góry */}
+              {/* Realistyczny kontur samochodu z góry */}
               <path 
-                d="M150 100 L250 100 L280 120 L300 150 L300 200 L300 300 L300 400 L300 500 L300 600 L300 650 L280 680 L250 700 L150 700 L120 680 L100 650 L100 600 L100 500 L100 400 L100 300 L100 200 L100 150 L120 120 Z"
+                d="M120 50 L180 50 C200 50 220 60 230 80 L250 120 L250 180 L250 240 L250 300 L250 360 L250 420 L250 480 L230 520 C220 540 200 550 180 550 L120 550 C100 550 80 540 70 520 L50 480 L50 420 L50 360 L50 300 L50 240 L50 180 L50 120 L70 80 C80 60 100 50 120 50 Z"
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
@@ -363,7 +338,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-hood-top"
               >
-                <path d="M150 100 L250 100 L250 200 L150 200 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M120 50 L180 50 C200 50 220 60 230 80 L250 120 L50 120 L70 80 C80 60 100 50 120 50 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Przednia szyba */}
@@ -376,46 +351,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-windshield-top"
               >
-                <path d="M150 200 L250 200 L250 250 L150 250 Z" stroke="#333" strokeWidth="1"/>
-              </g>
-
-              {/* Dach środkowy */}
-              <g 
-                className={`cursor-pointer transition-colors ${
-                  isPartSelected('roof') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
-                }`}
-                onClick={() => handlePartClick('roof')}
-                onMouseEnter={() => handlePartHover('roof')}
-                onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-roof-top"
-              >
-                <path d="M150 250 L250 250 L250 550 L150 550 Z" stroke="#333" strokeWidth="1"/>
-              </g>
-
-              {/* Tylna szyba */}
-              <g 
-                className={`cursor-pointer transition-colors ${
-                  isPartSelected('rear_windshield') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
-                }`}
-                onClick={() => handlePartClick('rear_windshield')}
-                onMouseEnter={() => handlePartHover('rear_windshield')}
-                onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-rear-windshield-top"
-              >
-                <path d="M150 550 L250 550 L250 600 L150 600 Z" stroke="#333" strokeWidth="1"/>
-              </g>
-
-              {/* Bagażnik */}
-              <g 
-                className={`cursor-pointer transition-colors ${
-                  isPartSelected('trunk') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
-                }`}
-                onClick={() => handlePartClick('trunk')}
-                onMouseEnter={() => handlePartHover('trunk')}
-                onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-trunk-top"
-              >
-                <path d="M150 600 L250 600 L250 700 L150 700 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M50 120 L250 120 L250 180 L50 180 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Lewe drzwi przednie */}
@@ -428,20 +364,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-left-door-top"
               >
-                <path d="M100 250 L150 250 L150 350 L100 350 Z" stroke="#333" strokeWidth="1"/>
-              </g>
-
-              {/* Lewe drzwi tylne */}
-              <g 
-                className={`cursor-pointer transition-colors ${
-                  isPartSelected('rear_left_door') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
-                }`}
-                onClick={() => handlePartClick('rear_left_door')}
-                onMouseEnter={() => handlePartHover('rear_left_door')}
-                onMouseLeave={() => handlePartHover(null)}
-                data-testid="car-part-rear-left-door-top"
-              >
-                <path d="M100 350 L150 350 L150 450 L100 450 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M30 180 L50 180 L50 280 L30 280 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Prawe drzwi przednie */}
@@ -454,7 +377,20 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-right-door-top"
               >
-                <path d="M250 250 L300 250 L300 350 L250 350 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M250 180 L270 180 L270 280 L250 280 Z" stroke="#333" strokeWidth="1"/>
+              </g>
+
+              {/* Lewe drzwi tylne */}
+              <g 
+                className={`cursor-pointer transition-colors ${
+                  isPartSelected('rear_left_door') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                }`}
+                onClick={() => handlePartClick('rear_left_door')}
+                onMouseEnter={() => handlePartHover('rear_left_door')}
+                onMouseLeave={() => handlePartHover(null)}
+                data-testid="car-part-rear-left-door-top"
+              >
+                <path d="M30 320 L50 320 L50 420 L30 420 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Prawe drzwi tylne */}
@@ -467,10 +403,49 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-right-door-top"
               >
-                <path d="M250 350 L300 350 L300 450 L250 450 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M250 320 L270 320 L270 420 L250 420 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Koła */}
+              {/* Dach środkowy */}
+              <g 
+                className={`cursor-pointer transition-colors ${
+                  isPartSelected('roof') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                }`}
+                onClick={() => handlePartClick('roof')}
+                onMouseEnter={() => handlePartHover('roof')}
+                onMouseLeave={() => handlePartHover(null)}
+                data-testid="car-part-roof-center"
+              >
+                <path d="M50 180 L250 180 L250 420 L50 420 Z" stroke="#333" strokeWidth="1"/>
+              </g>
+
+              {/* Tylna szyba */}
+              <g 
+                className={`cursor-pointer transition-colors ${
+                  isPartSelected('rear_windshield') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                }`}
+                onClick={() => handlePartClick('rear_windshield')}
+                onMouseEnter={() => handlePartHover('rear_windshield')}
+                onMouseLeave={() => handlePartHover(null)}
+                data-testid="car-part-rear-windshield-top2"
+              >
+                <path d="M50 420 L250 420 L250 480 L50 480 Z" stroke="#333" strokeWidth="1"/>
+              </g>
+
+              {/* Bagażnik */}
+              <g 
+                className={`cursor-pointer transition-colors ${
+                  isPartSelected('trunk') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
+                }`}
+                onClick={() => handlePartClick('trunk')}
+                onMouseEnter={() => handlePartHover('trunk')}
+                onMouseLeave={() => handlePartHover(null)}
+                data-testid="car-part-trunk-top2"
+              >
+                <path d="M50 480 L250 480 L230 520 C220 540 200 550 180 550 L120 550 C100 550 80 540 70 520 L50 480 Z" stroke="#333" strokeWidth="1"/>
+              </g>
+
+              {/* Koła z góry */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('front_left_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -480,7 +455,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-left-wheel-top"
               >
-                <circle cx="80" cy="200" r="20" stroke="#333" strokeWidth="2"/>
+                <circle cx="20" cy="140" r="18" stroke="#333" strokeWidth="2"/>
               </g>
 
               <g 
@@ -492,7 +467,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-right-wheel-top"
               >
-                <circle cx="320" cy="200" r="20" stroke="#333" strokeWidth="2"/>
+                <circle cx="280" cy="140" r="18" stroke="#333" strokeWidth="2"/>
               </g>
 
               <g 
@@ -504,7 +479,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-left-wheel-top"
               >
-                <circle cx="80" cy="600" r="20" stroke="#333" strokeWidth="2"/>
+                <circle cx="20" cy="460" r="18" stroke="#333" strokeWidth="2"/>
               </g>
 
               <g 
@@ -516,22 +491,22 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-right-wheel-top"
               >
-                <circle cx="320" cy="600" r="20" stroke="#333" strokeWidth="2"/>
+                <circle cx="280" cy="460" r="18" stroke="#333" strokeWidth="2"/>
               </g>
             </svg>
           </div>
 
           {/* Widok z przodu (FRONT) */}
           <div className="text-center">
-            <h4 className="font-medium text-gray-700 mb-4">PRZÓD</h4>
+            <h4 className="font-semibold text-gray-700 mb-4">FRONT</h4>
             <svg 
               viewBox="0 0 400 300" 
-              className="w-full h-auto border border-gray-300 rounded-lg bg-white"
+              className="w-full h-auto border border-gray-300 rounded-lg bg-white p-4"
               xmlns="http://www.w3.org/2000/svg"
             >
               {/* Kontur samochodu z przodu */}
               <path 
-                d="M100 250 L100 150 L120 120 L150 100 L250 100 L280 120 L300 150 L300 250 L280 270 L250 280 L150 280 L120 270 Z"
+                d="M80 250 L80 180 C80 160 90 140 110 130 L130 120 L150 110 L200 100 L250 110 L270 120 L290 130 C310 140 320 160 320 180 L320 250 C320 260 310 270 300 270 L280 270 L280 280 L120 280 L120 270 L100 270 C90 270 80 260 80 250 Z"
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
@@ -547,7 +522,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-hood-front"
               >
-                <path d="M150 100 L250 100 L250 150 L150 150 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M130 120 L150 110 L200 100 L250 110 L270 120 L270 150 L130 150 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Atrapa chłodnicy */}
@@ -560,7 +535,12 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-grille"
               >
-                <path d="M150 150 L250 150 L250 200 L150 200 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M130 150 L270 150 L270 200 L130 200 Z" stroke="#333" strokeWidth="1"/>
+                {/* Linie kratki */}
+                <line x1="140" y1="160" x2="260" y2="160" stroke="#333" strokeWidth="0.5"/>
+                <line x1="140" y1="170" x2="260" y2="170" stroke="#333" strokeWidth="0.5"/>
+                <line x1="140" y1="180" x2="260" y2="180" stroke="#333" strokeWidth="0.5"/>
+                <line x1="140" y1="190" x2="260" y2="190" stroke="#333" strokeWidth="0.5"/>
               </g>
 
               {/* Przedni zderzak */}
@@ -573,10 +553,10 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-bumper-front"
               >
-                <path d="M120 200 L280 200 L280 250 L120 250 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M110 130 C90 140 80 160 80 180 L80 250 C80 260 90 270 100 270 L120 270 L120 230 L280 230 L280 270 L300 270 C310 270 320 260 320 250 L320 180 C320 160 310 140 290 130 L280 200 L120 200 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Lewy przedni reflektor */}
+              {/* Reflektory */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('front_left_headlight') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -586,10 +566,10 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-left-headlight-front"
               >
-                <ellipse cx="140" cy="175" rx="15" ry="20" stroke="#333" strokeWidth="1"/>
+                <ellipse cx="120" cy="170" rx="25" ry="15" stroke="#333" strokeWidth="2"/>
+                <circle cx="120" cy="170" r="8" fill="none" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Prawy przedni reflektor */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('front_right_headlight') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -599,10 +579,11 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-right-headlight-front"
               >
-                <ellipse cx="260" cy="175" rx="15" ry="20" stroke="#333" strokeWidth="1"/>
+                <ellipse cx="280" cy="170" rx="25" ry="15" stroke="#333" strokeWidth="2"/>
+                <circle cx="280" cy="170" r="8" fill="none" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Lewe koło przednie */}
+              {/* Koła z przodu */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('front_left_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -612,11 +593,10 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-left-wheel-front"
               >
-                <circle cx="80" cy="220" r="25" stroke="#333" strokeWidth="2"/>
-                <circle cx="80" cy="220" r="15" fill="none" stroke="#333" strokeWidth="1"/>
+                <circle cx="50" cy="240" r="30" stroke="#333" strokeWidth="3"/>
+                <circle cx="50" cy="240" r="20" fill="none" stroke="#333" strokeWidth="2"/>
               </g>
 
-              {/* Prawe koło przednie */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('front_right_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -626,23 +606,23 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-front-right-wheel-front"
               >
-                <circle cx="320" cy="220" r="25" stroke="#333" strokeWidth="2"/>
-                <circle cx="320" cy="220" r="15" fill="none" stroke="#333" strokeWidth="1"/>
+                <circle cx="350" cy="240" r="30" stroke="#333" strokeWidth="3"/>
+                <circle cx="350" cy="240" r="20" fill="none" stroke="#333" strokeWidth="2"/>
               </g>
             </svg>
           </div>
 
           {/* Widok z tyłu (REAR) */}
           <div className="text-center">
-            <h4 className="font-medium text-gray-700 mb-4">TYŁ</h4>
+            <h4 className="font-semibold text-gray-700 mb-4">REAR</h4>
             <svg 
               viewBox="0 0 400 300" 
-              className="w-full h-auto border border-gray-300 rounded-lg bg-white"
+              className="w-full h-auto border border-gray-300 rounded-lg bg-white p-4"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Kontur samochodu z tyłu */}
+              {/* Kontur samochodu z tyłu - identyczny jak z przodu */}
               <path 
-                d="M100 250 L100 150 L120 120 L150 100 L250 100 L280 120 L300 150 L300 250 L280 270 L250 280 L150 280 L120 270 Z"
+                d="M80 250 L80 180 C80 160 90 140 110 130 L130 120 L150 110 L200 100 L250 110 L270 120 L290 130 C310 140 320 160 320 180 L320 250 C320 260 310 270 300 270 L280 270 L280 280 L120 280 L120 270 L100 270 C90 270 80 260 80 250 Z"
                 fill="none"
                 stroke="#333"
                 strokeWidth="2"
@@ -658,7 +638,7 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-trunk-rear"
               >
-                <path d="M150 100 L250 100 L250 150 L150 150 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M130 120 L150 110 L200 100 L250 110 L270 120 L270 150 L130 150 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
               {/* Tylny zderzak */}
@@ -671,10 +651,10 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-bumper-rear"
               >
-                <path d="M120 200 L280 200 L280 250 L120 250 Z" stroke="#333" strokeWidth="1"/>
+                <path d="M110 130 C90 140 80 160 80 180 L80 250 C80 260 90 270 100 270 L120 270 L120 230 L280 230 L280 270 L300 270 C310 270 320 260 320 250 L320 180 C320 160 310 140 290 130 L280 200 L120 200 Z" stroke="#333" strokeWidth="1"/>
               </g>
 
-              {/* Lewe tylne światło */}
+              {/* Tylne światła */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('rear_left_taillight') ? 'fill-blue-400' : 'fill-red-400 hover:fill-red-300'
@@ -684,10 +664,11 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-left-taillight-rear"
               >
-                <rect x="125" y="160" width="20" height="30" className="fill-red-500" stroke="#333" strokeWidth="1"/>
+                <rect x="110" y="160" width="25" height="35" className="fill-red-500" stroke="#333" strokeWidth="1"/>
+                <rect x="115" y="165" width="15" height="10" fill="white" stroke="#333" strokeWidth="0.5"/>
+                <rect x="115" y="180" width="15" height="10" fill="white" stroke="#333" strokeWidth="0.5"/>
               </g>
 
-              {/* Prawe tylne światło */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('rear_right_taillight') ? 'fill-blue-400' : 'fill-red-400 hover:fill-red-300'
@@ -697,10 +678,12 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-right-taillight-rear"
               >
-                <rect x="255" y="160" width="20" height="30" className="fill-red-500" stroke="#333" strokeWidth="1"/>
+                <rect x="265" y="160" width="25" height="35" className="fill-red-500" stroke="#333" strokeWidth="1"/>
+                <rect x="270" y="165" width="15" height="10" fill="white" stroke="#333" strokeWidth="0.5"/>
+                <rect x="270" y="180" width="15" height="10" fill="white" stroke="#333" strokeWidth="0.5"/>
               </g>
 
-              {/* Lewe koło tylne */}
+              {/* Koła z tyłu */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('rear_left_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -710,11 +693,10 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-left-wheel-rear"
               >
-                <circle cx="80" cy="220" r="25" stroke="#333" strokeWidth="2"/>
-                <circle cx="80" cy="220" r="15" fill="none" stroke="#333" strokeWidth="1"/>
+                <circle cx="50" cy="240" r="30" stroke="#333" strokeWidth="3"/>
+                <circle cx="50" cy="240" r="20" fill="none" stroke="#333" strokeWidth="2"/>
               </g>
 
-              {/* Prawe koło tylne */}
               <g 
                 className={`cursor-pointer transition-colors ${
                   isPartSelected('rear_right_wheel') ? 'fill-blue-400' : 'fill-white hover:fill-blue-200'
@@ -724,18 +706,18 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-rear-right-wheel-rear"
               >
-                <circle cx="320" cy="220" r="25" stroke="#333" strokeWidth="2"/>
-                <circle cx="320" cy="220" r="15" fill="none" stroke="#333" strokeWidth="1"/>
+                <circle cx="350" cy="240" r="30" stroke="#333" strokeWidth="3"/>
+                <circle cx="350" cy="240" r="20" fill="none" stroke="#333" strokeWidth="2"/>
               </g>
             </svg>
           </div>
 
           {/* Koło zapasowe */}
-          <div className="text-center lg:col-span-2">
-            <h4 className="font-medium text-gray-700 mb-4">KOŁO ZAPASOWE</h4>
+          <div className="text-center lg:col-span-2 2xl:col-span-1">
+            <h4 className="font-semibold text-gray-700 mb-4">SPARE</h4>
             <svg 
               viewBox="0 0 200 200" 
-              className="w-32 h-32 mx-auto border border-gray-300 rounded-lg bg-white"
+              className="w-32 h-32 mx-auto border border-gray-300 rounded-lg bg-white p-2"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g 
@@ -747,18 +729,21 @@ function InteractiveCarDiagram({ selectedParts, onPartToggle }: InteractiveCarDi
                 onMouseLeave={() => handlePartHover(null)}
                 data-testid="car-part-spare-tire"
               >
-                <circle cx="100" cy="100" r="60" stroke="#333" strokeWidth="3"/>
+                <circle cx="100" cy="100" r="80" stroke="#333" strokeWidth="4"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#333" strokeWidth="3"/>
                 <circle cx="100" cy="100" r="40" fill="none" stroke="#333" strokeWidth="2"/>
                 <circle cx="100" cy="100" r="20" fill="none" stroke="#333" strokeWidth="2"/>
-                {/* Śruby koła */}
-                <circle cx="100" cy="70" r="3" fill="#333"/>
-                <circle cx="130" cy="100" r="3" fill="#333"/>
-                <circle cx="100" cy="130" r="3" fill="#333"/>
-                <circle cx="70" cy="100" r="3" fill="#333"/>
-                <circle cx="115" cy="85" r="3" fill="#333"/>
-                <circle cx="115" cy="115" r="3" fill="#333"/>
-                <circle cx="85" cy="115" r="3" fill="#333"/>
-                <circle cx="85" cy="85" r="3" fill="#333"/>
+                {/* Śruby koła - radialne */}
+                <circle cx="100" cy="60" r="4" fill="#333"/>
+                <circle cx="135" cy="75" r="4" fill="#333"/>
+                <circle cx="140" cy="100" r="4" fill="#333"/>
+                <circle cx="135" cy="125" r="4" fill="#333"/>
+                <circle cx="100" cy="140" r="4" fill="#333"/>
+                <circle cx="65" cy="125" r="4" fill="#333"/>
+                <circle cx="60" cy="100" r="4" fill="#333"/>
+                <circle cx="65" cy="75" r="4" fill="#333"/>
+                {/* Środkowa śruba */}
+                <circle cx="100" cy="100" r="6" fill="#333"/>
               </g>
             </svg>
           </div>
