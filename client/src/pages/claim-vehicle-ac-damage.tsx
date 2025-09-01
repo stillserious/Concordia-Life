@@ -177,10 +177,10 @@ export default function ClaimVehicleACDamagePage() {
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
       <ProgressBar 
-        currentStep={7} 
-        totalSteps={8} 
-        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu", "Uszkodzenia pojazdu", "Dokumenty"]} 
-        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage", "/claim/vehicle/ac/documents"]}
+        currentStep={6} 
+        totalSteps={7} 
+        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Uszkodzenia pojazdu", "Dokumenty"]} 
+        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/damage", "/claim/vehicle/ac/documents"]}
       />
       <main className="flex-1 py-10 px-6">
         <div className="max-w-6xl mx-auto">
@@ -294,7 +294,7 @@ export default function ClaimVehicleACDamagePage() {
                 <div className="flex justify-between pt-6 border-t border-gray-200">
                   <Button
                     variant="outline"
-                    onClick={() => setLocation("/claim/vehicle/ac/incident-info")}
+                    onClick={() => setLocation("/claim/vehicle/ac/vehicle-data")}
                     type="button"
                     data-testid="back-button"
                   >

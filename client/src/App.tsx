@@ -12,7 +12,6 @@ import ClaimVehicleACPage from "@/pages/claim-vehicle-ac";
 import ClaimVehicleACIncidentTypePage from "@/pages/claim-vehicle-ac-incident-type";
 import ClaimVehicleACCollisionVehiclePage from "@/pages/claim-vehicle-ac-collision-vehicle";
 import ClaimVehicleACVehicleDataPage from "@/pages/claim-vehicle-ac-vehicle-data";
-import ClaimVehicleACIncidentInfoPage from "@/pages/claim-vehicle-ac-incident-info";
 import ClaimVehicleACDamagePage from "@/pages/claim-vehicle-ac-damage";
 import ClaimVehicleACDocumentsPage from "@/pages/claim-vehicle-ac-documents";
 import NotFound from "@/pages/not-found";
@@ -37,7 +36,6 @@ function Router() {
         <Route path="/claim/vehicle/ac/incident-type" component={ClaimVehicleACIncidentTypePage} />
         <Route path="/claim/vehicle/ac/collision-vehicle" component={ClaimVehicleACCollisionVehiclePage} />
         <Route path="/claim/vehicle/ac/vehicle-data" component={ClaimVehicleACVehicleDataPage} />
-        <Route path="/claim/vehicle/ac/incident-info" component={ClaimVehicleACIncidentInfoPage} />
         <Route path="/claim/vehicle/ac/damage" component={ClaimVehicleACDamagePage} />
         <Route path="/claim/vehicle/ac/documents" component={ClaimVehicleACDocumentsPage} />
         <Route path="/claim/property" component={ClaimPropertyPage} />
