@@ -49,23 +49,20 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-md rounded-2xl group-hover:opacity-100 opacity-0 transition-all duration-300"></div>
                 
                 {/* Zawartość overlay */}
-                <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-8 mx-4 text-center rounded-2xl shadow-2xl max-w-sm transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-200 to-cyan-200 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-500">
-                      <img src={clockIcon} alt="Zegar" className="w-8 h-8" />
+                <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-4 mx-2 text-center rounded-xl shadow-xl max-w-xs transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-200 to-cyan-200 rounded-full flex items-center justify-center shadow transform group-hover:rotate-6 transition-transform duration-500">
+                      <img src={clockIcon} alt="Zegar" className="w-5 h-5" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
-                    Formularz tymczasowo niedostępny
+                  <h3 className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                    Tymczasowo niedostępny
                   </h3>
-                  <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-                    Ta funkcja jest obecnie w przygotowaniu. Skontaktuj się z nami, aby uzyskać pomoc.
-                  </p>
                   <a 
                     href="tel:+48228200220"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
                   >
-                    📞 Zadzwoń do nas
+                    📞 Zadzwoń
                   </a>
                 </div>
               </div>
@@ -85,23 +82,20 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20 backdrop-blur-md rounded-2xl group-hover:opacity-100 opacity-0 transition-all duration-300"></div>
                 
                 {/* Zawartość overlay */}
-                <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-8 mx-4 text-center rounded-2xl shadow-2xl max-w-sm transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-200 to-cyan-200 rounded-full flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-500">
-                      <img src={clockIcon} alt="Zegar" className="w-8 h-8" />
+                <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-4 mx-2 text-center rounded-xl shadow-xl max-w-xs transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
+                  <div className="flex justify-center mb-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-200 to-cyan-200 rounded-full flex items-center justify-center shadow transform group-hover:rotate-6 transition-transform duration-500">
+                      <img src={clockIcon} alt="Zegar" className="w-5 h-5" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
-                    Formularz tymczasowo niedostępny
+                  <h3 className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                    Tymczasowo niedostępny
                   </h3>
-                  <p className="text-sm text-gray-600 mb-6 leading-relaxed">
-                    Ta funkcja jest obecnie w przygotowaniu. Skontaktuj się z nami, aby uzyskać pomoc.
-                  </p>
                   <a 
                     href="tel:+48228200220"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
                   >
-                    📞 Zadzwoń do nas
+                    📞 Zadzwoń
                   </a>
                 </div>
               </div>
