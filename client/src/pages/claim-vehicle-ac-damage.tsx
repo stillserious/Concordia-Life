@@ -191,7 +191,7 @@ export default function ClaimVehicleACDamagePage() {
               <div className="w-full max-w-5xl" data-testid="car-diagram">
                 <iframe 
                   src="/car-diagram-full.html"
-                  className="w-full border-0 rounded-lg md:h-[450px] h-[200px]"
+                  className="w-full border-0 rounded-lg md:h-[600px] h-[200px]"
                   style={{ minHeight: '180px' }}
                   title="Interaktywny diagram samochodu"
                   data-testid="car-diagram-iframe"
