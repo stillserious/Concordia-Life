@@ -204,7 +204,7 @@ export default function ClaimVehicleACDamagePage() {
                 Wskaż uszkodzenia pojazdu
               </h2>
               <p className="text-sm text-gray-600">
-                Kliknij na części samochodu, które zostały uszkodzone.
+                Kliknij na części samochodu, które zostały uszkodzone. Wybrane części zostaną podświetlone.
               </p>
             </div>
 
@@ -214,7 +214,7 @@ export default function ClaimVehicleACDamagePage() {
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-50 rounded-lg z-10" id="diagram-loader">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                    <p className="text-sm text-gray-600">Ładowanie modelu pojazdu...</p>
+                    <p className="text-sm text-gray-600">Ładowanie diagramu pojazdu...</p>
                   </div>
                 </div>
                 <iframe 
