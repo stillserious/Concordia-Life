@@ -22,7 +22,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
         sx={{
           height: 4,
           '& .MuiLinearProgress-bar': {
-            backgroundColor: isCompleted ? '#16a34a' : 'hsl(207, 90%, 54%)',
+            backgroundColor: isCompleted ? '#059669' : 'hsl(207, 90%, 54%)',
             transition: 'transform 0.7s ease-out'
           },
           '& .MuiLinearProgress-root': {
