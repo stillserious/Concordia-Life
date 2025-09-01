@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toyotaPriusSvg from "../assets/toyota-prius-professional.svg";
 
 // Polskie nazwy części samochodu
 const CAR_PARTS = {
@@ -48,55 +49,24 @@ export default function VanillaThreeCar({
       <div className={`relative w-full ${className}`}>
         <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
           <div className="relative">
-            {/* Profesjonalny SVG Toyota Prius z Vecteezy */}
-            <svg width="100%" height="400" viewBox="0 0 1400 980" className="w-full h-auto">
-              <g>
-                {/* Koła i elementy podłogo */}
-                <g>
-                  <g>
-                    <g>
-                      <path fillRule="evenodd" clipRule="evenodd" fill="#4D4D4D" d="M588.32,518.225c-5.085,8.48-10.17,16.965-15.305,25.414 l-0.178,0.293l-10.946-0.606l-13.239-14.985l0.849-0.259c12.624-3.912,25.313-7.751,38.199-10.711l1.313-0.302L588.32,518.225z M845.983,597.019c12.331,12.335,12.331,32.326,0,44.661c-12.334,12.33-32.326,12.33-44.66,0c-12.331-12.335-12.331-32.326,0-44.661C813.657,584.689,833.649,584.689,845.983,597.019z M575.714,597.019c12.33,12.335,12.33,32.326,0,44.661c-12.333,12.33-32.326,12.33-44.659,0c-12.332-12.335-12.332-32.326,0-44.661C543.388,584.689,563.381,584.689,575.714,597.019z"/>
-                    </g>
-                  </g>
-                </g>
-                
-                {/* Główne nadwozie samochodu */}
-                <g>
-                  <path fillRule="evenodd" clipRule="evenodd" fill="#1A1A1A" d="M299.655,378.728c172.028,6.204,172.028,6.204,172.028,6.204s25.053-51.776,7.874-82.795c-17.177-31.016-51.06-44.377-87.325-43.423c-36.267,0.952-56.307-4.771-81.6,18.132c-25.291,22.906-26.245,37.222-26.245,41.04C284.386,321.703,299.655,378.728,299.655,378.728z"/>
-                  <path fillRule="evenodd" clipRule="evenodd" fill="#1A1A1A" d="M942.432,384.215c177.99-12.885,181.331-14.316,181.331-14.316s0.956-18.61,1.433-26.245c0.477-7.634,6.682-81.601-88.281-87.804C941.955,249.646,903.304,349.38,942.432,384.215z"/>
-                  
-                  <g>
-                    <path fillRule="evenodd" clipRule="evenodd" fill="#CCCCCC" d="M477.229,385.186c459.055,0,459.055,0,459.055,0l5.973-0.417c-3.841-9.896-5.957-20.654-5.957-31.909c0-48.684,39.47-88.151,88.151-88.151c48.687,0,88.151,39.468,88.151,88.151c0,7.022-0.826,13.851-2.377,20.397h62.269l17.415-17.417l37.074-9.935v-62.838l-26.336-16.226l-6.201-46.287l-9.545-58.217l21.951-15.27h-47.721c0,0-159.379-71.58-310.173-79.213C698.166,60.22,646.63,86.465,589.845,102.69c-56.785,16.223-177.993,78.735-177.993,78.735h-42.948c0,0-85.893,10.021-135.521,34.835c-49.628,24.814-48.674,54.398-48.674,54.398l-1.432,14.795l-10.258,10.258v31.732l15.322,8.848v19.786l-12.938,4.055v10.021l37.697,8.828h88.281l1.343,0.047c-2.567-8.269-3.951-17.058-3.951-26.17c0-48.684,39.467-88.151,88.153-88.151c48.684,0,88.149,39.468,88.149,88.151c0,11.304-2.128,22.106-6.006,32.039L477.229,385.186z"/>
-                  </g>
-                  
-                  {/* Gradienty dla nadwozia */}
-                  <defs>
-                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="626.8398" y1="395.8965" x2="626.8409" y2="290.9252">
-                      <stop offset="0" stopColor="#B3B3B3"/>
-                      <stop offset="1" stopColor="#FFFFFF"/>
-                    </linearGradient>
-                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="864.1494" y1="396.0278" x2="833.5083" y2="265.2922">
-                      <stop offset="0" stopColor="#B3B3B3"/>
-                      <stop offset="1" stopColor="#FFFFFF"/>
-                    </linearGradient>
-                  </defs>
-                  
-                  <path fillRule="evenodd" clipRule="evenodd" fill="url(#SVGID_1_)" d="M751.525,338.115l-256.067,17.133c4.13,9.096,12.943,8.396,12.943,8.396h249.821c-0.154-0.407-0.659-1.765-0.862-2.527c-0.737-2.785-2.522-10.081-4.83-23.22L751.525,338.115z"/>
-                  <path fillRule="evenodd" clipRule="evenodd" fill="url(#SVGID_2_)" d="M752.53,337.897c2.308,13.139,4.093,20.435,4.83,23.22c0.203,0.763,0.708,2.12,0.862,2.527h128.113c33.402,0,29.586-18.134,39.127-41.992c2.572-6.43,7.809-14.901,14.234-24.224L752.53,337.897z"/>
-                </g>
-              </g>
-            </svg>
+            {/* Profesjonalny SVG Toyota Prius */}
+            <img 
+              src={toyotaPriusSvg} 
+              alt="Toyota Prius Professional Model" 
+              className="w-full h-auto"
+              style={{ maxHeight: '400px' }}
+            />
             
-            {/* Interaktywne obszary na nadwoziu */}
+            {/* Interaktywne obszary dopasowane do nowego modelu */}
             <div className="absolute inset-0 pointer-events-none">
               {/* Maska - przednia część */}
               <div 
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '10%',
-                  top: '25%',
-                  width: '25%',
-                  height: '35%',
+                  left: '4%',
+                  top: '28%',
+                  width: '22%',
+                  height: '30%',
                   backgroundColor: selectedParts.has('hood') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
                   border: selectedParts.has('hood') ? '2px solid #cc0000' : '2px solid transparent',
                   borderRadius: '8px'
@@ -109,10 +79,10 @@ export default function VanillaThreeCar({
               <div 
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '2%',
-                  top: '40%',
-                  width: '12%',
-                  height: '20%',
+                  left: '1%',
+                  top: '42%',
+                  width: '8%',
+                  height: '16%',
                   backgroundColor: selectedParts.has('front-bumper') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
                   border: selectedParts.has('front-bumper') ? '2px solid #cc0000' : '2px solid transparent',
                   borderRadius: '8px'
@@ -121,14 +91,14 @@ export default function VanillaThreeCar({
                 data-testid="car-part-front-bumper"
               />
               
-              {/* Nadwozie główne */}
+              {/* Nadwozie główne (pasażerska kabina) */}
               <div 
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '35%',
-                  top: '15%',
-                  width: '40%',
-                  height: '50%',
+                  left: '25%',
+                  top: '20%',
+                  width: '45%',
+                  height: '38%',
                   backgroundColor: selectedParts.has('body') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
                   border: selectedParts.has('body') ? '2px solid #cc0000' : '2px solid transparent',
                   borderRadius: '8px'
@@ -141,10 +111,10 @@ export default function VanillaThreeCar({
               <div 
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '37%',
-                  top: '12%',
-                  width: '36%',
-                  height: '25%',
+                  left: '28%',
+                  top: '18%',
+                  width: '38%',
+                  height: '20%',
                   backgroundColor: selectedParts.has('roof') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
                   border: selectedParts.has('roof') ? '2px solid #cc0000' : '2px solid transparent',
                   borderRadius: '8px'
@@ -157,10 +127,10 @@ export default function VanillaThreeCar({
               <div 
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '75%',
-                  top: '25%',
-                  width: '20%',
-                  height: '35%',
+                  left: '70%',
+                  top: '28%',
+                  width: '22%',
+                  height: '30%',
                   backgroundColor: selectedParts.has('trunk') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
                   border: selectedParts.has('trunk') ? '2px solid #cc0000' : '2px solid transparent',
                   borderRadius: '8px'
@@ -174,15 +144,46 @@ export default function VanillaThreeCar({
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
                   left: '92%',
-                  top: '40%',
-                  width: '8%',
-                  height: '20%',
+                  top: '42%',
+                  width: '7%',
+                  height: '16%',
                   backgroundColor: selectedParts.has('rear-bumper') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
                   border: selectedParts.has('rear-bumper') ? '2px solid #cc0000' : '2px solid transparent',
                   borderRadius: '8px'
                 }}
                 onClick={() => handlePartClick('rear-bumper')}
                 data-testid="car-part-rear-bumper"
+              />
+              
+              {/* Dodatkowe obszary - drzwi */}
+              <div 
+                className="absolute cursor-pointer pointer-events-auto"
+                style={{
+                  left: '26%',
+                  top: '35%',
+                  width: '18%',
+                  height: '22%',
+                  backgroundColor: selectedParts.has('front-door-left') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
+                  border: selectedParts.has('front-door-left') ? '2px solid #cc0000' : '2px solid transparent',
+                  borderRadius: '8px'
+                }}
+                onClick={() => handlePartClick('front-door-left')}
+                data-testid="car-part-front-door-left"
+              />
+              
+              <div 
+                className="absolute cursor-pointer pointer-events-auto"
+                style={{
+                  left: '44%',
+                  top: '35%',
+                  width: '26%',
+                  height: '22%',
+                  backgroundColor: selectedParts.has('rear-door-left') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
+                  border: selectedParts.has('rear-door-left') ? '2px solid #cc0000' : '2px solid transparent',
+                  borderRadius: '8px'
+                }}
+                onClick={() => handlePartClick('rear-door-left')}
+                data-testid="car-part-rear-door-left"
               />
             </div>
             
