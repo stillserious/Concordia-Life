@@ -50,16 +50,16 @@ export default function VanillaThreeCar({
             <div className="absolute inset-0 pointer-events-none">
               
               {/* LEWY GÓRNY ROG - WIDOK BOCZNY Z LEWEJ */}
-              {/* Lewe przednie drzwi - dokładnie dopasowane do modelu */}
+              {/* Lewe przednie drzwi - większy i bardziej widoczny obszar testowy */}
               <div 
                 className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '14%',
-                  top: '22%',
-                  width: '7%',
-                  height: '10%',
-                  backgroundColor: selectedParts.has('front-door-left') ? 'rgba(255, 107, 107, 0.4)' : 'transparent',
-                  border: selectedParts.has('front-door-left') ? '2px solid #cc0000' : '2px solid transparent',
+                  left: '12%',
+                  top: '20%',
+                  width: '10%',
+                  height: '15%',
+                  backgroundColor: selectedParts.has('front-door-left') ? 'rgba(255, 107, 107, 0.6)' : 'rgba(0, 0, 255, 0.3)',
+                  border: selectedParts.has('front-door-left') ? '3px solid #cc0000' : '3px solid #0066cc',
                   borderRadius: '4px'
                 }}
                 onClick={() => handlePartClick('front-door-left')}
