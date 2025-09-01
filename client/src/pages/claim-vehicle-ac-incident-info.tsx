@@ -214,7 +214,7 @@ export default function ClaimVehicleACIncidentInfo() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               <SelectionCard
                                 value="inna_przyczyna"
-                                title="Inna przyczyna"
+                                title="Kierowca pojazdu"
                                 isSelected={field.value === "inna_przyczyna"}
                                 onSelect={() => field.onChange("inna_przyczyna")}
                                 testId="card-fault-other"
@@ -232,7 +232,7 @@ export default function ClaimVehicleACIncidentInfo() {
                                 <p className="text-sm text-blue-800">
                                   {field.value === "inna_przyczyna" ? (
                                     <span>
-                                      <strong>Wybierz "Inna przyczyna"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
+                                      <strong>Wybierz "Kierowca pojazdu"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
                                     </span>
                                   ) : (
                                     <span>
