@@ -34,14 +34,12 @@ export default function ClaimVehiclePage() {
   return (
     <div className="min-h-screen flex flex-col insurance-gradient-bg">
       <Header />
-      
       <ProgressBar 
         currentStep={1}
         totalSteps={8}
         stepLabels={stepLabels}
         stepRoutes={stepRoutes}
       />
-      
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
@@ -58,7 +56,7 @@ export default function ClaimVehiclePage() {
               category="ac"
               title="Moje ubezpieczenie"
               description="Zgłoś szkodę z własnego ubezpieczenia. Ubezpieczenie pokrywa uszkodzenia pojazdu, kolizje oraz kradzieże."
-              icon={<span className="text-2xl font-bold text-black">AC</span>}
+              icon={<span className="text-2xl font-bold text-[#cbcbf5]">AC</span>}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle/ac"
             />
@@ -114,7 +112,6 @@ export default function ClaimVehiclePage() {
           </div>
         </div>
       </main>
-      
       <Footer />
     </div>
   );
