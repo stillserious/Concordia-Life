@@ -18,10 +18,10 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-br from-white to-blue-50 border-t-2 border-blue-200 shadow-lg">
-      <div className="max-w-6xl mx-auto px-4 py-4 md:px-6 md:py-6">
-        <div className="flex flex-col space-y-6 md:grid md:grid-cols-3 md:gap-8 md:space-y-0 md:justify-items-center md:max-w-4xl md:mx-auto">
+      <div className="max-w-6xl mx-auto px-4 py-3 md:px-6 md:py-4">
+        <div className="flex flex-col space-y-4 md:grid md:grid-cols-3 md:gap-6 md:space-y-0 md:justify-items-center md:max-w-4xl md:mx-auto">
           {/* Kontakt */}
-          <div className="space-y-3 text-left w-full">
+          <div className="space-y-2 text-left w-full">
             <div 
               className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('kontakt')}
@@ -35,8 +35,8 @@ export default function Footer() {
                 )}
               </div>
             </div>
-            <div className={`space-y-2 md:block ${openSections.kontakt ? 'block' : 'hidden'}`}>
-              <div className="flex items-center space-x-3" data-testid="footer-phone">
+            <div className={`space-y-1.5 md:block ${openSections.kontakt ? 'block' : 'hidden'}`}>
+              <div className="flex items-center space-x-3 min-h-[20px]" data-testid="footer-phone">
                 <div className="flex-shrink-0">
                   <Phone className="w-4 h-4 text-blue-600" />
                 </div>
@@ -49,7 +49,7 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 min-h-[20px]">
                 <div className="flex-shrink-0">
                   <Mail className="w-4 h-4 text-blue-600" />
                 </div>
@@ -66,7 +66,7 @@ export default function Footer() {
           </div>
 
           {/* Godziny pracy */}
-          <div className="space-y-3 text-left w-full">
+          <div className="space-y-2 text-left w-full">
             <div 
               className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('godziny')}
@@ -81,11 +81,11 @@ export default function Footer() {
               </div>
             </div>
             <div className={`md:block ${openSections.godziny ? 'block' : 'hidden'}`}>
-              <div className="flex items-start space-x-3">
+              <div className="flex items-center space-x-3">
                 <div className="flex-shrink-0">
-                  <Clock className="w-4 h-4 text-blue-600 mt-0.5" />
+                  <Clock className="w-4 h-4 text-blue-600" />
                 </div>
-                <div className="space-y-1">
+                <div className="space-y-0.5">
                   <p className="text-sm font-semibold text-gray-800">Infolinia</p>
                   <p className="text-sm text-gray-600">Całodobowo, 7 dni w tygodniu</p>
                 </div>
@@ -94,7 +94,7 @@ export default function Footer() {
           </div>
 
           {/* Bezpieczeństwo */}
-          <div className="space-y-3 text-left w-full">
+          <div className="space-y-2 text-left w-full">
             <div 
               className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('bezpieczenstwo')}
@@ -109,11 +109,11 @@ export default function Footer() {
               </div>
             </div>
             <div className={`md:block ${openSections.bezpieczenstwo ? 'block' : 'hidden'}`}>
-              <div className="flex items-start space-x-3">
+              <div className="flex items-center space-x-3">
                 <div className="flex-shrink-0">
-                  <Shield className="w-4 h-4 text-blue-600 mt-0.5" />
+                  <Shield className="w-4 h-4 text-blue-600" />
                 </div>
-                <div className="space-y-1">
+                <div className="space-y-0.5">
                   <p className="text-sm font-semibold text-gray-800">Twoje dane są bezpieczne</p>
                   <p className="text-sm text-gray-600">Szyfrowanie SSL/TLS</p>
                 </div>
