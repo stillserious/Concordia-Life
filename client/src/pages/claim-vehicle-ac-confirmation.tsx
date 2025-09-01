@@ -29,19 +29,6 @@ export default function ClaimVehicleACConfirmation() {
       />
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
-                <span className="text-xl font-bold text-gray-800">AC</span>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">Moje ubezpieczenie</h1>
-                <p className="text-gray-600">
-                  Zgłaszasz szkodę z ubezpieczenia autocasco.
-                </p>
-              </div>
-            </div>
-          </div>
 
           <div className="insurance-card p-8 text-center">
             <div className="mb-8">
