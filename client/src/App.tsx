@@ -9,8 +9,6 @@ import ClaimVehiclePage from "@/pages/claim-vehicle";
 import ClaimPropertyPage from "@/pages/claim-property";
 import ClaimPeoplePage from "@/pages/claim-people";
 import ClaimVehicleACPage from "@/pages/claim-vehicle-ac";
-import ClaimVehicleACAntDPage from "@/pages/claim-vehicle-ac-antd";
-import AntDComparisonPage from "@/pages/antd-comparison";
 import ClaimVehicleACIncidentTypePage from "@/pages/claim-vehicle-ac-incident-type";
 import ClaimVehicleACCollisionVehiclePage from "@/pages/claim-vehicle-ac-collision-vehicle";
 import ClaimVehicleACVehicleDataPage from "@/pages/claim-vehicle-ac-vehicle-data";
@@ -38,8 +36,6 @@ function Router() {
         <Route path="/" component={HomePage} />
         <Route path="/claim/vehicle" component={ClaimVehiclePage} />
         <Route path="/claim/vehicle/ac" component={ClaimVehicleACPage} />
-        <Route path="/claim/vehicle/ac-antd" component={ClaimVehicleACAntDPage} />
-        <Route path="/antd-comparison" component={AntDComparisonPage} />
         <Route path="/claim/vehicle/ac/incident-type" component={ClaimVehicleACIncidentTypePage} />
         <Route path="/claim/vehicle/ac/collision-vehicle" component={ClaimVehicleACCollisionVehiclePage} />
         <Route path="/claim/vehicle/ac/vehicle-data" component={ClaimVehicleACVehicleDataPage} />
