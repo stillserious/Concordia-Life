@@ -6,6 +6,7 @@ import { Clock } from "lucide-react";
 import pojazdyIcon from "@assets/insurance_1756747532224.png";
 import majatekIcon from "@assets/Majatek_1756500953736.png";
 import ludziIcon from "@assets/ludzie_1756500953736.png";
+import houseIcon from "@assets/house_1756747864948.png";
 
 export default function HomePage() {
   return (
@@ -52,7 +53,7 @@ export default function HomePage() {
                 <div className="relative bg-white border border-slate-300 p-6 mx-4 text-center rounded-xl shadow-xl max-w-sm">
                   <div className="flex justify-center mb-3">
                     <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-slate-600" />
+                      <img src={houseIcon} alt="Dom" className="w-6 h-6" />
                     </div>
                   </div>
                   <h3 className="text-base font-semibold text-slate-900 mb-2">
