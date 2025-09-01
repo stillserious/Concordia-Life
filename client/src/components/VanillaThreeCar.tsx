@@ -46,32 +46,42 @@ export default function VanillaThreeCar({
               style={{ maxHeight: '400px' }}
             />
             
-            {/* Znaczniki na częściach samochodu */}
+            {/* Kolorowe nakładki na części samochodu */}
             <div className="absolute inset-0 pointer-events-none">
               
-              {/* Lewe przednie drzwi - dokładnie na klamce drzwi */}
+              {/* Lewe przednie drzwi - kolorowa nakładka */}
+              {selectedParts.has('front-door-left') && (
+                <div 
+                  className="absolute"
+                  style={{
+                    left: '15%',
+                    top: '25%',
+                    width: '8%',
+                    height: '12%',
+                    backgroundColor: '#dc2626',
+                    mixBlendMode: 'multiply',
+                    opacity: 0.7,
+                    borderRadius: '2px'
+                  }}
+                />
+              )}
+              
+              {/* Klikalne obszary - niewidoczne */}
               <div 
-                className="absolute cursor-pointer pointer-events-auto flex items-center justify-center"
+                className="absolute cursor-pointer pointer-events-auto"
                 style={{
-                  left: '19%',
-                  top: '29%',
-                  width: '20px',
-                  height: '20px',
-                  backgroundColor: selectedParts.has('front-door-left') ? '#dc2626' : '#3b82f6',
-                  border: '2px solid white',
-                  borderRadius: '50%',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: 10
+                  left: '15%',
+                  top: '25%',
+                  width: '8%',
+                  height: '12%',
+                  backgroundColor: 'transparent',
+                  border: selectedParts.has('front-door-left') ? '2px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.5)',
+                  borderRadius: '2px'
                 }}
                 onClick={() => handlePartClick('front-door-left')}
                 data-testid="car-part-front-door-left"
                 title="Drzwi przednie lewe"
-              >
-                <span className="text-white text-xs font-bold">
-                  {selectedParts.has('front-door-left') ? '✓' : '1'}
-                </span>
-              </div>
+              />
               
             </div>
           </div>
