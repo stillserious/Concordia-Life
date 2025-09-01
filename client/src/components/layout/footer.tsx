@@ -35,33 +35,31 @@ export default function Footer() {
                 )}
               </div>
             </div>
-            <div className={`md:block ${openSections.kontakt ? 'block' : 'hidden'}`}>
-              <div className="flex flex-col space-y-1 md:flex-row md:space-y-0 md:space-x-6">
-                <div className="flex items-center space-x-3 min-h-[20px]" data-testid="footer-phone">
-                  <div className="flex-shrink-0">
-                    <Phone className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div>
-                    <a 
-                      href="tel:+48228200220"
-                      className="text-sm font-semibold text-gray-800 hover:text-blue-600 transition-colors"
-                    >
-                      +48 22 820 02 20
-                    </a>
-                  </div>
+            <div className={`space-y-1 md:block ${openSections.kontakt ? 'block' : 'hidden'}`}>
+              <div className="flex items-center space-x-3 h-5" data-testid="footer-phone">
+                <div className="flex-shrink-0">
+                  <Phone className="w-4 h-4 text-blue-600" />
                 </div>
-                <div className="flex items-center space-x-3 min-h-[20px]">
-                  <div className="flex-shrink-0">
-                    <Mail className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div>
-                    <a 
-                      href="mailto:kontakt@concordialife.pl"
-                      className="text-sm text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      kontakt@concordialife.pl
-                    </a>
-                  </div>
+                <div className="flex items-center h-5">
+                  <a 
+                    href="tel:+48228200220"
+                    className="text-sm font-semibold text-gray-800 hover:text-blue-600 transition-colors whitespace-nowrap"
+                  >
+                    +48 22 820 02 20
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 h-5">
+                <div className="flex-shrink-0">
+                  <Mail className="w-4 h-4 text-blue-600" />
+                </div>
+                <div className="flex items-center h-5">
+                  <a 
+                    href="mailto:kontakt@concordialife.pl"
+                    className="text-sm text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap"
+                  >
+                    kontakt@concordialife.pl
+                  </a>
                 </div>
               </div>
             </div>
