@@ -87,9 +87,7 @@ export default function ClaimVehicleACDocuments() {
     });
 
     // Przekieruj do strony potwierdzenia
-    setTimeout(() => {
-      setLocation("/claim/vehicle/ac/confirmation");
-    }, 1000);
+    setLocation("/claim/vehicle/ac/confirmation");
   };
 
   const FileUploadZone = ({ 
