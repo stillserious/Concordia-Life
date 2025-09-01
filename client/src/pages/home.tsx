@@ -4,8 +4,8 @@ import CategoryCard from "@/components/claim/category-card";
 import { Clock } from "lucide-react";
 
 import pojazdyIcon from "@assets/insurance_1756747532224.png";
-import majatekIcon from "@assets/Majatek_1756500953736.png";
-import ludziIcon from "@assets/ludzie_1756500953736.png";
+import majatekIcon from "@assets/house_1756748049803.png";
+import ludziIcon from "@assets/group_1756748049802.png";
 
 export default function HomePage() {
   return (
@@ -40,7 +40,7 @@ export default function HomePage() {
                 category="majatek"
                 title="Szkoda majątkowa"
                 description="Zgłoś szkodę dotyczącą domu, mieszkania lub innego mienia, np. zalanie, pożar, kradzież lub inne zdarzenie losowe."
-                icon={<img src={majatekIcon} alt="Lokalizacja z ostrzeżeniem" className="w-10 h-10" loading="eager" decoding="async" />}
+                icon={<img src={majatekIcon} alt="Dom" className="w-10 h-10" loading="eager" decoding="async" />}
                 iconClassName="category-icon-property"
                 href="#"
               />
@@ -73,7 +73,7 @@ export default function HomePage() {
                 category="ludzie"
                 title="Życie i zdrowie"
                 description="Zgłoś zdarzenie związane z życiem lub zdrowiem Twoim albo bliskiej osoby, np. wypadek, poważne zachorowanie lub śmierć ubezpieczonego."
-                icon={<img src={ludziIcon} alt="Ambulans" className="w-10 h-10" loading="eager" decoding="async" />}
+                icon={<img src={ludziIcon} alt="Grupa ludzi" className="w-10 h-10" loading="eager" decoding="async" />}
                 iconClassName="category-icon-people"
                 href="#"
               />
