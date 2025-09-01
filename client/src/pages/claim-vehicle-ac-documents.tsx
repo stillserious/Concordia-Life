@@ -202,11 +202,9 @@ export default function ClaimVehicleACDocuments() {
           <div className="insurance-card p-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                Załącz potrzebne dokumenty
+                Załącz niezbędne dokumenty
               </h2>
-              <p className="text-sm text-gray-600">
-                Akceptujemy załączniki w formacie: bmp, csv, doc, docx, gif, jpeg, jpg, ods, odt, ops, pdf, png, rar, rtf, tif, tiff, txt, xls, xlsx, zip. Maksymalna wielkość załącznika nie może przekroczyć 15 MB.
-              </p>
+              <p className="text-sm text-gray-600">Akceptujemy załączniki w formacie: jpeg, jpg, png, tif, tiff, pdf, zip. Maksymalna wielkość załącznika nie może przekroczyć 15 MB.</p>
             </div>
 
             <div className="space-y-6">
