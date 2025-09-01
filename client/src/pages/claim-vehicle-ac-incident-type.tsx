@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { ArrowLeft, Clock } from "lucide-react";
-import collisionVehicleIcon from "@assets/zderzenie z pojazdem_1756675500604.png";
-import collisionObjectIcon from "@assets/zderzenie z przedmiotem_1756675500604.png";
-import collisionAnimalIcon from "@assets/zderzenie ze zwierzeciem_1756675500602.png";
-import theftPartsIcon from "@assets/kradziez czesci_1756675500603.png";
+import collisionVehicleIcon from "@assets/zderzenie z pojazdem_1756754991398.png";
+import collisionObjectIcon from "@assets/zderzenie z przedmiotem_1756754991398.png";
+import collisionAnimalIcon from "@assets/zderzenie ze zwierzeciem_1756754991397.png";
+import theftPartsIcon from "@assets/kradziez czesci_1756754991398.png";
 import { useLocation } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
@@ -31,8 +31,8 @@ export default function ClaimVehicleACIncidentTypePage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
-                <span className="text-xl font-bold text-gray-800">AC</span>
+              <div className="w-12 h-12 category-icon-vehicles bg-[#262222] rounded-full flex items-center justify-center">
+                <span className="text-xl font-bold text-[#cbcbf5]">AC</span>
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">Moje ubezpieczenie</h1>
