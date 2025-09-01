@@ -15,6 +15,7 @@ import ClaimVehicleACVehicleDataPage from "@/pages/claim-vehicle-ac-vehicle-data
 import ClaimVehicleACIncidentInfoPage from "@/pages/claim-vehicle-ac-incident-info";
 import ClaimVehicleACDamagePage from "@/pages/claim-vehicle-ac-damage";
 import ClaimVehicleACDocumentsPage from "@/pages/claim-vehicle-ac-documents";
+import ClaimVehicleACSuccessPage from "@/pages/claim-vehicle-ac-success";
 import NotFound from "@/pages/not-found";
 function ScrollToTop() {
   const [location] = useLocation();
@@ -40,6 +41,7 @@ function Router() {
         <Route path="/claim/vehicle/ac/incident-info" component={ClaimVehicleACIncidentInfoPage} />
         <Route path="/claim/vehicle/ac/damage" component={ClaimVehicleACDamagePage} />
         <Route path="/claim/vehicle/ac/documents" component={ClaimVehicleACDocumentsPage} />
+        <Route path="/claim/vehicle/ac/success" component={ClaimVehicleACSuccessPage} />
         <Route path="/claim/property" component={ClaimPropertyPage} />
         <Route path="/claim/people" component={ClaimPeoplePage} />
         <Route component={NotFound} />

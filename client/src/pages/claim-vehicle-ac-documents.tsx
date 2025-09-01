@@ -86,10 +86,10 @@ export default function ClaimVehicleACDocuments() {
       otherDocument: otherDocument?.name
     });
 
-    // Przekieruj do strony podsumowania lub powrót do głównej
+    // Przekieruj do strony sukcesu
     setTimeout(() => {
-      setLocation("/");
-    }, 2000);
+      setLocation("/claim/vehicle/ac/success");
+    }, 1000);
   };
 
   const FileUploadZone = ({ 
