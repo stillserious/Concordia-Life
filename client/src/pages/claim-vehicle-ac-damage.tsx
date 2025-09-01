@@ -225,7 +225,7 @@ export default function ClaimVehicleACDamagePage() {
                           {...field}
                           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           rows={4}
-                          placeholder="Opisz szczegóły uszkodzeń, które mogą nie być widoczne na diagramie..."
+                          placeholder="Opisz szczegóły uszkodzeń, które mogą nie być widoczne na modelu."
                           data-testid="damage-description-input"
                         />
                       </FormControl>
