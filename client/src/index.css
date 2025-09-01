@@ -182,7 +182,7 @@
   }
   
   .category-icon-vehicles {
-    background: hsl(207 90% 90%);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(219,234,254,1) 50%, rgba(147,197,253,1) 100%);
     color: hsl(207 90% 54%);
   }
   
