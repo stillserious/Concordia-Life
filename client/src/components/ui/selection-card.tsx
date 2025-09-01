@@ -23,7 +23,7 @@ export default function SelectionCard({
         cursor-pointer border-2 rounded-lg p-4 transition-all duration-200
         ${isSelected 
           ? "border-gray-400 bg-gray-100" 
-          : "border-gray-200 bg-white hover:border-gray-300 hover:bg-gray-50"
+          : "border-gray-200 bg-gray-50 hover:border-gray-300 hover:bg-gray-100"
         }
       `}
       onClick={() => onSelect(value)}
