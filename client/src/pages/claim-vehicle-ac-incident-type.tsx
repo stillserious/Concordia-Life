@@ -78,18 +78,18 @@ export default function ClaimVehicleACIncidentTypePage() {
                 />
                 <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
                   <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
-                  <div className="relative bg-white border border-amber-200 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
+                  <div className="relative bg-white border border-slate-300 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
                     <div className="flex justify-center mb-2">
-                      <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
-                        <Clock className="w-4 h-4 text-amber-600" />
+                      <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-slate-600" />
                       </div>
                     </div>
-                    <h3 className="text-sm font-semibold text-amber-900 mb-1">
+                    <h3 className="text-sm font-semibold text-slate-900 mb-1">
                       Formularz tymczasowo niedostępny
                     </h3>
                     <a 
                       href="tel:+48228200220"
-                      className="text-xs text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
+                      className="text-xs text-slate-700 underline cursor-pointer hover:text-slate-800 transition-colors"
                     >
                       Skontaktuj się z nami telefonicznie
                     </a>
@@ -110,18 +110,18 @@ export default function ClaimVehicleACIncidentTypePage() {
                 />
                 <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
                   <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
-                  <div className="relative bg-white border border-amber-200 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
+                  <div className="relative bg-white border border-slate-300 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
                     <div className="flex justify-center mb-2">
-                      <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
-                        <Clock className="w-4 h-4 text-amber-600" />
+                      <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-slate-600" />
                       </div>
                     </div>
-                    <h3 className="text-sm font-semibold text-amber-900 mb-1">
+                    <h3 className="text-sm font-semibold text-slate-900 mb-1">
                       Formularz tymczasowo niedostępny
                     </h3>
                     <a 
                       href="tel:+48228200220"
-                      className="text-xs text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
+                      className="text-xs text-slate-700 underline cursor-pointer hover:text-slate-800 transition-colors"
                     >
                       Skontaktuj się z nami telefonicznie
                     </a>
@@ -142,18 +142,18 @@ export default function ClaimVehicleACIncidentTypePage() {
                 />
                 <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed">
                   <div className="absolute inset-0 bg-gray-100 bg-opacity-50 backdrop-blur-sm rounded-lg group-hover:opacity-100 opacity-0 transition-opacity duration-200"></div>
-                  <div className="relative bg-white border border-amber-200 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
+                  <div className="relative bg-white border border-slate-300 p-4 mx-2 text-center rounded-lg shadow-xl max-w-xs">
                     <div className="flex justify-center mb-2">
-                      <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
-                        <Clock className="w-4 h-4 text-amber-600" />
+                      <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
+                        <Clock className="w-4 h-4 text-slate-600" />
                       </div>
                     </div>
-                    <h3 className="text-sm font-semibold text-amber-900 mb-1">
+                    <h3 className="text-sm font-semibold text-slate-900 mb-1">
                       Formularz tymczasowo niedostępny
                     </h3>
                     <a 
                       href="tel:+48228200220"
-                      className="text-xs text-amber-700 underline cursor-pointer hover:text-amber-800 transition-colors"
+                      className="text-xs text-slate-700 underline cursor-pointer hover:text-slate-800 transition-colors"
                     >
                       Skontaktuj się z nami telefonicznie
                     </a>

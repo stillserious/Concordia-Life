@@ -213,9 +213,9 @@ export default function ClaimVehicleACDocuments() {
                 </p>
               </div>
 
-              <div className="flex items-start gap-3 p-4 bg-amber-50 rounded-lg border border-amber-200">
-                <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-amber-800">
+              <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg border border-slate-300">
+                <AlertCircle className="w-5 h-5 text-slate-600 mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-slate-800">
                   <strong>Na tym etapie nie dodawaj zdjęć pojazdu</strong> – poprosimy Cię o nie w kolejnym kroku.
                 </p>
               </div>
