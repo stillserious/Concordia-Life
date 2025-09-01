@@ -63,11 +63,6 @@ export default function ClaimVehicleACIncidentInfo() {
     try {
       console.log("Dane formularza informacji o zdarzeniu:", data);
       
-      toast({
-        title: "Dane zapisane!",
-        description: "Zgłoszenie zostało zakończone pomyślnie.",
-      });
-      
       // Przekieruj do strony uszkodzeń pojazdu
       setLocation("/claim/vehicle/ac/damage");
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
