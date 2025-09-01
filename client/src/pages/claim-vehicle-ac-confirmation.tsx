@@ -50,9 +50,7 @@ export default function ClaimVehicleACConfirmation() {
               <div className="text-2xl font-bold text-blue-900 tracking-wider">
                 {claimNumber}
               </div>
-              <p className="text-sm text-blue-700 mt-2">
-                Zapisz ten numer - przyda Ci się w kontakcie z nami
-              </p>
+              <p className="text-sm text-blue-700 mt-2">Nie musisz go zapisywać, otrzymasz go w mailu który wysłaliśmy do Ciebie</p>
             </div>
 
             {/* Info Cards */}
