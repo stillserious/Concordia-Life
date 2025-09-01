@@ -184,7 +184,7 @@ export default function ClaimVehicleACDocuments() {
         stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage", "/claim/vehicle/ac/documents"]}
       />
       <main className="flex-1 py-10 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
@@ -213,12 +213,7 @@ export default function ClaimVehicleACDocuments() {
                 </p>
               </div>
 
-              <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg border border-slate-300">
-                <AlertCircle className="w-5 h-5 text-slate-600 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-slate-800">
-                  <strong>Na tym etapie nie dodawaj zdjęć pojazdu</strong> – poprosimy Cię o nie w kolejnym kroku.
-                </p>
-              </div>
+              
             </div>
 
             {/* Upload zones */}
