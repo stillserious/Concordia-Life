@@ -267,11 +267,11 @@ export default function ClaimVehicleACIncidentInfo() {
                                 <p className="text-sm text-blue-800">
                                   {field.value === "inna_przyczyna" ? (
                                     <span>
-                                      <strong>Wybierz "Kierowca pojazdu"</strong>, gdy to Ty, kierowca uszkodzonego pojazdu, członek Twojej rodziny, zwierzę lub zjawisko atmosferyczne spowodowały szkodę.
+                                      <strong>Wybierz "Kierowca pojazdu"</strong>, gdy to Ty lub inny kierowca uszkodzonego pojazdu spowodował szkodę.
                                     </span>
                                   ) : (
                                     <span>
-                                      <strong>Wybierz "Drugi uczestnik"</strong>, gdy inna osoba była sprawcą zdarzenia (kierowca innego pojazdu, wandal, rowerzysta, pracownik myjni itp.).Uzupełnij dane sprawcy (nr rej., dane właściciela pojazdu, dane kierującego pojazdem, zakład ubezpieczeń, nazwa firmy).
+                                      <strong>Wybierz "Drugi uczestnik"</strong>, gdy inna osoba była sprawcą zdarzenia (kierowca innego pojazdu, wandal, rowerzysta, pracownik myjni itp.).
                                     </span>
                                   )}
                                 </p>

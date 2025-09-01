@@ -15,22 +15,6 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
 
   return (
     <div className="w-full bg-white border-b border-gray-200">
-      {/* Material UI Progress Bar */}
-      <LinearProgress 
-        variant="determinate" 
-        value={progressPercentage}
-        sx={{
-          height: 4,
-          '& .MuiLinearProgress-bar': {
-            backgroundColor: isCompleted ? '#16a34a' : 'hsl(207, 90%, 54%)',
-            transition: 'transform 0.7s ease-out'
-          },
-          '& .MuiLinearProgress-root': {
-            backgroundColor: '#f1f5f9'
-          }
-        }}
-      />
-      
       <div className="max-w-4xl mx-auto px-6 pt-2 pb-1">
         {/* Mobile: Simple progress with circles */}
         <div className="md:hidden py-2">
