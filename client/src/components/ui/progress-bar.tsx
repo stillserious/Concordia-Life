@@ -123,9 +123,9 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                       isCompleted
                         ? "text-green-600 font-medium"
                         : index < currentStep - 1
-                        ? "text-purple-600 hover:text-purple-700 font-medium"
+                        ? "text-blue-600 hover:text-blue-700 font-medium"
                         : index === currentStep - 1
-                        ? "text-purple-600 font-semibold"
+                        ? "text-blue-600 font-semibold"
                         : "text-gray-400 hover:text-gray-600"
                     }`}
                     onClick={() => {
