@@ -233,7 +233,7 @@ export default function ClaimVehicleACDamagePage() {
                 {form.formState.errors.damagedParts && selectedParts.length === 0 && (
                   <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
                     <p className="text-red-800 text-sm font-medium">
-                      Musisz wybrać przynajmniej jedną uszkodzoną część na diagramie pojazdu.
+                      Musisz wybrać przynajmniej jedną uszkodzoną część pojazdu.
                     </p>
                   </div>
                 )}
