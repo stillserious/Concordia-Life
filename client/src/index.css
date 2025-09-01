@@ -137,7 +137,8 @@
   }
   
   .insurance-card {
-    background: white;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 50%, rgba(241, 245, 249, 1) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.1);
     border-radius: 16px;
     box-shadow: var(--insurance-card-shadow);
     transition: all 0.3s ease;
