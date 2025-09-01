@@ -3,7 +3,7 @@ import Footer from "@/components/layout/footer";
 import CategoryCard from "@/components/claim/category-card";
 import { Clock } from "lucide-react";
 
-import pojazdyIcon from "@assets/pojazdy_1756500953737.png";
+import pojazdyIcon from "@assets/insurance_1756747532224.png";
 import majatekIcon from "@assets/Majatek_1756500953736.png";
 import ludziIcon from "@assets/ludzie_1756500953736.png";
 
@@ -30,7 +30,7 @@ export default function HomePage() {
               category="pojazdy"
               title="Szkoda pojazdu"
               description="Zgłoś uszkodzenie samochodu, motocykla lub innego pojazdu, np. kolizja, kradzież lub awaria mechaniczna."
-              icon={<img src={pojazdyIcon} alt="Pojazd z dymem" className="w-10 h-10" loading="eager" decoding="async" />}
+              icon={<img src={pojazdyIcon} alt="Pojazd z tarczą ochronną" className="w-10 h-10" loading="eager" decoding="async" />}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle"
             />
