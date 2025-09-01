@@ -64,7 +64,9 @@ export default function ClaimVehicleACPage() {
         });
         
         setTimeout(() => {
-          element.focus();
+          if (element instanceof HTMLElement) {
+            element.focus();
+          }
         }, 500);
       }
     }
@@ -149,7 +151,6 @@ export default function ClaimVehicleACPage() {
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
                               todayButtonLabel: 'Dzisiaj',
-                              datePickerToolbarTitle: 'Wybierz datę',
                               fieldDayPlaceholder: () => 'DD',
                               fieldMonthPlaceholder: () => 'MM',
                               fieldYearPlaceholder: () => 'RRRR',
@@ -200,7 +201,6 @@ export default function ClaimVehicleACPage() {
                               cancelButtonLabel: 'Anuluj',
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
-                              timePickerToolbarTitle: 'Wybierz godzinę',
                               fieldHoursPlaceholder: () => 'GG',
                               fieldMinutesPlaceholder: () => 'MM',
                             }}
