@@ -73,7 +73,7 @@ export default function ClaimVehicleACConfirmation() {
                     <Clock className="w-5 h-5 text-green-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Szybka reakcja</h4>
+                    <h4 className="font-semibold text-gray-900 mb-2">Dalsze kroki</h4>
                     <p className="text-sm text-gray-600">
                       Skontaktujemy się z Tobą <strong>w ciągu 48 godzin</strong> w sprawie dalszych kroków
                     </p>
