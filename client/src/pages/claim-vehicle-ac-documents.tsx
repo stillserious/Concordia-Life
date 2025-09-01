@@ -191,14 +191,21 @@ export default function ClaimVehicleACDocuments() {
                 <span className="text-xl font-bold text-gray-800">AC</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">
-                  Załącz potrzebne dokumenty
-                </h1>
+                <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">Moje ubezpieczenie</h1>
                 <p className="text-gray-600">
-                  Numer zgłoszenia: <span className="font-medium text-blue-600">{claimNumber}</span>
+                  Zgłaszasz szkodę z ubezpieczenia autocasco.
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="mb-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">
+              Załącz potrzebne dokumenty
+            </h2>
+            <p className="text-gray-600 mb-4">
+              Numer zgłoszenia: <span className="font-medium text-blue-600">{claimNumber}</span>
+            </p>
 
             <p className="text-gray-700 mb-6">
               Jeśli teraz załączysz dokumenty, szybciej zajmiemy się Twoją sprawą. Może się zdarzyć, że poprosimy Cię o dodatkowe dokumenty.

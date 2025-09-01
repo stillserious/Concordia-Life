@@ -250,7 +250,7 @@ export default function ClaimVehicleACDamagePage() {
                 Wskaż uszkodzenia pojazdu
               </h2>
               <p className="text-sm text-gray-600">
-                Kliknij na części samochodu, które zostały uszkodzone. Wybrane części zostaną podświetlone.
+                Kliknij na części samochodu, które zostały uszkodzone.
               </p>
             </div>
 
