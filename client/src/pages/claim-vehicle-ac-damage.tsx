@@ -18,6 +18,81 @@ const damageFormSchema = z.object({
 
 type DamageFormData = z.infer<typeof damageFormSchema>;
 
+// Mapowanie angielskich ID części na polskie nazwy
+const partTranslations: Record<string, string> = {
+  'SPARE_REAR_WHEEL': 'zapasowe tylne koło',
+  'ROOF': 'dach',
+  'FRONT_REAR_WINDOW': 'tylna szyba',
+  'FRONT_WINDSCREEN': 'przednia szyba',
+  'RIGHT_SIDE_DRIVER_DOOR': 'prawe drzwi kierowcy',
+  'LEFT_SIDE_DRIVER_DOOR': 'lewe drzwi kierowcy',
+  'LEFT_SIDE_PASSENGER_DOOR': 'lewe drzwi pasażera',
+  'RIGHT_SIDE_PASSENGER_DOOR': 'prawe drzwi pasażera',
+  'LEFT_SIDE_FRONT_WHEEL': 'lewe przednie koło',
+  'RIGHT_SIDE_FRONT_WHEEL': 'prawe przednie koło',
+  'LEFT_SIDE_REAR_WHEEL': 'lewe tylne koło',
+  'RIGHT_SIDE_REAR_WHEEL': 'prawe tylne koło',
+  'FRONT_LEFT_SIDE_HEADLAMP': 'przedni lewy reflektor',
+  'FRONT_RIGHT_SIDE_HEADLAMP': 'przedni prawy reflektor',
+  'LEFT_INNER_TAIL_LIGHT': 'lewe wewnętrzne światło tylne',
+  'LEFT_OUTER_TAIL_LIGHT': 'lewe zewnętrzne światło tylne',
+  'RIGHT_INNER_TAIL_LIGHT': 'prawe wewnętrzne światło tylne',
+  'RIGHT_OUTER_TAIL_LIGHT': 'prawe zewnętrzne światło tylne',
+  'FRONT_BONNET': 'przednia maska',
+  'REAR_BONNET': 'tylna klapa',
+  'FRONT_BUMPERS': 'przednie zderzaki',
+  'REAR_BUMPERS': 'tylne zderzaki',
+  'LEFT_SIDE_FENDER': 'lewy błotnik',
+  'RIGHT_SIDE_FENDER': 'prawy błotnik',
+  'FRONT_LEFT_SIDE_WHEEL_ARCH': 'przednie lewe nadkole',
+  'FRONT_RIGHT_SIDE_WHEEL_ARCH': 'przednie prawe nadkole',
+  'REAR_LEFT_SIDE_WHEEL_ARCH': 'tylne lewe nadkole',
+  'REAR_RIGHT_SIDE_WHEEL_ARCH': 'tylne prawe nadkole',
+  'LEFT_SIDE_WING_MIRROR': 'lewe lusterko boczne',
+  'RIGHT_SIDE_WING_MIRROR': 'prawe lusterko boczne',
+  'LEFT_SIDE_DRIVER_WINDOW': 'lewe okno kierowcy',
+  'RIGHT_SIDE_DRIVER_WINDOW': 'prawe okno kierowcy',
+  'LEFT_SIDE_PASSENGER_WINDOW': 'lewe okno pasażera',
+  'RIGHT_SIDE_PASSENGER_WINDOW': 'prawe okno pasażera',
+  'FRONT_GRILL': 'przednia kratka',
+  'LEFT_QUATER_PANEL': 'lewy panel ćwiartkowy',
+  'RIGHT_QUATER_PANEL': 'prawy panel ćwiartkowy',
+  'TOP_QUATER_PANEL': 'górny panel ćwiartkowy',
+  'LEFT_SIDE_ROCKER_PANEL': 'lewy próg',
+  'RIGHT_SIDE_ROCKER_PANEL': 'prawy próg',
+  'EXHAUST_TIPS': 'końcówki wydęchu',
+  'SUN_MOON_ROOF': 'szyberdach',
+  'LEFT_SIDE_A_PILLAR': 'lewy słupek A',
+  'RIGHT_SIDE_A_PILLAR': 'prawy słupek A',
+  'LEFT_SIDE_B_PILLAR': 'lewy słupek B',
+  'RIGHT_SIDE_B_PILLAR': 'prawy słupek B',
+  'FIREWALL': 'gródź ogniowa',
+  'LEFT_FRONT_DRL_FOG_LIGHT': 'lewe przednie światła DRL / przeciwmgielne',
+  'RIGHT_FRONT_DRL_FOG_LIGHT': 'prawe przednie światła DRL / przeciwmgielne',
+  'LEFT_SIDE_REAR_MARKERS': 'lewe tylne światła',
+  'RIGHT_SIDE_REAR_MARKERS': 'prawe tylne światła',
+  'BODY_TRIM': 'listwy nadwozia',
+  'FRONT_APRON_SPOILER': 'przedni fartuch / spojler',
+  'REAR_DIFFUSER': 'tylny dyfuzor',
+  'LEFT_SIDE_ROOF_RAILS': 'lewe relingi dachowe',
+  'RIGHT_SIDE_ROOF_RAILS': 'prawe relingi dachowe',
+  'LEFT_SIDE_DRIVER_HANDLE': 'lewa klamka kierowcy',
+  'RIGHT_SIDE_DRIVER_HANDLE': 'prawa klamka kierowcy',
+  'LEFT_SIDE_PASSENGER_HANDLE': 'lewa klamka pasażera',
+  'RIGHT_SIDE_PASSENGER_HANDLE': 'prawa klamka pasażera',
+  'LEFT_SIDE_FRONT_TYPE': 'lewy typ przedni',
+  'RIGHT_SIDE_FRONT_TYPE': 'prawy typ przedni',
+  'LEFT_SIDE_REAR_TYPE': 'lewy typ tylny',
+  'RIGHT_SIDE_REAR_TYPE': 'prawy typ tylny',
+  'SPARE_REAR_TYPE': 'zapasowy typ tylny',
+  'RREAR_NUMBER_PLATE': 'tylna tablica rejestracyjna'
+};
+
+// Funkcja tłumacząca ID części na polską nazwę
+const translatePartName = (partId: string): string => {
+  return partTranslations[partId] || partId.replace(/_/g, ' ').toLowerCase();
+};
+
 declare global {
   interface Window {
     showTooltip: (evt: any, text: string) => void;
@@ -129,7 +204,7 @@ export default function ClaimVehicleACDamagePage() {
                 <div className="flex flex-wrap gap-2">
                   {selectedParts.map((partId) => (
                     <span key={partId} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
-                      {partId.replace(/_/g, ' ').toLowerCase()}
+                      {translatePartName(partId)}
                     </span>
                   ))}
                 </div>
