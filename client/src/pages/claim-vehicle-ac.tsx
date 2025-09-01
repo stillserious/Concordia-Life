@@ -165,13 +165,13 @@ export default function ClaimVehicleACPage() {
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
                                     '& fieldset': {
-                                      borderColor: '#c7d2fe',
+                                      borderColor: '#c7d2fe !important',
                                     },
                                     '&:hover fieldset': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                     '&.Mui-focused fieldset': {
-                                      borderColor: 'hsl(207, 90%, 54%)',
+                                      borderColor: 'hsl(207, 90%, 54%) !important',
                                     },
                                   },
                                 }
@@ -214,7 +214,7 @@ export default function ClaimVehicleACPage() {
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
                                     '& fieldset': {
-                                      borderColor: '#c7d2fe',
+                                      borderColor: '#c7d2fe !important',
                                     },
                                     '&:hover fieldset': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
@@ -257,13 +257,13 @@ export default function ClaimVehicleACPage() {
                               backgroundColor: 'white',
                               borderRadius: '8px',
                               '& fieldset': {
-                                borderColor: '#c7d2fe',
+                                borderColor: '#c7d2fe !important',
                               },
                               '&:hover fieldset': {
-                                borderColor: 'hsl(207, 90%, 54%)',
+                                borderColor: 'hsl(207, 90%, 54%) !important',
                               },
                               '&.Mui-focused fieldset': {
-                                borderColor: 'hsl(207, 90%, 54%)',
+                                borderColor: 'hsl(207, 90%, 54%) !important',
                               },
                             }
                           }}
