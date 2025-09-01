@@ -151,15 +151,6 @@
     box-shadow: var(--insurance-card-shadow-hover);
   }
   
-  .insurance-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--insurance-gradient-start), var(--insurance-gradient-end));
-  }
   
   .insurance-button {
     background: linear-gradient(135deg, var(--insurance-gradient-start), var(--insurance-gradient-end));
