@@ -34,37 +34,42 @@ export default function VanillaThreeCar({
     onPartSelect(partName);
   };
 
-  const getPartColor = (partName: CarPartName, defaultColor: string) => {
-    return selectedParts.has(partName) ? '#ff4444' : defaultColor;
+  const getPartColor = (partName: CarPartName) => {
+    return selectedParts.has(partName) ? '#ff6b6b' : '#ffffff';
+  };
+
+  const getPartStroke = (partName: CarPartName) => {
+    return selectedParts.has(partName) ? '#cc0000' : '#2c3e50';
   };
 
   if (currentView === 'side') {
     return (
       <div className={`relative w-full ${className}`}>
-        <div className="w-full bg-gradient-to-b from-sky-100 to-white rounded-lg border shadow-sm p-4">
-          <svg width="100%" height="450" viewBox="0 0 600 450" className="w-full h-auto">
-            {/* Cień pod autem */}
-            <ellipse cx="300" cy="370" rx="220" ry="25" fill="#ddd" opacity="0.5"/>
+        <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
+          <svg width="100%" height="400" viewBox="0 0 800 400" className="w-full h-auto">
+            {/* Cień pod samochodem */}
+            <ellipse cx="400" cy="350" rx="280" ry="20" fill="#ddd" opacity="0.4"/>
             
-            {/* Główne nadwozie samochodu - realistyczny kształt */}
+            {/* Główne nadwozie - clean style jak Toyota Prius */}
             <g>
               {/* Dolna część nadwozia */}
               <path 
-                d="M 80 280 L 520 280 L 520 340 L 80 340 Z"
-                fill={getPartColor('roof', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                d="M 120 240 L 680 240 L 680 300 L 150 320 L 120 300 Z"
+                fill={getPartColor('roof')}
+                stroke={getPartStroke('roof')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('roof')}
                 data-testid="car-part-roof"
               />
               
-              {/* Kabina pasażerska */}
+              {/* Górna część - kabina */}
               <path 
-                d="M 120 180 L 150 140 L 450 140 L 480 180 L 480 280 L 120 280 Z"
-                fill={getPartColor('roof', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                d="M 180 140 L 220 120 L 580 120 L 620 140 L 620 240 L 180 240 Z"
+                fill={getPartColor('roof')}
+                stroke={getPartStroke('roof')}
                 strokeWidth="2"
+                rx="5"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('roof')}
                 data-testid="car-part-roof-cabin"
@@ -72,9 +77,9 @@ export default function VanillaThreeCar({
               
               {/* Maska */}
               <path 
-                d="M 50 250 L 120 250 L 150 200 L 120 180 L 80 200 Z"
-                fill={getPartColor('hood', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                d="M 80 220 L 180 220 L 220 160 L 180 140 L 120 160 Z"
+                fill={getPartColor('hood')}
+                stroke={getPartStroke('hood')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('hood')}
@@ -83,9 +88,9 @@ export default function VanillaThreeCar({
               
               {/* Bagażnik */}
               <path 
-                d="M 480 180 L 450 200 L 480 250 L 550 250 L 520 200 Z"
-                fill={getPartColor('trunk', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                d="M 620 140 L 580 160 L 620 220 L 720 220 L 680 160 Z"
+                fill={getPartColor('trunk')}
+                stroke={getPartStroke('trunk')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('trunk')}
@@ -94,11 +99,11 @@ export default function VanillaThreeCar({
               
               {/* Przednia szyba */}
               <path 
-                d="M 150 140 L 200 120 L 300 120 L 300 180 L 150 180 Z"
-                fill={getPartColor('windshield', '#87ceeb')} 
-                stroke="#2c5aa0" 
-                strokeWidth="2"
-                opacity="0.7"
+                d="M 220 120 L 280 105 L 380 105 L 380 140 L 220 140 Z"
+                fill={getPartColor('windshield')}
+                stroke={getPartStroke('windshield')}
+                strokeWidth="1.5"
+                fillOpacity="0.1"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('windshield')}
                 data-testid="car-part-windshield"
@@ -106,21 +111,24 @@ export default function VanillaThreeCar({
               
               {/* Tylna szyba */}
               <path 
-                d="M 300 120 L 400 120 L 450 140 L 450 180 L 300 180 Z"
-                fill={getPartColor('rear-window', '#87ceeb')} 
-                stroke="#2c5aa0" 
-                strokeWidth="2"
-                opacity="0.7"
+                d="M 420 105 L 520 105 L 580 120 L 580 140 L 420 140 Z"
+                fill={getPartColor('rear-window')}
+                stroke={getPartStroke('rear-window')}
+                strokeWidth="1.5"
+                fillOpacity="0.1"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('rear-window')}
                 data-testid="car-part-rear-window"
               />
               
+              {/* Linia rozdziału szyb */}
+              <line x1="400" y1="105" x2="400" y2="140" stroke="#2c3e50" strokeWidth="1"/>
+              
               {/* Przednie drzwi */}
               <rect 
-                x="150" y="180" width="80" height="100" 
-                fill={getPartColor('front-door-left', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                x="220" y="140" width="90" height="100" 
+                fill={getPartColor('front-door-left')}
+                stroke={getPartStroke('front-door-left')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('front-door-left')}
@@ -129,31 +137,37 @@ export default function VanillaThreeCar({
               
               {/* Tylne drzwi */}
               <rect 
-                x="230" y="180" width="80" height="100" 
-                fill={getPartColor('rear-door-left', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                x="310" y="140" width="90" height="100" 
+                fill={getPartColor('rear-door-left')}
+                stroke={getPartStroke('rear-door-left')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('rear-door-left')}
                 data-testid="car-part-rear-door-left"
               />
               
-              {/* Następne drzwi */}
+              {/* Słupki */}
+              <line x1="220" y1="120" x2="220" y2="240" stroke="#2c3e50" strokeWidth="3"/>
+              <line x1="310" y1="120" x2="310" y2="240" stroke="#2c3e50" strokeWidth="2"/>
+              <line x1="400" y1="120" x2="400" y2="240" stroke="#2c3e50" strokeWidth="2"/>
+              <line x1="490" y1="120" x2="490" y2="240" stroke="#2c3e50" strokeWidth="2"/>
+              <line x1="580" y1="120" x2="580" y2="240" stroke="#2c3e50" strokeWidth="3"/>
+              
+              {/* Więcej drzwi (prawe strony) */}
               <rect 
-                x="310" y="180" width="80" height="100" 
-                fill={getPartColor('rear-door-right', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                x="400" y="140" width="90" height="100" 
+                fill={getPartColor('rear-door-right')}
+                stroke={getPartStroke('rear-door-right')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('rear-door-right')}
                 data-testid="car-part-rear-door-right"
               />
               
-              {/* Ostatnie drzwi */}
               <rect 
-                x="390" y="180" width="60" height="100" 
-                fill={getPartColor('front-door-right', '#4a90e2')} 
-                stroke="#2c5aa0" 
+                x="490" y="140" width="90" height="100" 
+                fill={getPartColor('front-door-right')}
+                stroke={getPartStroke('front-door-right')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('front-door-right')}
@@ -162,9 +176,9 @@ export default function VanillaThreeCar({
               
               {/* Przedni zderzak */}
               <rect 
-                x="20" y="260" width="50" height="40" rx="5"
-                fill={getPartColor('front-bumper', '#2c5aa0')} 
-                stroke="#1a4480" 
+                x="40" y="230" width="50" height="40" rx="8"
+                fill={getPartColor('front-bumper')}
+                stroke={getPartStroke('front-bumper')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('front-bumper')}
@@ -173,9 +187,9 @@ export default function VanillaThreeCar({
               
               {/* Tylny zderzak */}
               <rect 
-                x="530" y="260" width="50" height="40" rx="5"
-                fill={getPartColor('rear-bumper', '#2c5aa0')} 
-                stroke="#1a4480" 
+                x="710" y="230" width="50" height="40" rx="8"
+                fill={getPartColor('rear-bumper')}
+                stroke={getPartStroke('rear-bumper')}
                 strokeWidth="2"
                 style={{ cursor: 'pointer' }}
                 onClick={() => handlePartClick('rear-bumper')}
@@ -183,32 +197,32 @@ export default function VanillaThreeCar({
               />
             </g>
             
-            {/* Koła */}
-            <circle cx="140" cy="360" r="35" fill="#333" stroke="#222" strokeWidth="3"/>
-            <circle cx="140" cy="360" r="25" fill="#666"/>
-            <circle cx="140" cy="360" r="15" fill="#999"/>
+            {/* Koła - minimalistyczny styl */}
+            <circle cx="180" cy="330" r="30" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="3"/>
+            <circle cx="180" cy="330" r="20" fill="#e9ecef" stroke="#6c757d" strokeWidth="1"/>
+            <circle cx="180" cy="330" r="8" fill="#495057"/>
             
-            <circle cx="460" cy="360" r="35" fill="#333" stroke="#222" strokeWidth="3"/>
-            <circle cx="460" cy="360" r="25" fill="#666"/>
-            <circle cx="460" cy="360" r="15" fill="#999"/>
+            <circle cx="620" cy="330" r="30" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="3"/>
+            <circle cx="620" cy="330" r="20" fill="#e9ecef" stroke="#6c757d" strokeWidth="1"/>
+            <circle cx="620" cy="330" r="8" fill="#495057"/>
             
             {/* Reflektory */}
-            <ellipse cx="35" cy="270" rx="8" ry="12" fill="#fff9c4" stroke="#2c5aa0" strokeWidth="1"/>
-            <ellipse cx="35" cy="290" rx="8" ry="12" fill="#fff9c4" stroke="#2c5aa0" strokeWidth="1"/>
+            <ellipse cx="50" cy="240" rx="12" ry="8" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="1.5"/>
+            <ellipse cx="50" cy="260" rx="12" ry="8" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="1.5"/>
             
             {/* Tylne światła */}
-            <rect x="570" y="270" width="8" height="15" fill="#ff6b6b" stroke="#cc0000" strokeWidth="1"/>
-            <rect x="570" y="290" width="8" height="15" fill="#ff6b6b" stroke="#cc0000" strokeWidth="1"/>
+            <rect x="745" y="235" width="10" height="12" rx="2" fill="#ff6b6b" stroke="#cc0000" strokeWidth="1"/>
+            <rect x="745" y="253" width="10" height="12" rx="2" fill="#ff6b6b" stroke="#cc0000" strokeWidth="1"/>
             
             {/* Lusterka */}
-            <ellipse cx="145" cy="160" rx="8" ry="5" fill="#4a90e2" stroke="#2c5aa0" strokeWidth="1"/>
-            <ellipse cx="455" cy="160" rx="8" ry="5" fill="#4a90e2" stroke="#2c5aa0" strokeWidth="1"/>
+            <ellipse cx="200" cy="150" rx="6" ry="4" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="1"/>
+            <ellipse cx="600" cy="150" rx="6" ry="4" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="1"/>
             
-            {/* Klamki */}
-            <circle cx="200" cy="230" r="3" fill="#888"/>
-            <circle cx="280" cy="230" r="3" fill="#888"/>
-            <circle cx="360" cy="230" r="3" fill="#888"/>
-            <circle cx="420" cy="230" r="3" fill="#888"/>
+            {/* Klamki drzwi */}
+            <circle cx="265" cy="190" r="2" fill="#6c757d"/>
+            <circle cx="355" cy="190" r="2" fill="#6c757d"/>
+            <circle cx="445" cy="190" r="2" fill="#6c757d"/>
+            <circle cx="535" cy="190" r="2" fill="#6c757d"/>
             
             {/* Przycisk zmiany widoku */}
             <g 
@@ -216,9 +230,9 @@ export default function VanillaThreeCar({
               style={{ cursor: 'pointer' }}
               data-testid="button-change-view"
             >
-              <rect x="250" y="400" width="100" height="30" rx="15" fill="#45a7e5"/>
-              <text x="300" y="420" fontFamily="Arial" fontSize="14" fontWeight="bold" fill="white" textAnchor="middle">
-                WIDOK Z GÓRY
+              <rect x="350" y="360" width="100" height="30" rx="15" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1"/>
+              <text x="400" y="380" fontFamily="Arial" fontSize="12" fontWeight="500" fill="white" textAnchor="middle">
+                ZMIEŃ WIDOK
               </text>
             </g>
           </svg>
@@ -246,19 +260,19 @@ export default function VanillaThreeCar({
     );
   }
 
-  // Widok z góry - prostszy i czytelniejszy
+  // Widok z góry - clean minimalistyczny styl
   return (
     <div className={`relative w-full ${className}`}>
-      <div className="w-full bg-gradient-to-b from-sky-100 to-white rounded-lg border shadow-sm p-4">
-        <svg width="100%" height="450" viewBox="0 0 400 600" className="w-full h-auto">
+      <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
+        <svg width="100%" height="500" viewBox="0 0 400 600" className="w-full h-auto">
           {/* Cień */}
-          <ellipse cx="200" cy="300" rx="90" ry="250" fill="#ddd" opacity="0.5"/>
+          <ellipse cx="200" cy="300" rx="80" ry="220" fill="#ddd" opacity="0.3"/>
           
           {/* Główne nadwozie z góry */}
           <rect 
-            x="140" y="80" width="120" height="440" rx="20"
-            fill={getPartColor('roof', '#4a90e2')} 
-            stroke="#2c5aa0" 
+            x="140" y="100" width="120" height="400" rx="25"
+            fill={getPartColor('roof')}
+            stroke={getPartStroke('roof')}
             strokeWidth="2"
             style={{ cursor: 'pointer' }}
             onClick={() => handlePartClick('roof')}
@@ -267,9 +281,9 @@ export default function VanillaThreeCar({
           
           {/* Maska */}
           <rect 
-            x="150" y="40" width="100" height="60" rx="15"
-            fill={getPartColor('hood', '#4a90e2')} 
-            stroke="#2c5aa0" 
+            x="150" y="60" width="100" height="60" rx="20"
+            fill={getPartColor('hood')}
+            stroke={getPartStroke('hood')}
             strokeWidth="2"
             style={{ cursor: 'pointer' }}
             onClick={() => handlePartClick('hood')}
@@ -278,20 +292,43 @@ export default function VanillaThreeCar({
           
           {/* Bagażnik */}
           <rect 
-            x="150" y="500" width="100" height="60" rx="15"
-            fill={getPartColor('trunk', '#4a90e2')} 
-            stroke="#2c5aa0" 
+            x="150" y="480" width="100" height="60" rx="20"
+            fill={getPartColor('trunk')}
+            stroke={getPartStroke('trunk')}
             strokeWidth="2"
             style={{ cursor: 'pointer' }}
             onClick={() => handlePartClick('trunk')}
             data-testid="car-part-trunk-top"
           />
           
+          {/* Szyby */}
+          <rect 
+            x="160" y="140" width="80" height="60" rx="8"
+            fill={getPartColor('windshield')}
+            stroke={getPartStroke('windshield')}
+            strokeWidth="1.5"
+            fillOpacity="0.1"
+            style={{ cursor: 'pointer' }}
+            onClick={() => handlePartClick('windshield')}
+            data-testid="car-part-windshield-top"
+          />
+          
+          <rect 
+            x="160" y="400" width="80" height="60" rx="8"
+            fill={getPartColor('rear-window')}
+            stroke={getPartStroke('rear-window')}
+            strokeWidth="1.5"
+            fillOpacity="0.1"
+            style={{ cursor: 'pointer' }}
+            onClick={() => handlePartClick('rear-window')}
+            data-testid="car-part-rear-window-top"
+          />
+          
           {/* Drzwi lewe */}
           <rect 
-            x="100" y="120" width="50" height="90"
-            fill={getPartColor('front-door-left', '#4a90e2')} 
-            stroke="#2c5aa0" 
+            x="110" y="160" width="40" height="80"
+            fill={getPartColor('front-door-left')}
+            stroke={getPartStroke('front-door-left')}
             strokeWidth="2"
             style={{ cursor: 'pointer' }}
             onClick={() => handlePartClick('front-door-left')}
@@ -299,9 +336,9 @@ export default function VanillaThreeCar({
           />
           
           <rect 
-            x="100" y="230" width="50" height="90"
-            fill={getPartColor('rear-door-left', '#4a90e2')} 
-            stroke="#2c5aa0" 
+            x="110" y="260" width="40" height="80"
+            fill={getPartColor('rear-door-left')}
+            stroke={getPartStroke('rear-door-left')}
             strokeWidth="2"
             style={{ cursor: 'pointer' }}
             onClick={() => handlePartClick('rear-door-left')}
@@ -310,9 +347,9 @@ export default function VanillaThreeCar({
           
           {/* Drzwi prawe */}
           <rect 
-            x="250" y="120" width="50" height="90"
-            fill={getPartColor('front-door-right', '#4a90e2')} 
-            stroke="#2c5aa0" 
+            x="250" y="160" width="40" height="80"
+            fill={getPartColor('front-door-right')}
+            stroke={getPartStroke('front-door-right')}
             strokeWidth="2"
             style={{ cursor: 'pointer' }}
             onClick={() => handlePartClick('front-door-right')}
@@ -320,43 +357,24 @@ export default function VanillaThreeCar({
           />
           
           <rect 
-            x="250" y="230" width="50" height="90"
-            fill={getPartColor('rear-door-right', '#4a90e2')} 
-            stroke="#2c5aa0" 
+            x="250" y="260" width="40" height="80"
+            fill={getPartColor('rear-door-right')}
+            stroke={getPartStroke('rear-door-right')}
             strokeWidth="2"
             style={{ cursor: 'pointer' }}
             onClick={() => handlePartClick('rear-door-right')}
             data-testid="car-part-rear-door-right-top"
           />
           
-          {/* Szyby */}
-          <rect 
-            x="160" y="140" width="80" height="40"
-            fill={getPartColor('windshield', '#87ceeb')} 
-            stroke="#2c5aa0" 
-            strokeWidth="1"
-            opacity="0.7"
-            style={{ cursor: 'pointer' }}
-            onClick={() => handlePartClick('windshield')}
-            data-testid="car-part-windshield-top"
-          />
-          
-          <rect 
-            x="160" y="250" width="80" height="40"
-            fill={getPartColor('rear-window', '#87ceeb')} 
-            stroke="#2c5aa0" 
-            strokeWidth="1"
-            opacity="0.7"
-            style={{ cursor: 'pointer' }}
-            onClick={() => handlePartClick('rear-window')}
-            data-testid="car-part-rear-window-top"
-          />
-          
           {/* Koła */}
-          <circle cx="130" cy="110" r="20" fill="#333" stroke="#222" strokeWidth="2"/>
-          <circle cx="270" cy="110" r="20" fill="#333" stroke="#222" strokeWidth="2"/>
-          <circle cx="130" cy="490" r="20" fill="#333" stroke="#222" strokeWidth="2"/>
-          <circle cx="270" cy="490" r="20" fill="#333" stroke="#222" strokeWidth="2"/>
+          <circle cx="140" cy="130" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
+          <circle cx="260" cy="130" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
+          <circle cx="140" cy="470" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
+          <circle cx="260" cy="470" r="18" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="2"/>
+          
+          {/* Lusterka */}
+          <ellipse cx="130" cy="180" rx="4" ry="8" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="1"/>
+          <ellipse cx="270" cy="180" rx="4" ry="8" fill="#f8f9fa" stroke="#2c3e50" strokeWidth="1"/>
           
           {/* Przycisk powrotu do widoku z boku */}
           <g 
@@ -364,8 +382,8 @@ export default function VanillaThreeCar({
             style={{ cursor: 'pointer' }}
             data-testid="button-change-view-back"
           >
-            <rect x="150" y="10" width="100" height="30" rx="15" fill="#45a7e5"/>
-            <text x="200" y="30" fontFamily="Arial" fontSize="14" fontWeight="bold" fill="white" textAnchor="middle">
+            <rect x="150" y="20" width="100" height="30" rx="15" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1"/>
+            <text x="200" y="40" fontFamily="Arial" fontSize="12" fontWeight="500" fill="white" textAnchor="middle">
               WIDOK Z BOKU
             </text>
           </g>
