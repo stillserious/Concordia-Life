@@ -199,34 +199,17 @@ export default function ClaimVehicleACDocuments() {
             </div>
           </div>
 
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">
-              Załącz potrzebne dokumenty
-            </h2>
-
-            <p className="text-gray-700 mb-6">
-              Jeśli teraz załączysz dokumenty, szybciej zajmiemy się Twoją sprawą. Może się zdarzyć, że poprosimy Cię o dodatkowe dokumenty.
-            </p>
-
-            {/* Informacje o plikach */}
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-blue-800">
-                  <strong>Akceptujemy załączniki w formacie:</strong> bmp, csv, doc, docx, gif, jpeg, jpg, ods, odt, ops, pdf, png, rar, rtf, tif, tiff, txt, xls, xlsx, zip. Maksymalna wielkość załącznika nie może przekroczyć 15 MB.
-                </p>
-              </div>
-
-              <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg border border-slate-300">
-                <AlertCircle className="w-5 h-5 text-slate-600 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-slate-800">
-                  <strong>Na tym etapie nie dodawaj zdjęć pojazdu</strong> – poprosimy Cię o nie w kolejnym kroku.
-                </p>
-              </div>
+          <div className="insurance-card p-8">
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                Załącz potrzebne dokumenty
+              </h2>
+              <p className="text-sm text-gray-600">
+                Akceptujemy załączniki w formacie: bmp, csv, doc, docx, gif, jpeg, jpg, ods, odt, ops, pdf, png, rar, rtf, tif, tiff, txt, xls, xlsx, zip. Maksymalna wielkość załącznika nie może przekroczyć 15 MB.
+              </p>
             </div>
 
-            {/* Upload zones */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <div className="space-y-6">
               <FileUploadZone
                 type="registration"
                 title="Zdjęcie dowodu rejestracyjnego"
