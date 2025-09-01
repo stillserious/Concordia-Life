@@ -58,12 +58,9 @@ export default function HomePage() {
                   <h3 className="text-lg font-bold text-gray-800 mb-3">
                     Formularz tymczasowo niedostępny
                   </h3>
-                  <a 
-                    href="tel:+48228200220"
-                    className="inline-block bg-gradient-to-br from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    Zadzwoń teraz
-                  </a>
+                  <p className="text-sm text-gray-600">
+                    Przepraszamy za niedogodności
+                  </p>
                 </div>
               </div>
             </div>
@@ -91,12 +88,9 @@ export default function HomePage() {
                   <h3 className="text-lg font-bold text-gray-800 mb-3">
                     Formularz tymczasowo niedostępny
                   </h3>
-                  <a 
-                    href="tel:+48228200220"
-                    className="inline-block bg-gradient-to-br from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    Zadzwoń teraz
-                  </a>
+                  <p className="text-sm text-gray-600">
+                    Przepraszamy za niedogodności
+                  </p>
                 </div>
               </div>
             </div>
