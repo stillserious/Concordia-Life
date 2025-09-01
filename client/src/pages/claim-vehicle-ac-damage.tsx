@@ -139,10 +139,12 @@ export default function ClaimVehicleACDamagePage() {
       console.log("Wybrane części:", selectedParts);
       
       // Przekieruj do strony załączania dokumentów
+      console.log("Przekierowuję do dokumentów...");
       setLocation("/claim/vehicle/ac/documents");
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
       
     } catch (error) {
+      console.error("Błąd:", error);
       toast({
         title: "Błąd podczas zapisywania",
         description: "Spróbuj ponownie.",
@@ -213,6 +215,29 @@ export default function ClaimVehicleACDamagePage() {
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                {/* Hidden field for damaged parts validation */}
+                <FormField
+                  control={form.control}
+                  name="damagedParts"
+                  render={() => (
+                    <FormItem className="hidden">
+                      <FormControl>
+                        <input type="hidden" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                {/* Show validation error if no parts selected */}
+                {form.formState.errors.damagedParts && selectedParts.length === 0 && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-800 text-sm font-medium">
+                      Musisz wybrać przynajmniej jedną uszkodzoną część na diagramie pojazdu.
+                    </p>
+                  </div>
+                )}
+
                 <FormField
                   control={form.control}
                   name="damageDescription"
