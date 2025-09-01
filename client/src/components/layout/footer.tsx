@@ -17,100 +17,109 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-6xl mx-auto px-8 py-12">
-        {/* Mobile: Accordion */}
-        <div className="md:hidden space-y-6">
-          {/* Kontakt Mobile */}
-          <div>
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <div className="max-w-6xl mx-auto px-4 py-3 md:px-6 md:py-4">
+        <div className="flex flex-col space-y-6 md:grid md:grid-cols-3 md:gap-8 md:space-y-0 md:justify-items-center md:max-w-4xl md:mx-auto">
+          {/* Kontakt */}
+          <div className="space-y-3 text-left w-full">
             <div 
-              className="flex justify-between items-center cursor-pointer py-3"
+              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
               onClick={() => toggleSection('kontakt')}
             >
-              <h3 className="text-base font-medium text-gray-900">Kontakt</h3>
-              {openSections.kontakt ? (
-                <ChevronUp className="w-4 h-4 text-gray-500" />
-              ) : (
-                <ChevronDown className="w-4 h-4 text-gray-500" />
-              )}
-            </div>
-            <div className={`${openSections.kontakt ? 'block' : 'hidden'} space-y-3 pb-4`}>
-              <a 
-                href="tel:+48228200220"
-                className="block text-sm text-gray-600 hover:text-blue-600 transition-colors"
-                data-testid="footer-phone"
-              >
-                +48 22 820 02 20
-              </a>
-              <a 
-                href="mailto:kontakt@concordialife.pl"
-                className="block text-sm text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                kontakt@concordialife.pl
-              </a>
-            </div>
-          </div>
-
-          {/* Dostępność Mobile */}
-          <div>
-            <div 
-              className="flex justify-between items-center cursor-pointer py-3"
-              onClick={() => toggleSection('godziny')}
-            >
-              <h3 className="text-base font-medium text-gray-900">Godziny pracy</h3>
-              {openSections.godziny ? (
-                <ChevronUp className="w-4 h-4 text-gray-500" />
-              ) : (
-                <ChevronDown className="w-4 h-4 text-gray-500" />
-              )}
-            </div>
-            <div className={`${openSections.godziny ? 'block' : 'hidden'} pb-4`}>
-              <p className="text-sm text-gray-600">Całodobowo, 7 dni w tygodniu</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop: Clean horizontal layout */}
-        <div className="hidden md:flex md:justify-between md:items-center">
-          <div className="flex space-x-16">
-            <div>
-              <h3 className="text-sm font-medium text-gray-900 mb-3">Kontakt</h3>
-              <div className="space-y-2">
-                <a 
-                  href="tel:+48228200220"
-                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors"
-                  data-testid="footer-phone"
-                >
-                  +48 22 820 02 20
-                </a>
-                <a 
-                  href="mailto:kontakt@concordialife.pl"
-                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors"
-                >
-                  kontakt@concordialife.pl
-                </a>
+              <h3 className="text-sm font-semibold text-gray-900 mb-2">Kontakt</h3>
+              <div className="md:hidden">
+                {openSections.kontakt ? (
+                  <ChevronUp className="w-4 h-4 text-gray-600" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-gray-600" />
+                )}
               </div>
             </div>
-            
-            <div>
-              <h3 className="text-sm font-medium text-gray-900 mb-3">Godziny pracy</h3>
-              <p className="text-sm text-gray-600">Całodobowo, 7 dni w tygodniu</p>
+            <div className={`space-y-2 md:block ${openSections.kontakt ? 'block' : 'hidden'}`}>
+              <div className="flex items-center space-x-3" data-testid="footer-phone">
+                <div className="flex-shrink-0">
+                  <Phone className="w-4 h-4 text-blue-600" />
+                </div>
+                <div>
+                  <a 
+                    href="tel:+48228200220"
+                    className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                  >
+                    +48 22 820 02 20
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <Mail className="w-4 h-4 text-blue-600" />
+                </div>
+                <div>
+                  <a 
+                    href="mailto:kontakt@concordialife.pl"
+                    className="text-sm text-gray-700 hover:text-blue-600 transition-colors"
+                  >
+                    kontakt@concordialife.pl
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div className="text-right">
-            <div className="flex items-center space-x-2 text-sm text-gray-500">
-              <Shield className="w-4 h-4" />
-              <span>Dane chronione SSL/TLS</span>
-            </div>
-          </div>
-        </div>
 
-        {/* Bottom line */}
-        <div className="mt-8 pt-6 border-t border-gray-100">
-          <p className="text-center text-xs text-gray-400">
-            © 2025 ConcordiaLife. Wszystkie prawa zastrzeżone.
-          </p>
+          {/* Godziny pracy */}
+          <div className="space-y-3 text-left w-full">
+            <div 
+              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
+              onClick={() => toggleSection('godziny')}
+            >
+              <h3 className="text-sm font-semibold text-gray-900 mb-2">Godziny pracy</h3>
+              <div className="md:hidden">
+                {openSections.godziny ? (
+                  <ChevronUp className="w-4 h-4 text-gray-600" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-gray-600" />
+                )}
+              </div>
+            </div>
+            <div className={`md:block ${openSections.godziny ? 'block' : 'hidden'}`}>
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0">
+                  <Clock className="w-4 h-4 text-blue-600 mt-0.5" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-sm font-medium text-gray-900">Infolinia</p>
+                  <p className="text-sm text-gray-600">Całodobowo, 7 dni w tygodniu</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bezpieczeństwo */}
+          <div className="space-y-3 text-left w-full">
+            <div 
+              className="flex justify-between items-center md:justify-start cursor-pointer md:cursor-default"
+              onClick={() => toggleSection('bezpieczenstwo')}
+            >
+              <h3 className="text-sm font-semibold text-gray-900 mb-2">Bezpieczeństwo</h3>
+              <div className="md:hidden">
+                {openSections.bezpieczenstwo ? (
+                  <ChevronUp className="w-4 h-4 text-gray-600" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-gray-600" />
+                )}
+              </div>
+            </div>
+            <div className={`md:block ${openSections.bezpieczenstwo ? 'block' : 'hidden'}`}>
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0">
+                  <Shield className="w-4 h-4 text-blue-600 mt-0.5" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-sm font-medium text-gray-900">Twoje dane są bezpieczne</p>
+                  <p className="text-sm text-gray-600">Szyfrowanie SSL/TLS</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
