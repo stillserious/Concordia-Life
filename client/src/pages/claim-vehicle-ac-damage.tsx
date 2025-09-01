@@ -244,9 +244,7 @@ export default function ClaimVehicleACDamagePage() {
                     Cofnij
                   </Button>
                   
-                  <Button type="submit" className="min-w-32" data-testid="submit-button">
-                    Zakończ zgłoszenie
-                  </Button>
+                  <Button type="submit" className="min-w-32" data-testid="submit-button">Przejdź dalej</Button>
                 </div>
               </form>
             </Form>
