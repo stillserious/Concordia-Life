@@ -14,7 +14,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
   const [, setLocation] = useLocation();
 
   return (
-    <div className="w-full bg-gradient-to-r from-purple-50 to-blue-50 border-b border-purple-200">
+    <div className="w-full bg-white border-b border-purple-200">
       {/* Material UI Progress Bar */}
       <LinearProgress 
         variant="determinate" 
