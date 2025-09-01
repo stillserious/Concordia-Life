@@ -104,6 +104,26 @@ declare global {
 export default function ClaimVehicleACDamagePage() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+
+  // Preload car diagram resources on component mount
+  useEffect(() => {
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.href = '/car-diagram-full.html';
+    preloadLink.as = 'document';
+    document.head.appendChild(preloadLink);
+
+    const preloadCSS = document.createElement('link');
+    preloadCSS.rel = 'preload';
+    preloadCSS.href = '/assets/css/cardiagram.css';
+    preloadCSS.as = 'style';
+    document.head.appendChild(preloadCSS);
+
+    return () => {
+      document.head.removeChild(preloadLink);
+      document.head.removeChild(preloadCSS);
+    };
+  }, []);
   const [selectedParts, setSelectedParts] = useState<string[]>([]);
 
   const form = useForm<DamageFormData>({
@@ -189,13 +209,26 @@ export default function ClaimVehicleACDamagePage() {
             </div>
 
             <div className="mb-8 flex justify-center">
-              <div className="w-full max-w-5xl" data-testid="car-diagram">
+              <div className="w-full max-w-5xl relative" data-testid="car-diagram">
+                {/* Loading indicator */}
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-50 rounded-lg z-10" id="diagram-loader">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                    <p className="text-sm text-gray-600">Ładowanie diagramu pojazdu...</p>
+                  </div>
+                </div>
                 <iframe 
                   src="/car-diagram-full.html"
                   className="w-full border-0 rounded-lg md:h-[600px] h-[200px]"
                   style={{ minHeight: '180px' }}
                   title="Interaktywny diagram samochodu"
                   data-testid="car-diagram-iframe"
+                  onLoad={() => {
+                    setTimeout(() => {
+                      const loader = document.getElementById('diagram-loader');
+                      if (loader) loader.style.display = 'none';
+                    }, 500);
+                  }}
                 />
               </div>
             </div>
@@ -258,18 +291,18 @@ export default function ClaimVehicleACDamagePage() {
                   )}
                 />
 
-                <div className="flex items-center justify-end gap-4 pt-6 border-t border-gray-200">
-                  <button 
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
-                    data-testid="button-back" 
+                <div className="flex justify-between pt-6 border-t border-gray-200">
+                  <Button
+                    variant="outline"
                     onClick={() => setLocation("/claim/vehicle/ac/incident-info")}
                     type="button"
+                    data-testid="back-button"
                   >
                     <ArrowLeft className="w-4 h-4 mr-2" />
                     Cofnij
-                  </button>
-
-                  <Button type="submit" className="insurance-button min-w-32" data-testid="submit-button">Przejdź dalej</Button>
+                  </Button>
+                  
+                  <Button type="submit" className="min-w-32" data-testid="submit-button">Przejdź dalej</Button>
                 </div>
               </form>
             </Form>
