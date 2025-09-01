@@ -60,9 +60,9 @@ export default function HomePage() {
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="text-sm font-semibold text-blue-600 underline cursor-pointer hover:text-blue-700 transition-colors"
+                    className="inline-block bg-gradient-to-br from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
-                    Skontaktuj się z nami telefonicznie
+                    Zadzwoń teraz
                   </a>
                 </div>
               </div>
@@ -93,9 +93,9 @@ export default function HomePage() {
                   </h3>
                   <a 
                     href="tel:+48228200220"
-                    className="text-sm font-semibold text-blue-600 underline cursor-pointer hover:text-blue-700 transition-colors"
+                    className="inline-block bg-gradient-to-br from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-sm hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
-                    Skontaktuj się z nami telefonicznie
+                    Zadzwoń teraz
                   </a>
                 </div>
               </div>
