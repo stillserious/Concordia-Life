@@ -43,10 +43,11 @@ export default function HomePage() {
                 iconClassName="category-icon-property"
                 href="#"
               />
+              {/* Blur - pojawia się od razu */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100"></div>
+              
+              {/* Overlay z treścią */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed transition-all duration-500 ease-out">
-                {/* Wyblurowany kafelek w tle */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl"></div>
-                
                 {/* Zawartość overlay */}
                 <div className="relative bg-gradient-to-br from-white via-purple-50 to-blue-100 border-2 border-purple-300 p-4 mx-2 text-center rounded-xl shadow-xl max-w-xs transform group-hover:scale-100 scale-95 transition-all duration-300 backdrop-blur-sm">
                   <div className="flex justify-center mb-3">
@@ -60,7 +61,9 @@ export default function HomePage() {
                   <a 
                     href="tel:+48228200220"
                     className="inline-flex items-center justify-center px-3 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded text-xs font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow hover:shadow-md transform hover:-translate-y-0.5"
-                  >📞 Zadzwoń teraz</a>
+                  >
+                    📞 Zadzwoń
+                  </a>
                 </div>
               </div>
             </div>
