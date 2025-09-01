@@ -32,7 +32,7 @@ export default function ClaimVehicleACIncidentTypePage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-100 via-blue-50 to-white border border-blue-200 shadow-sm">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{background: 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(219,234,254,1) 50%, rgba(147,197,253,1) 100%)', border: '1px solid rgba(147,197,253,0.5)', boxShadow: '0 1px 3px rgba(0,0,0,0.1)'}}>
                 <span className="text-2xl font-bold text-gray-800">AC</span>
               </div>
               <div>
