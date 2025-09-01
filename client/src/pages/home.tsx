@@ -30,7 +30,7 @@ export default function HomePage() {
               category="pojazdy"
               title="Szkoda pojazdu"
               description="Zgłoś uszkodzenie samochodu, motocykla lub innego pojazdu, np. kolizja, kradzież lub awaria mechaniczna."
-              icon={<img src={pojazdyIcon} alt="Kolizja pojazdów" className="w-10 h-10" loading="eager" decoding="async" />}
+              icon={<img src={pojazdyIcon} alt="Pojazd z dymem" className="w-10 h-10" loading="eager" decoding="async" />}
               iconClassName="category-icon-vehicles"
               href="/claim/vehicle"
             />
