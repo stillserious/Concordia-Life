@@ -275,15 +275,6 @@ export default function VanillaThreeCar({
               />
               
             </div>
-            
-            {/* Przycisk zmiany widoku */}
-            <button
-              onClick={() => setCurrentView('top')}
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors"
-              data-testid="button-change-view"
-            >
-              ZMIEŃ WIDOK
-            </button>
           </div>
         </div>
 
