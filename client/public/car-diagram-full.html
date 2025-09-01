@@ -25516,7 +25516,7 @@ z" />
             // Add click handlers for car parts
             $('a[onmousemove]').on('click', function(e) {
                 e.preventDefault();
-                const partId = $(this).find('g').attr('id');
+                const partId = $(this).find('g').attr('id') || $(this).find('rect').attr('id');
                 if (partId) {
                     // Toggle selection
                     const isSelected = $(this).hasClass('selected-part');
