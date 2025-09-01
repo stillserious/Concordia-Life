@@ -34,7 +34,7 @@ export default function CategoryCard({
         } min-h-[140px]`}
         data-testid={`card-${category}`}
       >
-        <div className="mx-auto rounded-full flex items-center justify-center w-14 h-14 mb-3 text-lg category-icon-vehicles text-[#8df320] bg-[#a4ed8e]">
+        <div className="mx-auto rounded-full flex items-center justify-center w-14 h-14 mb-3 text-lg category-icon-vehicles text-[#8df320] bg-[#21211d]">
           {icon}
         </div>
 
