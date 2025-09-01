@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Link } from "wouter";
-import VanillaThreeCar, { CAR_PARTS, type CarPartName } from "@/components/VanillaThreeCar";
+import ProfessionalCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/ProfessionalCarDiagram";
 
 const damageFormSchema = z.object({
   damagedParts: z.array(z.string()).default([]),
@@ -20,7 +20,7 @@ type DamageFormData = z.infer<typeof damageFormSchema>;
 
 export default function ClaimVehicleACDamage() {
   const [, setLocation] = useLocation();
-  const [selectedParts, setSelectedParts] = useState<Set<CarPartName>>(new Set());
+  const [selectedParts, setSelectedParts] = useState<Set<string>>(new Set());
 
   const form = useForm<DamageFormData>({
     resolver: zodResolver(damageFormSchema),
@@ -34,7 +34,7 @@ export default function ClaimVehicleACDamage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const handlePartSelect = (partName: CarPartName) => {
+  const handlePartSelect = (partName: string) => {
     const newSelectedParts = new Set(selectedParts);
     if (newSelectedParts.has(partName)) {
       newSelectedParts.delete(partName);
@@ -87,14 +87,14 @@ export default function ClaimVehicleACDamage() {
               {/* Instrukcja */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-sm text-blue-800">
-                  <strong>Instrukcja:</strong> Kliknij na części w modelu 3D samochodu, które zostały uszkodzone podczas zdarzenia. 
-                  Możesz obracać model przeciągając myszką. Uszkodzone części będą czerwone i powiększone.
+                  <strong>Instrukcja:</strong> Kliknij na części w diagramie samochodu, które zostały uszkodzone podczas zdarzenia. 
+                  Najedź myszką na części aby zobaczyć ich nazwy. Uszkodzone części będą oznaczone na czerwono.
                 </p>
               </div>
 
               {/* Interaktywny model 3D samochodu */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-900">Interaktywny model 3D pojazdu</h2>
+                <h2 className="text-xl font-semibold text-gray-900">Profesjonalny diagram pojazdu</h2>
                 
                 <FormField
                   control={form.control}
@@ -102,11 +102,11 @@ export default function ClaimVehicleACDamage() {
                   render={() => (
                     <FormItem>
                       <FormControl>
-                        <VanillaThreeCar 
-                          key="car-3d-model"
+                        <ProfessionalCarDiagram 
+                          key="car-diagram"
                           selectedParts={selectedParts}
                           onPartSelect={handlePartSelect}
-                          className="min-h-[500px]"
+                          className="min-h-[400px]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -121,7 +121,7 @@ export default function ClaimVehicleACDamage() {
                   <h3 className="font-semibold text-red-800 mb-2">Zaznaczone uszkodzenia:</h3>
                   <ul className="list-disc list-inside text-sm text-red-700">
                     {Array.from(selectedParts).map(partName => (
-                      <li key={partName}>{CAR_PARTS[partName]}</li>
+                      <li key={partName}>{CAR_PARTS[partName as CarPartName] || partName}</li>
                     ))}
                   </ul>
                 </div>
