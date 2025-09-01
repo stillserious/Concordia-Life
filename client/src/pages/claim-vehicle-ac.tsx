@@ -165,7 +165,7 @@ export default function ClaimVehicleACPage() {
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
                                     '& fieldset': {
-                                      borderColor: '#e5e7eb',
+                                      borderColor: '#c7d2fe',
                                     },
                                     '&:hover fieldset': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
@@ -214,7 +214,7 @@ export default function ClaimVehicleACPage() {
                                     backgroundColor: 'white',
                                     borderRadius: '8px',
                                     '& fieldset': {
-                                      borderColor: '#e5e7eb',
+                                      borderColor: '#c7d2fe',
                                     },
                                     '&:hover fieldset': {
                                       borderColor: 'hsl(207, 90%, 54%) !important',
@@ -257,7 +257,7 @@ export default function ClaimVehicleACPage() {
                               backgroundColor: 'white',
                               borderRadius: '8px',
                               '& fieldset': {
-                                borderColor: '#e5e7eb',
+                                borderColor: '#c7d2fe',
                               },
                               '&:hover fieldset': {
                                 borderColor: 'hsl(207, 90%, 54%)',
