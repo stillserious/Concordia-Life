@@ -75,7 +75,7 @@ export default function HomePage() {
                 href="#"
               />
               {/* Blur - pojawia się od razu */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-75"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-md rounded-2xl opacity-0 group-hover:opacity-100"></div>
               
               {/* Overlay z treścią */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 flex items-center justify-center cursor-not-allowed transition-all duration-500 ease-out">
