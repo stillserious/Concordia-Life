@@ -92,11 +92,11 @@ export default function ClaimVehicleACConfirmation() {
             <div className="pt-2 md:pt-4">
               <Button 
                 onClick={() => setLocation("/")}
-                className="insurance-button px-6 md:px-8 py-2 md:py-3 text-base md:text-lg w-full sm:w-auto"
+                className="insurance-button px-4 md:px-8 py-2 md:py-3 text-sm md:text-lg max-w-full"
                 data-testid="button-home"
               >
                 <Home className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                Wróć do strony głównej
+                <span className="truncate">Wróć do strony głównej</span>
               </Button>
             </div>
 
