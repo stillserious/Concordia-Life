@@ -71,7 +71,7 @@ export default function ClaimVehicleACSuccess() {
             {/* Information Cards */}
             <div className="grid gap-6 md:grid-cols-2 mb-8">
               {/* Email Confirmation */}
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <div className="bg-gradient-to-r from-white to-blue-50 border border-blue-200 rounded-lg p-6 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Mail className="w-5 h-5 text-gray-600" />
                   <h3 className="font-semibold text-gray-900">E-mail potwierdzający</h3>
@@ -82,7 +82,7 @@ export default function ClaimVehicleACSuccess() {
               </div>
 
               {/* Contact Information */}
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <div className="bg-gradient-to-r from-white to-blue-50 border border-blue-200 rounded-lg p-6 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <Phone className="w-5 h-5 text-gray-600" />
                   <h3 className="font-semibold text-gray-900">Kontakt z ekspertem</h3>

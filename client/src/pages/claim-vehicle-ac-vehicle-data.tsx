@@ -127,7 +127,7 @@ export default function ClaimVehicleACVehicleData() {
               <div className="space-y-6">
                 <h2 className="text-xl font-semibold text-gray-900">Wpisz dane pojazdu</h2>
                 
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-4">
+                <div className="bg-gradient-to-r from-white to-blue-50 border border-blue-200 rounded-lg p-6 space-y-4 shadow-sm">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
