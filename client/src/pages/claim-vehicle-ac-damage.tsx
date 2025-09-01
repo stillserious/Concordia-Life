@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Link } from "wouter";
-import ProfessionalCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/ProfessionalCarDiagram";
+import EnvatoCarDiagram, { CAR_PARTS, type CarPartName } from "@/components/EnvatoCarDiagram";
 
 const damageFormSchema = z.object({
   damagedParts: z.array(z.string()).default([]),
@@ -87,14 +87,14 @@ export default function ClaimVehicleACDamage() {
               {/* Instrukcja */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-sm text-blue-800">
-                  <strong>Instrukcja:</strong> Kliknij na części w diagramie samochodu, które zostały uszkodzone podczas zdarzenia. 
-                  Najedź myszką na części aby zobaczyć ich nazwy. Uszkodzone części będą oznaczone na czerwono.
+                  <strong>Instrukcja:</strong> Użyj przycisków PRZÓD/LEWA STRONA/PRAWA STRONA/TYŁ aby zmienić widok pojazdu. 
+                  Kliknij na części które zostały uszkodzone podczas zdarzenia. Najedź myszką aby zobaczyć nazwy części.
                 </p>
               </div>
 
               {/* Interaktywny model 3D samochodu */}
               <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-gray-900">Profesjonalny diagram pojazdu</h2>
+                <h2 className="text-xl font-semibold text-gray-900">Interaktywny diagram pojazdu Envato</h2>
                 
                 <FormField
                   control={form.control}
@@ -102,11 +102,11 @@ export default function ClaimVehicleACDamage() {
                   render={() => (
                     <FormItem>
                       <FormControl>
-                        <ProfessionalCarDiagram 
-                          key="car-diagram"
+                        <EnvatoCarDiagram 
+                          key="envato-car-diagram"
                           selectedParts={selectedParts}
                           onPartSelect={handlePartSelect}
-                          className="min-h-[400px]"
+                          className="min-h-[500px]"
                         />
                       </FormControl>
                       <FormMessage />
