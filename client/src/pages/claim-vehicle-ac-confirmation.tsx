@@ -94,12 +94,7 @@ export default function ClaimVehicleACConfirmation() {
               </Button>
             </div>
 
-            {/* Footer note */}
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <p className="text-sm text-gray-500">
-                Masz pytania? Skontaktuj się z nami, podając numer sprawy: <strong>{claimNumber}</strong>
-              </p>
-            </div>
+            
           </div>
         </div>
       </main>
