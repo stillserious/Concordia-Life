@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { ArrowLeft, Clock } from "lucide-react";
-import collisionVehicleIcon from "@assets/zderzenie z pojazdem_1756754991398.png";
-import collisionObjectIcon from "@assets/zderzenie z przedmiotem_1756754991398.png";
-import collisionAnimalIcon from "@assets/zderzenie ze zwierzeciem_1756754991397.png";
-import theftPartsIcon from "@assets/kradziez czesci_1756754991398.png";
+import collisionVehicleIcon from "@assets/zderzenie z pojazdem_1756756173202.png";
+import collisionObjectIcon from "@assets/zderzenie z przedmiotem_1756756173202.png";
+import collisionAnimalIcon from "@assets/zderzenie ze zwierzeciem_1756756173200.png";
+import theftPartsIcon from "@assets/kradziez czesci_1756756173202.png";
 import { useLocation } from "wouter";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
