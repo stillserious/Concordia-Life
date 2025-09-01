@@ -1,62 +1,17 @@
-import { useState, useEffect } from "react";
-import professionalCarDiagram from "../assets/professional-car-diagram.svg";
+import { useState } from "react";
 
-// Profesjonalne nazwy części samochodu (68 części)
+// Polskie nazwy części samochodu
 const CAR_PARTS = {
-  'FRONT_BUMPER': 'Zderzak przedni',
-  'FRONT_NUMBER_PLATE': 'Tablica rejestracyjna przednia',
-  'FRONT_NEAR_SIDE_HEADLAMP': 'Reflektor przedni lewy',
-  'FRONT_GRILL': 'Atrapa chłodnicy',
-  'FRONT_OFF_SIDE_HEADLAMP': 'Reflektor przedni prawy',
-  'FRONT_PANEL': 'Panel przedni',
-  'REAR_BUMPER': 'Zderzak tylny',
-  'REAR_PANEL': 'Panel tylny',
-  'REAR_NUMBER_PLATE': 'Tablica rejestracyjna tylna',
-  'REAR_OFF_SIDE_LIGHT': 'Światło tylne prawe',
-  'REAR_NEAR_SIDE_LIGHT': 'Światło tylne lewe',
-  'REAR_NEAR_SIDE_EXHAUST': 'Rura wydechowa lewa',
-  'REAR_OFF_SIDE_EXHAUST': 'Rura wydechowa prawa',
-  'NEAR_SIDE_REAR_PANEL': 'Panel tylny lewy',
-  'NEAR_SIDE_FRONT_PANEL': 'Panel przedni lewy',
-  'NEAR_SIDE_DRIVER_DOOR': 'Drzwi kierowcy lewe',
-  'NEAR_SIDE_DRIVER_WINDOW': 'Szyba kierowcy lewa',
-  'NEAR_SIDE_PASSENGER_DOOR': 'Drzwi pasażera lewe',
-  'NEAR_SIDE_SIDE_WINDOW': 'Szyba boczna lewa',
-  'NEAR_SIDE_FRONT_BUMPER': 'Zderzak przedni lewy',
-  'NEAR_SIDE_REAR_BUMPER': 'Zderzak tylny lewy',
-  'NEAR_SIDE_PASSENGER_WINDOW': 'Szyba pasażera lewa',
-  'NEAR_SIDE_FRONT_HEADLAMP': 'Reflektor przedni lewy',
-  'NEAR_SIDE_REAR_HEADLAMP': 'Reflektor tylny lewy',
-  'NEAR_SIDE_FUEL_CAP': 'Wlew paliwa lewy',
-  'NEAR_SIDE_WING_MIRROR': 'Lusterko boczne lewe',
-  'NEAR_SIDE_FRONT_TYPE': 'Opona przednia lewa',
-  'NEAR_SIDE_FRONT_WHEEL': 'Koło przednie lewe',
-  'NEAR_SIDE_REAR_WHEEL': 'Koło tylne lewe',
-  'NEAR_SIDE_BODY_TRIM': 'Listwka boczna lewa',
-  'NEAR_SIDE_UNDER_TRIM': 'Listwka dolna lewa',
-  'OFF_SIDE_REAR_PANEL': 'Panel tylny prawy',
-  'OFF_SIDE_FRONT_PANEL': 'Panel przedni prawy',
-  'OFF_SIDE_DRIVER_DOOR': 'Drzwi kierowcy prawe',
-  'OFF_SIDE_DRIVER_WINDOW': 'Szyba kierowcy prawa',
-  'OFF_SIDE_PASSENGER_DOOR': 'Drzwi pasażera prawe',
-  'OFF_SIDE_SIDE_WINDOW': 'Szyba boczna prawa',
-  'OFF_SIDE_FRONT_BUMPER': 'Zderzak przedni prawy',
-  'OFF_SIDE_REAR_BUMPER': 'Zderzak tylny prawy',
-  'OFF_SIDE_PASSENGER_WINDOW': 'Szyba pasażera prawa',
-  'OFF_SIDE_FRONT_HEADLAMP': 'Reflektor przedni prawy',
-  'OFF_SIDE_REAR_HEADLAMP': 'Reflektor tylny prawy',
-  'OFF_SIDE_FUEL_CAP': 'Wlew paliwa prawy',
-  'OFF_SIDE_WING_MIRROR': 'Lusterko boczne prawe',
-  'OFF_SIDE_FRONT_TYRE': 'Opona przednia prawa',
-  'OFF_SIDE_FRONT_WHEEL': 'Koło przednie prawe',
-  'OFF_SIDE_REAR_WHEEL': 'Koło tylne prawe',
-  'OFF_SIDE_BODY_TRIM': 'Listwka boczna prawa',
-  'OFF_SIDE_UNDER_TRIM': 'Listwka dolna prawa',
-  'FRONT_ROOF_PANEL': 'Panel dachu przedni',
-  'FRONT_WINDSCREEN': 'Szyba przednia',
-  'FRONT_BONNET': 'Maska',
-  'FRONT_NEAR_SIDE_FOG_LIGHT': 'Przeciwmgielne lewe',
-  'FRONT_OFF_SIDE_FOG_LIGHT': 'Przeciwmgielne prawe'
+  'body': 'Nadwozie',
+  'hood': 'Maska',
+  'trunk': 'Bagażnik',
+  'left-door': 'Drzwi lewe',
+  'right-door': 'Drzwi prawe',
+  'front-wheel': 'Koło przednie',
+  'rear-wheel': 'Koło tylne',
+  'roof': 'Dach',
+  'windshield': 'Szyba przednia',
+  'rear-window': 'Szyba tylna'
 } as const;
 
 type CarPartName = keyof typeof CAR_PARTS;
@@ -72,106 +27,143 @@ export default function VanillaThreeCar({
   onPartSelect, 
   className = "" 
 }: VanillaThreeCarProps) {
-  const [svgContent, setSvgContent] = useState<string>('');
-  const [tooltip, setTooltip] = useState<{visible: boolean, x: number, y: number, text: string}>({
-    visible: false, x: 0, y: 0, text: ''
-  });
+  const [selectedInfo, setSelectedInfo] = useState<string>('Kliknij część samochodu aby oznaczyć uszkodzenie');
 
   const handlePartClick = (partName: CarPartName) => {
     onPartSelect(partName);
+    setSelectedInfo(`Wybrano: ${CAR_PARTS[partName]}`);
   };
-
-  useEffect(() => {
-    // Załaduj SVG
-    fetch(professionalCarDiagram)
-      .then(response => response.text())
-      .then(content => {
-        setSvgContent(content);
-      });
-  }, []);
-
-  useEffect(() => {
-    if (!svgContent) return;
-
-    // Dodaj event listenery dla wszystkich części samochodu
-    const carParts = document.querySelectorAll('.car-part');
-    
-    const handleClick = (event: Event) => {
-      const target = event.target as SVGElement;
-      const partId = target.id as CarPartName;
-      if (partId && CAR_PARTS[partId]) {
-        handlePartClick(partId);
-      }
-    };
-
-    const handleMouseEnter = (event: Event) => {
-      const target = event.target as SVGElement;
-      const partId = target.id as CarPartName;
-      if (partId && CAR_PARTS[partId]) {
-        const rect = target.getBoundingClientRect();
-        setTooltip({
-          visible: true,
-          x: rect.left + rect.width / 2,
-          y: rect.top - 10,
-          text: CAR_PARTS[partId]
-        });
-      }
-    };
-
-    const handleMouseLeave = () => {
-      setTooltip(prev => ({ ...prev, visible: false }));
-    };
-
-    carParts.forEach(part => {
-      part.addEventListener('click', handleClick);
-      part.addEventListener('mouseenter', handleMouseEnter);
-      part.addEventListener('mouseleave', handleMouseLeave);
-    });
-
-    return () => {
-      carParts.forEach(part => {
-        part.removeEventListener('click', handleClick);
-        part.removeEventListener('mouseenter', handleMouseEnter);
-        part.removeEventListener('mouseleave', handleMouseLeave);
-      });
-    };
-  }, [svgContent, selectedParts]);
-
-  useEffect(() => {
-    // Aktualizuj klasy CSS dla zaznaczonych części
-    const carParts = document.querySelectorAll('.car-part');
-    carParts.forEach(part => {
-      const partId = (part as SVGElement).id as CarPartName;
-      if (selectedParts.has(partId)) {
-        part.classList.add('selected');
-      } else {
-        part.classList.remove('selected');
-      }
-    });
-  }, [selectedParts, svgContent]);
 
   return (
       <div className={`relative w-full ${className}`}>
         <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
-          <div 
-            className="relative"
-            dangerouslySetInnerHTML={{ __html: svgContent }}
-          />
+          <h3 className="text-lg font-semibold mb-4 text-center">Interaktywny diagram samochodu</h3>
           
-          {/* Tooltip */}
-          {tooltip.visible && (
-            <div 
-              className="fixed z-50 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm font-medium shadow-lg pointer-events-none"
-              style={{
-                left: tooltip.x - 60,
-                top: tooltip.y - 40,
-                transform: 'translateX(-50%)'
-              }}
-            >
-              {tooltip.text}
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+          <style>
+            {`
+              .car-part { 
+                cursor: pointer; 
+                transition: fill 0.2s; 
+              }
+              .car-part:hover { 
+                fill: #ffd966 !important; 
+              }
+              .car-part.highlight { 
+                fill: #dc2626 !important; 
+              }
+            `}
+          </style>
+          
+          <svg viewBox="0 0 600 250" className="w-full h-auto">
+            {/* Nadwozie */}
+            <rect 
+              x="100" y="100" width="400" height="80" rx="30" 
+              fill={selectedParts.has('body') ? '#dc2626' : '#4f8ec9'} 
+              className={`car-part ${selectedParts.has('body') ? 'highlight' : ''}`} 
+              id="body"
+              onClick={() => handlePartClick('body')}
+              data-testid="car-part-body"
+            />
+            
+            {/* Maska */}
+            <rect 
+              x="80" y="120" width="60" height="60" rx="15" 
+              fill={selectedParts.has('hood') ? '#dc2626' : '#3e6c95'} 
+              className={`car-part ${selectedParts.has('hood') ? 'highlight' : ''}`} 
+              id="hood"
+              onClick={() => handlePartClick('hood')}
+              data-testid="car-part-hood"
+            />
+            
+            {/* Bagażnik */}
+            <rect 
+              x="460" y="120" width="60" height="60" rx="15" 
+              fill={selectedParts.has('trunk') ? '#dc2626' : '#3e6c95'} 
+              className={`car-part ${selectedParts.has('trunk') ? 'highlight' : ''}`} 
+              id="trunk"
+              onClick={() => handlePartClick('trunk')}
+              data-testid="car-part-trunk"
+            />
+            
+            {/* Drzwi lewe */}
+            <rect 
+              x="170" y="120" width="90" height="60" rx="12" 
+              fill={selectedParts.has('left-door') ? '#dc2626' : '#7ab8f0'} 
+              className={`car-part ${selectedParts.has('left-door') ? 'highlight' : ''}`} 
+              id="left-door"
+              onClick={() => handlePartClick('left-door')}
+              data-testid="car-part-left-door"
+            />
+            
+            {/* Drzwi prawe */}
+            <rect 
+              x="340" y="120" width="90" height="60" rx="12" 
+              fill={selectedParts.has('right-door') ? '#dc2626' : '#7ab8f0'} 
+              className={`car-part ${selectedParts.has('right-door') ? 'highlight' : ''}`} 
+              id="right-door"
+              onClick={() => handlePartClick('right-door')}
+              data-testid="car-part-right-door"
+            />
+            
+            {/* Koło przednie */}
+            <circle 
+              cx="140" cy="200" r="34" 
+              fill={selectedParts.has('front-wheel') ? '#dc2626' : '#333'} 
+              className={`car-part ${selectedParts.has('front-wheel') ? 'highlight' : ''}`} 
+              id="front-wheel"
+              onClick={() => handlePartClick('front-wheel')}
+              data-testid="car-part-front-wheel"
+            />
+            <circle cx="140" cy="200" r="17" fill="#bbb" />
+            
+            {/* Koło tylne */}
+            <circle 
+              cx="460" cy="200" r="34" 
+              fill={selectedParts.has('rear-wheel') ? '#dc2626' : '#333'} 
+              className={`car-part ${selectedParts.has('rear-wheel') ? 'highlight' : ''}`} 
+              id="rear-wheel"
+              onClick={() => handlePartClick('rear-wheel')}
+              data-testid="car-part-rear-wheel"
+            />
+            <circle cx="460" cy="200" r="17" fill="#bbb" />
+            
+            {/* Dach */}
+            <rect 
+              x="210" y="60" width="180" height="55" rx="20" 
+              fill={selectedParts.has('roof') ? '#dc2626' : '#a5c7e7'} 
+              className={`car-part ${selectedParts.has('roof') ? 'highlight' : ''}`} 
+              id="roof"
+              onClick={() => handlePartClick('roof')}
+              data-testid="car-part-roof"
+            />
+            
+            {/* Szyba przednia */}
+            <rect 
+              x="180" y="80" width="70" height="35" rx="10" 
+              fill={selectedParts.has('windshield') ? '#dc2626' : '#e3f2fd'} 
+              className={`car-part ${selectedParts.has('windshield') ? 'highlight' : ''}`} 
+              id="windshield"
+              onClick={() => handlePartClick('windshield')}
+              data-testid="car-part-windshield"
+            />
+            
+            {/* Szyba tylna */}
+            <rect 
+              x="350" y="80" width="70" height="35" rx="10" 
+              fill={selectedParts.has('rear-window') ? '#dc2626' : '#e3f2fd'} 
+              className={`car-part ${selectedParts.has('rear-window') ? 'highlight' : ''}`} 
+              id="rear-window"
+              onClick={() => handlePartClick('rear-window')}
+              data-testid="car-part-rear-window"
+            />
+          </svg>
+          
+          {/* Info panel */}
+          <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+            <div className="text-lg font-medium text-blue-900">
+              {selectedInfo}
             </div>
-          )}
+          </div>
         </div>
 
         {/* Lista zaznaczonych części */}
