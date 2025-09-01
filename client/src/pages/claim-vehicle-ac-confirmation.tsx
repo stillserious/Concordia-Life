@@ -39,7 +39,7 @@ export default function ClaimVehicleACConfirmation() {
               
               <h2 className="text-3xl font-bold text-gray-900 mb-3">Dziękujemy za zgłoszenie!</h2>
               
-              <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">Twoje zgłoszenie zostało pomyślnie przesłane i wkrótce się nim zajmiemy</p>
+              <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">Twój wniosek został pomyślnie przesłany i wkrótce się nim zajmiemy</p>
             </div>
 
             {/* Claim Number Card */}
@@ -75,7 +75,7 @@ export default function ClaimVehicleACConfirmation() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Dalsze kroki</h4>
                     <p className="text-sm text-gray-600">
-                      Skontaktujemy się z Tobą <strong>w ciągu 48 godzin</strong> w sprawie dalszych kroków
+                      Skontaktujemy się z Tobą <strong>w ciągu 48 godzin</strong> w sprawie kolejnych etapów wniosku
                     </p>
                   </div>
                 </div>
