@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definicje stylów -->
+  <defs>
+    <style>
+      .car-part { fill: #E8E8E8; stroke: #333; stroke-width: 2; }
+      .car-part:hover { opacity: 0.8; cursor: pointer; }
+      .car-part.selected { fill: #dc2626; }
+      .wheel { fill: #333; }
+      .window { fill: #87CEEB; stroke: #333; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Widok boczny lewy (lewy górny) -->
+  <g transform="translate(50, 50)">
+    <!-- Nadwozie główne -->
+    <rect id="body-left" class="car-part" x="20" y="80" width="280" height="60" rx="10"/>
+    
+    <!-- Drzwi przednie lewe -->
+    <rect id="front-door-left" class="car-part" x="40" y="70" width="60" height="70" rx="5"/>
+    
+    <!-- Drzwi tylne lewe -->
+    <rect id="rear-door-left" class="car-part" x="120" y="70" width="60" height="70" rx="5"/>
+    
+    <!-- Maska -->
+    <rect id="hood-left" class="car-part" x="20" y="70" width="40" height="70" rx="5"/>
+    
+    <!-- Bagażnik -->
+    <rect id="trunk-left" class="car-part" x="260" y="70" width="40" height="70" rx="5"/>
+    
+    <!-- Dach -->
+    <rect id="roof-left" class="car-part" x="60" y="40" width="180" height="40" rx="20"/>
+    
+    <!-- Szyby -->
+    <rect class="window" x="70" y="45" width="70" height="30" rx="15"/>
+    <rect class="window" x="150" y="45" width="70" height="30" rx="15"/>
+    
+    <!-- Koła -->
+    <circle class="wheel" cx="80" cy="160" r="25"/>
+    <circle class="wheel" cx="220" cy="160" r="25"/>
+    
+    <text x="150" y="200" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Widok z lewej</text>
+  </g>
+  
+  <!-- Widok z przodu (prawy górny) -->
+  <g transform="translate(450, 50)">
+    <!-- Nadwozie przednie -->
+    <rect id="body-front" class="car-part" x="60" y="80" width="180" height="60" rx="10"/>
+    
+    <!-- Maska z przodu -->
+    <rect id="hood-front" class="car-part" x="60" y="60" width="180" height="30" rx="5"/>
+    
+    <!-- Przedni zderzak -->
+    <rect id="front-bumper" class="car-part" x="50" y="130" width="200" height="20" rx="10"/>
+    
+    <!-- Szyba przednia -->
+    <rect class="window" x="80" y="30" width="140" height="40" rx="20"/>
+    
+    <!-- Reflektory -->
+    <circle class="car-part" cx="80" cy="70" r="15"/>
+    <circle class="car-part" cx="220" cy="70" r="15"/>
+    
+    <!-- Koła -->
+    <circle class="wheel" cx="90" cy="160" r="25"/>
+    <circle class="wheel" cx="210" cy="160" r="25"/>
+    
+    <text x="150" y="200" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Widok z przodu</text>
+  </g>
+  
+  <!-- Widok boczny prawy (lewy dolny) -->
+  <g transform="translate(50, 350)">
+    <!-- Nadwozie główne -->
+    <rect id="body-right" class="car-part" x="20" y="80" width="280" height="60" rx="10"/>
+    
+    <!-- Drzwi przednie prawe -->
+    <rect id="front-door-right" class="car-part" x="240" y="70" width="60" height="70" rx="5"/>
+    
+    <!-- Drzwi tylne prawe -->
+    <rect id="rear-door-right" class="car-part" x="160" y="70" width="60" height="70" rx="5"/>
+    
+    <!-- Maska -->
+    <rect id="hood-right" class="car-part" x="260" y="70" width="40" height="70" rx="5"/>
+    
+    <!-- Bagażnik -->
+    <rect id="trunk-right" class="car-part" x="20" y="70" width="40" height="70" rx="5"/>
+    
+    <!-- Dach -->
+    <rect id="roof-right" class="car-part" x="80" y="40" width="180" height="40" rx="20"/>
+    
+    <!-- Szyby -->
+    <rect class="window" x="180" y="45" width="70" height="30" rx="15"/>
+    <rect class="window" x="100" y="45" width="70" height="30" rx="15"/>
+    
+    <!-- Koła -->
+    <circle class="wheel" cx="80" cy="160" r="25"/>
+    <circle class="wheel" cx="220" cy="160" r="25"/>
+    
+    <text x="150" y="200" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Widok z prawej</text>
+  </g>
+  
+  <!-- Widok z tyłu (prawy dolny) -->
+  <g transform="translate(450, 350)">
+    <!-- Nadwozie tylne -->
+    <rect id="body-rear" class="car-part" x="60" y="80" width="180" height="60" rx="10"/>
+    
+    <!-- Bagażnik z tyłu -->
+    <rect id="trunk-rear" class="car-part" x="60" y="60" width="180" height="30" rx="5"/>
+    
+    <!-- Tylny zderzak -->
+    <rect id="rear-bumper" class="car-part" x="50" y="130" width="200" height="20" rx="10"/>
+    
+    <!-- Szyba tylna -->
+    <rect class="window" x="80" y="30" width="140" height="40" rx="20"/>
+    
+    <!-- Światła tylne -->
+    <circle class="car-part" cx="80" cy="70" r="10" fill="#ff4444"/>
+    <circle class="car-part" cx="220" cy="70" r="10" fill="#ff4444"/>
+    
+    <!-- Koła -->
+    <circle class="wheel" cx="90" cy="160" r="25"/>
+    <circle class="wheel" cx="210" cy="160" r="25"/>
+    
+    <text x="150" y="200" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Widok z tyłu</text>
+  </g>
+</svg>

@@ -1,20 +1,26 @@
 import { useState } from "react";
-import toyotaPriusSvg from "../assets/toyota-prius-full.svg";
+import InteractiveCarSVG from "./InteractiveCarSVG";
 
 // Polskie nazwy części samochodu
 const CAR_PARTS = {
-  'hood': 'Pokrywa przednia (maska)',
-  'front-bumper': 'Zderzak przedni', 
+  'hood-left': 'Maska (widok z lewej)',
+  'hood-right': 'Maska (widok z prawej)',
+  'hood-front': 'Maska (widok z przodu)',
   'front-door-left': 'Drzwi przednie lewe',
   'front-door-right': 'Drzwi przednie prawe',
   'rear-door-left': 'Drzwi tylne lewe',
   'rear-door-right': 'Drzwi tylne prawe',
-  'roof': 'Dach',
-  'rear-bumper': 'Zderzak tylny',
-  'trunk': 'Pokrywa bagażnika',
-  'windshield': 'Szyba przednia',
-  'rear-window': 'Szyba tylna',
-  'body': 'Nadwozie'
+  'roof-left': 'Dach (widok z lewej)',
+  'roof-right': 'Dach (widok z prawej)',
+  'trunk-left': 'Bagażnik (widok z lewej)',
+  'trunk-right': 'Bagażnik (widok z prawej)',
+  'trunk-rear': 'Bagażnik (widok z tyłu)',
+  'body-left': 'Nadwozie (widok z lewej)',
+  'body-right': 'Nadwozie (widok z prawej)',
+  'body-front': 'Nadwozie (widok z przodu)',
+  'body-rear': 'Nadwozie (widok z tyłu)',
+  'front-bumper': 'Zderzak przedni',
+  'rear-bumper': 'Zderzak tylny'
 } as const;
 
 type CarPartName = keyof typeof CAR_PARTS;
@@ -37,54 +43,10 @@ export default function VanillaThreeCar({
   return (
       <div className={`relative w-full ${className}`}>
         <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
-          <div className="relative">
-            {/* Profesjonalny SVG Toyota Prius */}
-            <img 
-              src={toyotaPriusSvg} 
-              alt="Toyota Prius Professional Model" 
-              className="w-full h-auto"
-              style={{ maxHeight: '400px' }}
-            />
-            
-            {/* Kolorowe nakładki na części samochodu */}
-            <div className="absolute inset-0 pointer-events-none">
-              
-              {/* Lewe przednie drzwi - kolorowa nakładka */}
-              {selectedParts.has('front-door-left') && (
-                <div 
-                  className="absolute"
-                  style={{
-                    left: '15%',
-                    top: '25%',
-                    width: '8%',
-                    height: '12%',
-                    backgroundColor: '#dc2626',
-                    mixBlendMode: 'multiply',
-                    opacity: 0.7,
-                    borderRadius: '2px'
-                  }}
-                />
-              )}
-              
-              {/* Klikalne obszary - niewidoczne */}
-              <div 
-                className="absolute cursor-pointer pointer-events-auto"
-                style={{
-                  left: '15%',
-                  top: '25%',
-                  width: '8%',
-                  height: '12%',
-                  backgroundColor: 'transparent',
-                  border: selectedParts.has('front-door-left') ? '2px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.5)',
-                  borderRadius: '2px'
-                }}
-                onClick={() => handlePartClick('front-door-left')}
-                data-testid="car-part-front-door-left"
-                title="Drzwi przednie lewe"
-              />
-              
-            </div>
-          </div>
+          <InteractiveCarSVG 
+            selectedParts={selectedParts}
+            onPartSelect={handlePartClick}
+          />
         </div>
 
         {/* Lista zaznaczonych części */}
