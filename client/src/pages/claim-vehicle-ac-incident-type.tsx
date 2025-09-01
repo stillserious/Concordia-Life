@@ -33,7 +33,7 @@ export default function ClaimVehicleACIncidentTypePage() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 category-icon-vehicles rounded-full flex items-center justify-center">
-                <span className="text-xl font-bold text-gray-800">AC</span>
+                <span className="text-2xl font-bold text-black">AC</span>
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900" data-testid="page-title">Moje ubezpieczenie</h1>
