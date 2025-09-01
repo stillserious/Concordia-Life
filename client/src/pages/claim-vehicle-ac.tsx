@@ -67,9 +67,9 @@ export default function ClaimVehicleACPage() {
       <Header />
       <ProgressBar
         currentStep={2}
-        totalSteps={7}
-        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu", "Uszkodzenia pojazdu"]}
-        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage"]}
+        totalSteps={6}
+        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]}
+        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
       />
 
       <main className="flex-1 py-10 px-6">
@@ -118,6 +118,7 @@ export default function ClaimVehicleACPage() {
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
                               todayButtonLabel: 'Dzisiaj',
+                              datePickerToolbarTitle: 'Wybierz datę',
                               fieldDayPlaceholder: () => 'DD',
                               fieldMonthPlaceholder: () => 'MM',
                               fieldYearPlaceholder: () => 'RRRR',
@@ -168,6 +169,7 @@ export default function ClaimVehicleACPage() {
                               cancelButtonLabel: 'Anuluj',
                               clearButtonLabel: 'Wyczyść',
                               okButtonLabel: 'OK',
+                              timePickerToolbarTitle: 'Wybierz godzinę',
                               fieldHoursPlaceholder: () => 'GG',
                               fieldMinutesPlaceholder: () => 'MM',
                             }}

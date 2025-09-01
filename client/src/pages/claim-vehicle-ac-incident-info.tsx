@@ -63,10 +63,13 @@ export default function ClaimVehicleACIncidentInfo() {
     try {
       console.log("Dane formularza informacji o zdarzeniu:", data);
       
-      // Usuń toast i przejdź bezpośrednio do następnego kroku
+      toast({
+        title: "Dane zapisane!",
+        description: "Zgłoszenie zostało zakończone pomyślnie.",
+      });
       
-      // Przejdź do zaznaczania uszkodzeń
-      setLocation("/claim/vehicle/ac/damage");
+      // Tutaj będzie przekierowanie do strony podsumowania lub zakończenia
+      // setLocation("/claim/vehicle/ac/summary");
       
     } catch (error) {
       toast({
@@ -82,9 +85,9 @@ export default function ClaimVehicleACIncidentInfo() {
       <Header />
       <ProgressBar 
         currentStep={6} 
-        totalSteps={7} 
-        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu", "Uszkodzenia pojazdu"]} 
-        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info", "/claim/vehicle/ac/damage"]}
+        totalSteps={6} 
+        stepLabels={["Wybór ubezpieczenia", "Podstawowe dane", "Typ zdarzenia", "Szczegóły zdarzenia", "Dane pojazdu", "Informacje o zdarzeniu"]} 
+        stepRoutes={["/claim/vehicle", "/claim/vehicle/ac", "/claim/vehicle/ac/incident-type", "/claim/vehicle/ac/collision-vehicle", "/claim/vehicle/ac/vehicle-data", "/claim/vehicle/ac/incident-info"]}
       />
       <main className="flex-1 py-10 px-6">
         <div className="max-w-4xl mx-auto">
@@ -472,7 +475,7 @@ export default function ClaimVehicleACIncidentInfo() {
                     className="insurance-button"
                     data-testid="button-submit-form"
                   >
-                    {isSubmitting ? "Zapisywanie..." : "Przejdź dalej"}
+                    {isSubmitting ? "Zapisywanie..." : "Zakończ zgłoszenie"}
                   </Button>
                 </div>
               </form>

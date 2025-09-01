@@ -15,8 +15,7 @@ export default function ClaimVehiclePage() {
     "Typ zdarzenia",
     "Szczegóły zdarzenia",
     "Dane pojazdu",
-    "Informacje o zdarzeniu",
-    "Uszkodzenia pojazdu"
+    "Informacje o zdarzeniu"
   ];
   
   const stepRoutes = [
@@ -25,8 +24,7 @@ export default function ClaimVehiclePage() {
     "/claim/vehicle/ac/incident-type", 
     "/claim/vehicle/ac/collision-vehicle",
     "/claim/vehicle/ac/vehicle-data",
-    "/claim/vehicle/ac/incident-info",
-    "/claim/vehicle/ac/damage"
+    "/claim/vehicle/ac/incident-info"
   ];
   
   return (
@@ -35,7 +33,7 @@ export default function ClaimVehiclePage() {
       
       <ProgressBar 
         currentStep={1}
-        totalSteps={7}
+        totalSteps={6}
         stepLabels={stepLabels}
         stepRoutes={stepRoutes}
       />
