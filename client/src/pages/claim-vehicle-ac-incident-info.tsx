@@ -102,14 +102,6 @@ export default function ClaimVehicleACIncidentInfo() {
           </div>
 
           <div className="insurance-card p-8">
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                Informacje o zdarzeniu
-              </h2>
-              <p className="text-sm text-gray-600">
-                Podaj szczegóły dotyczące miejsca i okoliczności zdarzenia
-              </p>
-            </div>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 
