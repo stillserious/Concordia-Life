@@ -1,21 +1,62 @@
-import { useState } from "react";
-import toyotaPriusSvg from "../assets/toyota-prius-full.svg";
+import { useState, useEffect } from "react";
+import professionalCarDiagram from "../assets/professional-car-diagram.svg";
 
-// Polskie nazwy części samochodu
+// Profesjonalne nazwy części samochodu (68 części)
 const CAR_PARTS = {
-  'front-door-left': 'Drzwi przednie lewe',
-  'front-door-right': 'Drzwi przednie prawe',
-  'rear-door-left': 'Drzwi tylne lewe',
-  'rear-door-right': 'Drzwi tylne prawe',
-  'hood': 'Maska',
-  'trunk': 'Bagażnik',
-  'front-bumper': 'Zderzak przedni',
-  'rear-bumper': 'Zderzak tylny',
-  'roof': 'Dach',
-  'front-fender-left': 'Błotnik przedni lewy',
-  'front-fender-right': 'Błotnik przedni prawy',
-  'rear-fender-left': 'Błotnik tylny lewy',
-  'rear-fender-right': 'Błotnik tylny prawy'
+  'FRONT_BUMPER': 'Zderzak przedni',
+  'FRONT_NUMBER_PLATE': 'Tablica rejestracyjna przednia',
+  'FRONT_NEAR_SIDE_HEADLAMP': 'Reflektor przedni lewy',
+  'FRONT_GRILL': 'Atrapa chłodnicy',
+  'FRONT_OFF_SIDE_HEADLAMP': 'Reflektor przedni prawy',
+  'FRONT_PANEL': 'Panel przedni',
+  'REAR_BUMPER': 'Zderzak tylny',
+  'REAR_PANEL': 'Panel tylny',
+  'REAR_NUMBER_PLATE': 'Tablica rejestracyjna tylna',
+  'REAR_OFF_SIDE_LIGHT': 'Światło tylne prawe',
+  'REAR_NEAR_SIDE_LIGHT': 'Światło tylne lewe',
+  'REAR_NEAR_SIDE_EXHAUST': 'Rura wydechowa lewa',
+  'REAR_OFF_SIDE_EXHAUST': 'Rura wydechowa prawa',
+  'NEAR_SIDE_REAR_PANEL': 'Panel tylny lewy',
+  'NEAR_SIDE_FRONT_PANEL': 'Panel przedni lewy',
+  'NEAR_SIDE_DRIVER_DOOR': 'Drzwi kierowcy lewe',
+  'NEAR_SIDE_DRIVER_WINDOW': 'Szyba kierowcy lewa',
+  'NEAR_SIDE_PASSENGER_DOOR': 'Drzwi pasażera lewe',
+  'NEAR_SIDE_SIDE_WINDOW': 'Szyba boczna lewa',
+  'NEAR_SIDE_FRONT_BUMPER': 'Zderzak przedni lewy',
+  'NEAR_SIDE_REAR_BUMPER': 'Zderzak tylny lewy',
+  'NEAR_SIDE_PASSENGER_WINDOW': 'Szyba pasażera lewa',
+  'NEAR_SIDE_FRONT_HEADLAMP': 'Reflektor przedni lewy',
+  'NEAR_SIDE_REAR_HEADLAMP': 'Reflektor tylny lewy',
+  'NEAR_SIDE_FUEL_CAP': 'Wlew paliwa lewy',
+  'NEAR_SIDE_WING_MIRROR': 'Lusterko boczne lewe',
+  'NEAR_SIDE_FRONT_TYPE': 'Opona przednia lewa',
+  'NEAR_SIDE_FRONT_WHEEL': 'Koło przednie lewe',
+  'NEAR_SIDE_REAR_WHEEL': 'Koło tylne lewe',
+  'NEAR_SIDE_BODY_TRIM': 'Listwka boczna lewa',
+  'NEAR_SIDE_UNDER_TRIM': 'Listwka dolna lewa',
+  'OFF_SIDE_REAR_PANEL': 'Panel tylny prawy',
+  'OFF_SIDE_FRONT_PANEL': 'Panel przedni prawy',
+  'OFF_SIDE_DRIVER_DOOR': 'Drzwi kierowcy prawe',
+  'OFF_SIDE_DRIVER_WINDOW': 'Szyba kierowcy prawa',
+  'OFF_SIDE_PASSENGER_DOOR': 'Drzwi pasażera prawe',
+  'OFF_SIDE_SIDE_WINDOW': 'Szyba boczna prawa',
+  'OFF_SIDE_FRONT_BUMPER': 'Zderzak przedni prawy',
+  'OFF_SIDE_REAR_BUMPER': 'Zderzak tylny prawy',
+  'OFF_SIDE_PASSENGER_WINDOW': 'Szyba pasażera prawa',
+  'OFF_SIDE_FRONT_HEADLAMP': 'Reflektor przedni prawy',
+  'OFF_SIDE_REAR_HEADLAMP': 'Reflektor tylny prawy',
+  'OFF_SIDE_FUEL_CAP': 'Wlew paliwa prawy',
+  'OFF_SIDE_WING_MIRROR': 'Lusterko boczne prawe',
+  'OFF_SIDE_FRONT_TYRE': 'Opona przednia prawa',
+  'OFF_SIDE_FRONT_WHEEL': 'Koło przednie prawe',
+  'OFF_SIDE_REAR_WHEEL': 'Koło tylne prawe',
+  'OFF_SIDE_BODY_TRIM': 'Listwka boczna prawa',
+  'OFF_SIDE_UNDER_TRIM': 'Listwka dolna prawa',
+  'FRONT_ROOF_PANEL': 'Panel dachu przedni',
+  'FRONT_WINDSCREEN': 'Szyba przednia',
+  'FRONT_BONNET': 'Maska',
+  'FRONT_NEAR_SIDE_FOG_LIGHT': 'Przeciwmgielne lewe',
+  'FRONT_OFF_SIDE_FOG_LIGHT': 'Przeciwmgielne prawe'
 } as const;
 
 type CarPartName = keyof typeof CAR_PARTS;
@@ -31,156 +72,106 @@ export default function VanillaThreeCar({
   onPartSelect, 
   className = "" 
 }: VanillaThreeCarProps) {
+  const [svgContent, setSvgContent] = useState<string>('');
+  const [tooltip, setTooltip] = useState<{visible: boolean, x: number, y: number, text: string}>({
+    visible: false, x: 0, y: 0, text: ''
+  });
+
   const handlePartClick = (partName: CarPartName) => {
     onPartSelect(partName);
   };
 
+  useEffect(() => {
+    // Załaduj SVG
+    fetch(professionalCarDiagram)
+      .then(response => response.text())
+      .then(content => {
+        setSvgContent(content);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (!svgContent) return;
+
+    // Dodaj event listenery dla wszystkich części samochodu
+    const carParts = document.querySelectorAll('.car-part');
+    
+    const handleClick = (event: Event) => {
+      const target = event.target as SVGElement;
+      const partId = target.id as CarPartName;
+      if (partId && CAR_PARTS[partId]) {
+        handlePartClick(partId);
+      }
+    };
+
+    const handleMouseEnter = (event: Event) => {
+      const target = event.target as SVGElement;
+      const partId = target.id as CarPartName;
+      if (partId && CAR_PARTS[partId]) {
+        const rect = target.getBoundingClientRect();
+        setTooltip({
+          visible: true,
+          x: rect.left + rect.width / 2,
+          y: rect.top - 10,
+          text: CAR_PARTS[partId]
+        });
+      }
+    };
+
+    const handleMouseLeave = () => {
+      setTooltip(prev => ({ ...prev, visible: false }));
+    };
+
+    carParts.forEach(part => {
+      part.addEventListener('click', handleClick);
+      part.addEventListener('mouseenter', handleMouseEnter);
+      part.addEventListener('mouseleave', handleMouseLeave);
+    });
+
+    return () => {
+      carParts.forEach(part => {
+        part.removeEventListener('click', handleClick);
+        part.removeEventListener('mouseenter', handleMouseEnter);
+        part.removeEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+  }, [svgContent, selectedParts]);
+
+  useEffect(() => {
+    // Aktualizuj klasy CSS dla zaznaczonych części
+    const carParts = document.querySelectorAll('.car-part');
+    carParts.forEach(part => {
+      const partId = (part as SVGElement).id as CarPartName;
+      if (selectedParts.has(partId)) {
+        part.classList.add('selected');
+      } else {
+        part.classList.remove('selected');
+      }
+    });
+  }, [selectedParts, svgContent]);
+
   return (
       <div className={`relative w-full ${className}`}>
         <div className="w-full bg-gray-50 rounded-lg border shadow-sm p-8">
-          <div className="relative">
-            {/* Oryginalny profesjonalny SVG Toyota Prius */}
-            <img 
-              src={toyotaPriusSvg} 
-              alt="Toyota Prius - profesjonalny model" 
-              className="w-full h-auto"
-              style={{ maxHeight: '400px' }}
-            />
-            
-            {/* Precyzyjne nakładki na części samochodu */}
-            <div className="absolute inset-0 pointer-events-none">
-              
-              {/* Drzwi przednie lewe - dokładna pozycja */}
-              {selectedParts.has('front-door-left') && (
-                <div 
-                  className="absolute"
-                  style={{
-                    left: '14%',
-                    top: '42%',
-                    width: '12%',
-                    height: '25%',
-                    backgroundColor: '#dc2626',
-                    opacity: 0.6,
-                    borderRadius: '3px',
-                    border: '2px solid #dc2626'
-                  }}
-                />
-              )}
-              
-              {/* Drzwi tylne lewe */}
-              {selectedParts.has('rear-door-left') && (
-                <div 
-                  className="absolute"
-                  style={{
-                    left: '28%',
-                    top: '42%',
-                    width: '12%',
-                    height: '25%',
-                    backgroundColor: '#dc2626',
-                    opacity: 0.6,
-                    borderRadius: '3px',
-                    border: '2px solid #dc2626'
-                  }}
-                />
-              )}
-              
-              {/* Maska */}
-              {selectedParts.has('hood') && (
-                <div 
-                  className="absolute"
-                  style={{
-                    left: '6%',
-                    top: '45%',
-                    width: '10%',
-                    height: '20%',
-                    backgroundColor: '#dc2626',
-                    opacity: 0.6,
-                    borderRadius: '3px',
-                    border: '2px solid #dc2626'
-                  }}
-                />
-              )}
-              
-              {/* Bagażnik */}
-              {selectedParts.has('trunk') && (
-                <div 
-                  className="absolute"
-                  style={{
-                    left: '70%',
-                    top: '45%',
-                    width: '10%',
-                    height: '20%',
-                    backgroundColor: '#dc2626',
-                    opacity: 0.6,
-                    borderRadius: '3px',
-                    border: '2px solid #dc2626'
-                  }}
-                />
-              )}
-              
-              {/* Klikalne obszary - niewidoczne przyciski */}
-              <div 
-                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
-                style={{
-                  left: '14%',
-                  top: '42%',
-                  width: '12%',
-                  height: '25%',
-                  border: selectedParts.has('front-door-left') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
-                  borderRadius: '3px'
-                }}
-                onClick={() => handlePartClick('front-door-left')}
-                data-testid="car-part-front-door-left"
-                title="Drzwi przednie lewe"
-              />
-              
-              <div 
-                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
-                style={{
-                  left: '28%',
-                  top: '42%',
-                  width: '12%',
-                  height: '25%',
-                  border: selectedParts.has('rear-door-left') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
-                  borderRadius: '3px'
-                }}
-                onClick={() => handlePartClick('rear-door-left')}
-                data-testid="car-part-rear-door-left"
-                title="Drzwi tylne lewe"
-              />
-              
-              <div 
-                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
-                style={{
-                  left: '6%',
-                  top: '45%',
-                  width: '10%',
-                  height: '20%',
-                  border: selectedParts.has('hood') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
-                  borderRadius: '3px'
-                }}
-                onClick={() => handlePartClick('hood')}
-                data-testid="car-part-hood"
-                title="Maska"
-              />
-              
-              <div 
-                className="absolute cursor-pointer pointer-events-auto hover:bg-blue-200 hover:bg-opacity-30 transition-all"
-                style={{
-                  left: '70%',
-                  top: '45%',
-                  width: '10%',
-                  height: '20%',
-                  border: selectedParts.has('trunk') ? '3px solid #dc2626' : '2px dashed rgba(59, 130, 246, 0.4)',
-                  borderRadius: '3px'
-                }}
-                onClick={() => handlePartClick('trunk')}
-                data-testid="car-part-trunk"
-                title="Bagażnik"
-              />
-              
+          <div 
+            className="relative"
+            dangerouslySetInnerHTML={{ __html: svgContent }}
+          />
+          
+          {/* Tooltip */}
+          {tooltip.visible && (
+            <div 
+              className="fixed z-50 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm font-medium shadow-lg pointer-events-none"
+              style={{
+                left: tooltip.x - 60,
+                top: tooltip.y - 40,
+                transform: 'translateX(-50%)'
+              }}
+            >
+              {tooltip.text}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Lista zaznaczonych części */}

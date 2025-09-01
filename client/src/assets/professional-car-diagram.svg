@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .car-part { 
+        fill: #e5e7eb; 
+        stroke: #374151; 
+        stroke-width: 1.5; 
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .car-part:hover { 
+        fill: #dbeafe;
+        stroke: #2563eb;
+        stroke-width: 2;
+      }
+      .car-part.selected { 
+        fill: #dc2626 !important;
+        stroke: #991b1b;
+        stroke-width: 2;
+      }
+      .window { fill: #87ceeb; stroke: #374151; stroke-width: 1; }
+      .tire { fill: #1f2937; }
+      .light { fill: #fbbf24; stroke: #f59e0b; stroke-width: 1; }
+      .grille { fill: #4b5563; stroke: #374151; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Front View -->
+  <g transform="translate(50, 50)">
+    <!-- Front Bumper -->
+    <rect id="FRONT_BUMPER" class="car-part" x="100" y="350" width="200" height="30" rx="15"/>
+    
+    <!-- Front Number Plate -->
+    <rect id="FRONT_NUMBER_PLATE" class="car-part" x="170" y="360" width="60" height="15" rx="3"/>
+    
+    <!-- Front Grille -->
+    <rect id="FRONT_GRILL" class="grille" x="140" y="280" width="120" height="40" rx="5"/>
+    
+    <!-- Front Headlamps -->
+    <ellipse id="FRONT_NEAR_SIDE_HEADLAMP" class="light" cx="120" cy="300" rx="25" ry="20"/>
+    <ellipse id="FRONT_OFF_SIDE_HEADLAMP" class="light" cx="280" cy="300" rx="25" ry="20"/>
+    
+    <!-- Front Fog Lights -->
+    <circle id="FRONT_NEAR_SIDE_FOG_LIGHT" class="light" cx="110" cy="340" r="8"/>
+    <circle id="FRONT_OFF_SIDE_FOG_LIGHT" class="light" cx="290" cy="340" r="8"/>
+    
+    <!-- Front Panel -->
+    <rect id="FRONT_PANEL" class="car-part" x="120" y="250" width="160" height="30" rx="5"/>
+    
+    <!-- Front Bonnet -->
+    <rect id="FRONT_BONNET" class="car-part" x="110" y="200" width="180" height="50" rx="10"/>
+    
+    <!-- Front Windscreen -->
+    <rect id="FRONT_WINDSCREEN" class="window" x="130" y="120" width="140" height="80" rx="20"/>
+    
+    <!-- Front Roof Panel -->
+    <rect id="FRONT_ROOF_PANEL" class="car-part" x="125" y="100" width="150" height="25" rx="12"/>
+    
+    <!-- Wing Mirrors -->
+    <ellipse id="NEAR_SIDE_WING_MIRROR" class="car-part" cx="100" cy="180" rx="12" ry="8"/>
+    <ellipse id="OFF_SIDE_WING_MIRROR" class="car-part" cx="300" cy="180" rx="12" ry="8"/>
+    
+    <!-- Front Wheels -->
+    <circle id="NEAR_SIDE_FRONT_WHEEL" class="tire" cx="120" cy="380" r="30"/>
+    <circle id="OFF_SIDE_FRONT_WHEEL" class="tire" cx="280" cy="380" r="30"/>
+    
+    <!-- Front Tyres -->
+    <circle id="NEAR_SIDE_FRONT_TYPE" class="car-part" cx="120" cy="380" r="25"/>
+    <circle id="OFF_SIDE_FRONT_TYRE" class="car-part" cx="280" cy="380" r="25"/>
+    
+    <text x="200" y="450" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Widok z przodu</text>
+  </g>
+  
+  <!-- Side View -->
+  <g transform="translate(500, 50)">
+    <!-- Body Panels -->
+    <rect id="NEAR_SIDE_FRONT_PANEL" class="car-part" x="20" y="280" width="60" height="80" rx="5"/>
+    <rect id="NEAR_SIDE_REAR_PANEL" class="car-part" x="320" y="280" width="60" height="80" rx="5"/>
+    
+    <!-- Doors -->
+    <rect id="NEAR_SIDE_DRIVER_DOOR" class="car-part" x="80" y="250" width="80" height="110" rx="8"/>
+    <rect id="NEAR_SIDE_PASSENGER_DOOR" class="car-part" x="180" y="250" width="80" height="110" rx="8"/>
+    
+    <!-- Door Windows -->
+    <rect id="NEAR_SIDE_DRIVER_WINDOW" class="window" x="85" y="200" width="70" height="50" rx="5"/>
+    <rect id="NEAR_SIDE_PASSENGER_WINDOW" class="window" x="185" y="200" width="70" height="50" rx="5"/>
+    
+    <!-- Side Windows -->
+    <rect id="NEAR_SIDE_SIDE_WINDOW" class="window" x="265" y="200" width="50" height="50" rx="5"/>
+    
+    <!-- Bumpers -->
+    <rect id="NEAR_SIDE_FRONT_BUMPER" class="car-part" x="10" y="340" width="30" height="20" rx="5"/>
+    <rect id="NEAR_SIDE_REAR_BUMPER" class="car-part" x="360" y="340" width="30" height="20" rx="5"/>
+    
+    <!-- Headlamps -->
+    <ellipse id="NEAR_SIDE_FRONT_HEADLAMP" class="light" cx="25" cy="310" rx="15" ry="25"/>
+    <ellipse id="NEAR_SIDE_REAR_HEADLAMP" class="light" cx="375" cy="310" rx="15" ry="25"/>
+    
+    <!-- Fuel Cap -->
+    <circle id="NEAR_SIDE_FUEL_CAP" class="car-part" cx="350" cy="280" r="8"/>
+    
+    <!-- Wheels -->
+    <circle id="NEAR_SIDE_FRONT_WHEEL" class="tire" cx="80" cy="380" r="30"/>
+    <circle id="NEAR_SIDE_REAR_WHEEL" class="tire" cx="320" cy="380" r="30"/>
+    
+    <!-- Body Trim -->
+    <rect id="NEAR_SIDE_BODY_TRIM" class="car-part" x="70" y="360" width="260" height="8" rx="4"/>
+    <rect id="NEAR_SIDE_UNDER_TRIM" class="car-part" x="60" y="370" width="280" height="5" rx="2"/>
+    
+    <!-- Roof -->
+    <rect id="FRONT_ROOF_PANEL" class="car-part" x="70" y="180" width="250" height="20" rx="10"/>
+    
+    <text x="200" y="450" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Widok z boku</text>
+  </g>
+  
+  <!-- Rear View -->
+  <g transform="translate(250, 350)">
+    <!-- Rear Bumper -->
+    <rect id="REAR_BUMPER" class="car-part" x="100" y="150" width="200" height="30" rx="15"/>
+    
+    <!-- Rear Number Plate -->
+    <rect id="REAR_NUMBER_PLATE" class="car-part" x="170" y="160" width="60" height="15" rx="3"/>
+    
+    <!-- Rear Panel -->
+    <rect id="REAR_PANEL" class="car-part" x="120" y="100" width="160" height="50" rx="5"/>
+    
+    <!-- Rear Lights -->
+    <ellipse id="REAR_NEAR_SIDE_LIGHT" class="light" cx="120" cy="120" rx="20" ry="15" fill="#ef4444"/>
+    <ellipse id="REAR_OFF_SIDE_LIGHT" class="light" cx="280" cy="120" rx="20" ry="15" fill="#ef4444"/>
+    
+    <!-- Exhaust -->
+    <circle id="REAR_NEAR_SIDE_EXHAUST" class="car-part" cx="130" cy="170" r="6"/>
+    <circle id="REAR_OFF_SIDE_EXHAUST" class="car-part" cx="270" cy="170" r="6"/>
+    
+    <!-- Rear Wheels -->
+    <circle id="REAR_NEAR_SIDE_WHEEL" class="tire" cx="120" cy="200" r="30"/>
+    <circle id="REAR_OFF_SIDE_WHEEL" class="tire" cx="280" cy="200" r="30"/>
+    
+    <text x="200" y="260" text-anchor="middle" font-family="Arial" font-size="14" fill="#666">Widok z tyłu</text>
+  </g>
+</svg>
