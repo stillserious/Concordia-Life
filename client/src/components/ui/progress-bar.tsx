@@ -43,10 +43,10 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                     isCompleted
                       ? "bg-green-600 text-white"
                       : index < currentStep - 1
-                      ? "bg-blue-600 text-white cursor-pointer hover:bg-blue-700"
+                      ? "bg-[hsl(207,90%,54%)] text-white cursor-pointer hover:bg-[hsl(210,79%,46%)]"
                       : index === currentStep - 1
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-300 text-gray-600 cursor-pointer hover:bg-gray-400"
+                      ? "bg-[hsl(207,90%,54%)] text-white"
+                      : "bg-blue-100 text-blue-400 cursor-pointer hover:bg-blue-200"
                   } ${stepRoutes && index !== currentStep - 1 ? "cursor-pointer" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
@@ -67,7 +67,7 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                 {/* Connecting line */}
                 {index < stepLabels.length - 1 && (
                   <div className={`w-4 h-0.5 mx-1 transition-all duration-300 ${
-                    isCompleted ? "bg-green-600" : index < currentStep - 1 ? "bg-blue-600" : "bg-gray-300"
+                    isCompleted ? "bg-green-600" : index < currentStep - 1 ? "bg-[hsl(207,90%,54%)]" : "bg-blue-100"
                   }`}></div>
                 )}
               </div>
@@ -94,10 +94,10 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                     isCompleted
                       ? "bg-green-600"
                       : index < currentStep - 1
-                      ? "bg-blue-600"
+                      ? "bg-[hsl(207,90%,54%)]"
                       : index === currentStep - 1
-                      ? "bg-blue-600"
-                      : "bg-gray-300"
+                      ? "bg-[hsl(207,90%,54%)]"
+                      : "bg-blue-100"
                   } ${stepRoutes && index !== currentStep - 1 ? "hover:scale-110" : ""}`}
                   onClick={() => {
                     if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
@@ -114,10 +114,10 @@ export default function ProgressBar({ currentStep, totalSteps, stepLabels, stepR
                       isCompleted
                         ? "text-green-600 font-medium"
                         : index < currentStep - 1
-                        ? "text-blue-600 hover:text-blue-700"
+                        ? "text-[hsl(207,90%,54%)] hover:text-[hsl(210,79%,46%)]"
                         : index === currentStep - 1
-                        ? "text-blue-600 font-medium"
-                        : "text-gray-400 hover:text-gray-600"
+                        ? "text-[hsl(207,90%,54%)] font-medium"
+                        : "text-blue-400 hover:text-blue-600"
                     }`}
                     onClick={() => {
                       if (stepRoutes && stepRoutes[index] && index !== currentStep - 1) {
