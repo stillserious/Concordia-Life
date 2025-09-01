@@ -203,32 +203,42 @@
     color: #6b7280 !important; /* Gray text color */
   }
 
-  /* Material UI DatePicker and TimePicker border overrides */
+  /* Material UI DatePicker and TimePicker border overrides with maximum specificity */
+  div[data-testid] .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline,
+  .MuiFormControl-root .MuiTextField-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline,
   .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
     border-color: #c7d2fe !important;
+    border-width: 1px !important;
   }
 
+  div[data-testid] .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
+  .MuiFormControl-root .MuiTextField-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
   .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     border-color: hsl(207, 90%, 54%) !important;
+    border-width: 1px !important;
   }
 
+  div[data-testid] .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline,
+  .MuiFormControl-root .MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline,
   .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: hsl(207, 90%, 54%) !important;
     border-width: 2px !important;
   }
 
-  /* Additional Material UI input field overrides with higher specificity */
-  .MuiTextField-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-    border-color: #c7d2fe !important;
+  /* Direct input element targeting */
+  input[type="text"], input[type="date"], input[type="time"], input {
+    border: 1px solid #c7d2fe !important;
+    border-radius: 8px !important;
   }
 
-  .MuiTextField-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  input[type="text"]:hover, input[type="date"]:hover, input[type="time"]:hover, input:hover {
     border-color: hsl(207, 90%, 54%) !important;
   }
 
-  .MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  input[type="text"]:focus, input[type="date"]:focus, input[type="time"]:focus, input:focus {
     border-color: hsl(207, 90%, 54%) !important;
     border-width: 2px !important;
+    outline: none !important;
   }
 
   input[type="date"]::-webkit-datetime-edit, 
