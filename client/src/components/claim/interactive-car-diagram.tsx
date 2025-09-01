@@ -44,6 +44,8 @@ export default function InteractiveCarDiagram({ selectedParts, onPartToggle }: I
       <style>{`
         .st0 {
           fill: #FFFFFF;
+          stroke: #000000;
+          stroke-width: 1;
         }
         
         .st1 {
